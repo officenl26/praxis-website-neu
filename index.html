@@ -10,788 +10,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-
-<style>
-  :root{
-    /* Option A · Wald & Marine — Feng-Shui-konform (Holz + Wasser) */
-    --apfelgruen:#7AA890;        /* war Apfelgrün, jetzt Salbei-Seafoam */
-    --salbei:#7A8F4E;            /* unverändert */
-    --waldgruen:#3D5A2E;         /* unverändert · primärer Holz-Anker */
-    --sonnengelb:#1B4C93;        /* war Sonnengelb, jetzt Marine-CTA */
-    --marine-deep:#1B3A5C;       /* neu · Wasser-Tiefe */
-    --tannenmoos:#0F1A14;        /* neu · Option D Akzent */
-    --papier:#F2F6F2;            /* war warm-creme, jetzt Eis-Mint (entzieht Erd-Charakter) */
-    --offwhite:#E8EFE6;          /* war warm-offwhite, jetzt Eis-Mint Card */
-    --tinte:#1C1C1C;
-    --tinte-soft:rgba(28,28,28,0.65);
-    --tinte-mute:rgba(28,28,28,0.42);
-    --tinte-line:rgba(27,58,92,0.14);
-    --papier-line:rgba(242,246,242,0.18);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    font-family:'Inter',sans-serif;
-    background:var(--papier);color:var(--tinte);
-    line-height:1.65;-webkit-font-smoothing:antialiased;
-    overflow-x:hidden;font-weight:400;
-  }
-  a{color:inherit;text-decoration:none}
-  em{font-style:italic}
-  img{max-width:100%;display:block}
-  button{font-family:inherit;cursor:pointer;border:none}
-  input,textarea,select{font-family:inherit;font-size:inherit;color:inherit}
-
-  h1,h2,h3,h4{font-family:'Spectral',serif;font-weight:500;letter-spacing:-0.01em;line-height:1.15;color:var(--tinte)}
-
-  .wrap{max-width:1240px;margin:0 auto;padding:0 6vw}
-  section{padding:128px 0;position:relative}
-  @media(max-width:900px){section{padding:88px 0}}
-  .eyebrow{
-    display:inline-flex;align-items:center;gap:14px;
-    font-family:'Inter';font-size:11px;letter-spacing:0.32em;
-    text-transform:uppercase;color:var(--waldgruen);font-weight:500;
-    margin-bottom:28px;
-  }
-  .eyebrow::before{content:'';width:32px;height:1px;background:var(--waldgruen)}
-  .eyebrow.sun{color:var(--tinte)}
-  .eyebrow.sun::before{background:var(--sonnengelb);width:24px;height:6px;border-radius:1px}
-  .h-section{
-    font-family:'Spectral',serif;font-weight:500;
-    font-size:clamp(2rem,4vw,3.2rem);
-    line-height:1.15;letter-spacing:-0.01em;max-width:880px;margin-bottom:24px;
-  }
-  .h-section em{font-style:italic;color:var(--waldgruen)}
-  .lede{
-    font-family:'Spectral',serif;font-style:italic;font-weight:400;
-    font-size:clamp(1.05rem,1.5vw,1.22rem);
-    color:var(--tinte-soft);max-width:680px;line-height:1.55;
-  }
-
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:18px 30px;font-size:11px;letter-spacing:0.28em;
-    text-transform:uppercase;font-weight:600;
-    transition:all .25s ease;font-family:'Inter';cursor:pointer;
-    text-align:center;justify-content:center;
-  }
-  .btn-primary{background:var(--waldgruen);color:var(--papier);border:none}
-  .btn-primary:hover{background:var(--salbei);transform:translateY(-2px)}
-  .btn-ghost{background:transparent;color:var(--tinte);border:1.5px solid var(--tinte)}
-  .btn-ghost:hover{background:var(--tinte);color:var(--papier)}
-  .btn-text{background:transparent;color:var(--tinte);padding:18px 6px;border:none;border-bottom:1px solid var(--tinte)}
-  .btn-text:hover{color:var(--waldgruen);border-color:var(--waldgruen)}
-  .btn-sun{background:var(--sonnengelb);color:var(--papier);border:none}
-  .btn-sun:hover{background:var(--marine-deep);color:var(--papier)}
-
-  /* NAV · Option D Akzent — Tannenmoos Twilight */
-  .nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:16px 6vw;
-    background:rgba(15,26,20,0.88);
-    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(122,168,144,0.18);
-    display:flex;justify-content:space-between;align-items:center;gap:20px;
-  }
-  .nav-logo{display:flex;flex-direction:column;line-height:1.05}
-  .nav-logo .first{font-family:'Inter';font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:rgba(232,240,232,0.6);font-weight:500}
-  .nav-logo .last{font-family:'Spectral',serif;font-style:italic;font-size:22px;color:var(--apfelgruen);font-weight:400;margin-top:2px}
-  .nav-logo .sub{font-family:'Inter';font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(232,240,232,0.55);margin-top:3px}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{font-size:13px;color:rgba(232,240,232,0.85);font-weight:400;transition:color .2s;position:relative}
-  .nav-links a:hover{color:var(--apfelgruen)}
-  .nav-links a.placeholder{color:rgba(232,240,232,0.4);cursor:not-allowed}
-  .nav-links a.placeholder::after{
-    content:'soon';position:absolute;top:-10px;right:-26px;
-    font-size:7px;letter-spacing:0.2em;text-transform:uppercase;
-    background:var(--sonnengelb);color:var(--papier);padding:2px 5px;
-    font-weight:600;border-radius:2px;
-  }
-  .nav-cta{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:12px 20px;background:var(--sonnengelb);color:var(--papier);
-    font-size:10px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;
-    transition:background .2s;
-  }
-  .nav-cta:hover{background:var(--marine-deep)}
-  .nav-cta::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--apfelgruen)}
-  @media(max-width:1100px){.nav-links{gap:20px}.nav-links a{font-size:12px}}
-  @media(max-width:980px){.nav-links{display:none}.nav-cta{padding:10px 14px;font-size:9px}}
-
-  /* HERO */
-  .hero{
-    padding:160px 6vw 110px;background:var(--papier);
-    position:relative;overflow:hidden;
-  }
-  .hero::before{
-    content:'';position:absolute;top:6%;right:-180px;
-    width:560px;height:560px;
-    background:radial-gradient(circle,rgba(122,168,144,0.28),transparent 70%);
-    pointer-events:none;
-  }
-  .hero::after{
-    content:'';position:absolute;bottom:-120px;left:-180px;
-    width:520px;height:520px;
-    background:radial-gradient(circle,rgba(27,76,147,0.20),transparent 70%);
-    pointer-events:none;
-  }
-  .hero-grid{
-    max-width:1300px;margin:0 auto;
-    display:grid;grid-template-columns:1.15fr 1fr;gap:72px;align-items:center;
-    position:relative;z-index:2;
-  }
-  @media(max-width:1000px){.hero-grid{grid-template-columns:1fr;gap:56px}}
-  .hero-tag{
-    display:inline-flex;align-items:center;gap:10px;
-    background:var(--apfelgruen);color:var(--waldgruen);
-    padding:8px 16px;font-family:'Inter';font-size:10px;
-    letter-spacing:0.28em;text-transform:uppercase;font-weight:600;
-    margin-bottom:24px;
-  }
-  .hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--waldgruen)}
-  .hero h1{font-family:'Spectral',serif;font-weight:400;font-size:clamp(2.6rem,5.8vw,4.8rem);line-height:1.04;letter-spacing:-0.022em;color:var(--tinte);margin-bottom:28px}
-  .hero h1 em{font-style:italic;color:var(--waldgruen)}
-  .hero-claim{
-    font-family:'Spectral',serif;font-style:italic;font-weight:400;
-    font-size:clamp(1.1rem,1.55vw,1.3rem);color:var(--tinte-soft);
-    max-width:560px;margin-bottom:38px;line-height:1.55;
-  }
-  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:56px;align-items:center}
-  .hero-trust{
-    display:flex;gap:48px;flex-wrap:wrap;
-    padding-top:32px;border-top:1px solid var(--tinte-line);
-  }
-  .trust-item .num{font-family:'Spectral',serif;font-size:1.95rem;color:var(--waldgruen);line-height:1;font-weight:500;letter-spacing:-0.01em}
-  .trust-item .lbl{font-family:'Inter';font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--tinte-soft);margin-top:8px;font-weight:500}
-  .trust-item.proven .num{color:var(--sonnengelb)}
-  .trust-item.proven .num span{color:var(--waldgruen)}
-
-  .hero-portrait{position:relative;max-width:480px;justify-self:end;width:100%}
-  @media(max-width:1000px){.hero-portrait{justify-self:start;max-width:380px}}
-  .portrait-wrap{position:relative;aspect-ratio:5/6;overflow:hidden}
-  .portrait-wrap img{
-    width:100%;height:100%;object-fit:cover;object-position:62% 35%;
-    display:block;
-  }
-  /* 40%-Gradient: linke Foto-Kante fließt in Hintergrund/Text-Spalte */
-  .portrait-wrap::after{
-    content:'';position:absolute;inset:0;
-    background:
-      linear-gradient(90deg, var(--papier) 0%, rgba(242,246,242,0.85) 12%, rgba(242,246,242,0.4) 28%, transparent 40%),
-      linear-gradient(180deg, transparent 0%, transparent 70%, rgba(27,58,92,0.18) 100%);
-    pointer-events:none;
-    z-index:1;
-  }
-  @media(max-width:1000px){
-    .portrait-wrap::after{
-      background:linear-gradient(180deg, transparent 0%, transparent 60%, rgba(27,58,92,0.18) 100%);
-    }
-  }
-  .portrait-accent-tl{position:absolute;top:-22px;left:-22px;width:108px;height:108px;border:1.5px solid var(--apfelgruen);z-index:-1}
-  .portrait-accent-br{position:absolute;bottom:-22px;right:-22px;width:96px;height:96px;background:var(--sonnengelb);z-index:-1}
-  .portrait-badge{
-    position:absolute;bottom:24px;left:-36px;
-    background:var(--papier);padding:18px 22px;
-    border-left:3px solid var(--waldgruen);max-width:240px;
-    box-shadow:0 18px 40px -14px rgba(27,58,92,0.22);
-    z-index:5;
-  }
-  .portrait-badge .lbl{font-family:'Inter';font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--waldgruen);margin-bottom:6px;font-weight:600}
-  .portrait-badge .txt{font-family:'Spectral',serif;font-style:italic;font-size:0.98rem;color:var(--tinte);line-height:1.35;font-weight:500}
-  @media(max-width:560px){
-    .portrait-badge{position:static;margin-top:16px;max-width:none;border-left:3px solid var(--waldgruen)}
-  }
-
-  /* MARQUEE */
-  .marquee{
-    background:var(--waldgruen);color:var(--papier);
-    padding:20px 0;overflow:hidden;
-  }
-  .marquee-track{
-    display:flex;gap:48px;align-items:center;white-space:nowrap;
-    animation:slide 60s linear infinite;
-  }
-  .marquee span{font-family:'Spectral',serif;font-style:italic;font-size:1.1rem;font-weight:400}
-  .marquee .sep{color:var(--apfelgruen);font-style:normal}
-  .marquee .sep.sun{color:var(--sonnengelb)}
-  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-  /* 01 SCHWERPUNKTE / 4 HAUPTTHEMEN */
-  .topics{background:var(--offwhite);position:relative;overflow:hidden}
-  .topics::before{
-    content:'';position:absolute;top:-100px;right:-150px;width:400px;height:400px;
-    background:radial-gradient(circle,rgba(27,76,147,0.18),transparent 70%);pointer-events:none;
-  }
-  .topics-head{position:relative;z-index:2}
-  .topics-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px;
-    position:relative;z-index:2;
-  }
-  @media(max-width:780px){.topics-grid{grid-template-columns:1fr}}
-  .topic{
-    background:var(--papier);padding:44px 40px;
-    border-left:4px solid var(--waldgruen);
-    transition:transform .3s, box-shadow .3s;
-  }
-  .topic:hover{transform:translateY(-3px);box-shadow:0 20px 40px -18px rgba(61,90,46,0.18)}
-  .topic.accent-1{border-left-color:var(--apfelgruen)}
-  .topic.accent-2{border-left-color:var(--sonnengelb)}
-  .topic.accent-3{border-left-color:var(--salbei)}
-  .topic.accent-4{border-left-color:var(--waldgruen)}
-  .topic-num{
-    font-family:'Spectral',serif;font-style:italic;font-size:0.9rem;
-    color:var(--tinte-soft);margin-bottom:14px;display:block;font-weight:500;
-  }
-  .topic h3{font-family:'Spectral',serif;font-size:1.45rem;color:var(--tinte);margin-bottom:14px;line-height:1.3;font-weight:500}
-  .topic h3 em{color:var(--waldgruen)}
-  .topic .signs{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-  .topic .signs span{
-    background:var(--offwhite);padding:5px 11px;
-    font-family:'Inter';font-size:10px;letter-spacing:0.08em;
-    color:var(--tinte-soft);font-weight:500;border-radius:2px;
-  }
-  .topic p{font-size:0.96rem;color:var(--tinte-soft);line-height:1.65;margin-top:8px}
-
-  .topics-aside{
-    margin-top:40px;padding:28px 36px;
-    background:var(--papier);border:1px dashed var(--salbei);
-    display:flex;align-items:center;gap:24px;flex-wrap:wrap;
-    position:relative;z-index:2;
-  }
-  .topics-aside .label{
-    font-family:'Inter';font-size:10px;letter-spacing:0.28em;
-    text-transform:uppercase;color:var(--salbei);font-weight:600;flex-shrink:0;
-  }
-  .topics-aside p{font-family:'Spectral',serif;font-style:italic;font-size:1.02rem;color:var(--tinte);line-height:1.5;margin:0;flex:1;min-width:240px}
-  .topics-aside p em{color:var(--waldgruen);font-weight:500}
-
-  .topics-bottom{
-    margin-top:64px;padding:48px 56px;background:var(--waldgruen);color:var(--papier);
-    position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
-  }
-  @media(max-width:780px){.topics-bottom{grid-template-columns:1fr;text-align:left}}
-  .topics-bottom p{
-    font-family:'Spectral',serif;font-style:italic;font-size:clamp(1.15rem,1.6vw,1.4rem);
-    line-height:1.45;font-weight:400;
-  }
-  .topics-bottom p strong{color:var(--apfelgruen);font-weight:500;font-style:italic}
-
-  /* 02 DIFFERENZIERUNG */
-  .diff{background:var(--papier);position:relative;overflow:hidden}
-  .diff::before{
-    content:'';position:absolute;top:30%;left:-180px;
-    width:420px;height:420px;
-    background:radial-gradient(circle,rgba(122,168,144,0.18),transparent 70%);
-    pointer-events:none;
-  }
-  .diff-table{
-    margin-top:24px;display:grid;grid-template-columns:1fr 1fr;
-    border:1px solid var(--tinte-line);position:relative;z-index:2;
-  }
-  @media(max-width:780px){.diff-table{grid-template-columns:1fr}}
-  .diff-head{
-    padding:22px 32px;font-family:'Inter';font-size:10px;
-    letter-spacing:0.28em;text-transform:uppercase;font-weight:600;
-    border-bottom:1px solid var(--tinte-line);
-  }
-  .diff-head.left{color:var(--tinte-mute);background:var(--offwhite)}
-  .diff-head.right{color:var(--waldgruen);background:rgba(122,168,144,0.12)}
-  .diff-row{padding:26px 32px;font-family:'Spectral',serif;font-size:1rem;line-height:1.55;border-bottom:1px solid var(--tinte-line)}
-  .diff-row:last-of-type,.diff-row:nth-last-of-type(2){border-bottom:none}
-  .diff-row.left{color:var(--tinte-mute);background:var(--offwhite)}
-  .diff-row.right{background:rgba(122,168,144,0.06);color:var(--tinte)}
-  .diff-row.right strong{color:var(--waldgruen);font-style:italic;font-weight:500}
-  @media(max-width:780px){
-    .diff-head.left{display:none}
-    .diff-row.left{border-bottom:1px dashed var(--tinte-line)}
-  }
-
-  /* 03 GRUNDBEDÜRFNISSE */
-  .needs{background:var(--offwhite)}
-  .needs-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;
-  }
-  @media(max-width:900px){.needs-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.needs-grid{grid-template-columns:1fr}}
-  .need{
-    padding:36px 32px;background:var(--papier);
-    position:relative;overflow:hidden;
-  }
-  .need::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:4px;
-  }
-  .need.n1::before{background:var(--apfelgruen)}
-  .need.n2::before{background:var(--sonnengelb)}
-  .need.n3::before{background:var(--salbei)}
-  .need.n4::before{background:var(--waldgruen)}
-  .need-icon{
-    font-family:'Spectral',serif;font-style:italic;font-size:2.2rem;
-    line-height:1;font-weight:400;margin-bottom:18px;
-  }
-  .need.n1 .need-icon{color:var(--apfelgruen)}
-  .need.n2 .need-icon{color:var(--sonnengelb)}
-  .need.n3 .need-icon{color:var(--salbei)}
-  .need.n4 .need-icon{color:var(--waldgruen)}
-  .need h4{font-family:'Spectral',serif;font-size:1.18rem;color:var(--tinte);margin-bottom:10px;font-weight:500;line-height:1.3}
-  .need p{font-size:0.92rem;color:var(--tinte-soft);line-height:1.6}
-
-  /* 04 KERNANGEBOT REGENERATIONSANALYSE */
-  .flagship{background:var(--papier);position:relative;overflow:hidden}
-  .flagship::before{
-    content:'';position:absolute;top:-100px;right:-100px;
-    width:480px;height:480px;
-    background:radial-gradient(circle,rgba(27,76,147,0.18),transparent 70%);
-    pointer-events:none;
-  }
-  .flagship-head{position:relative;z-index:2;margin-bottom:48px}
-  .systems{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;position:relative;z-index:2;
-  }
-  @media(max-width:900px){.systems{grid-template-columns:1fr}}
-  .system{
-    padding:40px 32px;background:var(--offwhite);
-    border-top:3px solid var(--waldgruen);
-  }
-  .system.s1{border-top-color:var(--apfelgruen)}
-  .system.s2{border-top-color:var(--sonnengelb)}
-  .system.s3{border-top-color:var(--salbei)}
-  .system .roman{font-family:'Spectral',serif;font-style:italic;font-size:2.2rem;line-height:1;margin-bottom:16px;font-weight:400}
-  .system.s1 .roman{color:var(--apfelgruen)}
-  .system.s2 .roman{color:var(--sonnengelb)}
-  .system.s3 .roman{color:var(--salbei)}
-  .system h3{font-family:'Spectral',serif;font-size:1.35rem;color:var(--tinte);margin-bottom:12px;font-weight:500}
-  .system p{color:var(--tinte-soft);font-size:0.96rem;line-height:1.7}
-
-  .flagship-card{
-    margin-top:64px;background:var(--offwhite);
-    border:1px solid var(--tinte-line);
-    display:grid;grid-template-columns:1.1fr 1fr;
-    position:relative;z-index:2;overflow:hidden;
-  }
-  .flagship-card::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:6px;
-    background:linear-gradient(90deg,var(--apfelgruen) 0%,var(--sonnengelb) 50%,var(--salbei) 100%);
-  }
-  @media(max-width:900px){.flagship-card{grid-template-columns:1fr}}
-  .flagship-left{padding:56px 52px;border-right:1px solid var(--tinte-line);background:var(--papier)}
-  @media(max-width:900px){.flagship-left{border-right:none;border-bottom:1px solid var(--tinte-line)}}
-  .flagship-tag{
-    display:inline-block;background:var(--sonnengelb);color:var(--papier);
-    padding:8px 16px;font-family:'Inter';font-size:10px;
-    letter-spacing:0.28em;text-transform:uppercase;font-weight:600;margin-bottom:24px;
-  }
-  .flagship-left h3{font-family:'Spectral',serif;font-size:2rem;color:var(--tinte);margin-bottom:8px;font-weight:500;line-height:1.15}
-  .flagship-left h3 em{color:var(--waldgruen)}
-  .flagship-meta{font-family:'Inter';font-size:0.9rem;color:var(--tinte-soft);margin-bottom:32px;letter-spacing:0.02em}
-  .flagship-list{list-style:none;margin-bottom:36px}
-  .flagship-list li{padding:14px 0 14px 26px;border-bottom:1px solid var(--tinte-line);font-size:0.95rem;color:var(--tinte);position:relative;line-height:1.5}
-  .flagship-list li::before{content:'—';position:absolute;left:0;color:var(--waldgruen);font-weight:500}
-  .flagship-list li:last-child{border-bottom:none}
-  .flagship-price{
-    display:flex;justify-content:space-between;align-items:flex-end;
-    padding:24px 0;border-top:2px solid var(--waldgruen);margin-top:16px;gap:16px;flex-wrap:wrap;
-  }
-  .flagship-price .lbl{font-family:'Inter';font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--tinte-soft);font-weight:500;margin-bottom:6px}
-  .flagship-price .val{font-family:'Spectral',serif;font-size:2rem;color:var(--waldgruen);font-weight:500;line-height:1}
-
-  .flagship-right{padding:56px 52px}
-  .flagship-right h4{font-family:'Spectral',serif;font-size:1.4rem;color:var(--tinte);margin-bottom:18px;font-weight:500;line-height:1.25}
-  .flagship-right h4 em{color:var(--waldgruen)}
-  .flagship-right p{font-size:0.97rem;line-height:1.7;color:var(--tinte);margin-bottom:18px}
-  .steps{margin-top:32px;display:grid;gap:0}
-  .step{padding:18px 0;border-bottom:1px dashed var(--tinte-line);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
-  .step:last-child{border-bottom:none}
-  .step-num{font-family:'Spectral',serif;font-style:italic;font-size:1.5rem;color:var(--apfelgruen);line-height:1;font-weight:400;min-width:40px}
-  .step-body h5{font-family:'Spectral',serif;font-size:1.05rem;color:var(--tinte);font-weight:500;margin-bottom:4px}
-  .step-body p{font-size:0.9rem;color:var(--tinte-soft);line-height:1.55;margin:0}
-
-  /* METHODEN (Bioresonanz, Multiscan, Labor) */
-  .methods{
-    margin-top:64px;background:var(--papier);
-    border:1px solid var(--tinte-line);position:relative;z-index:2;overflow:hidden;
-  }
-  .methods-head{
-    padding:36px 48px 28px;border-bottom:1px solid var(--tinte-line);
-    display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;
-    background:linear-gradient(90deg,rgba(122,168,144,0.08) 0%,rgba(27,76,147,0.06) 50%,rgba(122,143,78,0.08) 100%);
-  }
-  .methods-head .l{flex:1;min-width:280px}
-  .methods-head h3{font-family:'Spectral',serif;font-size:1.6rem;color:var(--tinte);font-weight:500;line-height:1.2;margin-bottom:6px}
-  .methods-head h3 em{color:var(--waldgruen)}
-  .methods-head .sub{font-family:'Spectral',serif;font-style:italic;color:var(--tinte-soft);font-size:1rem}
-  .methods-tag{
-    background:var(--waldgruen);color:var(--papier);
-    padding:8px 16px;font-family:'Inter';font-size:10px;
-    letter-spacing:0.26em;text-transform:uppercase;font-weight:600;
-  }
-  .methods-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-  @media(max-width:780px){.methods-grid{grid-template-columns:1fr}}
-  .method{padding:36px 40px;border-right:1px solid var(--tinte-line)}
-  .method:last-child{border-right:none}
-  @media(max-width:780px){.method{border-right:none;border-bottom:1px solid var(--tinte-line)}.method:last-child{border-bottom:none}}
-  .method-icon{
-    width:48px;height:48px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;margin-bottom:18px;
-  }
-  .method.m1 .method-icon{background:rgba(122,168,144,0.22);color:var(--waldgruen)}
-  .method.m2 .method-icon{background:rgba(27,76,147,0.18);color:var(--sonnengelb)}
-  .method.m3 .method-icon{background:rgba(122,143,78,0.22);color:var(--salbei)}
-  .method-icon svg{width:24px;height:24px}
-  .method h4{font-family:'Spectral',serif;font-size:1.25rem;color:var(--tinte);margin-bottom:10px;font-weight:500;line-height:1.25}
-  .method h4 em{color:var(--waldgruen)}
-  .method p{font-size:0.93rem;color:var(--tinte-soft);line-height:1.65;margin-bottom:14px}
-  .method ul{list-style:none}
-  .method ul li{font-size:0.85rem;color:var(--tinte);padding:5px 0 5px 16px;position:relative;line-height:1.5}
-  .method ul li::before{content:'·';position:absolute;left:0;color:var(--waldgruen);font-weight:700;font-size:1.3rem;line-height:1;top:5px}
-
-  /* 05 ÜBER NICOLE — neues Foto + reduzierte Pico-Kästchen */
-  .person{background:var(--offwhite);position:relative;overflow:hidden}
-  .person::before{
-    content:'';position:absolute;bottom:-150px;right:-100px;width:480px;height:480px;
-    background:radial-gradient(circle,rgba(122,168,144,0.18),transparent 70%);pointer-events:none;
-  }
-  .person-grid{
-    display:grid;grid-template-columns:1fr 1.3fr;gap:88px;align-items:start;
-    position:relative;z-index:2;
-  }
-  @media(max-width:1000px){.person-grid{grid-template-columns:1fr;gap:56px}}
-  .person-visual{position:relative;max-width:420px;align-self:center}
-  @media(max-width:1000px){.person-visual{max-width:360px}}
-  .person-visual .frame{
-    aspect-ratio:4/5;overflow:hidden;background:var(--offwhite);
-  }
-  .person-visual .frame img{
-    width:100%;height:100%;object-fit:cover;object-position:center 12%;
-  }
-  .person-visual .ornament{
-    position:absolute;top:-20px;left:-20px;
-    width:96px;height:96px;border:1.5px solid var(--apfelgruen);z-index:-1;
-  }
-  .person-visual .ornament-2{
-    position:absolute;bottom:-22px;right:-22px;width:84px;height:84px;background:var(--sonnengelb);z-index:-1;
-  }
-  .person-copy h2{font-family:'Spectral',serif;font-weight:500;font-size:clamp(1.9rem,3.6vw,2.8rem);line-height:1.15;color:var(--tinte);letter-spacing:-0.01em;margin-bottom:24px}
-  .person-copy h2 em{color:var(--waldgruen)}
-  .person-copy p{color:var(--tinte);font-size:1.02rem;line-height:1.75;margin-bottom:18px}
-  .person-quote{
-    margin:36px 0 8px;padding:24px 0 24px 28px;
-    border-left:3px solid var(--apfelgruen);
-    font-family:'Spectral',serif;font-style:italic;font-size:1.2rem;
-    color:var(--tinte);line-height:1.45;font-weight:500;max-width:620px;
-  }
-
-  /* Pico-Kästchen — reduziert auf 5 */
-  .pico-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px;
-  }
-  @media(max-width:560px){.pico-grid{grid-template-columns:1fr}}
-  .pico{
-    background:var(--papier);padding:18px 22px;
-    border-left:3px solid var(--waldgruen);
-    display:flex;align-items:flex-start;gap:14px;
-  }
-  .pico.alt-1{border-left-color:var(--apfelgruen)}
-  .pico.alt-2{border-left-color:var(--sonnengelb)}
-  .pico.alt-3{border-left-color:var(--salbei)}
-  .pico-mark{
-    flex-shrink:0;width:42px;height:42px;border-radius:50%;
-    background:var(--offwhite);display:flex;align-items:center;justify-content:center;
-    color:var(--waldgruen);
-  }
-  .pico-mark svg{width:22px;height:22px;display:block}
-  .pico.alt-1 .pico-mark{background:rgba(122,168,144,0.22);color:var(--waldgruen)}
-  .pico.alt-2 .pico-mark{background:rgba(27,76,147,0.18);color:var(--sonnengelb)}
-  .pico.alt-3 .pico-mark{background:rgba(122,143,78,0.22);color:var(--salbei)}
-  .pico-body{flex:1}
-  .pico-body strong{display:block;font-family:'Spectral',serif;font-size:1rem;color:var(--tinte);font-weight:600;margin-bottom:2px;line-height:1.3}
-  .pico-body span{font-family:'Inter';font-size:0.82rem;color:var(--tinte-soft);line-height:1.45}
-  .pico.full{grid-column:1 / -1}
-
-  /* 06 STIMMEN AUS DER PRAXIS */
-  .voices{background:var(--papier)}
-  .voices-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
-  .voices-head .left{flex:1;min-width:280px}
-  .proven-badge{
-    display:inline-flex;align-items:center;gap:14px;
-    padding:14px 22px;background:var(--offwhite);
-    border:1px solid var(--tinte-line);border-left:4px solid var(--sonnengelb);
-  }
-  .proven-stars{font-family:'Spectral',serif;font-size:1.15rem;color:var(--sonnengelb);letter-spacing:0.05em;font-weight:500}
-  .proven-text{font-family:'Inter';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--tinte);font-weight:600;line-height:1.3}
-  .proven-text small{display:block;font-size:9px;letter-spacing:0.22em;color:var(--tinte-soft);margin-top:2px;font-weight:500}
-
-  .voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
-  @media(max-width:900px){.voices-grid{grid-template-columns:1fr}}
-  .voice{
-    background:var(--offwhite);padding:40px 36px 32px;
-    position:relative;border-top:3px solid var(--waldgruen);
-  }
-  .voice.v1{border-top-color:var(--apfelgruen)}
-  .voice.v2{border-top-color:var(--sonnengelb)}
-  .voice.v3{border-top-color:var(--salbei)}
-  .voice p{
-    font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;
-    line-height:1.55;color:var(--tinte);margin-bottom:24px;font-weight:500;
-  }
-  .voice .meta{
-    display:flex;justify-content:space-between;align-items:center;
-    padding-top:18px;border-top:1px solid var(--tinte-line);
-    font-family:'Inter';font-size:10px;letter-spacing:0.22em;
-    text-transform:uppercase;color:var(--tinte-soft);font-weight:500;
-  }
-  .voice .stars{color:var(--sonnengelb);letter-spacing:0.1em;font-family:'Spectral',serif;font-style:normal}
-  .voices-source{
-    margin-top:36px;text-align:center;
-    font-family:'Inter';font-size:11px;letter-spacing:0.2em;
-    text-transform:uppercase;color:var(--tinte-soft);font-weight:500;
-  }
-  .voices-source a{color:var(--waldgruen);border-bottom:1px solid var(--waldgruen);padding-bottom:2px}
-
-  /* 07 ZWEI WEGE */
-  .ways{background:var(--offwhite);position:relative;overflow:hidden}
-  .ways::before{
-    content:'';position:absolute;top:50%;left:-200px;width:520px;height:520px;
-    background:radial-gradient(circle,rgba(27,76,147,0.16),transparent 70%);pointer-events:none;
-  }
-  .ways-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px;
-    position:relative;z-index:2;
-  }
-  @media(max-width:900px){.ways-grid{grid-template-columns:1fr}}
-  .way{
-    background:var(--papier);padding:48px 44px;
-    border:1px solid var(--tinte-line);position:relative;overflow:hidden;
-    display:flex;flex-direction:column;
-  }
-  .way::before{
-    content:'';position:absolute;top:0;left:0;right:0;height:5px;
-  }
-  .way.way-a::before{background:var(--apfelgruen)}
-  .way.way-b::before{background:var(--waldgruen)}
-  .way-tag{
-    display:inline-block;font-family:'Inter';font-size:10px;
-    letter-spacing:0.28em;text-transform:uppercase;font-weight:600;
-    margin-bottom:14px;
-  }
-  .way.way-a .way-tag{color:var(--salbei)}
-  .way.way-b .way-tag{color:var(--waldgruen)}
-  .way h3{font-family:'Spectral',serif;font-size:1.7rem;color:var(--tinte);margin-bottom:14px;font-weight:500;line-height:1.2}
-  .way h3 em{color:var(--waldgruen)}
-  .way .lead{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--tinte-soft);margin-bottom:24px;line-height:1.5}
-  .way ul{list-style:none;margin-bottom:28px}
-  .way ul li{padding:10px 0 10px 22px;font-size:0.93rem;color:var(--tinte);position:relative;line-height:1.55}
-  .way ul li::before{content:'·';position:absolute;left:0;color:var(--waldgruen);font-weight:700;font-size:1.4rem;line-height:1;top:6px}
-  .way-foot{
-    margin-top:auto;padding-top:20px;border-top:1px solid var(--tinte-line);
-    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;
-  }
-  .way-foot .price{font-family:'Spectral',serif;font-size:1.1rem;color:var(--waldgruen);font-weight:500}
-  .way-foot a{font-family:'Inter';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--waldgruen);font-weight:600;border-bottom:1px solid var(--waldgruen);padding-bottom:3px}
-  .way-foot a:hover{color:var(--salbei);border-color:var(--salbei)}
-
-  .ways-aside{
-    margin-top:32px;padding:28px 36px;background:var(--papier);
-    border:1px dashed var(--salbei);position:relative;z-index:2;
-    display:flex;align-items:center;gap:24px;flex-wrap:wrap;
-  }
-  .ways-aside .label{font-family:'Inter';font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--salbei);font-weight:600;flex-shrink:0}
-  .ways-aside p{font-family:'Spectral',serif;font-style:italic;font-size:1rem;color:var(--tinte);margin:0;flex:1;min-width:240px;line-height:1.5}
-  .ways-aside p em{color:var(--waldgruen);font-weight:500}
-  .ways-aside a{color:var(--waldgruen);border-bottom:1px solid var(--waldgruen);font-style:normal;font-weight:500;font-family:'Inter';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;padding-bottom:3px}
-
-  /* 08 FÜR WEN */
-  .forwhom{background:var(--papier)}
-  .forwhom-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:32px;
-  }
-  @media(max-width:780px){.forwhom-grid{grid-template-columns:1fr}}
-  .forwhom-col{
-    background:var(--offwhite);padding:44px 38px;
-    border:1px solid var(--tinte-line);
-  }
-  .forwhom-col.yes{border-top:3px solid var(--apfelgruen)}
-  .forwhom-col.no{border-top:3px solid var(--tinte-line)}
-  .forwhom-col h3{font-family:'Spectral',serif;font-size:1.35rem;color:var(--tinte);margin-bottom:24px;font-weight:500}
-  .forwhom-list{list-style:none}
-  .forwhom-list li{padding:12px 0 12px 30px;border-bottom:1px solid var(--tinte-line);font-size:0.96rem;line-height:1.5;position:relative;color:var(--tinte)}
-  .forwhom-list li:last-child{border-bottom:none}
-  .forwhom-col.yes .forwhom-list li::before{content:'';position:absolute;left:0;top:14px;width:14px;height:14px;background:var(--apfelgruen);clip-path:polygon(15% 50%, 0 65%, 35% 100%, 100% 25%, 80% 10%, 35% 65%)}
-  .forwhom-col.no .forwhom-list li{color:var(--tinte-soft)}
-  .forwhom-col.no .forwhom-list li::before{content:'×';position:absolute;left:0;color:var(--tinte-mute);font-weight:500;font-size:1.2rem;top:8px}
-
-  /* 09 FAQ */
-  .faq{background:var(--offwhite)}
-  .faq-list{max-width:880px;margin-top:40px}
-  details{border-bottom:1px solid var(--tinte-line);padding:24px 0;cursor:pointer}
-  details:first-of-type{border-top:1px solid var(--tinte-line)}
-  summary{font-family:'Spectral',serif;font-size:1.18rem;color:var(--tinte);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:32px;cursor:pointer;font-weight:500;line-height:1.35}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:'+';font-family:'Spectral',serif;font-size:1.6rem;color:var(--waldgruen);transition:transform .3s;flex-shrink:0;line-height:1}
-  details[open] summary::after{content:'−'}
-  details[open] summary{color:var(--waldgruen)}
-  details p{margin-top:18px;color:var(--tinte-soft);font-size:0.98rem;line-height:1.7;max-width:740px}
-
-  /* 10 KONTAKT MIT TERMINBUCHUNG */
-  .contact{background:var(--papier);position:relative;overflow:hidden}
-  .contact::before{
-    content:'';position:absolute;top:-100px;right:-150px;width:480px;height:480px;
-    background:radial-gradient(circle,rgba(122,168,144,0.18),transparent 70%);pointer-events:none;
-  }
-  .contact-tabs{
-    display:flex;gap:0;margin-top:48px;border-bottom:2px solid var(--tinte-line);
-    position:relative;z-index:2;
-  }
-  .tab-btn{
-    background:transparent;border:none;padding:18px 32px;
-    font-family:'Inter';font-size:11px;letter-spacing:0.26em;
-    text-transform:uppercase;font-weight:600;color:var(--tinte-soft);
-    cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;
-    transition:all .25s;
-  }
-  .tab-btn.active{color:var(--waldgruen);border-bottom-color:var(--waldgruen)}
-  .tab-btn:hover:not(.active){color:var(--tinte)}
-
-  .tab-pane{display:none;padding-top:48px;position:relative;z-index:2}
-  .tab-pane.active{display:block}
-
-  .contact-grid{
-    display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:start;
-  }
-  @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
-  .contact-info{background:var(--offwhite);padding:40px 36px;border-left:4px solid var(--waldgruen)}
-  .contact-info h3{font-family:'Spectral',serif;font-size:1.4rem;color:var(--tinte);margin-bottom:18px;font-weight:500}
-  .contact-info a{color:var(--waldgruen);font-weight:500}
-  .contact-info a:hover{color:var(--salbei)}
-  .contact-info .row{
-    display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-top:1px solid var(--tinte-line);
-  }
-  .contact-info .row:first-of-type{border-top:none;padding-top:0}
-  .contact-info .row-lbl{
-    font-family:'Inter';font-size:10px;letter-spacing:0.22em;
-    text-transform:uppercase;color:var(--salbei);font-weight:600;min-width:90px;flex-shrink:0;padding-top:2px;
-  }
-  .contact-info .row-val{font-size:0.93rem;color:var(--tinte);line-height:1.5}
-
-  .contact-form .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-  @media(max-width:560px){.contact-form .form-row{grid-template-columns:1fr}}
-  .form-field{display:flex;flex-direction:column}
-  .form-field label{font-family:'Inter';font-size:10px;letter-spacing:0.22em;text-transform:uppercase;color:var(--waldgruen);font-weight:600;margin-bottom:8px}
-  .form-field input,.form-field select,.form-field textarea{
-    border:none;border-bottom:1.5px solid var(--tinte-line);
-    background:transparent;padding:10px 0;font-size:0.98rem;color:var(--tinte);
-    font-family:'Spectral',serif;transition:border-color .2s;
-  }
-  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
-    outline:none;border-bottom-color:var(--waldgruen);
-  }
-  .form-field textarea{resize:vertical;min-height:120px;line-height:1.55}
-  .form-field.full{grid-column:1 / -1}
-  .form-consent{display:flex;align-items:flex-start;gap:12px;margin:24px 0;font-size:0.85rem;color:var(--tinte-soft);line-height:1.55}
-  .form-consent input{margin-top:4px;flex-shrink:0;width:16px;height:16px;accent-color:var(--waldgruen)}
-  .form-consent a{color:var(--waldgruen);text-decoration:underline}
-  .form-submit{display:flex;justify-content:flex-end;align-items:center;gap:24px;flex-wrap:wrap}
-  .form-note{font-family:'Spectral',serif;font-style:italic;font-size:0.92rem;color:var(--tinte-soft)}
-
-  /* Lemniscus Widget Platzhalter */
-  .lemniscus-wrap{
-    background:var(--offwhite);padding:48px;border:1px dashed var(--waldgruen);
-    text-align:center;position:relative;
-  }
-  .lemniscus-wrap .ph-label{
-    display:inline-block;background:var(--sonnengelb);color:var(--papier);
-    padding:6px 14px;font-family:'Inter';font-size:10px;letter-spacing:0.26em;
-    text-transform:uppercase;font-weight:600;margin-bottom:24px;
-  }
-  .lemniscus-wrap h3{font-family:'Spectral',serif;font-size:1.6rem;color:var(--tinte);margin-bottom:14px;font-weight:500}
-  .lemniscus-wrap h3 em{color:var(--waldgruen)}
-  .lemniscus-wrap p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--tinte-soft);max-width:580px;margin:0 auto 28px;line-height:1.55}
-  .lemniscus-wrap .iframe-stage{
-    background:var(--papier);border:1px solid var(--tinte-line);
-    padding:80px 32px;color:var(--tinte-soft);
-    font-family:'Inter';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;
-  }
-
-  /* 11 CHECKIN CTA */
-  .checkin{
-    background:var(--waldgruen);color:var(--papier);
-    padding:140px 6vw;text-align:center;position:relative;overflow:hidden;
-  }
-  .checkin::before{
-    content:'';position:absolute;top:50%;left:50%;
-    transform:translate(-50%,-50%);width:900px;height:900px;
-    background:radial-gradient(circle,rgba(122,168,144,0.28) 0%,transparent 60%);
-    pointer-events:none;
-  }
-  .checkin-inner{position:relative;z-index:1;max-width:820px;margin:0 auto}
-  .checkin .eyebrow{color:var(--apfelgruen);margin-bottom:24px}
-  .checkin .eyebrow::before{background:var(--apfelgruen)}
-  .checkin h2{font-family:'Spectral',serif;font-weight:500;font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.12;margin-bottom:24px;letter-spacing:-0.01em;color:var(--papier)}
-  .checkin h2 em{font-style:italic;color:var(--apfelgruen)}
-  .checkin p{font-family:'Spectral',serif;font-style:italic;font-size:clamp(1.1rem,1.4vw,1.25rem);color:rgba(242,246,242,0.78);max-width:600px;margin:0 auto 44px;line-height:1.55;font-weight:400}
-  .checkin-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .checkin-meta{margin-top:48px;font-family:'Inter';font-size:10px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(242,246,242,0.5);font-weight:500}
-  .checkin-meta span{margin:0 14px}
-
-  /* FOOTER · Option D Akzent — Tannenmoos Twilight */
-  footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6vw 36px;border-top:1px solid rgba(122,168,144,0.18)}
-  .footer-top{
-    max-width:1240px;margin:0 auto;
-    display:grid;grid-template-columns:2fr 1fr 1fr 1.4fr;gap:56px;
-    padding-bottom:48px;border-bottom:1px solid rgba(242,246,242,0.1);
-  }
-  @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:40px}}
-  @media(max-width:560px){.footer-top{grid-template-columns:1fr}}
-  .footer-brand .mark{font-family:'Spectral',serif;font-style:italic;font-size:1.6rem;color:var(--papier);margin-bottom:6px;font-weight:400}
-  .footer-brand .mark em{color:var(--apfelgruen)}
-  .footer-brand .role{font-family:'Inter';font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:rgba(242,246,242,0.55);margin-bottom:22px;font-weight:500}
-  .footer-brand p{font-size:0.88rem;line-height:1.65;max-width:280px}
-  .footer-brand a{color:rgba(242,246,242,0.62);transition:color .2s}
-  .footer-brand a:hover{color:var(--apfelgruen)}
-  .footer-col h5{font-family:'Spectral',serif;font-size:0.98rem;color:var(--papier);margin-bottom:18px;font-weight:500}
-  .footer-col ul{list-style:none}
-  .footer-col li{margin-bottom:9px}
-  .footer-col a{color:rgba(242,246,242,0.62);font-size:0.88rem;transition:color .2s}
-  .footer-col a:hover{color:var(--apfelgruen)}
-  .footer-disclaimer{
-    background:rgba(242,246,242,0.04);
-    padding:22px 24px;border-left:2px solid var(--apfelgruen);
-    font-size:0.78rem;line-height:1.65;color:rgba(242,246,242,0.6);
-  }
-  .footer-disclaimer strong{color:var(--papier);font-weight:500;font-family:'Spectral',serif;font-style:italic;font-size:0.92rem;display:block;margin-bottom:8px}
-  .footer-bottom{
-    max-width:1240px;margin:32px auto 0;font-family:'Inter';
-    font-size:10px;letter-spacing:0.22em;text-transform:uppercase;
-    color:rgba(242,246,242,0.4);
-    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-weight:500;
-  }
-
-  /* REVEAL */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
-  .reveal.in{opacity:1;transform:translateY(0)}
-  @media (prefers-reduced-motion:reduce){
-    .marquee-track{animation:none}
-    .reveal{opacity:1;transform:none;transition:none}
-  }
-</style>
+<link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav" aria-label="Hauptnavigation">
-  <a href="#top" class="nav-logo">
+  <a href="index.html" class="nav-logo">
     <span class="first">Nicole</span>
     <span class="last">Lurz</span>
     <span class="sub">Heilpraktikerin · Wiesloch</span>
   </a>
   <div class="nav-links">
-    <a href="#regenerationsanalyse">Regenerationsanalyse</a>
-    <a href="#wege">Sprechstunde</a>
-    <a href="#methoden">Bioresonanz</a>
-    <a href="#" class="placeholder" aria-disabled="true">Kinder</a>
-    <a href="#person">Über mich</a>
-    <a href="#kontakt">Kontakt</a>
+    <a href="ueber-mich.html">Über mich</a>
+    <a href="regenerationsanalyse.html">Regenerationsanalyse</a>
+    <a href="sprechstunde.html">Sprechstunde</a>
+    <a href="kinder.html">Kinder</a>
+    <a href="kurse.html">Kurse</a>
+    <a href="#" class="placeholder" aria-disabled="true">Blog</a>
   </div>
-  <a href="#kontakt" class="nav-cta">Termin buchen</a>
+  <a href="termin-ablauf.html" class="nav-cta">Termin &amp; Ablauf</a>
 </nav>
 
 <main id="top">
@@ -803,12 +41,12 @@
         <div class="hero-tag"><span class="dot"></span><span>Wiesloch · Nähe Heidelberg · seit 2012</span></div>
         <h1>Klarheit statt <em>Rätselraten.</em></h1>
         <p class="hero-claim">
-          Naturheilpraxis mit medizinischer Tiefe und strategischem Blick.
-          Für Menschen, die mehr wollen als noch ein Rezept.
+          Ich bin die Brücke zwischen <em>„Damit müssen Sie leben"</em> und <em>„Das können Sie tun."</em><br>
+          Naturheilpraxis mit medizinischer Tiefe und strategischem Blick. Für Menschen, die mehr wollen als noch ein Rezept.
         </p>
         <div class="hero-ctas">
-          <a href="#kontakt" class="btn btn-primary">Termin buchen — 75 € CheckIn</a>
-          <a href="#regenerationsanalyse" class="btn btn-text">Mein Kernangebot ansehen</a>
+          <a href="termin-ablauf.html" class="btn btn-primary">Termin buchen — 75 € CheckIn</a>
+          <a href="regenerationsanalyse.html" class="btn btn-text">Mein Kernangebot ansehen</a>
         </div>
         <div class="hero-trust">
           <div class="trust-item">
@@ -867,7 +105,7 @@
     </div>
   </div>
 
-  <!-- 01 SCHWERPUNKTE — 4 Hauptthemen, ohne Bioresonanz im Hashtag -->
+  <!-- 01 SCHWERPUNKTE — 4 Hauptthemen -->
   <section class="topics" id="schwerpunkte">
     <div class="wrap">
       <div class="topics-head reveal">
@@ -948,6 +186,42 @@
     </div>
   </section>
 
+  <!-- 01.5 PAIN-RESONANZ — Edit 1.2 -->
+  <section class="pain">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">01.5 — Sie kennen das?</div>
+        <h2 class="h-section">
+          Ihr Körper war immer Ihr <em>zuverlässigster Partner.</em><br>
+          Bis jetzt.
+        </h2>
+      </div>
+
+      <div class="pain-grid">
+        <article class="pain-card reveal">
+          <h3>Sie wachen nachts um 3 Uhr auf — und Ihr Kopf läuft sofort auf Hochtouren.</h3>
+          <p>Morgens funktionieren Sie. Aber der Preis dafür wird jeden Tag höher.</p>
+        </article>
+        <article class="pain-card reveal">
+          <h3>Schwindel, Herzrasen, Schmerzen — und niemand findet eine Ursache.</h3>
+          <p>Sie haben Spezialisten aufgesucht. Ergebnis: „Alles unauffällig."</p>
+        </article>
+        <article class="pain-card reveal">
+          <h3>Ihre Hormone spielen verrückt — und keiner hat einen Plan.</h3>
+          <p>Hitzewallungen, Stimmungsschwankungen, Zyklusprobleme. Man sagt Ihnen: Das gehört dazu.</p>
+        </article>
+        <article class="pain-card reveal">
+          <h3>Sie haben eine Diagnose — und dann?</h3>
+          <p>Stattdessen hören Sie: „Wir beobachten das erst mal" oder „Dieses Medikament müssen Sie jetzt dauerhaft nehmen."</p>
+        </article>
+      </div>
+
+      <div class="pain-foot reveal">
+        Sie wollen nicht kürzer treten. <strong>Sie wollen verstehen, was los ist — und es lösen.</strong>
+      </div>
+    </div>
+  </section>
+
   <!-- 02 DIFFERENZIERUNG -->
   <section class="diff">
     <div class="wrap">
@@ -1022,7 +296,7 @@
     </div>
   </section>
 
-  <!-- 04 KERNANGEBOT REGENERATIONSANALYSE — Bioresonanz hier explizit -->
+  <!-- 04 KERNANGEBOT REGENERATIONSANALYSE -->
   <section class="flagship" id="regenerationsanalyse">
     <div class="wrap">
       <div class="flagship-head reveal">
@@ -1058,7 +332,7 @@
         <div class="flagship-left">
           <span class="flagship-tag">Mein Flaggschiff</span>
           <h3>Regenerations­analyse</h3>
-          <div class="flagship-meta">90–120 Minuten · Praxis Wiesloch · Einzeltermin</div>
+          <div class="flagship-meta">90 Minuten · Praxis Wiesloch · Einzeltermin</div>
           <ul class="flagship-list">
             <li>Ausführliche Anamnese — Körper, Alltag, Vorgeschichte</li>
             <li>Multiscan- und Bioresonanz-Diagnostik</li>
@@ -1072,7 +346,7 @@
               <div class="lbl">Investition</div>
               <div class="val">ab 330&nbsp;€</div>
             </div>
-            <a href="#kontakt" class="btn btn-primary">Termin anfragen</a>
+            <a href="regenerationsanalyse.html" class="btn btn-primary">Mehr erfahren</a>
           </div>
         </div>
 
@@ -1094,7 +368,7 @@
         </div>
       </div>
 
-      <!-- METHODEN-BLOCK: Multiscan, Bioresonanz, Labor -->
+      <!-- METHODEN-BLOCK — Edit 1.4: Multiscan HWG-Hinweis -->
       <div class="methods reveal" id="methoden">
         <div class="methods-head">
           <div class="l">
@@ -1113,6 +387,7 @@
             <ul>
               <li>Ganzheitliche Übersicht in einem Termin</li>
               <li>Ergänzt Laborwerte — ersetzt sie nicht</li>
+              <li>Hinweis: wissenschaftlich nicht abschließend bewertet</li>
             </ul>
           </article>
           <article class="method m2">
@@ -1143,7 +418,7 @@
     </div>
   </section>
 
-  <!-- 05 ÜBER NICOLE — neues Foto, reduzierte Pico-Kästchen -->
+  <!-- 05 ÜBER NICOLE — Edit 1.5: Pico-Boxen entdoppelt -->
   <section class="person" id="person">
     <div class="wrap">
       <div class="person-grid">
@@ -1185,14 +460,14 @@
                 <!-- Blatt / Regeneration -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-9 9-9 1.5 0 3 .5 4 1.5 0 4-1 11-6 14.5z"/><path d="M11 20c0-3 1-7 3-9"/></svg>
               </div>
-              <div class="pico-body"><strong>Mentorin für Regenerations­medizin</strong><span>Mojo-Institut</span></div>
+              <div class="pico-body"><strong>Mentorin für Regenerations­medizin</strong><span>Zertifiziert · Mojo-Institut</span></div>
             </div>
             <div class="pico alt-2">
               <div class="pico-mark" aria-hidden="true">
-                <!-- Doktorhut / Lehrtätigkeit -->
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v5"/></svg>
+                <!-- Buch / 1.500+ Patienten -->
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h11a3 3 0 0 1 3 3v13H7a3 3 0 0 1-3-3V4z"/><path d="M4 17a3 3 0 0 1 3-3h11"/><path d="M8 8h6"/><path d="M8 11h6"/></svg>
               </div>
-              <div class="pico-body"><strong>Fachmentorin Mojo-Institut</strong><span>Grundprogramm der Regenerations­medizin</span></div>
+              <div class="pico-body"><strong>1.500+ Patienten</strong><span>seit 2012 in eigener Praxis</span></div>
             </div>
             <div class="pico alt-3">
               <div class="pico-mark" aria-hidden="true">
@@ -1203,7 +478,7 @@
             </div>
             <div class="pico full">
               <div class="pico-mark" style="background:rgba(27,76,147,0.32);color:var(--tinte)" aria-hidden="true">
-                <!-- Ort + Bildschirm -->
+                <!-- Ort -->
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 11a4 4 0 1 1 8 0c0 3-4 8-4 8s-4-5-4-8z"/><circle cx="12" cy="11" r="1.5"/></svg>
               </div>
               <div class="pico-body"><strong>Praxis Wiesloch &amp; online</strong><span>Vor Ort für Regenerationsanalyse und Sprechstunde · CheckIn und Folgegespräche auch online möglich</span></div>
@@ -1214,7 +489,7 @@
     </div>
   </section>
 
-  <!-- 06 STIMMEN AUS DER PRAXIS -->
+  <!-- 06 STIMMEN AUS DER PRAXIS — Edit 1.3: Patientennamen -->
   <section class="voices">
     <div class="wrap">
       <div class="voices-head reveal">
@@ -1233,15 +508,15 @@
       <div class="voices-grid">
         <article class="voice v1 reveal">
           <p>Die Behandlung bei Frau Lurz ist sehr professionell und trotzdem sehr persönlich. Sie hat ein enormes Wissen.</p>
-          <div class="meta"><span>Patientin</span><span class="stars">★★★★★</span></div>
+          <div class="meta"><span>B. N. · Patientin</span><span class="stars">★★★★★</span></div>
         </article>
         <article class="voice v2 reveal">
           <p>Die Zusammenarbeit mit Nicole war transformierend. Ihre einfühlsame und professionelle Art hat mir geholfen.</p>
-          <div class="meta"><span>Patientin</span><span class="stars">★★★★★</span></div>
+          <div class="meta"><span>Verena · Patientin</span><span class="stars">★★★★★</span></div>
         </article>
         <article class="voice v3 reveal">
           <p>Frau Lurz ist eine sehr angenehme, sympathische Person — und in punkto Frauen­gesundheit aus meiner Erfahrung sehr zu empfehlen.</p>
-          <div class="meta"><span>Patientin</span><span class="stars">★★★★★</span></div>
+          <div class="meta"><span>Anja T. · Patientin</span><span class="stars">★★★★★</span></div>
         </article>
       </div>
 
@@ -1267,7 +542,7 @@
 
       <div class="ways-grid">
         <article class="way way-a reveal">
-          <span class="way-tag">Weg A · Akut &amp; einzeln</span>
+          <span class="way-tag">Weg A · Akut &amp; gezielt</span>
           <h3>Naturheilkundliche <em>Sprechstunde</em></h3>
           <p class="lead">Wenn ein konkretes Thema akut ist und Sie einen klaren Anlass haben.</p>
           <ul>
@@ -1279,7 +554,7 @@
           </ul>
           <div class="way-foot">
             <span class="price">nach Aufwand</span>
-            <a href="#kontakt">Termin anfragen →</a>
+            <a href="sprechstunde.html">Mehr erfahren →</a>
           </div>
         </article>
 
@@ -1291,24 +566,24 @@
             <li>Chronische Beschwerden ohne klaren Faden</li>
             <li>„Austherapiert", aber Sie wissen: das stimmt nicht</li>
             <li>Selbstwirksamkeit zurück — verstehen statt verwaltet werden</li>
-            <li>90–120 Minuten · schriftlicher Befund</li>
+            <li>90 Minuten · schriftlicher Befund</li>
             <li>12-Wochen-Fahrplan mit drei priorisierten Hebeln</li>
           </ul>
           <div class="way-foot">
             <span class="price">ab 330 €</span>
-            <a href="#regenerationsanalyse">Mehr erfahren →</a>
+            <a href="regenerationsanalyse.html">Mehr erfahren →</a>
           </div>
         </article>
       </div>
 
       <div class="ways-aside reveal">
         <span class="label">Noch unsicher?</span>
-        <p>Im <em>CheckIn</em> klären wir in 30 Minuten, welcher Weg für Sie passt. Online oder in der Praxis. <a href="#kontakt">CheckIn buchen →</a></p>
+        <p>Im <em>CheckIn</em> klären wir in 30 Minuten, welcher Weg für Sie passt. Online oder in der Praxis. <a href="termin-ablauf.html">CheckIn buchen →</a></p>
       </div>
 
       <div class="ways-aside reveal" style="border-color:var(--apfelgruen)">
         <span class="label" style="color:var(--waldgruen)">Für Eltern</span>
-        <p>Die <em>Kindersprechstunde</em> begleite ich bei ADHS-Tendenzen, Allergien, Unverträglichkeiten, Infekt­anfälligkeit, Schlaf- und Entwicklungs­fragen. <a href="#kontakt">Termin anfragen →</a></p>
+        <p>Die <em>Kindersprechstunde</em> begleite ich bei ADHS-Tendenzen, Allergien, Unverträglichkeiten, Infekt­anfälligkeit, Schlaf- und Entwicklungs­fragen. <a href="kinder.html">Mehr erfahren →</a></p>
       </div>
     </div>
   </section>
@@ -1368,7 +643,7 @@
         </details>
         <details>
           <summary>Wie läuft die Regenerationsanalyse konkret ab?</summary>
-          <p>Sie bringen Ihre vorhandenen Laborwerte mit. Ich ergänze durch Multiscan und Bioresonanz. Wir sprechen 90–120 Minuten über Ihren Körper, Ihren Alltag, Ihre Geschichte. Am Ende bekommen Sie einen schriftlichen Befund mit drei priorisierten Hebeln für die nächsten 12 Wochen.</p>
+          <p>Sie bringen Ihre vorhandenen Laborwerte mit. Ich ergänze durch Multiscan und Bioresonanz. Wir sprechen 90 Minuten über Ihren Körper, Ihren Alltag, Ihre Geschichte. Am Ende bekommen Sie einen schriftlichen Befund mit drei priorisierten Hebeln für die nächsten 12 Wochen.</p>
         </details>
         <details>
           <summary>Ersetzt Ihre Praxis meinen Hausarzt oder Gynäkologen?</summary>
@@ -1376,7 +651,7 @@
         </details>
         <details>
           <summary>Übernimmt die Krankenkasse die Kosten?</summary>
-          <p>Bei gesetzlichen Kassen in der Regel nicht. Viele private Krankenkassen und Heilpraktiker-Zusatzversicherungen übernehmen Leistungen anteilig. Ich stelle Privatrechnungen nach GebüH aus.</p>
+          <p>Bei gesetzlichen Kassen in der Regel nicht. Viele private Krankenkassen und Heilpraktiker-Zusatzversicherungen übernehmen Leistungen anteilig. Ich stelle Privatrechnungen nach GebüH aus. Details auf <a href="abrechnung.html">Abrechnungs­hinweise</a>.</p>
         </details>
         <details>
           <summary>Geht das auch online — oder muss ich nach Wiesloch kommen?</summary>
@@ -1394,107 +669,10 @@
     </div>
   </section>
 
-  <!-- 10 KONTAKT MIT TAB-NAVIGATION (Termin online + Nachricht) -->
-  <section class="contact" id="kontakt">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">10 — Termin &amp; Kontakt</div>
-        <h2 class="h-section">
-          Lassen Sie uns <em>sprechen.</em>
-        </h2>
-        <p class="lede">
-          Buchen Sie Ihren Termin direkt online — oder schreiben Sie mir, wenn Sie vorab eine Frage haben. Ich antworte persönlich, werktags innerhalb von 24 Stunden.
-        </p>
-      </div>
-
-      <div class="contact-tabs reveal" role="tablist">
-        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="termin">Termin online buchen</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="nachricht">Nachricht schreiben</button>
-      </div>
-
-      <!-- TAB 1: ONLINE-TERMIN (Lemniscus Widget Platzhalter) -->
-      <div class="tab-pane active" id="tab-termin" role="tabpanel">
-        <div class="lemniscus-wrap">
-          <span class="ph-label">Online-Terminbuchung</span>
-          <h3>Buchen Sie Ihren <em>Wunschtermin</em> direkt.</h3>
-          <p>Hier wird das Lemniscus-Buchungs-Widget eingebettet. Sie sehen freie Termine, wählen einen aus und erhalten direkt eine Bestätigung — ohne Zwischenschritt.</p>
-          <div class="iframe-stage">
-            <!-- Lemniscus Embed-Code hier einsetzen, sobald vorhanden:
-                 <iframe src="https://booking.lemniscus.de/...." width="100%" height="700" frameborder="0"></iframe>
-            -->
-            Hier erscheint das Lemniscus-Termin-Widget
-          </div>
-        </div>
-
-        <div class="ways-aside" style="margin-top:32px">
-          <span class="label">Lieber telefonisch?</span>
-          <p>Rufen Sie mich an: <a href="tel:+4917993832388">+49 179 938 32 38</a> · oder schreiben Sie per <a href="https://wa.me/4917993832388">WhatsApp</a>.</p>
-        </div>
-      </div>
-
-      <!-- TAB 2: KONTAKTFORMULAR -->
-      <div class="tab-pane" id="tab-nachricht" role="tabpanel">
-        <div class="contact-grid">
-          <aside class="contact-info">
-            <h3>Praxis Wiesloch</h3>
-            <div class="row"><span class="row-lbl">Adresse</span><span class="row-val">Hauptstr. 73<br>69168 Wiesloch<br><em style="color:var(--tinte-soft)">Nähe Heidelberg</em></span></div>
-            <div class="row"><span class="row-lbl">Telefon</span><span class="row-val"><a href="tel:+4917993832388">+49 179 938 32 38</a></span></div>
-            <div class="row"><span class="row-lbl">WhatsApp</span><span class="row-val"><a href="https://wa.me/4917993832388">Direkt schreiben</a></span></div>
-            <div class="row"><span class="row-lbl">E-Mail</span><span class="row-val"><a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a></span></div>
-            <div class="row"><span class="row-lbl">Sprechzeiten</span><span class="row-val">Termine nach Vereinbarung</span></div>
-          </aside>
-
-          <form class="contact-form" action="mailto:praxis@nicole-lurz.de" method="post" enctype="text/plain" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Ihr Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-field">
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="phone">Telefon (optional)</label>
-                <input type="tel" id="phone" name="phone" />
-              </div>
-              <div class="form-field">
-                <label for="anliegen">Ihr Anliegen</label>
-                <select id="anliegen" name="anliegen">
-                  <option>CheckIn anfragen</option>
-                  <option>Regenerationsanalyse</option>
-                  <option>Naturheilkundliche Sprechstunde</option>
-                  <option>Kindersprechstunde</option>
-                  <option>Allgemeine Frage</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-field full">
-                <label for="message">Nachricht</label>
-                <textarea id="message" name="message" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
-              </div>
-            </div>
-            <label class="form-consent">
-              <input type="checkbox" required />
-              <span>Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.</span>
-            </label>
-            <div class="form-submit">
-              <span class="form-note">Antwort innerhalb von 24h, werktags.</span>
-              <button type="submit" class="btn btn-primary">Nachricht senden</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11 CHECKIN CTA -->
+  <!-- 10 CHECKIN-CTA -->
   <section class="checkin" id="checkin">
     <div class="checkin-inner">
-      <div class="eyebrow reveal">11 — Der erste Schritt</div>
+      <div class="eyebrow reveal">10 — Der erste Schritt</div>
       <h2 class="reveal">
         Sie haben genug gewartet.<br>
         Genug <em>gehört, dass alles „normal" sei.</em>
@@ -1503,7 +681,7 @@
         Im CheckIn klären wir in 30 Minuten, ob mein Ansatz zu Ihrem Thema passt — und welcher Weg für Sie der richtige ist. Online oder in meiner Praxis in Wiesloch.
       </p>
       <div class="checkin-ctas reveal">
-        <a href="#kontakt" class="btn btn-sun">Termin online buchen — 75 €</a>
+        <a href="termin-ablauf.html" class="btn btn-sun">Termin online buchen — 75 €</a>
         <a href="https://wa.me/4917993832388" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">WhatsApp schreiben</a>
         <a href="tel:+4917993832388" class="btn btn-text" style="color:var(--papier);border-color:rgba(242,246,242,0.5)">0179 938 32 38</a>
       </div>
@@ -1530,21 +708,21 @@
       <div class="footer-col">
         <h5>Praxis</h5>
         <ul>
-          <li><a href="#schwerpunkte">Schwerpunkte</a></li>
-          <li><a href="#regenerationsanalyse">Regenerationsanalyse</a></li>
-          <li><a href="#wege">Sprechstunde</a></li>
-          <li><a href="#kontakt">Kindersprechstunde</a></li>
-          <li><a href="#kontakt">Termin buchen</a></li>
+          <li><a href="index.html#schwerpunkte">Schwerpunkte</a></li>
+          <li><a href="regenerationsanalyse.html">Regenerationsanalyse</a></li>
+          <li><a href="sprechstunde.html">Sprechstunde</a></li>
+          <li><a href="kinder.html">Kindersprechstunde</a></li>
+          <li><a href="termin-ablauf.html">Termin buchen</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Rechtliches</h5>
         <ul>
-          <li><a href="/impressum">Impressum</a></li>
-          <li><a href="/datenschutz">Datenschutz</a></li>
-          <li><a href="/agb">AGB</a></li>
-          <li><a href="/abrechnung">Abrechnungs­hinweise</a></li>
+          <li><a href="impressum.html">Impressum</a></li>
+          <li><a href="datenschutz.html">Datenschutz</a></li>
+          <li><a href="agb.html">AGB</a></li>
+          <li><a href="abrechnung.html">Abrechnungs­hinweise</a></li>
         </ul>
       </div>
 
@@ -1563,40 +741,6 @@
 
 </main>
 
-<script>
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Reveal beim Scrollen
-  const reveals = document.querySelectorAll('.reveal');
-  if ('IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    reveals.forEach(el => io.observe(el));
-  } else {
-    reveals.forEach(el => el.classList.add('in'));
-  }
-
-  // Tab-Navigation Kontakt-Sektion
-  const tabBtns = document.querySelectorAll('.tab-btn');
-  const tabPanes = document.querySelectorAll('.tab-pane');
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const target = btn.getAttribute('data-tab');
-      tabBtns.forEach(b => {
-        b.classList.toggle('active', b === btn);
-        b.setAttribute('aria-selected', b === btn ? 'true' : 'false');
-      });
-      tabPanes.forEach(p => {
-        p.classList.toggle('active', p.id === 'tab-' + target);
-      });
-    });
-  });
-</script>
+<script src="assets/script.js"></script>
 </body>
 </html>
