@@ -498,6 +498,18 @@ section{padding:128px 0;position:relative}
 .method.m1 .method-icon{background:rgba(122,168,144,0.22);color:var(--waldgruen)}
 .method.m2 .method-icon{background:rgba(27,76,147,0.18);color:var(--sonnengelb)}
 .method.m3 .method-icon{background:rgba(122,143,78,0.22);color:var(--salbei)}
+.method.m4 .method-icon{background:rgba(122,168,144,0.18);color:var(--waldgruen)}
+
+/* Methods-Grid · 2x2-Variante (4 Karten) */
+.methods-grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.methods-grid.cols-2 .method{border-right:1px solid var(--tinte-line)}
+.methods-grid.cols-2 .method:nth-child(2n){border-right:none}
+.methods-grid.cols-2 .method:nth-child(-n+2){border-bottom:1px solid var(--tinte-line)}
+@media(max-width:780px){
+  .methods-grid.cols-2{grid-template-columns:1fr}
+  .methods-grid.cols-2 .method{border-right:none;border-bottom:1px solid var(--tinte-line)}
+  .methods-grid.cols-2 .method:last-child{border-bottom:none}
+}
 .method-icon svg{width:24px;height:24px}
 .method h4{font-family:'Spectral',serif;font-size:1.25rem;color:var(--tinte);margin-bottom:10px;font-weight:500;line-height:1.25}
 .method h4 em{color:var(--waldgruen)}
@@ -952,6 +964,77 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
 .page-hero .lede{max-width:760px;font-size:clamp(1.08rem,1.5vw,1.25rem)}
 .page-hero .lede em{color:var(--waldgruen);font-weight:500}
 
+/* Page-Hero · Variante mit Bild (z.B. Regenerationsanalyse) */
+.page-hero.has-image .page-hero-inner{
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:72px;align-items:center;
+}
+.page-hero-text{max-width:620px}
+.page-hero-anchors{
+  display:flex;flex-wrap:wrap;gap:14px 28px;margin:32px 0 0;padding:0;
+  font-family:'Inter';font-size:13px;letter-spacing:0.04em;color:var(--tinte);
+}
+.page-hero-anchors li{list-style:none;display:flex;align-items:center;gap:10px}
+.page-hero-anchors li::before{
+  content:'';width:8px;height:8px;background:var(--sonnengelb);
+  border-radius:50%;flex:none;
+}
+.page-hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px;align-items:center}
+
+/* Inline-Section-CTA · dezenter Konversions-Hook nach Sektionen */
+.section-cta{
+  margin-top:56px;padding:32px 40px;
+  background:var(--papier);border-top:1px solid var(--tinte-line);border-bottom:1px solid var(--tinte-line);
+  display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+}
+.section-cta-text{
+  font-family:'Spectral',serif;font-size:1.15rem;color:var(--tinte);
+  font-style:italic;line-height:1.4;max-width:520px;
+}
+.section-cta-text em{color:var(--waldgruen);font-weight:500}
+.section-cta-buttons{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.section-cta.center{justify-content:center;text-align:center;flex-direction:column}
+.section-cta.center .section-cta-text{max-width:none}
+@media(max-width:780px){
+  .section-cta{flex-direction:column;align-items:flex-start;padding:28px 24px}
+  .section-cta-buttons{width:100%}
+  .section-cta-buttons .btn{flex:1;min-width:160px;justify-content:center}
+}
+.page-hero-visual{position:relative;justify-self:end;width:100%;max-width:480px}
+.page-hero-visual .frame{
+  position:relative;z-index:2;overflow:hidden;
+  box-shadow:0 30px 60px -28px rgba(15,32,52,0.35);
+}
+.page-hero-visual .frame img{display:block;width:100%;height:auto}
+.page-hero-visual .accent-tl{
+  position:absolute;top:-22px;left:-22px;width:96px;height:96px;
+  background:var(--sonnengelb);z-index:1;
+}
+.page-hero-visual .accent-br{
+  position:absolute;bottom:-22px;right:-22px;width:120px;height:120px;
+  border:2px solid var(--waldgruen);z-index:1;
+}
+.page-hero-visual .visual-tag{
+  position:absolute;left:-18px;bottom:32px;z-index:3;max-width:240px;
+  background:var(--papier);padding:14px 18px;border-left:3px solid var(--waldgruen);
+  box-shadow:0 18px 32px -22px rgba(15,32,52,0.3);
+}
+.page-hero-visual .visual-tag .lbl{
+  font-family:'Inter';font-size:9px;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--waldgruen);font-weight:600;margin-bottom:4px;
+}
+.page-hero-visual .visual-tag .txt{
+  font-family:'Spectral',serif;font-size:0.95rem;color:var(--tinte);font-style:italic;line-height:1.35;
+}
+@media(max-width:1000px){
+  .page-hero.has-image .page-hero-inner{grid-template-columns:1fr;gap:56px}
+  .page-hero-visual{justify-self:start;max-width:420px}
+}
+@media(max-width:560px){
+  .page-hero-visual .visual-tag{left:0;max-width:88%}
+  .page-hero-visual .accent-br{width:80px;height:80px}
+  .page-hero-visual .accent-tl{width:72px;height:72px}
+}
+
 /* PAIN-RESONANZ — Edit 1.2 Startseite */
 .pain{background:var(--offwhite)}
 .pain-grid{
@@ -1057,6 +1140,109 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
   color:var(--tinte);line-height:1.55;
 }
 .timeline-aside strong{color:var(--waldgruen);font-style:normal;font-weight:600;font-family:'Inter';font-size:10px;letter-spacing:0.28em;text-transform:uppercase;display:block;margin-bottom:6px}
+
+/* JOURNEY — Patient-Reise als horizontaler Stepper */
+.journey{
+  margin-top:64px;position:relative;padding:8px 0 16px;
+}
+.journey-track{
+  position:absolute;top:40px;left:32px;right:32px;height:1px;z-index:0;
+  background:repeating-linear-gradient(
+    to right,
+    var(--tinte-line) 0 8px,
+    transparent 8px 14px
+  );
+}
+.journey-steps{
+  list-style:none;display:grid;grid-template-columns:repeat(5,1fr);
+  gap:24px;position:relative;z-index:1;padding:0;margin:0;
+}
+.journey-step{
+  display:flex;flex-direction:column;align-items:flex-start;
+  padding-right:8px;
+}
+.step-icon{
+  display:flex;align-items:center;justify-content:center;
+  width:64px;height:64px;border-radius:50%;
+  background:var(--papier);border:1.5px solid var(--waldgruen);
+  color:var(--waldgruen);
+  margin-bottom:18px;flex:none;position:relative;
+  transition:transform 200ms ease;
+}
+.step-icon svg{width:22px;height:22px;display:block}
+.journey-step.is-keystone .step-icon{
+  background:var(--waldgruen);color:var(--papier);
+  width:72px;height:72px;border-color:var(--waldgruen);
+  box-shadow:0 0 0 6px rgba(122,168,144,0.18);
+}
+.journey-step.is-keystone .step-icon svg{width:26px;height:26px}
+.journey-step.is-keystone{margin-top:-4px}
+.step-num{
+  font-family:'Inter';font-size:9px;letter-spacing:0.32em;text-transform:uppercase;
+  color:var(--waldgruen);font-weight:600;margin-bottom:6px;
+}
+.journey-step h4{
+  font-family:'Spectral',serif;font-size:1.05rem;color:var(--tinte);
+  margin-bottom:6px;font-weight:500;line-height:1.3;
+}
+.journey-step p{
+  font-family:'Inter';font-size:0.86rem;color:var(--tinte-soft);
+  line-height:1.55;
+}
+
+/* Journey-Aside · Mentoring-Abzweigung */
+.journey-aside{
+  margin-top:56px;padding:24px 28px;background:var(--papier);
+  border-left:3px solid var(--sonnengelb);
+  display:grid;grid-template-columns:48px 1fr;gap:20px;
+  align-items:start;position:relative;
+}
+.journey-aside .branch-line{
+  position:absolute;top:-32px;left:64%;width:1px;height:32px;
+  background:repeating-linear-gradient(
+    to bottom,
+    var(--sonnengelb) 0 4px,
+    transparent 4px 8px
+  );
+}
+.journey-aside .aside-icon{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(27,76,147,0.10);color:var(--sonnengelb);
+  display:flex;align-items:center;justify-content:center;
+}
+.journey-aside .aside-icon svg{width:22px;height:22px}
+.journey-aside .aside-body strong{
+  display:block;font-family:'Inter';font-size:10px;letter-spacing:0.28em;
+  text-transform:uppercase;color:var(--sonnengelb);font-weight:600;
+  margin-bottom:6px;
+}
+.journey-aside .aside-body p{
+  font-family:'Inter';font-size:0.92rem;color:var(--tinte-soft);
+  line-height:1.6;margin:0;
+}
+
+@media(max-width:1000px){
+  .journey-steps{grid-template-columns:repeat(3,1fr);row-gap:48px}
+  .journey-track{display:none}
+}
+@media(max-width:680px){
+  .journey-steps{grid-template-columns:1fr;gap:0}
+  .journey-step{
+    display:grid;grid-template-columns:64px 1fr;gap:20px;
+    padding:18px 0;border-bottom:1px solid var(--tinte-line);
+    align-items:start;padding-right:0;
+  }
+  .journey-step:last-child{border-bottom:none}
+  .step-icon{margin-bottom:0;align-self:start}
+  .journey-step.is-keystone{margin-top:0}
+  .journey-step.is-keystone .step-icon{width:64px;height:64px;box-shadow:none}
+  .journey-step.is-keystone .step-icon svg{width:22px;height:22px}
+  .journey-aside{grid-template-columns:1fr;gap:14px}
+  .journey-aside .branch-line{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .step-icon{transition:none}
+}
 
 /* PRICE-DUO — Preisstaffelung bis/ab Datum */
 .price-duo{
