@@ -12,6 +12,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/style.css" />
 
+<!-- nForms.eu — Form-Shield · Honeypot, Spam-Schutz, ARIA, Validation -->
+<script defer src="https://api.nforms.eu/shield.js"></script>
+
 <!-- Favicon · Punkt 3 aus Aenderungs-Dokument -->
 <link rel="icon" type="image/svg+xml" href="/favicon-praxis.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
@@ -27,7 +30,7 @@
 </head>
 <body>
 
-<!-- NAV — Logo neu in Bild-Logo-Formatierung · Punkt 2 aus Aenderungs-Dokument -->
+<!-- NAV — Sticky Header mit primärem CheckIn-CTA + Telefon -->
 <nav class="nav" aria-label="Hauptnavigation">
   <a href="/" class="nav-logo">
     <span class="namegroup"><span class="first">Nicole</span> <span class="last">Lurz</span></span>
@@ -39,9 +42,15 @@
     <a href="/sprechstunde/">Sprechstunde</a>
     <a href="/kinder/">Kinder</a>
     <a href="/kurse/">Kurse</a>
-    <a href="#" class="placeholder" aria-disabled="true">Blog</a>
+    <a href="/termin-ablauf/">Termin &amp; Ablauf</a>
   </div>
-  <a href="/termin-ablauf/" class="nav-cta">Termin &amp; Ablauf</a>
+  <div class="nav-actions">
+    <a href="tel:+4917993832388" class="nav-phone" aria-label="Telefonnummer Praxis Lurz">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>0179 938 32 38</span>
+    </a>
+    <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="nav-cta">CheckIn — 75 €</a>
+  </div>
 </nav>
 
 <main id="top">
@@ -50,15 +59,15 @@
   <section class="hero">
     <div class="hero-grid">
       <div>
-        <div class="hero-tag"><span class="dot"></span><span>Wiesloch · Nähe Heidelberg · seit 2012</span></div>
+        <div class="hero-tag"><span class="dot"></span><span>Heilpraktikerin · Wiesloch · seit 2012 · für Erwachsene und Kinder</span></div>
         <h1>Klarheit statt <em>Rätselraten.</em></h1>
         <p class="hero-claim">
-          Ich bin die Brücke zwischen <em>„Damit müssen Sie leben"</em> und <em>„Das können Sie tun."</em><br>
-          Naturheilpraxis mit medizinischer Tiefe und strategischem Blick. Für Menschen, die mehr wollen als noch ein Rezept.
+          Die Brücke zwischen <em>„Damit müssen Sie leben."</em> und <em>„Das können Sie tun."</em><br>
+          Naturheilpraxis mit medizinischer Tiefe und strategischem Blick — für Menschen, die mehr wollen als noch ein Rezept.
         </p>
         <div class="hero-ctas">
-          <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">Termin buchen</a>
-          <a href="/regenerationsanalyse/" class="btn btn-text">Mein Kernangebot ansehen</a>
+          <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">CheckIn buchen — 30 Min · 75 €</a>
+          <a href="#blickwinkel" class="btn btn-text">Wie ich arbeite →</a>
         </div>
         <div class="hero-trust">
           <div class="trust-item">
@@ -89,31 +98,20 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>Hormone</span><span class="sep">✶</span>
-      <span>Wechseljahre</span><span class="sep sun">✶</span>
-      <span>Schilddrüse · Hashimoto</span><span class="sep">✶</span>
-      <span>Bluthochdruck</span><span class="sep sun">✶</span>
+  <!-- THEMEN-BAND — statisch, geschlechtsneutrale Themen zuerst -->
+  <div class="themen-band" aria-label="Schwerpunktthemen">
+    <div class="themen-band-track">
       <span>Erschöpfung</span><span class="sep">✶</span>
-      <span>Reizdarm</span><span class="sep sun">✶</span>
-      <span>Endometriose · PMS</span><span class="sep">✶</span>
-      <span>Autoimmunthemen</span><span class="sep sun">✶</span>
-      <span>Schlafstörungen</span><span class="sep">✶</span>
-      <span>Allergien · Infekte</span><span class="sep sun">✶</span>
-      <span>Kinderheilkunde</span><span class="sep">✶</span>
-      <span>Hormone</span><span class="sep sun">✶</span>
-      <span>Wechseljahre</span><span class="sep">✶</span>
       <span>Schilddrüse · Hashimoto</span><span class="sep sun">✶</span>
       <span>Bluthochdruck</span><span class="sep">✶</span>
-      <span>Erschöpfung</span><span class="sep sun">✶</span>
-      <span>Reizdarm</span><span class="sep">✶</span>
-      <span>Endometriose · PMS</span><span class="sep sun">✶</span>
-      <span>Autoimmunthemen</span><span class="sep">✶</span>
       <span>Schlafstörungen</span><span class="sep sun">✶</span>
-      <span>Allergien · Infekte</span><span class="sep">✶</span>
-      <span>Kinderheilkunde</span><span class="sep sun">✶</span>
+      <span>Reizdarm</span><span class="sep">✶</span>
+      <span>Allergien · Infekte</span><span class="sep sun">✶</span>
+      <span>Autoimmunthemen</span><span class="sep">✶</span>
+      <span>Hormone</span><span class="sep sun">✶</span>
+      <span>Wechseljahre</span><span class="sep">✶</span>
+      <span>Endometriose · PMS</span><span class="sep sun">✶</span>
+      <span>Kinderheilkunde</span>
     </div>
   </div>
 
@@ -126,26 +124,70 @@
           Fünf Themen, mit denen Menschen hauptsächlich zu mir <em>kommen.</em>
         </h2>
         <p class="lede">
-          Hormone, Frauengesundheit, Schilddrüse &amp; Stoffwechsel, chronische Erkrankungen, Energie &amp; Leistung — meine Schwerpunkte aus 14 Jahren Praxis. Und sie hängen fast immer zusammen.
+          Hormone, Frauengesundheit, Schilddrüse &amp; Stoffwechsel, chronische Erkrankungen, Energie &amp; Leistung — meine Schwerpunkte aus 14 Jahren Praxis bei Erwachsenen. Plus ein eigener Bereich für Kinder. Und alles hängt fast immer zusammen.
         </p>
       </div>
 
       <div class="topics-grid">
-        <article class="topic accent-1 reveal">
+        <article class="topic accent-4 reveal">
           <span class="topic-num">01 · Hauptthema</span>
-          <h3>Hormone</h3>
-          <p>Wenn die Hormone aus dem Takt sind, zeigt sich das nicht an einer Stelle, sondern überall. Schlaf, Energie, Stimmung, Gewicht, Zyklus. Ich arbeite mit Labor und funktioneller Diagnostik im Gesamt-Systemblick.</p>
+          <h3>Chronische <em>Erkrankungen</em></h3>
+          <p>Sie bekommen keine echten Antworten. Keine Strategien für das, was Sie selbst tun könnten. Und Sie spüren, wie Sie tiefer in den Teufelskreis rutschen — Diagnose um Diagnose, Medikament um Medikament. Hier setzen wir an: Wovon hängt Ihr Zustand wirklich ab? Welche Hebel bewegen tatsächlich etwas?</p>
           <div class="signs">
-            <span>Cortisol-Kurven</span>
-            <span>KPU/HPU</span>
-            <span>Östrogen / Progesteron</span>
+            <span>Allergien</span>
+            <span>entzündliche Darmerkrankungen</span>
+            <span>Reizdarm</span>
+            <span>Depression / Ängste / Panik</span>
+            <span>Bluthochdruck</span>
+            <span>Autoimmunthemen</span>
+            <span>chronische Schmerzen</span>
+          </div>
+        </article>
+
+        <article class="topic accent-1 reveal">
+          <span class="topic-num">02 · Hauptthema</span>
+          <h3>Energie, Leistung &amp; <em>Stress­regulation</em></h3>
+          <p>Wenn der Akku nie wirklich auflädt. Wenn Sie sich täglich durch Ihren Tag kämpfen — und das, was früher selbstverständlich war, heute Mühe kostet. Wir setzen an der Wurzel an: Stoffwechsel, Nervensystem, Mitochondrien — und nicht beim nächsten Supplement.</p>
+          <div class="signs">
+            <span>Fatigue</span>
+            <span>Erschöpfung</span>
+            <span>Burnout</span>
+            <span>Brain Fog</span>
+            <span>Schlafstörungen</span>
+            <span>Schmerzen</span>
+            <span>stille Entzündungen</span>
+          </div>
+        </article>
+
+        <article class="topic accent-3 reveal">
+          <span class="topic-num">03 · Hauptthema</span>
+          <h3>Schild­drüse &amp; <em>Stoffwechsel</em></h3>
+          <p>Schilddrüse, Hormone, Stoffwechsel — sie reden ständig miteinander. Erweiterte Labordiagnostik, abgestimmt mit Nebennieren, Blutzucker, Mikronährstoffen, Darm.</p>
+          <div class="signs">
+            <span>Hashimoto</span>
+            <span>Hypothyreose</span>
+            <span>Hyperthyreose</span>
             <span>Insulinresistenz</span>
-            <span>Jod-Status</span>
+            <span>Gewichtszunahme</span>
           </div>
         </article>
 
         <article class="topic accent-2 reveal">
-          <span class="topic-num">02 · Hauptthema</span>
+          <span class="topic-num">04 · Hauptthema</span>
+          <h3>Hormone</h3>
+          <p>Wenn die Hormone aus dem Takt sind, zeigt sich das nicht an einer Stelle, sondern überall. Schlaf, Energie, Stimmung, Gewicht, Zyklus. Ich arbeite mit Labor und funktioneller Diagnostik im Gesamt-Systemblick — bei Frauen und Männern.</p>
+          <div class="signs">
+            <span>Stressregulation</span>
+            <span>Stimmungsschwankungen</span>
+            <span>Kinderwunsch</span>
+            <span>Östrogen / Progesteron</span>
+            <span>KPU/HPU</span>
+            <span>Jod-Status</span>
+          </div>
+        </article>
+
+        <article class="topic accent-2 wide reveal">
+          <span class="topic-num">05 · Hauptthema</span>
           <h3>Frauen­gesundheit</h3>
           <p>Die Frau als System — nicht als Ansammlung einzelner gynäkologischer Diagnosen. Mit medizinischer Tiefe, Lebensphasen-Kontext und psychosomatischem Blick.</p>
           <div class="signs">
@@ -154,54 +196,21 @@
             <span>Zyklusstörungen</span>
             <span>Wechseljahre</span>
             <span>PCO</span>
-            <span>Beckenboden</span>
-          </div>
-        </article>
-
-        <article class="topic accent-3 reveal">
-          <span class="topic-num">03 · Hauptthema</span>
-          <h3>Schild­drüse &amp; <em>Stoffwechsel</em></h3>
-          <p>Schilddrüse, Hormone, Stoffwechsel — sie reden ständig miteinander. Auch bei „grenzwertigen" Werten, mit denen Sie sonst zum Abwarten geschickt werden. Erweiterte Labordiagnostik, abgestimmt mit Nebennieren, Blutzucker, Mikronährstoffen, Darm.</p>
-          <div class="signs">
-            <span>Hashimoto</span>
-            <span>Hypothyreose</span>
-            <span>Hyperthyreose</span>
-            <span>Insulinresistenz</span>
-            <span>grenzwertige Werte</span>
-          </div>
-        </article>
-
-        <article class="topic accent-4 reveal">
-          <span class="topic-num">04 · Hauptthema</span>
-          <h3>Chronische <em>Erkrankungen</em></h3>
-          <p>Wenn Sie nicht dauerhaft auf Medikamente angewiesen sein wollen, sondern verstehen, wovon der Zustand abhängt. Regenerations-Strategien, die Ihren Zustand aktiv mitgestalten.</p>
-          <div class="signs">
-            <span>Bluthochdruck</span>
-            <span>Reizdarm</span>
-            <span>Diabetes Typ 2 (Frühstadium)</span>
-            <span>Autoimmun</span>
-            <span>chronische Schmerzen</span>
-          </div>
-        </article>
-
-        <article class="topic accent-1 wide reveal">
-          <span class="topic-num">05 · Hauptthema</span>
-          <h3>Energie, Leistung &amp; <em>Stress­regulation</em></h3>
-          <p>Wenn der Akku nie wirklich auflädt. Wenn Sie sich täglich durch Ihren Tag kämpfen — und das, was früher selbstverständlich war, heute Mühe kostet. Wir setzen an der Wurzel an: Stoffwechsel, Nervensystem, Mitochondrien — und nicht beim nächsten Supplement.</p>
-          <div class="signs">
-            <span>Mehr Leistung</span>
-            <span>Bessere Regeneration</span>
-            <span>Weniger Stress</span>
-            <span>Besseres Aussehen</span>
-            <span>Mehr Leichtigkeit</span>
-            <span>Mehr Wohlbefinden</span>
+            <span>Myome / Zysten</span>
+            <span>depressive Verstimmung</span>
           </div>
         </article>
       </div>
 
-      <div class="topics-aside reveal">
-        <span class="label">Außerdem</span>
-        <p>Darm · Allergien · Bioresonanz · stille Entzündungen · Infektanfälligkeit · Mikronährstoffe. Und für die Kleinen: <em>Kindersprechstunde</em> bei wiederkehrenden Infekten, Hautthemen, Unverträglichkeiten, Schlaf- und Konzentrationsfragen.</p>
+      <div class="topics-aside-grid">
+        <div class="topics-aside reveal">
+          <span class="label">Außerdem</span>
+          <p>Darm · Bioresonanz · stille Entzündungen · Infektanfälligkeit · Mikronährstoffe.</p>
+        </div>
+        <div class="topics-aside kinder reveal">
+          <span class="label">Für Ihr Kind</span>
+          <p><em>Kindersprechstunde</em> bei wiederkehrenden Infekten, Hautthemen, Unverträglichkeiten, Schlaf- und Konzentrationsfragen. <a href="/kinder/">Mehr erfahren →</a></p>
+        </div>
       </div>
 
       <div class="topics-bottom reveal">
@@ -249,6 +258,14 @@
           <h3>Sie sind morgens schon erschöpft — und der Tag hat noch nicht begonnen.</h3>
           <p>Kaffee hilft, dann nicht mehr. Schlaf bringt keine Erholung. Sie funktionieren auf Reserve.</p>
         </article>
+        <article class="pain-card reveal">
+          <h3>Ihr Blutdruck ist erhöht — und Sie bekommen die Tablette in die Hand gedrückt.</h3>
+          <p>Sie wollen wissen: <em>warum</em>. Und Sie wollen verstehen, was Sie selbst tun können, damit aus „grenzwertig" nicht in zehn Jahren mehr wird.</p>
+        </article>
+        <article class="pain-card reveal">
+          <h3>Ihr Kind ist alle paar Wochen krank — und das nächste Antibiotikum wartet schon.</h3>
+          <p>Sie wollen verstehen, was das Immunsystem so durchlässig macht — und einen Plan, der nicht nur aus „mehr Vitamine" besteht.</p>
+        </article>
       </div>
 
       <div class="pain-foot reveal">
@@ -260,13 +277,13 @@
           <strong>Bereit für den ersten Schritt?</strong>
           <span>30 Minuten, die Klarheit schaffen.</span>
         </div>
-        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">CheckIn buchen — 75 €</a>
+        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">CheckIn buchen — 30 Min · 75 €</a>
       </div>
     </div>
   </section>
 
   <!-- 01.7 DER BLICKWINKEL MACHT DEN UNTERSCHIED -->
-  <section class="perspective">
+  <section class="perspective" id="blickwinkel">
     <div class="wrap">
       <div class="reveal">
         <div class="eyebrow">03 — Der Blickwinkel macht den Unterschied</div>
@@ -309,6 +326,11 @@
       <div class="perspective-foot reveal">
         Aus einer einzelnen Perspektive sehen Sie nie das Ganze. <strong>Ihr Körper ist eine biologische Meisterleistung — alles greift ineinander wie Zahnräder.</strong>
       </div>
+
+      <div class="perspective-bridge reveal">
+        <p>Drei Systeme. Drei Diagnose-Werkzeuge. Eine Bestandsaufnahme.</p>
+        <a href="#regenerationsanalyse" class="btn btn-text">Wie das in der Praxis aussieht →</a>
+      </div>
     </div>
   </section>
 
@@ -321,7 +343,7 @@
           Drei Hebel, die wirklich etwas <em>bewegen.</em>
         </h2>
         <p class="lede">
-          Heilpraktikerin mit BWL-Hintergrund. Das prägt, wie ich arbeite — strukturiert, priorisiert, ohne Esoterik und ohne Aktionismus.
+          Heilpraktikerin mit BWL-Hintergrund — vor der Praxis war ich Diplom-Kauffrau. Den strategischen Blick auf Engpässe und Hebel habe ich behalten. Das prägt, wie ich arbeite: strukturiert, priorisiert, ohne Esoterik und ohne Aktionismus.
         </p>
       </div>
 
@@ -392,8 +414,11 @@
         <div class="eyebrow">06 — Was Sie hier gewinnen</div>
         <h2 class="h-section">
           Keine Pflaster auf Symptome.<br>
-          Sondern <em>echte Lösungen.</em>
+          Sondern <em>echte Klarheit.</em>
         </h2>
+        <p class="lede">
+          Was Patientinnen und Patienten am Ende oft beschreiben — als Erfahrung, nicht als Versprechen. Veränderungen brauchen meist 8–12 Wochen, manchmal länger. Jeder Körper ist anders.
+        </p>
       </div>
 
       <div class="gains-grid">
@@ -401,43 +426,43 @@
           <div class="gain-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
           </div>
-          <h3>Leistungs­fähigkeit zurück</h3>
-          <p>Nicht die künstliche aus Koffein und Willenskraft, sondern echte, belastbare Energie. Die Grundlage für alles, was Sie vorhaben.</p>
+          <h3>Spürbare Belastbarkeit im Alltag</h3>
+          <p>Statt sich täglich durch den Tag zu kämpfen — wieder belastbar sein. Nicht aus Koffein und Willenskraft, sondern weil das System wieder mitarbeitet. Erste Veränderungen meist nach 4–6 Wochen, individuell verschieden.</p>
         </article>
         <article class="gain-card g2 reveal">
           <div class="gain-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
           </div>
           <h3>Klarheit über <em>Ihren Körper</em></h3>
-          <p>Sie werden verstehen, warum Ihr System so reagiert. Kein Raten, kein Googeln. Zusammenhänge, die Ihnen bisher niemand gezeigt hat.</p>
+          <p>Sie verstehen, warum Ihr System so reagiert — und warum bisherige Maßnahmen nicht gegriffen haben. Kein Raten, kein Googeln. Zusammenhänge, die Ihnen bisher niemand gezeigt hat.</p>
         </article>
         <article class="gain-card g3 reveal">
           <div class="gain-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6v14l6-3 6 3 6-3V4l-6 3-6-3-6 3z"/><path d="M9 4v14M15 7v14"/></svg>
           </div>
-          <h3>Ihr persönlicher <em>Fahrplan</em></h3>
-          <p>Drei Prioritäten, zwölf Wochen, umsetzbar in Ihrem Alltag. Als Ergebnis Ihrer Regenerationsanalyse — kein Rundumschlag, sondern die Hebel, die den größten Unterschied machen.</p>
+          <h3>Ihr persönlicher <em>12-Wochen-Fahrplan</em></h3>
+          <p>Drei Prioritäten, klare Reihenfolge, umsetzbar in Ihrem Alltag. Als Ergebnis Ihrer Regenerationsanalyse — kein Rundumschlag, sondern die Hebel, die bei Ihnen zuerst dran sind.</p>
         </article>
         <article class="gain-card g4 reveal">
           <div class="gain-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></svg>
           </div>
-          <h3>Kontrolle</h3>
-          <p>Sie werden wieder handlungsfähig. Statt auf den nächsten Arzttermin zu warten, wissen Sie, was Sie selbst tun können. Und was nicht.</p>
+          <h3>Wieder handlungsfähig</h3>
+          <p>Statt auf den nächsten Arzttermin zu warten, wissen Sie, was Sie selbst tun können. Und was nicht. Sie werden zur informierten Mitgestalterin Ihrer Gesundheit — nicht zur Empfängerin der nächsten Empfehlung.</p>
         </article>
         <article class="gain-card g5 reveal">
           <div class="gain-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg>
           </div>
           <h3>Strategien, die in Ihren <em>Alltag</em> passen</h3>
-          <p>Keine radikalen Umstellungen, die nach zwei Wochen scheitern. Sondern Veränderungen, die sich in Ihr Leben einfügen — ohne es umzukrempeln.</p>
+          <p>Keine radikalen Umstellungen, die nach zwei Wochen scheitern. Sondern Veränderungen, die sich in Ihr Leben einfügen — ohne es umzukrempeln. Der kleinst­mögliche sinnvolle Schritt, nicht der größte.</p>
         </article>
         <article class="gain-card g6 reveal">
           <div class="gain-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v9a5 5 0 0 0 10 0V3"/><path d="M5 3h4M15 3h4"/><path d="M12 17v4M9 21h6"/></svg>
           </div>
-          <h3>Energie zurück — raus aus der <em>Erschöpfungsfalle</em></h3>
-          <p>Verstehen, warum Ihr Energiespeicher leer ist — und was ihn wirklich wieder auffüllt. Nicht mit dem nächsten Supplement, sondern an der Wurzel.</p>
+          <h3>Raus aus der <em>Erschöpfungs­falle</em></h3>
+          <p>Verstehen, warum Ihr Energie­speicher leer ist — und was ihn an der Wurzel wieder auffüllen kann. Nicht mit dem nächsten Supplement, sondern mit den Stellschrauben, die bei Ihnen den Unterschied machen.</p>
         </article>
       </div>
 
@@ -446,7 +471,7 @@
           <strong>Sie wollen wissen, wo Sie stehen?</strong>
           <span>Der CheckIn ist Ihr erster Schritt.</span>
         </div>
-        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun">CheckIn buchen — 75 €</a>
+        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun">CheckIn buchen — 30 Min · 75 €</a>
       </div>
     </div>
   </section>
@@ -488,88 +513,35 @@
           <span class="flagship-tag">Mein Flaggschiff</span>
           <h3>Regenerations­analyse</h3>
           <div class="flagship-meta">90 Minuten · Praxis Wiesloch · Einzeltermin</div>
-          <ul class="flagship-list">
-            <li>Ausführliche Anamnese — Körper, Alltag, Vorgeschichte</li>
-            <li>Multiscan- und Bioresonanz-Diagnostik</li>
-            <li>Auswertung Ihrer vorhandenen Laborwerte</li>
+          <p class="flagship-lede">
+            Eine systemische Bestandsaufnahme aus Anamnese, Multiscan, Bioresonanz und Laborinterpretation — und Ihr <em>12-Wochen-Fahrplan</em> mit drei priorisierten Hebeln. Damit Sie verstehen, was bei Ihnen los ist — und was zuerst dran ist.
+          </p>
+          <ul class="flagship-list compact">
+            <li>90-Minuten-Anamnese · Multiscan · Bioresonanz · Laborinterpretation</li>
             <li>Schriftlicher Befund mit Zusammenhängen</li>
             <li>12-Wochen-Fahrplan mit drei priorisierten Hebeln</li>
-            <li>Klarheit über den nächsten richtigen Schritt</li>
           </ul>
           <div class="flagship-price">
             <div>
-              <div class="lbl">Investition</div>
+              <div class="lbl">Honorar</div>
               <div class="val">ab 330&nbsp;€</div>
             </div>
-            <a href="/regenerationsanalyse/" class="btn btn-primary">Mehr erfahren</a>
+            <a href="/regenerationsanalyse/" class="btn btn-primary">Details &amp; Ablauf →</a>
           </div>
         </div>
 
-        <div class="flagship-right">
-          <h4>Was Sie am Ende dieser Stunden <em>haben.</em></h4>
-          <p>
-            Sie verstehen, warum Ihr Körper genau diese Symptome zeigt — und warum bisherige Maßnahmen nicht gegriffen haben. Sie sehen Ihr System, nicht einzelne Baustellen.
+        <div class="flagship-right flagship-visual">
+          <figure class="flagship-image">
+            <img src="/nicole_lurz_regenerationsanalyse.jpg" alt="Nicole Lurz erläutert einer Patientin den Multiscan-Befund auf dem Tablet — Praxis Wiesloch" loading="lazy" width="1289" height="1600" />
+          </figure>
+          <p class="flagship-visual-caption">
+            Was Sie am Ende der 90 Minuten haben: ein Bild Ihres Systems — keine Liste einzelner Baustellen. Und einen Plan, der in Ihren Alltag passt.
           </p>
-          <p>
-            Sie wissen, welcher Hebel zuerst dran ist, damit die anderen überhaupt wirken können. Und Sie haben einen Plan, der in Ihren Alltag passt — keinen Selbstoptimierungs-Marathon.
-          </p>
-
-          <div class="steps">
-            <div class="step"><div class="step-num">01</div><div class="step-body"><h5>Aufnahme</h5><p>Sie erzählen, ich höre zu — und suche das Muster hinter den Symptomen.</p></div></div>
-            <div class="step"><div class="step-num">02</div><div class="step-body"><h5>Analyse</h5><p>Multiscan, Bioresonanz, Laborinterpretation. Kein Bauchgefühl. Ein Befund.</p></div></div>
-            <div class="step"><div class="step-num">03</div><div class="step-body"><h5>Fahrplan</h5><p>Drei priorisierte Hebel. Was zuerst, was später, was vorerst nicht.</p></div></div>
-            <div class="step"><div class="step-num">04</div><div class="step-body"><h5>Begleitung</h5><p>Reviews und Anpassungen — damit Sie unterwegs nicht wieder allein dastehen.</p></div></div>
-          </div>
+          <a href="/regenerationsanalyse/" class="flagship-visual-link">Vollständigen Ablauf ansehen →</a>
         </div>
       </div>
 
-      <!-- METHODEN-BLOCK — Edit 1.4: Multiscan HWG-Hinweis -->
-      <div class="methods reveal" id="methoden">
-        <div class="methods-head">
-          <div class="l">
-            <h3>Wie ich die Daten <em>lese.</em></h3>
-            <div class="sub">Drei Verfahren — kombiniert, nicht einzeln.</div>
-          </div>
-          <div class="methods-tag">Diagnostik</div>
-        </div>
-        <div class="methods-grid">
-          <article class="method m1">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3l2-6 4 12 2-6h7"/></svg>
-            </div>
-            <h4>Multiscan</h4>
-            <p>Strukturierter Ganzkörper-Scan, der Hinweise auf belastete Regulations­bereiche gibt — Stoffwechsel, Hormone, Belastungen, Mikronährstoff-Lage.</p>
-            <ul>
-              <li>Ganzheitliche Übersicht in einem Termin</li>
-              <li>Ergänzt Laborwerte — ersetzt sie nicht</li>
-              <li>Hinweis: wissenschaftlich nicht abschließend bewertet</li>
-            </ul>
-          </article>
-          <article class="method m2">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/><path d="M2 17c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/></svg>
-            </div>
-            <h4>Bioresonanz</h4>
-            <p>Verfahren der bioenergetischen Diagnostik. Ich nutze sie, um Belastungs­muster und Wechselwirkungen zwischen Körpersystemen sichtbar zu machen — als Ergänzung zu Anamnese und Labor.</p>
-            <ul>
-              <li>Sanftes, nicht-invasives Verfahren</li>
-              <li>Hinweise auf Belastungen, Allergene, Regulationsstörungen</li>
-              <li>Hinweis: wissenschaftlich nicht abschließend bewertet</li>
-            </ul>
-          </article>
-          <article class="method m3">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v8l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3"/></svg>
-            </div>
-            <h4>Labor­diagnostik</h4>
-            <p>Ihre vorhandenen Werte werden im System­zusammenhang gelesen — nicht isoliert. Bei Bedarf erweitere ich um funktionelle Labor­parameter (Cortisol-Tagesprofil, KPU/HPU, Mikro­nährstoffe).</p>
-            <ul>
-              <li>Auswertung im Gesamtbild</li>
-              <li>Erweiterte Diagnostik bei Bedarf</li>
-            </ul>
-          </article>
-        </div>
-      </div>
+      <!-- Methoden-Block auf Startseite entfernt — Detail auf /regenerationsanalyse/ -->
     </div>
   </section>
 
@@ -644,39 +616,45 @@
     </div>
   </section>
 
-  <!-- 06 STIMMEN AUS DER PRAXIS — Edit 1.3: Patientennamen -->
+  <!-- 06 STIMMEN AUS DER PRAXIS — Echte Patientenzitate (Google · ProvenExpert) -->
   <section class="voices">
     <div class="wrap">
       <div class="voices-head reveal">
         <div class="left">
           <div class="eyebrow">09 — Stimmen aus der Praxis</div>
           <h2 class="h-section">
-            Was Patienten über meine <em>Arbeit sagen.</em>
+            Was Patientinnen und Patienten <em>schreiben.</em>
           </h2>
+          <p class="voices-lede">
+            Drei Stimmen aus dem Alltag der Praxis — stellvertretend für viele. Veröffentlicht mit Einverständnis.
+          </p>
         </div>
         <div class="proven-badge">
           <div class="proven-stars">★★★★★</div>
-          <div class="proven-text">5,0 / 5,0<small>ProvenExpert · 14 Bewertungen</small></div>
+          <div class="proven-text">5,0 / 5,0<small>14 Bewertungen · ProvenExpert</small></div>
         </div>
       </div>
 
       <div class="voices-grid">
         <article class="voice v1 reveal">
-          <p>Die Behandlung bei Frau Lurz ist sehr professionell und trotzdem sehr persönlich. Sie hat ein enormes Wissen.</p>
-          <div class="meta"><span>B. N. · Patientin</span><span class="stars">★★★★★</span></div>
+          <span class="voice-tag">Energie · Schlaf · Ernährung</span>
+          <p>Frau Lurz verfügt über ein fundiertes medizinisches Fachwissen, ein hohes Maß an Einfühlungs­vermögen und große Empathie. Durch ihre ganzheitliche Betrachtung des Patienten entwickelt sie sehr individuelle und gezielte Lösungs­ansätze. Ihr Therapie­konzept hat mir bereits sehr geholfen: Ich habe deutlich mehr Energie und Elan, bin fokussierter und mein Schlaf hat sich spürbar verbessert. Zudem ist durch die Ernährungs­umstellung mein Heißhunger auf Süßes vollständig verschwunden.</p>
+          <div class="meta"><span>Patientin · Google-Rezension</span><span class="stars">★★★★★</span></div>
         </article>
         <article class="voice v2 reveal">
-          <p>Die Zusammenarbeit mit Nicole war transformierend. Ihre einfühlsame und professionelle Art hat mir geholfen.</p>
-          <div class="meta"><span>Verena · Patientin</span><span class="stars">★★★★★</span></div>
+          <span class="voice-tag">Wechseljahre · Kind mit Allergien</span>
+          <p>Frau Lurz hat mir unglaublich geholfen. Dank ihrer Behandlung fühle ich mich viel fitter und habe mehr Kraft und Energie. Meine Wechseljahres­beschwerden sind stark zurück­gegangen. Auch meiner Tochter konnte Frau Lurz hervorragend helfen, besonders bei ihren Allergien. Ein herzliches Dankeschön für Ihre wertvolle Unterstützung!</p>
+          <div class="meta"><span>Violetta Beyer · Google-Rezension</span><span class="stars">★★★★★</span></div>
         </article>
         <article class="voice v3 reveal">
-          <p>Frau Lurz ist eine sehr angenehme, sympathische Person — und in punkto Frauen­gesundheit aus meiner Erfahrung sehr zu empfehlen.</p>
-          <div class="meta"><span>Anja T. · Patientin</span><span class="stars">★★★★★</span></div>
+          <span class="voice-tag">Familienbegleitung über Jahre</span>
+          <p>Meine Kinder und ich fühlen uns bei Frau Lurz sehr gut aufgehoben — ganzheitlich und kompetent berät und begleitet uns Frau Lurz seit mehreren Jahren immer wieder.</p>
+          <div class="meta"><span>Selina Dantmann · Google-Rezension</span><span class="stars">★★★★★</span></div>
         </article>
       </div>
 
       <p class="voices-source reveal">
-        Alle Bewertungen → <a href="https://www.provenexpert.com/de-de/nicole-lurz/" target="_blank" rel="noopener">provenexpert.com/nicole-lurz</a>
+        Alle Bewertungen lesen → <a href="https://www.provenexpert.com/de-de/nicole-lurz/" target="_blank" rel="noopener">ProvenExpert</a> · <a href="https://www.google.com/search?q=Naturheilpraxis+Nicole+Lurz+Wiesloch" target="_blank" rel="noopener">Google</a>
       </p>
     </div>
   </section>
@@ -737,8 +715,8 @@
         </article>
       </div>
 
-      <div class="ways-aside reveal" style="border-color:var(--apfelgruen)">
-        <span class="label" style="color:var(--waldgruen)">Für Eltern</span>
+      <div class="ways-aside kinder reveal">
+        <span class="label">Für Ihr Kind</span>
         <p>Die <em>Kindersprechstunde</em> begleite ich bei wiederkehrenden Infekten, Hautthemen, Allergien, Unverträglichkeiten, Schlaf- und Entwicklungsfragen. <a href="/kinder/">Mehr erfahren →</a></p>
       </div>
     </div>
@@ -883,7 +861,7 @@
             <span class="ph-label">Online-Terminbuchung</span>
             <h3>CheckIn direkt <em>buchen.</em></h3>
             <p>Sie sehen freie Termine, wählen einen aus und erhalten direkt eine Bestätigung.</p>
-            <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">Termin online buchen</a>
+            <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">CheckIn buchen — 30 Min · 75 €</a>
           </div>
 
           <div class="termin-kontakt">
@@ -897,16 +875,16 @@
         </aside>
 
         <!-- RECHTS: Kontaktformular -->
-        <form class="contact-form" action="mailto:praxis@nicole-lurz.de" method="post" enctype="text/plain" novalidate>
+        <form class="contact-form" data-nforms-key="nf_mbrrdopjursmptfd0fulknfno0ycbyqz" novalidate>
           <h3 class="form-title">Nachricht <em>schreiben.</em></h3>
           <div class="form-row">
             <div class="form-field">
               <label for="name">Ihr Name</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" data-validate="required|minlength:2" required />
             </div>
             <div class="form-field">
               <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" data-validate="required|email" required />
             </div>
           </div>
           <div class="form-row">
@@ -929,11 +907,11 @@
           <div class="form-row">
             <div class="form-field full">
               <label for="message">Nachricht</label>
-              <textarea id="message" name="message" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
+              <textarea id="message" name="message" data-validate="required|minlength:10" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
             </div>
           </div>
           <label class="form-consent">
-            <input type="checkbox" required />
+            <input type="checkbox" name="datenschutz" data-validate="required" required />
             <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.</span>
           </label>
           <div class="form-submit">
@@ -941,6 +919,15 @@
             <button type="submit" class="btn btn-primary">Nachricht senden</button>
           </div>
         </form>
+
+        <!-- Inline-Bestätigung — wird von nforms eingeblendet (data-nforms-success) -->
+        <div class="form-success" data-nforms-success hidden>
+          <div class="form-success-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3>Vielen Dank — Ihre Nachricht ist angekommen.</h3>
+          <p>Ich antworte werktags innerhalb von 24 Stunden persönlich. Bei dringenden Fragen erreichen Sie mich auch telefonisch unter <a href="tel:+4917993832388">0179 938 32 38</a> oder per <a href="https://wa.me/4917993832388">WhatsApp</a>.</p>
+        </div>
 
       </div>
     </div>
@@ -958,7 +945,7 @@
         Im CheckIn klären wir in 30 Minuten, ob mein Ansatz zu Ihrem Thema passt — und welcher Weg für Sie der richtige ist. Online oder in meiner Praxis in Wiesloch.
       </p>
       <div class="checkin-ctas reveal">
-        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun">CheckIn buchen — 75 €</a>
+        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun">CheckIn buchen — 30 Min · 75 €</a>
         <a href="https://wa.me/4917993832388" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">WhatsApp schreiben</a>
         <a href="tel:+4917993832388" class="btn btn-text" style="color:var(--papier);border-color:rgba(242,246,242,0.5)">0179 938 32 38</a>
       </div>

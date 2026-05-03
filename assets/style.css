@@ -105,6 +105,14 @@ section{padding:128px 0;position:relative}
   background:var(--sonnengelb);color:var(--papier);padding:2px 5px;
   font-weight:600;border-radius:2px;
 }
+.nav-actions{display:flex;align-items:center;gap:14px}
+.nav-phone{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Inter';font-size:12px;font-weight:500;
+  color:rgba(232,240,232,0.85);transition:color .2s;
+}
+.nav-phone:hover{color:var(--apfelgruen)}
+.nav-phone svg{opacity:0.85}
 .nav-cta{
   display:inline-flex;align-items:center;gap:8px;
   padding:12px 20px;background:var(--sonnengelb);color:var(--papier);
@@ -113,8 +121,8 @@ section{padding:128px 0;position:relative}
 }
 .nav-cta:hover{background:var(--marine-deep)}
 .nav-cta::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--apfelgruen)}
-@media(max-width:1100px){.nav-links{gap:20px}.nav-links a{font-size:12px}}
-@media(max-width:980px){.nav-links{display:none}.nav-cta{padding:10px 14px;font-size:9px}}
+@media(max-width:1100px){.nav-links{gap:20px}.nav-links a{font-size:12px}.nav-phone span{display:none}}
+@media(max-width:980px){.nav-links{display:none}.nav-cta{padding:10px 14px;font-size:9px}.nav-phone{display:none}}
 
 /* HERO */
 .hero{
@@ -200,7 +208,26 @@ section{padding:128px 0;position:relative}
   .portrait-badge{position:static;margin-top:16px;max-width:none;border-left:3px solid var(--waldgruen)}
 }
 
-/* MARQUEE */
+/* THEMEN-BAND — statisch (ruhig, Premium-Wirkung) */
+.themen-band{
+  background:var(--waldgruen);color:var(--papier);
+  padding:22px 6vw;
+}
+.themen-band-track{
+  max-width:1300px;margin:0 auto;
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:14px 22px;align-items:center;
+}
+.themen-band span{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;font-weight:400;line-height:1.2}
+.themen-band .sep{color:var(--apfelgruen);font-style:normal;opacity:0.8}
+.themen-band .sep.sun{color:var(--sonnengelb)}
+@media(max-width:720px){
+  .themen-band{padding:18px 5vw}
+  .themen-band span{font-size:0.95rem}
+  .themen-band-track{gap:10px 16px}
+}
+
+/* MARQUEE — alte Klasse weiter verfügbar (falls auf Unterseiten genutzt) */
 .marquee{
   background:var(--waldgruen);color:var(--papier);
   padding:20px 0;overflow:hidden;
@@ -396,6 +423,43 @@ section{padding:128px 0;position:relative}
 .flagship-right h4{font-family:'Spectral',serif;font-size:1.4rem;color:var(--tinte);margin-bottom:18px;font-weight:500;line-height:1.25}
 .flagship-right h4 em{color:var(--waldgruen)}
 .flagship-right p{font-size:0.97rem;line-height:1.7;color:var(--tinte);margin-bottom:18px}
+
+/* Flagship — gekürzte Variante mit Foto + Lede */
+.flagship-lede{
+  font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;
+  color:var(--tinte-soft);line-height:1.6;margin-bottom:28px;
+}
+.flagship-lede em{color:var(--waldgruen);font-weight:500}
+.flagship-list.compact li{padding:11px 0 11px 26px;font-size:0.92rem}
+.flagship-visual{display:flex;flex-direction:column;justify-content:center;gap:22px}
+.flagship-image{
+  margin:0;position:relative;
+  aspect-ratio:4/5;overflow:hidden;
+  background:var(--offwhite);
+  box-shadow:0 24px 48px -22px rgba(15,26,20,0.28);
+}
+.flagship-image img{
+  width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  display:block;
+}
+.flagship-image::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 60%,rgba(15,26,20,0.08) 100%);
+  pointer-events:none;
+}
+@media(max-width:900px){
+  .flagship-image{aspect-ratio:4/3}
+}
+.flagship-visual-caption{
+  font-family:'Spectral',serif;font-style:italic;font-size:1rem;
+  color:var(--tinte);line-height:1.6;margin:0;
+}
+.flagship-visual-link{
+  font-family:'Inter';font-size:0.92rem;font-weight:500;
+  color:var(--waldgruen);text-decoration:none;border-bottom:1px solid var(--apfelgruen);
+  align-self:flex-start;padding-bottom:2px;
+}
+.flagship-visual-link:hover{color:var(--marine-deep);border-color:var(--marine-deep)}
 .steps{margin-top:32px;display:grid;gap:0}
 .step{padding:18px 0;border-bottom:1px dashed var(--tinte-line);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
 .step:last-child{border-bottom:none}
@@ -517,18 +581,34 @@ section{padding:128px 0;position:relative}
 .proven-stars{font-family:'Spectral',serif;font-size:1.15rem;color:var(--sonnengelb);letter-spacing:0.05em;font-weight:500}
 .proven-text{font-family:'Inter';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--tinte);font-weight:600;line-height:1.3}
 .proven-text small{display:block;font-size:9px;letter-spacing:0.22em;color:var(--tinte-soft);margin-top:2px;font-weight:500}
-.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.voices-lede{
+  font-family:'Spectral',serif;font-style:italic;
+  color:var(--tinte-soft);font-size:1.02rem;line-height:1.5;
+  margin-top:16px;max-width:560px;
+}
+.voices-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px;align-items:stretch}
 @media(max-width:900px){.voices-grid{grid-template-columns:1fr}}
 .voice{
-  background:var(--offwhite);padding:40px 36px 32px;
+  background:var(--offwhite);padding:32px 32px 28px;
   position:relative;border-top:3px solid var(--waldgruen);
+  display:flex;flex-direction:column;
 }
 .voice.v1{border-top-color:var(--apfelgruen)}
 .voice.v2{border-top-color:var(--sonnengelb)}
 .voice.v3{border-top-color:var(--salbei)}
+.voice-tag{
+  display:inline-block;align-self:flex-start;
+  font-family:'Inter';font-size:9px;letter-spacing:0.28em;text-transform:uppercase;
+  font-weight:600;color:var(--waldgruen);
+  background:rgba(122,168,144,0.12);padding:5px 10px;margin-bottom:18px;
+}
+.voice.v1 .voice-tag{color:var(--apfelgruen);background:rgba(122,168,144,0.14)}
+.voice.v2 .voice-tag{color:var(--sonnengelb);background:rgba(245,200,80,0.14)}
+.voice.v3 .voice-tag{color:var(--salbei);background:rgba(122,143,78,0.14)}
 .voice p{
-  font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;
-  line-height:1.55;color:var(--tinte);margin-bottom:24px;font-weight:500;
+  font-family:'Spectral',serif;font-style:italic;font-size:1.0rem;
+  line-height:1.55;color:var(--tinte);margin-bottom:20px;font-weight:500;
+  flex:1;
 }
 .voice .meta{
   display:flex;justify-content:space-between;align-items:center;
@@ -712,6 +792,43 @@ details p{margin-top:18px;color:var(--tinte-soft);font-size:0.98rem;line-height:
 .form-consent a{color:var(--waldgruen);text-decoration:underline}
 .form-submit{display:flex;justify-content:flex-end;align-items:center;gap:24px;flex-wrap:wrap}
 .form-note{font-family:'Spectral',serif;font-style:italic;font-size:0.92rem;color:var(--tinte-soft)}
+
+/* Inline-Erfolgsbox nach erfolgreicher nforms-Übermittlung */
+.form-success{
+  padding:48px 40px;background:var(--offwhite);
+  border-left:4px solid var(--waldgruen);
+  display:flex;flex-direction:column;align-items:flex-start;gap:14px;
+}
+.form-success[hidden]{display:none}
+.form-success-mark{
+  width:64px;height:64px;background:var(--apfelgruen);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--papier);
+}
+.form-success h3{
+  font-family:'Spectral',serif;font-size:1.45rem;color:var(--tinte);
+  font-weight:500;line-height:1.25;margin:0;
+}
+.form-success p{
+  font-family:'Spectral',serif;font-size:1.02rem;color:var(--tinte-soft);
+  line-height:1.65;margin:0;
+}
+.form-success a{
+  color:var(--waldgruen);border-bottom:1px solid var(--waldgruen);
+  padding-bottom:1px;font-weight:500;
+}
+.form-success a:hover{color:var(--marine-deep);border-color:var(--marine-deep)}
+
+/* Validierungs-Status (von nforms gesetzt: aria-invalid="true") */
+.contact-form input[aria-invalid="true"],
+.contact-form textarea[aria-invalid="true"],
+.contact-form select[aria-invalid="true"]{
+  border-color:#C44545;background:rgba(196,69,69,0.04);
+}
+.contact-form [role="alert"]{
+  display:block;font-family:'Inter';font-size:0.82rem;color:#C44545;
+  margin-top:6px;font-weight:500;
+}
 
 .lemniscus-wrap{
   background:var(--offwhite);padding:48px;border:1px dashed var(--waldgruen);
@@ -1281,6 +1398,16 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
   position:relative;z-index:2;
 }
 .perspective-foot strong{color:var(--apfelgruen);font-style:italic;font-weight:500}
+.perspective-bridge{
+  margin-top:32px;padding:24px 6vw;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  text-align:center;position:relative;z-index:2;
+}
+.perspective-bridge p{
+  font-family:'Spectral',serif;font-style:italic;font-weight:500;
+  font-size:clamp(1rem,1.3vw,1.18rem);color:var(--tinte);line-height:1.4;
+  margin:0;
+}
 
 /* GAINS — "Was Sie hier gewinnen" 4-Karten-Grid für Startseite */
 .gains{background:var(--offwhite)}
@@ -1316,3 +1443,125 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
 }
 .gain-card h3 em{color:var(--waldgruen)}
 .gain-card p{font-size:0.97rem;color:var(--tinte-soft);line-height:1.65}
+
+/* ==========================================================================
+   ERWEITERUNGEN
+   Holz/Wasser-Palette · keine zusätzlichen Akzentfarben
+   Zwei zusätzliche Variablen für:
+     1. Pain-Section invertiert (dunkler Marine-Block als emotionaler Anker)
+     2. Kinder-Akzentfarbe (frisches Apfelgrün) für Wiedererkennung
+   ========================================================================== */
+
+:root{
+  /* Kinder-Akzent — frisches Apfelgrün (bestehende Holz-Farbe, einen Tick heller) */
+  --kinder:      #8FBE9E;
+  --kinder-deep: #5E9971;
+  --kinder-wash: #DCE9DD;
+  /* Tiefes Marine für invertierte Pain-Section */
+  --tiefe:       #143247;
+}
+
+/* PAIN-SECTION — invertiert: dunkler Marine-Block mit hellen Cards */
+.pain{
+  background:linear-gradient(180deg,var(--tiefe) 0%,var(--marine-deep) 100%);
+  color:var(--papier);position:relative;
+}
+.pain::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:80px;
+  background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path fill='%23F2F6F2' d='M0 0h1440v40c-240 28-480 40-720 40S240 68 0 40z'/></svg>") no-repeat top center / 100% 100%;
+  pointer-events:none;
+}
+.pain .wrap{position:relative;z-index:2;padding-top:48px}
+.pain .eyebrow{color:var(--apfelgruen)}
+.pain .eyebrow::before{background:var(--apfelgruen)}
+.pain h2{color:var(--papier)}
+.pain h2 em{color:var(--apfelgruen)}
+.pain-card{
+  background:rgba(242,246,242,0.04);
+  border:1px solid rgba(122,168,144,0.20);
+  backdrop-filter:blur(6px);transition:all .3s ease;
+}
+.pain-card:hover{
+  background:rgba(242,246,242,0.08);
+  border-color:var(--apfelgruen);
+  transform:translateY(-3px);
+}
+.pain-card h3{color:var(--papier)}
+.pain-card p{color:rgba(242,246,242,0.78)}
+.pain-foot{color:var(--papier)}
+.pain-foot strong{color:var(--apfelgruen)}
+.pain-cta{
+  background:rgba(242,246,242,0.06);
+  border:1px solid rgba(122,168,144,0.20);
+}
+.pain-cta-text strong{color:var(--papier)}
+.pain-cta-text span{color:rgba(242,246,242,0.7)}
+.pain-cta .btn-primary{
+  background:var(--papier);color:var(--tiefe);
+}
+.pain-cta .btn-primary:hover{background:var(--apfelgruen);color:var(--tiefe)}
+
+/* KINDER — eigene Akzentfarbe für Wiedererkennung */
+/* In der Navigation: kleiner Akzent-Punkt vor "Kinder" */
+.nav-links a[href*="/kinder"]{position:relative;color:var(--kinder-deep)}
+.nav-links a[href*="/kinder"]:hover{color:var(--kinder)}
+.nav-links a[href*="/kinder"]::before{
+  content:'';display:inline-block;width:6px;height:6px;
+  background:var(--kinder);margin-right:6px;vertical-align:middle;
+}
+
+/* Kindersprechstunde-Hinweis-Box in der Wege-Section bekommt Kinder-Farbe */
+.ways-aside[style*="apfelgruen"]{
+  border-color:var(--kinder) !important;
+  background:linear-gradient(90deg,var(--kinder-wash),transparent);
+}
+.ways-aside .label[style*="waldgruen"]{
+  color:var(--kinder-deep) !important;
+}
+
+/* Topic "Kinder" (falls als eigene Topic-Card geführt) — Hilfsklasse */
+.topic.accent-kinder::before,
+.topic.accent-kinder{border-top-color:var(--kinder)}
+.topic.accent-kinder .signs span{border-color:var(--kinder);color:var(--kinder-deep)}
+
+/* WAYS-ASIDE — Kinder-Variante in der Wege-Section */
+.ways-aside.kinder{
+  border-color:var(--kinder) !important;
+  background:linear-gradient(90deg,var(--kinder-wash) 0%,transparent 100%);
+}
+.ways-aside.kinder .label{
+  color:var(--kinder-deep);
+}
+.ways-aside.kinder p em{color:var(--kinder-deep);font-weight:500}
+.ways-aside.kinder p a{
+  color:var(--kinder-deep);border-bottom:1px solid var(--kinder);
+  padding-bottom:1px;font-weight:500;
+}
+.ways-aside.kinder p a:hover{
+  color:var(--tiefe);border-color:var(--kinder-deep);
+}
+
+/* TOPICS-ASIDE — zweispaltig: allgemein + Kinder */
+.topics-aside-grid{
+  display:grid;grid-template-columns:1.4fr 1fr;gap:24px;
+  margin-top:48px;
+}
+@media(max-width:780px){
+  .topics-aside-grid{grid-template-columns:1fr}
+}
+.topics-aside-grid .topics-aside{margin-top:0}
+.topics-aside.kinder{
+  border-left:4px solid var(--kinder);
+  background:linear-gradient(90deg,var(--kinder-wash) 0%,transparent 100%);
+}
+.topics-aside.kinder .label{color:var(--kinder-deep);font-weight:600}
+.topics-aside.kinder p em{color:var(--kinder-deep);font-weight:500}
+.topics-aside.kinder p a{
+  color:var(--kinder-deep);border-bottom:1px solid var(--kinder);
+  padding-bottom:1px;font-weight:500;
+}
+.topics-aside.kinder p a:hover{
+  color:var(--tiefe);border-color:var(--kinder-deep);
+}
+
+/* === V2 ENDE === */
