@@ -875,22 +875,33 @@
         </aside>
 
         <!-- RECHTS: Kontaktformular -->
-        <form class="contact-form" data-nforms-key="nf_mbrrdopjursmptfd0fulknfno0ycbyqz" novalidate>
+        <form id="contactForm" class="contact-form"
+              action="https://api.nforms.eu/f/nf_mbrrdopjursmptfd0fulknfno0ycbyqz"
+              method="POST">
           <h3 class="form-title">Nachricht <em>schreiben.</em></h3>
+
+          <!-- nforms Reserved Fields -->
+          <input type="hidden" name="access_key" value="nf_mbrrdopjursmptfd0fulknfno0ycbyqz" />
+          <input type="hidden" name="_subject" value="Neue Anfrage über praxis.nicole-lurz.de" />
+          <input type="hidden" name="_redirect" value="https://praxis.nicole-lurz.de/?nf=ok#kontakt" />
+          <!-- Honeypot — muss leer bleiben (visuell + a11y-versteckt) -->
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off"
+                 aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+
           <div class="form-row">
             <div class="form-field">
               <label for="name">Ihr Name</label>
-              <input type="text" id="name" name="name" data-validate="required|minlength:2" required />
+              <input type="text" id="name" name="name" required minlength="2" autocomplete="name" />
             </div>
             <div class="form-field">
               <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" data-validate="required|email" required />
+              <input type="email" id="email" name="email" required autocomplete="email" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
               <label for="phone">Telefon (optional)</label>
-              <input type="tel" id="phone" name="phone" />
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
             </div>
             <div class="form-field">
               <label for="anliegen">Ihr Anliegen</label>
@@ -907,21 +918,24 @@
           <div class="form-row">
             <div class="form-field full">
               <label for="message">Nachricht</label>
-              <textarea id="message" name="message" data-validate="required|minlength:10" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
+              <textarea id="message" name="message" required minlength="10" placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
             </div>
           </div>
           <label class="form-consent">
-            <input type="checkbox" name="datenschutz" data-validate="required" required />
+            <input type="checkbox" name="datenschutz_einverstanden" required />
             <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.</span>
           </label>
           <div class="form-submit">
             <span class="form-note">Antwort innerhalb von 24h, werktags.</span>
             <button type="submit" class="btn btn-primary">Nachricht senden</button>
           </div>
+          <p class="form-error" id="formError" hidden role="alert">
+            Es gab leider ein Problem beim Versenden. Bitte versuchen Sie es erneut — oder schreiben Sie mir direkt an <a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a>.
+          </p>
         </form>
 
-        <!-- Inline-Bestätigung — wird von nforms eingeblendet (data-nforms-success) -->
-        <div class="form-success" data-nforms-success hidden>
+        <!-- Inline-Bestätigung — eingeblendet via JS nach erfolgreicher Submission -->
+        <div class="form-success" id="formSuccess" hidden>
           <div class="form-success-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
           </div>
@@ -1005,5 +1019,72 @@
 </main>
 
 <script src="/assets/script.js"></script>
+
+<!-- Kontaktformular: AJAX-Submit an nforms.eu mit Inline-Bestätigung -->
+<script>
+(function(){
+  var form = document.getElementById('contactForm');
+  if(!form) return;
+
+  var success = document.getElementById('formSuccess');
+  var errorBox = document.getElementById('formError');
+
+  // 1) Falls man via _redirect zurückkommt (?nf=ok), direkt Erfolgsbox zeigen — Fallback für JS-aus-Submit
+  if (window.location.search.indexOf('nf=ok') !== -1) {
+    form.style.display = 'none';
+    success.hidden = false;
+    // URL bereinigen, damit Reload nicht erneut Bestätigung zeigt
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname + '#kontakt');
+    }
+    return;
+  }
+
+  // 2) AJAX-Submit für JS-aktive Browser
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (errorBox) errorBox.hidden = true;
+
+    // Reply-To dynamisch aus dem Email-Feld setzen (damit Antworten direkt zur Patientin gehen)
+    var emailField = form.querySelector('[name="email"]');
+    if (emailField && !form.querySelector('[name="_replyto"]')) {
+      var replyto = document.createElement('input');
+      replyto.type = 'hidden';
+      replyto.name = '_replyto';
+      replyto.value = emailField.value;
+      form.appendChild(replyto);
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    var btnLabel = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet…'; }
+
+    var data = new FormData(form);
+    fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      return res.json().catch(function(){ return { success: res.ok }; });
+    })
+    .then(function(result){
+      if (result && (result.success === true || result.ok === true)) {
+        form.style.display = 'none';
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        throw new Error((result && (result.message || result.error)) || 'Unbekannter Fehler');
+      }
+    })
+    .catch(function(){
+      if (errorBox) errorBox.hidden = false;
+      if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+    });
+  });
+})();
+</script>
 </body>
 </html>

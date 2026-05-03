@@ -819,16 +819,23 @@ details p{margin-top:18px;color:var(--tinte-soft);font-size:0.98rem;line-height:
 }
 .form-success a:hover{color:var(--marine-deep);border-color:var(--marine-deep)}
 
-/* Validierungs-Status (von nforms gesetzt: aria-invalid="true") */
+/* Validierungs-Status (Browser-native :invalid + ARIA von Hilfsskripten) */
+.contact-form input:user-invalid,
+.contact-form textarea:user-invalid,
 .contact-form input[aria-invalid="true"],
 .contact-form textarea[aria-invalid="true"],
 .contact-form select[aria-invalid="true"]{
   border-color:#C44545;background:rgba(196,69,69,0.04);
 }
-.contact-form [role="alert"]{
-  display:block;font-family:'Inter';font-size:0.82rem;color:#C44545;
-  margin-top:6px;font-weight:500;
+.contact-form [role="alert"],
+.form-error{
+  display:block;font-family:'Inter';font-size:0.88rem;color:#C44545;
+  margin-top:14px;font-weight:500;line-height:1.5;
+  padding:14px 18px;background:rgba(196,69,69,0.06);
+  border-left:3px solid #C44545;
 }
+.form-error[hidden]{display:none}
+.form-error a{color:#C44545;text-decoration:underline;font-weight:600}
 
 .lemniscus-wrap{
   background:var(--offwhite);padding:48px;border:1px dashed var(--waldgruen);
