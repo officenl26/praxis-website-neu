@@ -4,7 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Nicole Lurz, Heilpraktikerin in Wiesloch nahe Heidelberg. Diplom-Kauffrau, Mentorin für Regenerationsmedizin, seit 2012 in eigener Praxis. Strategischer Blick auf Hormone, Frauengesundheit, chronische Erkrankungen." />
-<meta name="theme-color" content="#1B3A5C" />
 <title>Über mich · Naturheilpraxis Nicole Lurz · Wiesloch</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -12,18 +11,471 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/style.css" />
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon-praxis.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-<!-- Lemniscus LemmyFlansch · Floating-Widget -->
 <script async
         id="lemmyFlansch"
         data-token="bb02b7c7-46b8-4f56-953d-520e52d854ae"
         data-floating-side="right"
         src="https://my.lemniscus.de/js/lemmyFlansch.js"><!-- nicht löschen --></script>
+
+<style>
+/* ===== PAGE-HERO · Über mich ===== */
+.page-hero {
+  padding: 160px 6vw 100px;
+  background: var(--papier);
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -160px;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(122,168,144,0.22), transparent 70%);
+  pointer-events: none;
+}
+.page-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -120px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(27,76,147,0.14), transparent 70%);
+  pointer-events: none;
+}
+.page-hero-inner {
+  max-width: 1240px; margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.page-hero h1 {
+  font-family: 'Spectral', serif;
+  font-weight: 400;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--tinte);
+  margin-bottom: 24px;
+  max-width: 14em;
+}
+.page-hero h1 em { color: var(--waldgruen); font-style: italic; }
+.page-hero .lede {
+  max-width: 600px;
+  margin-bottom: 56px;
+}
+
+/* Stat-Leiste unter Hero */
+.stat-bar {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--tinte-line);
+  padding-top: 40px;
+  flex-wrap: wrap;
+}
+.stat-item {
+  flex: 1;
+  min-width: 140px;
+  padding-right: 40px;
+  border-right: 1px solid var(--tinte-line);
+  margin-right: 40px;
+}
+.stat-item:last-child { border-right: none; padding-right: 0; margin-right: 0; }
+.stat-num {
+  font-family: 'Spectral', serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--waldgruen);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  display: block;
+}
+.stat-num sup { font-size: 0.5em; color: var(--apfelgruen); vertical-align: super; }
+.stat-lbl {
+  font-family: 'Inter';
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tinte-soft);
+  font-weight: 500;
+  margin-top: 8px;
+  display: block;
+}
+@media(max-width:720px) { .stat-bar { gap: 28px 0; } .stat-item { min-width: 45%; border-right: none; padding-right: 0; margin-right: 0; } }
+
+/* ===== STORY SECTION ===== */
+.story {
+  background: var(--offwhite);
+  position: relative;
+  overflow: hidden;
+}
+.story::before {
+  content: '';
+  position: absolute;
+  bottom: -80px; right: -100px;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(122,168,144,0.16), transparent 70%);
+  pointer-events: none;
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 88px;
+  align-items: start;
+  position: relative; z-index: 2;
+}
+@media(max-width:1000px) { .story-grid { grid-template-columns: 1fr; gap: 56px; } }
+
+.story-visual {
+  position: relative;
+  max-width: 420px;
+}
+@media(max-width:1000px) { .story-visual { max-width: 380px; } }
+.story-visual .frame {
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  background: var(--offwhite);
+}
+.story-visual .frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 12%;
+}
+.story-visual .ornament {
+  position: absolute;
+  top: -20px; left: -20px;
+  width: 96px; height: 96px;
+  border: 1.5px solid var(--apfelgruen);
+  z-index: -1;
+}
+.story-visual .ornament-2 {
+  position: absolute;
+  bottom: -22px; right: -22px;
+  width: 84px; height: 84px;
+  background: var(--sonnengelb);
+  z-index: -1;
+}
+.story-badge {
+  position: absolute;
+  bottom: 32px; left: -32px;
+  background: var(--papier);
+  padding: 18px 22px;
+  border-left: 3px solid var(--waldgruen);
+  max-width: 240px;
+  box-shadow: 0 18px 40px -14px rgba(27,58,92,0.22);
+  z-index: 5;
+}
+.story-badge .badge-lbl {
+  font-family: 'Inter';
+  font-size: 9px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--waldgruen);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.story-badge .badge-txt {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 0.96rem;
+  color: var(--tinte);
+  line-height: 1.35;
+  font-weight: 500;
+}
+@media(max-width:560px) { .story-badge { position: static; margin-top: 16px; max-width: none; } }
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 16px;
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0;
+  position: relative;
+}
+.tl-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 24px; top: 52px;
+  width: 1px;
+  bottom: 0;
+  background: linear-gradient(to bottom, var(--apfelgruen), transparent);
+}
+.tl-dot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+  flex-shrink: 0;
+}
+.tl-circle {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 0.85rem;
+  font-weight: 500;
+  flex-shrink: 0;
+  border: 1.5px solid currentColor;
+  position: relative;
+  z-index: 2;
+  background: var(--offwhite);
+}
+.tl-item:nth-child(1) .tl-circle { color: var(--apfelgruen); }
+.tl-item:nth-child(2) .tl-circle { color: var(--sonnengelb); }
+.tl-item:nth-child(3) .tl-circle { color: var(--waldgruen); }
+.tl-item:nth-child(4) .tl-circle { color: var(--salbei); }
+
+.tl-body {
+  padding: 0 0 48px 24px;
+}
+.tl-year {
+  font-family: 'Inter';
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--tinte-soft);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.tl-body h4 {
+  font-family: 'Spectral', serif;
+  font-size: 1.15rem;
+  color: var(--tinte);
+  font-weight: 500;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.tl-item:nth-child(1) .tl-body h4 em { color: var(--apfelgruen); }
+.tl-item:nth-child(2) .tl-body h4 em { color: var(--sonnengelb); }
+.tl-item:nth-child(3) .tl-body h4 em { color: var(--waldgruen); }
+.tl-item:nth-child(4) .tl-body h4 em { color: var(--salbei); }
+.tl-body p {
+  font-size: 0.94rem;
+  color: var(--tinte-soft);
+  line-height: 1.7;
+}
+.tl-body p em { color: var(--waldgruen); font-style: italic; }
+
+/* ===== ZITAT-BAND ===== */
+.quote-band {
+  background: var(--waldgruen);
+  padding: 80px 6vw;
+  position: relative;
+  overflow: hidden;
+}
+.quote-band::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(122,168,144,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.quote-band-inner {
+  max-width: 920px; margin: 0 auto;
+  text-align: center;
+  position: relative; z-index: 2;
+}
+.quote-mark {
+  font-family: 'Spectral', serif;
+  font-size: 5rem;
+  color: var(--apfelgruen);
+  line-height: 0.5;
+  display: block;
+  margin-bottom: 24px;
+  opacity: 0.7;
+}
+.quote-band blockquote {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  color: var(--papier);
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+.quote-author {
+  font-family: 'Inter';
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(242,246,242,0.55);
+  font-weight: 500;
+}
+
+/* ===== WAS MICH UNTERSCHEIDET (02) ===== */
+.unterschied {
+  background: var(--papier);
+  position: relative;
+  overflow: hidden;
+}
+.unterschied::before {
+  content: '';
+  position: absolute;
+  top: 30%; left: -160px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(122,168,144,0.16), transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== ZERTIFIKATE (03) ===== */
+.certs {
+  background: var(--offwhite);
+  position: relative;
+  overflow: hidden;
+}
+.certs::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 440px; height: 440px;
+  background: radial-gradient(circle, rgba(27,76,147,0.16), transparent 70%);
+  pointer-events: none;
+}
+.certs-intro {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 64px;
+  position: relative; z-index: 2;
+}
+@media(max-width:900px) { .certs-intro { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; } }
+
+.certs-big-num {
+  font-family: 'Spectral', serif;
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--apfelgruen);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.certs-big-num span {
+  display: block;
+  font-family: 'Inter';
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--apfelgruen);
+  -webkit-text-stroke: 0;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  position: relative; z-index: 2;
+}
+@media(max-width:900px) { .cert-grid { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width:560px) { .cert-grid { grid-template-columns: 1fr; } }
+
+.cert-item {
+  background: var(--papier);
+  padding: 24px 22px;
+  border-top: 3px solid var(--apfelgruen);
+  position: relative;
+}
+.cert-item:nth-child(2n) { border-top-color: var(--sonnengelb); }
+.cert-item:nth-child(3n) { border-top-color: var(--salbei); }
+.cert-item:nth-child(4n) { border-top-color: var(--waldgruen); }
+.cert-item:nth-child(5n) { border-top-color: var(--apfelgruen); }
+.cert-item:nth-child(6n) { border-top-color: var(--sonnengelb); }
+.cert-item:nth-child(7n) { border-top-color: var(--salbei); }
+.cert-item:nth-child(8n) { border-top-color: var(--waldgruen); }
+.cert-icon {
+  width: 36px; height: 36px;
+  background: var(--offwhite);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+  color: var(--waldgruen);
+}
+.cert-item:nth-child(2n) .cert-icon { color: var(--sonnengelb); background: rgba(27,76,147,0.1); }
+.cert-item:nth-child(3n) .cert-icon { color: var(--salbei); background: rgba(122,143,78,0.14); }
+.cert-item:nth-child(4n) .cert-icon { color: var(--waldgruen); background: rgba(61,90,46,0.1); }
+.cert-title {
+  font-family: 'Spectral', serif;
+  font-size: 1rem;
+  color: var(--tinte);
+  font-weight: 500;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.cert-sub {
+  font-family: 'Inter';
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--tinte-soft);
+  font-weight: 400;
+}
+
+/* Mitgliedschaften */
+.memberships {
+  margin-top: 40px;
+  padding: 32px 36px;
+  background: var(--papier);
+  border: 1px dashed var(--waldgruen);
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+  position: relative; z-index: 2;
+}
+.memberships .ml {
+  font-family: 'Inter';
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--waldgruen);
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 120px;
+}
+.memberships-list {
+  display: flex; flex-wrap: wrap; gap: 12px; flex: 1;
+}
+.memberships-list span {
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--tinte);
+  padding: 6px 14px;
+  background: var(--offwhite);
+  border: 1px solid var(--tinte-line);
+}
+
+/* ===== HALTUNG (04) ===== */
+.haltung {
+  background: var(--papier);
+  position: relative;
+  overflow: hidden;
+}
+.haltung::before {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -80px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(122,168,144,0.12), transparent 70%);
+  pointer-events: none;
+}
+
+/* Reveal animation */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+</style>
 </head>
 <body>
 
@@ -39,50 +491,135 @@
     <a href="/sprechstunde/">Sprechstunde</a>
     <a href="/kinder/">Kinder</a>
     <a href="/kurse/">Kurse</a>
-    <a href="#" class="placeholder" aria-disabled="true">Blog</a>
+    <a href="/termin-ablauf/">Termin &amp; Ablauf</a>
   </div>
-  <a href="/termin-ablauf/" class="nav-cta">Termin &amp; Ablauf</a>
+  <div class="nav-actions">
+    <a href="tel:+4917993832388" class="nav-phone" aria-label="Telefonnummer Praxis Lurz">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>0179 938 32 38</span>
+    </a>
+    <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="nav-cta">CheckIn — 75 €</a>
+  </div>
 </nav>
 
 <main id="top">
 
-  <!-- PAGE-HERO -->
+  <!-- PAGE HERO -->
   <section class="page-hero">
     <div class="page-hero-inner reveal">
       <div class="eyebrow">Über mich</div>
-      <h1>Heilpraktikerin mit <em>BWL-Hirn.</em></h1>
+      <h1>Heilpraktikerin<br>mit <em>BWL-Hirn.</em></h1>
       <p class="lede">
-        Seit 2012 in eigener Praxis. Über 1.500 Patientinnen und Patienten begleitet. Diplom-Kauffrau und Mentorin für Regenerationsmedizin — und genau diese Kombination prägt, wie ich arbeite.
+        Seit 2012 in eigener Praxis. Über 1.500 Menschen begleitet. Diplom-Kauffrau, Mentorin für Regenerationsmedizin und Business-Mentorin — und genau diese Kombination prägt, wie ich arbeite.
       </p>
+      <div class="stat-bar">
+        <div class="stat-item">
+          <span class="stat-num">14<sup>+</sup></span>
+          <span class="stat-lbl">Jahre Praxis</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1.500<sup>+</sup></span>
+          <span class="stat-lbl">Begleitete Menschen</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">seit 2012</span>
+          <span class="stat-lbl">Eigene Praxis · Wiesloch</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">5,0 ★</span>
+          <span class="stat-lbl">ProvenExpert-Bewertung</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 01 WENDEPUNKT-STORY -->
-  <section class="person">
+  <!-- 01 STORY MIT FOTO + TIMELINE -->
+  <section class="story">
     <div class="wrap">
-      <div class="person-grid">
-        <div class="person-visual reveal">
+      <div class="story-grid">
+
+        <!-- Foto-Spalte -->
+        <div class="story-visual reveal">
           <div class="ornament"></div>
           <div class="ornament-2"></div>
-          <div class="frame"><img src="/nicole_lurz_portrait.jpg" alt="Nicole Lurz, Heilpraktikerin in Wiesloch"></div>
+          <div class="frame">
+            <img src="/nicole_lurz_portrait.jpg" alt="Nicole Lurz, Heilpraktikerin in Wiesloch" />
+          </div>
+          <div class="story-badge">
+            <div class="badge-lbl">Nicole Lurz</div>
+            <div class="badge-txt">Heilpraktikerin · Diplom-Kauffrau · Mentorin für Regenerationsmedizin</div>
+          </div>
         </div>
-        <div class="person-copy reveal">
-          <div class="eyebrow">01 — Wie es dazu kam</div>
-          <h2>Drei Stationen, ein <em>roter Faden.</em></h2>
-          <p>
-            Mein Großvater war über Jahre auf Medikamente eingestellt — und wurde immer kraftloser. Niemand schaute auf das Gesamtbild. Das war mein erster Ankerpunkt: das Gefühl, dass viele Menschen zwar versorgt werden, aber nicht verstanden.
-          </p>
-          <p>
-            Bevor ich Heilpraktikerin wurde, habe ich BWL studiert und in der Industrie gearbeitet. Strukturen analysieren. Engpässe finden. Prioritäten setzen. Genau diese Denkweise nehme ich heute in jede Anamnese mit.
-          </p>
-          <p>
-            Dann meine eigene Vorgeschichte: Erschöpfung, Hormonchaos, Sätze wie „Damit müssen Sie leben." Erst alternative Diagnostik hat das Bild zusammengesetzt — und gezeigt, dass es <em>etwas zu tun gibt.</em> Diese Erfahrung trage ich in jede Begleitung.
-          </p>
-          <p>
-            2012 habe ich meine eigene Praxis in Wiesloch eröffnet. Was als persönliche Antwort begann, ist heute meine tägliche Arbeit: die Brücke zwischen <em>„Damit müssen Sie leben"</em> und <em>„Das können Sie tun."</em>
+
+        <!-- Text-Spalte mit Timeline -->
+        <div class="reveal">
+          <div class="eyebrow">01 — Mein Weg</div>
+          <h2 class="h-section">Drei Stationen,<br>ein <em>roter Faden.</em></h2>
+          <p class="lede" style="margin-bottom:48px">
+            Kein geradliniger Weg — aber einer mit Konsequenz. Jede Station hat meine Arbeit geformt.
           </p>
 
-          <blockquote class="person-quote">
+          <div class="timeline">
+
+            <div class="tl-item">
+              <div class="tl-dot">
+                <div class="tl-circle">I</div>
+              </div>
+              <div class="tl-body">
+                <div class="tl-year">Frühe Jahre</div>
+                <h4>Schon immer: der Wunsch zu <em>heilen.</em></h4>
+                <p>Als Kind wollte ich Ärztin werden. Als Sportlerin mit Bio und Sport als Leistungskurse interessierte mich früh die Sportmedizin. Das Leben entschied anders — ich machte eine kaufmännische Ausbildung, studierte BWL und arbeitete über 20 Jahre in der Wirtschaft: erst in der Unternehmensberatung, dann in der Finanzberatung. Aber der Wunsch zu verstehen, was im Körper wirklich vorgeht, blieb.</p>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot">
+                <div class="tl-circle">II</div>
+              </div>
+              <div class="tl-body">
+                <div class="tl-year">Der Wendepunkt</div>
+                <h4>Der eigene Körper als <em>Lehrmeister.</em></h4>
+                <p>Ein chronisches Schulter-Arm-Syndrom, das trotz Operation nicht heilte. Ein Orthopäde, der mir das Ende meiner Sportlaufbahn ankündigte. Und dann: ein kinesiologisch arbeitender Arzt und Akupunktur — und plötzlich konnte ich meinen Sport weiter betreiben. <em>Das war der Moment, der alles veränderte.</em> Seitdem widme ich mein Wissen kontinuierlich der Naturheilkunde.</p>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot">
+                <div class="tl-circle">III</div>
+              </div>
+              <div class="tl-body">
+                <div class="tl-year">Ab 2012</div>
+                <h4>Die Praxis als <em>Antwort.</em></h4>
+                <p>2012 habe ich meine eigene Praxis in Wiesloch eröffnet. Was als persönliche Antwort auf eigene Erfahrungen begann, ist heute meine tägliche Arbeit: die Brücke zwischen <em>„Damit müssen Sie leben"</em> und <em>„Das können Sie tun."</em> — für über 1.500 Menschen.</p>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot">
+                <div class="tl-circle">IV</div>
+              </div>
+              <div class="tl-body">
+                <div class="tl-year">Fortlaufend</div>
+                <h4>Lernen als <em>innerer Antrieb.</em></h4>
+                <p>Nicht weil es zum Beruf gehört — sondern weil mich der Mensch in seinen ganzen Facetten inspiriert. Meine Fort- und Weiterbildungen sind bewusst vielschichtig: fachbezogen (Hormondiagnostik, Regenerationsmedizin, Frauenheilkunde), aber auch Persönlichkeitsentwicklung, Neurobiologie und fachübergreifende Themen, die scheinbar nichts mit Gesundheit zu tun haben. Um als Therapeutin, Mentorin und Coach immer besser zu werden — und mich selbst weiterzuentwickeln.</p>
+              </div>
+            </div>
+
+            <div class="tl-item">
+              <div class="tl-dot">
+                <div class="tl-circle">V</div>
+              </div>
+              <div class="tl-body">
+                <div class="tl-year">Seit 2023</div>
+                <h4>Online als <em>Mentorin.</em></h4>
+                <p>Seit 2023 begleite ich online Frauen in Führungspositionen und arbeite als Business-Mentorin für namhafte Coaches auf dem deutschen Markt. Was beide Welten verbindet: <em>blinde Flecken entdecken, Muster erkennen, strategisch und prozessorientiert den Knoten lösen</em> — ob gesundheitlich oder im Business-Kontext.</p>
+                <a href="https://nicole-lurz.de/" style="display:inline-flex;align-items:center;gap:8px;font-family:'Inter';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:var(--waldgruen);font-weight:600;border-bottom:1px solid var(--apfelgruen);padding-bottom:3px;margin-top:12px">Zur Mentorin-Seite →</a>
+              </div>
+            </div>
+
+          </div>
+
+          <blockquote class="person-quote" style="margin-top:8px">
             Ich denke nicht in Symptomen.<br>
             Ich denke in Systemen.
           </blockquote>
@@ -91,8 +628,19 @@
     </div>
   </section>
 
+  <!-- VIRCHOW-ZITAT BAND -->
+  <section class="quote-band">
+    <div class="quote-band-inner reveal">
+      <span class="quote-mark">"</span>
+      <blockquote>
+        Krankheit beginnt ab dem Zeitpunkt, wo der Organismus sich nicht mehr selbst regulieren kann.
+      </blockquote>
+      <div class="quote-author">Prof. Rudolf Virchow &nbsp;·&nbsp; Begründer der Zellularpathologie</div>
+    </div>
+  </section>
+
   <!-- 02 WAS MICH UNTERSCHEIDET -->
-  <section class="needs">
+  <section class="unterschied">
     <div class="wrap">
       <div class="reveal">
         <div class="eyebrow">02 — Was mich unterscheidet</div>
@@ -100,66 +648,183 @@
           Drei Dinge, die in dieser <em>Kombination selten sind.</em>
         </h2>
         <p class="lede">
-          Kein „Wir machen alles", sondern eine sehr konkrete Schnittmenge aus Strategie, Methodik und Praxis-Erfahrung.
+          Kein „Wir machen alles" — sondern eine sehr konkrete Schnittmenge aus Strategie, Methodik und Praxis-Erfahrung.
         </p>
       </div>
 
-      <div class="needs-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="needs-grid" style="grid-template-columns:repeat(3,1fr);margin-top:48px">
         <article class="need n1 reveal">
           <div class="need-icon">I.</div>
-          <h4>Diplom-Kauffrau vor der Heilpraktikerin</h4>
-          <p>Strategisches Denken, Engpass-Analyse, Priorisierung — bevor ich an Symptomen arbeite, suche ich das Muster. Das ist keine Marketing-Phrase, das ist meine Vorausbildung.</p>
+          <h4>Erst kaufmännische Karriere — dann die Leidenschaft</h4>
+          <p>20 Jahre Wirtschaft: Unternehmensberatung, Finanzberatung, Diplom-Kauffrau. Strukturen analysieren, Engpässe finden, Prioritäten setzen. Strategisches Denken ist keine Marketing-Phrase — das ist meine Superkraft, die mir in die Wiege gelegt wurde. Und die ich heute in jede Anamnese und jedes Mentoring mitbringe.</p>
         </article>
         <article class="need n2 reveal">
           <div class="need-icon">II.</div>
-          <h4>Mentorin für Regenerationsmedizin</h4>
-          <p>Zertifizierte Fachmentorin am Mojo-Institut. Das Drei-Systeme-Modell — Nervensystem, Immunsystem, Stoffwechsel — ist die methodische Grundlage meiner Arbeit.</p>
+          <h4>Mentorin &amp; Heilpraktikerin für Regenerationsmedizin</h4>
+          <p>Zertifiziert als Mentorin vom Mojo-Institut — und seit gut einem Jahr eine der Fachmentorinnen bei der Grundausbildung „Regenerationsmedizin". Das Drei-Systeme-Modell — Nervensystem, Immunsystem, Stoffwechsel — ist die methodische Grundlage.</p>
         </article>
         <article class="need n3 reveal">
           <div class="need-icon">III.</div>
-          <h4>14+ Jahre Praxis · 1.500+ Patienten</h4>
-          <p>Mustererkennung, die man nicht aus Lehrbüchern bekommt. Hormone, Schilddrüse, chronische Erkrankungen, Frauengesundheit, Kinder — alles aus täglicher Sprechstunde.</p>
+          <h4>14+ Jahre Praxis · 1.500+ begleitete Menschen</h4>
+          <p>Mustererkennung, die man nicht aus Lehrbüchern bekommt. Hormone, Schilddrüse, chronische Erkrankungen, Frauengesundheit, Kinder — alles aus täglicher Sprechstunde und Mentoring-Arbeit.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 03 FORTBILDUNGEN & MITGLIEDSCHAFTEN -->
-  <section class="forwhom">
+  <!-- FOTO-BAND -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;height:clamp(220px,30vw,380px);overflow:hidden">
+    <div style="overflow:hidden;position:relative">
+      <img src="/nicole_lurz_portrait.jpg"
+           alt="Nicole Lurz in der Praxis"
+           style="width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;filter:brightness(0.85) saturate(0.9)" />
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,90,46,0.55),transparent 60%)"></div>
+      <div style="position:absolute;bottom:32px;left:36px;color:#F2F6F2;font-family:'Spectral',serif;font-style:italic;font-size:clamp(1.1rem,1.8vw,1.5rem);line-height:1.35;max-width:300px">
+        „Die meisten meiner Patienten haben vorher schon alles versucht."
+      </div>
+    </div>
+    <div style="background:var(--waldgruen);display:flex;flex-direction:column;justify-content:center;padding:clamp(28px,5vw,60px)">
+      <div style="font-family:'Inter';font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--apfelgruen);font-weight:600;margin-bottom:20px">Mein Ansatz</div>
+      <p style="font-family:'Spectral',serif;font-style:italic;font-size:clamp(1.05rem,1.6vw,1.4rem);color:#F2F6F2;line-height:1.5;margin-bottom:0">
+        Einer meiner größten Schwerpunkte: <em style="color:var(--apfelgruen)">blinde Flecken entdecken</em> und den Knoten strategisch lösen — ob in der Gesundheit oder im Business.
+      </p>
+    </div>
+  </div>
+
+  <!-- 03 FORTBILDUNGEN & ZERTIFIKATE -->
+  <section class="certs">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">03 — Fortbildungen &amp; Mitgliedschaften</div>
-        <h2 class="h-section">Aus- und <em>Weiterbildung.</em></h2>
-        <p class="lede">
-          Heilpraktiker-Tätigkeit ist Lernen — kontinuierlich, weil sich Forschung und Verständnis weiterentwickeln. Eine Auswahl der Stationen:
-        </p>
+        <div class="eyebrow">03 — Aus- und Weiterbildung</div>
+        <h2 class="h-section">
+          14 Jahre Lernen.<br>
+          <em>Eine Auswahl.</em>
+        </h2>
       </div>
 
-      <div class="forwhom-grid" style="margin-top:32px">
-        <div class="forwhom-col yes reveal">
-          <h3>Ausbildung &amp; Zertifizierungen</h3>
-          <ul class="forwhom-list">
-            <li>Heilpraktikerin · staatlich amtsärztlich überprüft (2012)</li>
-            <li>Diplom-Kauffrau · Studium der Betriebswirtschaftslehre</li>
-            <li>Mentorin für Regenerationsmedizin · Mojo-Institut <span class="placeholder" style="display:none">[FÜLLEN: Jahr]</span></li>
-            <li>Bioresonanz-Therapie · <span class="placeholder">[FÜLLEN: Ausbildungsstätte und Jahr]</span></li>
-            <li><span class="placeholder">[FÜLLEN: weitere Fortbildungen — Hormondiagnostik, Phytotherapie, Mikronährstoffe, Kinderheilkunde]</span></li>
-          </ul>
-        </div>
-        <div class="forwhom-col yes reveal">
-          <h3>Mitgliedschaften &amp; Netzwerk</h3>
-          <ul class="forwhom-list">
-            <li><span class="placeholder">[FÜLLEN: Berufsverband, z. B. Verband Deutscher Heilpraktiker]</span></li>
-            <li>Fachmentoren-Netzwerk · Regenerationsmedizin</li>
-            <li><span class="placeholder">[FÜLLEN: weitere Netzwerke / Qualitätszirkel]</span></li>
-          </ul>
+      <div class="certs-intro reveal">
+        <p class="lede" style="margin-bottom:0">
+          Nicht weil es zum Beruf gehört — sondern weil mich der Mensch in all seinen Facetten inspiriert. Fachbezogen, fachübergreifend, Persönlichkeitsentwicklung, Neurobiologie. Um als Therapeutin, Mentorin und Coach immer besser zu werden.
+        </p>
+        <div style="text-align:right">
+          <div class="certs-big-num">12<span>Zertifikate &amp; Ausbildungen</span></div>
         </div>
       </div>
+
+      <div class="cert-grid">
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="cert-title">Heilpraktikerin</div>
+          <div class="cert-sub">Staatlich amtsärztlich überprüft · 2012</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div class="cert-title">Diplom-Kauffrau (BWL)</div>
+          <div class="cert-sub">20+ Jahre Wirtschaft · Unternehmens- &amp; Finanzberatung</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="cert-title">Fachmentorin Regenerationsmedizin</div>
+          <div class="cert-sub">Mojo-Institut · Grundausbildung</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="cert-title">Immunsignatur-Coach</div>
+          <div class="cert-sub">Mojo-Institut</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+          </div>
+          <div class="cert-title">Schmerzspezialistin</div>
+          <div class="cert-sub">nach Liebscher &amp; Bracht</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <div class="cert-title">Immuntrainerin</div>
+          <div class="cert-sub">Zertifizierte Fachausbildung</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+          </div>
+          <div class="cert-title">Therapeutische Frauenmassage</div>
+          <div class="cert-sub">Körpertherapeutische Ausbildung</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div class="cert-title">Frauenheilkunde</div>
+          <div class="cert-sub">nach Margret Madejsky</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="cert-title">Master of emotional Training &amp; Leading</div>
+          <div class="cert-sub">Zertifizierte Ausbildung</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="cert-title">Personal Brand Consultant</div>
+          <div class="cert-sub">Innovation mit den Archetypen</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <div class="cert-title">Mastery of Self Expression</div>
+          <div class="cert-sub">Persönlichkeitsentwicklung</div>
+        </div>
+
+        <div class="cert-item reveal">
+          <div class="cert-icon">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div class="cert-title">Bioresonanz-Therapie</div>
+          <div class="cert-sub">Gerätegestützte Diagnostik</div>
+        </div>
+
+      </div>
+
+      <div class="memberships reveal">
+        <div class="ml">Netzwerk</div>
+        <div class="memberships-list">
+          <span>Fachmentoren-Netzwerk · Regenerationsmedizin</span>
+          <span>Mojo-Institut</span>
+          <span>Liebscher &amp; Bracht · Schmerzspezialistinnen</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- 04 WOFÜR ICH NICHT STEHE -->
-  <section class="forwhom" style="background:var(--offwhite)">
+  <!-- 04 HALTUNG -->
+  <section class="haltung">
     <div class="wrap">
       <div class="reveal">
         <div class="eyebrow">04 — Haltung</div>
@@ -172,14 +837,15 @@
         </p>
       </div>
 
-      <div class="forwhom-grid">
+      <div class="forwhom-grid" style="margin-top:40px">
         <div class="forwhom-col yes reveal">
           <h3>Wofür ich stehe</h3>
           <ul class="forwhom-list">
             <li>Medizinische Tiefe statt oberflächlicher Beratung</li>
             <li>Strategische Priorisierung — drei Hebel, nicht fünfzig</li>
             <li>Ehrliche Sprache, auch wenn sie unbequem ist</li>
-            <li>Naturheilkundliche Begleitung als Ergänzung der ärztlichen Versorgung</li>
+            <li>Gute Heilpraktiker-Arbeit und Mentoring als Ergänzung zum akut-medizinischen System</li>
+            <li>Medizinisches Mentoring — Klarheit mit dem Ziel, dass Sie Ihre Gesundheit und Ihr Leben wieder selbst in die Hand nehmen</li>
             <li>Würde und Augenhöhe — Sie sind keine Diagnose</li>
           </ul>
         </div>
@@ -189,11 +855,31 @@
             <li>Wunderversprechen oder „garantierte" Ergebnisse</li>
             <li>Esoterik, Mondphasen, Lager-Ideologien</li>
             <li>Schulmedizin vs. Naturheilkunde als Glaubenskrieg</li>
-            <li>Fünfzig Empfehlungen auf einmal — das ist keine Behandlung, das ist Aktionismus</li>
-            <li>Marketing-Floskeln, „Wohlfühl"-Versprechen, schnelle Lösungen</li>
+            <li>Fünfzig Empfehlungen auf einmal — das ist kein Plan, das ist Aktionismus</li>
+            <li>Marketing-Floskeln und schnelle Lösungen</li>
           </ul>
         </div>
       </div>
+
+      <!-- drei Positionierungsblöcke -->
+      <div class="forwhom-asides" style="margin-top:32px">
+        <div class="forwhom-aside reveal">
+          <span class="aside-num">I.</span>
+          <h4>Ergänzung, kein <em>Gegensatz</em></h4>
+          <p>Ich ergänze — ich ersetze nicht. Gute Heilpraktiker-Arbeit und Mentoring schließen das akut-medizinische System ein, nicht aus.</p>
+        </div>
+        <div class="forwhom-aside reveal">
+          <span class="aside-num">II.</span>
+          <h4>Klarheit statt <em>Rätselraten</em></h4>
+          <p>Ich erkläre, was ich tue und warum. Keine Wunderheilungen, keine Geheimrezepte — nur eine nachvollziehbare Strategie.</p>
+        </div>
+        <div class="forwhom-aside reveal">
+          <span class="aside-num">III.</span>
+          <h4>Sie entscheiden <em>selbst</em></h4>
+          <p>Informierte Eigenverantwortung ist kein Buzzword für mich. Es ist das Ziel jeder Begleitung.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -209,7 +895,7 @@
         Im CheckIn klären wir in 30 Minuten, ob mein Ansatz zu Ihrer Situation passt — und welcher Weg für Sie der richtige ist.
       </p>
       <div class="checkin-ctas reveal">
-        <a href="/termin-ablauf/" class="btn btn-sun">Termin &amp; Ablauf — 75 € CheckIn</a>
+        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun">CheckIn buchen — 30 Min · 75 €</a>
         <a href="/regenerationsanalyse/" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">Regenerationsanalyse ansehen</a>
       </div>
       <div class="checkin-meta reveal">
@@ -264,5 +950,14 @@
 </main>
 
 <script src="/assets/script.js"></script>
+<script>
+  /* Scroll-Reveal */
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  /* Jahr */
+  const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
