@@ -12,18 +12,696 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/assets/style.css" />
 
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon-praxis.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-<!-- Lemniscus LemmyFlansch · Floating-Widget -->
 <script async
         id="lemmyFlansch"
         data-token="bb02b7c7-46b8-4f56-953d-520e52d854ae"
         data-floating-side="right"
         src="https://my.lemniscus.de/js/lemmyFlansch.js"><!-- nicht löschen --></script>
+
+<style>
+/* ===== SPRECHSTUNDE PAGE — marine-blau accent ===== */
+
+/* Farb-Override: Sprechstunde nutzt sonnengelb (marine #1B4C93) als primäre Akzentfarbe */
+:root {
+  --sp-blau: #1B4C93;
+  --sp-blau-soft: rgba(27,76,147,0.12);
+  --sp-blau-mid: rgba(27,76,147,0.22);
+  --sp-blau-line: rgba(27,76,147,0.18);
+}
+
+/* ===== HERO — Split ===== */
+.sp-hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  background: var(--tannenmoos);
+}
+.sp-hero-text {
+  padding: 160px 6vw 80px 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.sp-hero-text::before {
+  content: '';
+  position: absolute;
+  top: -120px; left: -160px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(27,76,147,0.28), transparent 70%);
+  pointer-events: none;
+}
+.sp-hero-text .eyebrow {
+  color: rgba(242,246,242,0.55);
+  border-color: rgba(242,246,242,0.18);
+  margin-bottom: 28px;
+}
+.sp-hero h1 {
+  font-family: 'Spectral', serif;
+  font-weight: 400;
+  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  color: var(--papier);
+  margin-bottom: 28px;
+}
+.sp-hero h1 em {
+  font-style: italic;
+  color: #7CB9D6;
+}
+.sp-hero .lede {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  line-height: 1.7;
+  color: rgba(242,246,242,0.78);
+  max-width: 500px;
+  margin-bottom: 44px;
+}
+.sp-hero-badges {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+.sp-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(27,76,147,0.25);
+  border: 1px solid rgba(124,185,214,0.3);
+  border-radius: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(242,246,242,0.85);
+}
+.sp-hero-badge svg {
+  width: 14px; height: 14px;
+  stroke: #7CB9D6;
+}
+.sp-hero-ctas {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.sp-hero-image {
+  position: relative;
+  overflow: hidden;
+}
+.sp-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+}
+.sp-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--tannenmoos) 0%,
+    transparent 30%
+  );
+}
+
+/* ===== STAT BAR ===== */
+.sp-stat-bar {
+  background: var(--sp-blau);
+  padding: 0 6vw;
+}
+.sp-stat-bar-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: flex;
+  align-items: stretch;
+}
+.sp-stat {
+  flex: 1;
+  padding: 28px 24px;
+  border-right: 1px solid rgba(242,246,242,0.15);
+  text-align: center;
+}
+.sp-stat:last-child { border-right: none; }
+.sp-stat .num {
+  font-family: 'Spectral', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--papier);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.sp-stat .lbl {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(242,246,242,0.6);
+}
+
+/* ===== ABSCHNITT-HEADER ===== */
+.section-header {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.section-header .eyebrow {
+  margin-bottom: 16px;
+}
+.section-header .h-section {
+  margin-bottom: 18px;
+}
+.section-header .lede {
+  max-width: 620px;
+}
+
+/* ===== ZUGANG — Two-path cards ===== */
+.sp-zugang {
+  padding: 100px 6vw 80px;
+  background: var(--papier);
+}
+.sp-zugang-intro {
+  max-width: 1240px;
+  margin: 0 auto 56px;
+}
+.sp-routes {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--sp-blau-line);
+  border: 1px solid var(--sp-blau-line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.sp-route {
+  background: var(--papier);
+  padding: 48px 44px 44px;
+  position: relative;
+}
+.sp-route-icon {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 28px;
+  position: relative;
+}
+.sp-route-icon svg { width: 26px; height: 26px; }
+.sp-route.new .sp-route-icon {
+  background: var(--sp-blau-soft);
+}
+.sp-route.new .sp-route-icon svg { stroke: var(--sp-blau); }
+.sp-route.existing .sp-route-icon {
+  background: rgba(61,90,46,0.1);
+}
+.sp-route.existing .sp-route-icon svg { stroke: var(--waldgruen); }
+.sp-route-tag {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+.sp-route.new .sp-route-tag {
+  background: var(--sp-blau-soft);
+  color: var(--sp-blau);
+}
+.sp-route.existing .sp-route-tag {
+  background: rgba(61,90,46,0.1);
+  color: var(--waldgruen);
+}
+.sp-route h3 {
+  font-family: 'Spectral', serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--tinte);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+.sp-route h3 em { font-style: italic; }
+.sp-route > p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.97rem;
+  line-height: 1.7;
+  color: var(--tinte-soft);
+  margin-bottom: 32px;
+}
+.sp-route .btn { display: inline-flex; align-items: center; gap: 8px; }
+.sp-route-divider {
+  display: none; /* hidden on desktop */
+}
+
+/* ===== ANLÄSSE — visual icon cards ===== */
+.sp-anlaesse {
+  padding: 100px 6vw;
+  background: var(--offwhite);
+}
+.sp-anlaesse-grid {
+  max-width: 1240px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.sp-anlasse-card {
+  background: var(--papier);
+  border-radius: 14px;
+  padding: 32px 28px;
+  border: 1px solid rgba(27,76,147,0.1);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sp-anlasse-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--sp-blau);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.sp-anlasse-card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(27,76,147,0.1); }
+.sp-anlasse-card:hover::before { opacity: 1; }
+.sp-anlasse-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--sp-blau-soft);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.sp-anlasse-icon svg { width: 22px; height: 22px; stroke: var(--sp-blau); }
+.sp-anlasse-card h4 {
+  font-family: 'Spectral', serif;
+  font-size: 1.12rem;
+  font-weight: 500;
+  color: var(--tinte);
+  margin-bottom: 10px;
+}
+.sp-anlasse-card p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--tinte-soft);
+}
+
+/* ===== FRAUEN-GESUNDHEIT — Photo band ===== */
+.sp-frauengesundheit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 480px;
+  overflow: hidden;
+}
+.sp-fg-image {
+  position: relative;
+  overflow: hidden;
+}
+.sp-fg-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+.sp-fg-text {
+  background: var(--sp-blau);
+  padding: 80px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sp-fg-text .eyebrow {
+  color: rgba(242,246,242,0.5);
+  border-color: rgba(242,246,242,0.15);
+  margin-bottom: 22px;
+}
+.sp-fg-text h2 {
+  font-family: 'Spectral', serif;
+  font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+  font-weight: 400;
+  color: var(--papier);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+.sp-fg-text h2 em { font-style: italic; color: #7CB9D6; }
+.sp-fg-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: rgba(242,246,242,0.78);
+  margin-bottom: 16px;
+}
+.sp-fg-list {
+  list-style: none;
+  padding: 0; margin: 0 0 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sp-fg-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: rgba(242,246,242,0.82);
+  line-height: 1.5;
+}
+.sp-fg-list li::before {
+  content: '';
+  display: block;
+  width: 16px; height: 16px;
+  min-width: 16px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' stroke='%237CB9D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='3 8 6 11 13 4'/%3E%3C/svg%3E") center/contain no-repeat;
+  margin-top: 2px;
+}
+
+/* ===== VERGLEICH ===== */
+.sp-vergleich {
+  padding: 100px 6vw;
+  background: var(--papier);
+}
+.sp-compare-cards {
+  max-width: 1240px;
+  margin: 48px auto 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--sp-blau-line);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.sp-compare-card {
+  background: var(--papier);
+  padding: 48px 44px;
+}
+.sp-compare-card.active {
+  background: var(--sp-blau);
+}
+.sp-compare-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(27,76,147,0.12);
+}
+.sp-compare-card.active .sp-compare-card-header {
+  border-bottom-color: rgba(242,246,242,0.15);
+}
+.sp-compare-card-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sp-compare-card .sp-compare-card-icon {
+  background: var(--sp-blau-soft);
+}
+.sp-compare-card .sp-compare-card-icon svg { stroke: var(--sp-blau); }
+.sp-compare-card.active .sp-compare-card-icon {
+  background: rgba(242,246,242,0.15);
+}
+.sp-compare-card.active .sp-compare-card-icon svg { stroke: #7CB9D6; }
+.sp-compare-card-icon svg { width: 22px; height: 22px; }
+.sp-compare-card-title {
+  font-family: 'Spectral', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--tinte);
+  line-height: 1.2;
+}
+.sp-compare-card.active .sp-compare-card-title { color: var(--papier); }
+.sp-compare-card-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: var(--tinte-soft);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+.sp-compare-card.active .sp-compare-card-sub { color: rgba(242,246,242,0.6); }
+.sp-compare-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.sp-compare-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(27,76,147,0.08);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: var(--tinte);
+  line-height: 1.45;
+}
+.sp-compare-card.active .sp-compare-row {
+  border-bottom-color: rgba(242,246,242,0.1);
+  color: rgba(242,246,242,0.85);
+}
+.sp-compare-row:last-child { border-bottom: none; }
+.sp-compare-row::before {
+  content: '';
+  display: block;
+  width: 18px; height: 18px;
+  min-width: 18px;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' stroke='%231B4C93' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='3 9 7 13 15 5'/%3E%3C/svg%3E") center/contain no-repeat;
+  margin-top: 1px;
+}
+.sp-compare-card.active .sp-compare-row::before {
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 18 18' fill='none' stroke='%237CB9D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='3 9 7 13 15 5'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.sp-compare-foot {
+  max-width: 1240px;
+  margin: 24px auto 0;
+  text-align: center;
+  font-family: 'Spectral', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--tinte-soft);
+}
+
+/* ===== METHODEN ===== */
+.sp-methoden {
+  padding: 100px 6vw;
+  background: var(--offwhite);
+}
+.sp-methoden-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.sp-methoden-grid {
+  margin-top: 52px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.sp-methode {
+  background: var(--papier);
+  border-radius: 14px;
+  padding: 32px 28px 28px;
+  border: 1px solid rgba(27,76,147,0.08);
+  border-top: 3px solid transparent;
+  transition: border-top-color 0.2s;
+}
+.sp-methode:hover { border-top-color: var(--sp-blau); }
+.sp-methode-icon {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  background: var(--sp-blau-soft);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+}
+.sp-methode-icon svg { width: 20px; height: 20px; stroke: var(--sp-blau); }
+.sp-methode:nth-child(2) .sp-methode-icon { background: rgba(61,90,46,0.1); }
+.sp-methode:nth-child(2) .sp-methode-icon svg { stroke: var(--waldgruen); }
+.sp-methode:nth-child(3) .sp-methode-icon { background: rgba(122,143,78,0.12); }
+.sp-methode:nth-child(3) .sp-methode-icon svg { stroke: var(--salbei); }
+.sp-methode:nth-child(4) .sp-methode-icon { background: rgba(27,76,147,0.08); }
+.sp-methode:nth-child(5) .sp-methode-icon { background: rgba(61,90,46,0.08); }
+.sp-methode:nth-child(5) .sp-methode-icon svg { stroke: var(--waldgruen); }
+.sp-methode:nth-child(6) .sp-methode-icon { background: rgba(122,143,78,0.1); }
+.sp-methode:nth-child(6) .sp-methode-icon svg { stroke: var(--salbei); }
+.sp-methode h4 {
+  font-family: 'Spectral', serif;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--tinte);
+  margin-bottom: 10px;
+}
+.sp-methode > p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--tinte-soft);
+  margin-bottom: 16px;
+}
+.sp-methode ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.sp-methode ul li {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  color: var(--tinte-soft);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.4;
+}
+.sp-methode ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--sp-blau);
+  opacity: 0.5;
+}
+
+/* Diagnostik Photo band */
+.sp-diagnostik-band {
+  max-width: 1240px;
+  margin: 52px auto 0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  min-height: 320px;
+}
+.sp-diagnostik-image img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.sp-diagnostik-text {
+  background: var(--sp-blau);
+  padding: 52px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sp-diagnostik-text .eyebrow {
+  color: rgba(242,246,242,0.5);
+  border-color: rgba(242,246,242,0.15);
+  margin-bottom: 18px;
+}
+.sp-diagnostik-text h3 {
+  font-family: 'Spectral', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--papier);
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+.sp-diagnostik-text h3 em { font-style: italic; color: #7CB9D6; }
+.sp-diagnostik-text p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: rgba(242,246,242,0.75);
+}
+
+/* ===== INVESTITION ===== */
+.sp-investition {
+  padding: 100px 6vw;
+  background: var(--papier);
+}
+.sp-investition-inner {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.sp-inv-note {
+  margin-top: 40px;
+  padding: 32px 36px;
+  background: var(--sp-blau-soft);
+  border: 1px solid var(--sp-blau-line);
+  border-radius: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--tinte);
+}
+.sp-inv-note strong {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sp-blau);
+  margin-bottom: 10px;
+}
+.sp-inv-note a { color: var(--sp-blau); }
+.sp-inv-aside {
+  padding-top: 12px;
+}
+.sp-inv-aside h3 {
+  font-family: 'Spectral', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--tinte);
+  margin-bottom: 16px;
+}
+.sp-inv-aside p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--tinte-soft);
+  margin-bottom: 24px;
+}
+.sp-inv-aside .btn { display: inline-flex; align-items: center; gap: 8px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .sp-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .sp-hero-image {
+    height: 300px;
+    order: -1;
+  }
+  .sp-hero-image::after {
+    background: linear-gradient(to bottom, transparent 60%, var(--tannenmoos) 100%);
+  }
+  .sp-hero-text { padding: 60px 5vw 60px; }
+  .sp-routes,
+  .sp-compare-cards,
+  .sp-frauengesundheit,
+  .sp-investition-inner,
+  .sp-diagnostik-band { grid-template-columns: 1fr; }
+  .sp-anlaesse-grid,
+  .sp-methoden-grid { grid-template-columns: 1fr 1fr; }
+  .sp-stat-bar-inner { flex-wrap: wrap; }
+  .sp-stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(242,246,242,0.12); }
+  .sp-fg-text { padding: 52px 36px; }
+  .sp-route { padding: 36px 28px; }
+}
+@media (max-width: 600px) {
+  .sp-anlaesse-grid,
+  .sp-methoden-grid { grid-template-columns: 1fr; }
+  .sp-compare-card { padding: 32px 24px; }
+  .sp-route { padding: 32px 24px; }
+  .sp-diagnostik-text { padding: 36px 28px; }
+}
+</style>
 </head>
 <body>
 
@@ -46,229 +724,373 @@
 
 <main id="top">
 
-  <!-- PAGE-HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner reveal">
+  <!-- HERO — Split -->
+  <section class="sp-hero">
+    <div class="sp-hero-text reveal">
       <div class="eyebrow">Akut &amp; gezielt</div>
       <h1>Naturheilkundliche <em>Sprechstunde.</em></h1>
       <p class="lede">
-        Für gezielte Themen — nach einem CheckIn oder für Patientinnen, die ich bereits begleite.
+        Für ein konkretes Thema — nach dem CheckIn oder für Menschen, die ich bereits begleite. Gezielt, strukturiert, mit Methode.
       </p>
+      <div class="sp-hero-badges">
+        <span class="sp-hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Einzel- &amp; Folgetermine
+        </span>
+        <span class="sp-hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.62 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.57 5.57l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Vor Ort oder Online
+        </span>
+        <span class="sp-hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          Privatrechnung · GebüH
+        </span>
+      </div>
+      <div class="sp-hero-ctas">
+        <a href="/termin-ablauf/" class="btn btn-primary">CheckIn buchen — 75 €</a>
+        <a href="#zugang" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.3);color:rgba(242,246,242,0.8)">Wie komme ich rein?</a>
+      </div>
+    </div>
+    <div class="sp-hero-image">
+      <img src="/sprechstunde/img/nicole_lurz_gespraech_ki_generiert.png"
+           alt="Nicole Lurz im naturheilkundlichen Gespräch"
+           loading="eager" />
     </div>
   </section>
 
-  <!-- 01 ZUGANG ZUR SPRECHSTUNDE — Patch 4 -->
-  <section class="diff">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">01 — Zugang</div>
-        <h2 class="h-section">
-          So kommen Sie in die <em>Sprechstunde.</em>
-        </h2>
-        <p class="lede">
-          Die Sprechstunde ist gezielte Einzel-Begleitung — sie braucht eine kurze gemeinsame Einordnung vorab. Daher gibt es zwei Wege hinein.
-        </p>
+  <!-- STAT BAR -->
+  <div class="sp-stat-bar">
+    <div class="sp-stat-bar-inner">
+      <div class="sp-stat reveal">
+        <div class="num">Ein Thema</div>
+        <div class="lbl">Konkret &amp; gezielt</div>
       </div>
+      <div class="sp-stat reveal">
+        <div class="num">Anamnese</div>
+        <div class="lbl">Struktur vor Aktionismus</div>
+      </div>
+      <div class="sp-stat reveal">
+        <div class="num">GebüH</div>
+        <div class="lbl">Privatrechnung nach Aufwand</div>
+      </div>
+      <div class="sp-stat reveal">
+        <div class="num">6 Methoden</div>
+        <div class="lbl">Gezielt eingesetzt</div>
+      </div>
+    </div>
+  </div>
 
-      <div class="access reveal">
-        <h3>Die Sprechstunde ist <em>kein offener Erstkontakt-Kanal.</em></h3>
+  <!-- 01 ZUGANG -->
+  <section class="sp-zugang" id="zugang">
+    <div class="sp-zugang-intro section-header reveal">
+      <div class="eyebrow">01 — Zugang</div>
+      <h2 class="h-section">So kommen Sie in die <em>Sprechstunde.</em></h2>
+      <p class="lede">
+        Die Sprechstunde ist kein offener Erstkontakt-Kanal — sie ist gezielte Begleitung. Das schützt Ihre Zeit und sorgt dafür, dass Sie die richtige Tür öffnen.
+      </p>
+    </div>
+
+    <div class="sp-routes reveal">
+      <div class="sp-route new">
+        <div class="sp-route-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        </div>
+        <div class="sp-route-tag">Neu in der Praxis</div>
+        <h3>Starten Sie mit dem <em>CheckIn.</em></h3>
         <p>
-          Sie ist gezielte Einzel-Begleitung für Patientinnen, deren Thema ich bereits einordnen kann — oder bei denen wir gemeinsam geklärt haben, dass sie hier richtig sind. Das schützt Ihre Zeit, meine Aufmerksamkeit und sorgt dafür, dass Sie die richtige Tür öffnen.
+          30 Minuten, 75 €, online oder vor Ort. Wir klären gemeinsam, ob die Sprechstunde der richtige Rahmen ist — oder ob die Regenerationsanalyse besser passt. Kein Termin ohne gemeinsame Einordnung vorab.
         </p>
-
-        <div class="access-routes">
-          <div class="access-route">
-            <div class="lbl">Wenn Sie neu sind</div>
-            <p>Starten Sie mit einem CheckIn — 75 €, 30 Minuten, online oder vor Ort. Wir klären in Ruhe, ob die Sprechstunde der richtige Rahmen für Ihr Thema ist — oder ob die Regenerationsanalyse besser passt.</p>
-          </div>
-          <div class="access-route b">
-            <div class="lbl">Wenn Sie schon Patientin sind</div>
-            <p>Buchen Sie direkt — Sie kennen den Weg. Folgetermine in laufender Begleitung, akute Themen, Beratungstermine zu konkreten Fragestellungen.</p>
-          </div>
+        <a href="/termin-ablauf/" class="btn btn-primary">
+          CheckIn buchen — 75 €
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="sp-route existing">
+        <div class="sp-route-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-
-        <div class="access-cta-row">
-          <a href="/termin-ablauf/" class="btn btn-primary">CheckIn buchen — 75 €</a>
-          <a href="/termin-ablauf/" class="btn btn-ghost">Direkt-Termin · Bestandspatientin</a>
-        </div>
+        <div class="sp-route-tag">Bereits Patientin/Patient</div>
+        <h3>Direkt-Termin für <em>Bestandspatienten.</em></h3>
+        <p>
+          Sie kennen den Weg. Folgetermine in laufender Begleitung, akute Themen zwischen zwei Hauptterminen, konkrete Beratungsfragen — buchen Sie direkt, ohne Umweg über den CheckIn.
+        </p>
+        <a href="/termin-ablauf/" class="btn btn-ghost">
+          Direkt-Termin buchen
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- 02 WOFÜR DIE SPRECHSTUNDE GEMACHT IST -->
-  <section class="needs">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">02 — Anlässe</div>
-        <h2 class="h-section">
-          Wofür die Sprechstunde <em>gemacht ist.</em>
-        </h2>
-        <p class="lede">
-          Konkrete Anlässe, bei denen die Sprechstunde der richtige Rahmen ist:
-        </p>
+  <!-- 02 ANLÄSSE -->
+  <section class="sp-anlaesse">
+    <div class="section-header reveal" style="max-width:1240px;margin:0 auto">
+      <div class="eyebrow">02 — Anlässe</div>
+      <h2 class="h-section">Wofür die Sprechstunde <em>gemacht ist.</em></h2>
+      <p class="lede">Konkrete Themen, bei denen ein gezielter Termin mehr bringt als ein allgemeiner Einstieg.</p>
+    </div>
+
+    <div class="sp-anlaesse-grid">
+
+      <div class="sp-anlasse-card reveal">
+        <div class="sp-anlasse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <h4>Akute Beschwerden</h4>
+        <p>Wenn etwas Konkretes los ist und schnell naturheilkundlich eingeordnet werden muss — ohne Warteschleife auf einen Haupttermin.</p>
       </div>
 
-      <ul class="check-list yes reveal" style="max-width:880px;margin-top:32px">
-        <li><strong>Akute Themen</strong> — wenn etwas Konkretes los ist und schnell eingeordnet werden muss.</li>
-        <li><strong>Beratungstermine</strong> — z. B. zu Hormonen, Wechseljahren, Schilddrüse, Zyklusthemen.</li>
-        <li><strong>Allergie- und Histamin-Themen</strong> — Heuschnupfen, Unverträglichkeiten, Reaktionsmuster.</li>
-        <li><strong>Mikronährstoff-Beratung &amp; Phytotherapie</strong> — gezielte Empfehlungen statt Sammelsurium.</li>
-        <li><strong>Folgetermine in laufender Begleitung</strong> — Reviews, Anpassungen, Vertiefungen.</li>
-      </ul>
+      <div class="sp-anlasse-card reveal">
+        <div class="sp-anlasse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <h4>Hormone &amp; Wechseljahre</h4>
+        <p>Zyklusstörungen, Östrogendominanz, Progesteron, Wechseljahresbeschwerden, Schilddrüse — strukturiert eingeordnet statt ausgehalten.</p>
+      </div>
+
+      <div class="sp-anlasse-card reveal">
+        <div class="sp-anlasse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10 10 10 0 0 1-10-10A10 10 0 0 1 12 2"/><path d="M12 8v4l3 2"/><path d="M8.5 16.5a4 4 0 0 0 7 0"/></svg>
+        </div>
+        <h4>Allergie &amp; Histamin</h4>
+        <p>Heuschnupfen, Nahrungsmittelunverträglichkeiten, Histaminreaktionen — Reaktionsmuster verstehen und naturheilkundlich angehen.</p>
+      </div>
+
+      <div class="sp-anlasse-card reveal">
+        <div class="sp-anlasse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="3" height="6"/><rect x="10.5" y="9" width="3" height="10"/><rect x="18" y="5" width="3" height="14"/><path d="M3 20h18"/></svg>
+        </div>
+        <h4>Mikronährstoffe</h4>
+        <p>Gezielte Supplementierung auf Basis von Labor und Anamnese — drei priorisierte Hebel statt fünfzig Empfehlungen auf einmal.</p>
+      </div>
+
+      <div class="sp-anlasse-card reveal">
+        <div class="sp-anlasse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-9 9-9 1.5 0 3 .5 4 1.5 0 4-1 11-6 14.5z"/><path d="M11 20c0-3 1-7 3-9"/></svg>
+        </div>
+        <h4>Phytotherapie</h4>
+        <p>Pflanzliche Therapie — abgestimmt auf Ihre Konstitution, mit Blick auf Wechselwirkungen mit bestehender Medikation.</p>
+      </div>
+
+      <div class="sp-anlasse-card reveal">
+        <div class="sp-anlasse-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        </div>
+        <h4>Folgetermine &amp; Reviews</h4>
+        <p>Laufende Begleitung: Anpassungen, Vertiefungen, Zwischenchecks — wenn ein Hauptthema in Bearbeitung ist und ein gezielter Termin gebraucht wird.</p>
+      </div>
+
     </div>
   </section>
 
-  <!-- 03 ABGRENZUNG ZUR REGENERATIONSANALYSE — Patch 4 -->
-  <section class="diff">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">03 — Abgrenzung</div>
-        <h2 class="h-section">
-          Sprechstunde oder <em>Regenerationsanalyse?</em>
-        </h2>
-        <p class="lede">
-          Beide haben einen klaren Platz in der Praxis — aber sie sind nicht das Gleiche.
-        </p>
-      </div>
-
-      <div class="compare reveal">
-        <div class="compare-head a">Sprechstunde</div>
-        <div class="compare-head b">Regenerationsanalyse</div>
-
-        <div class="compare-row a">Ein konkretes Thema</div>
-        <div class="compare-row b"><strong>Das Gesamtbild</strong></div>
-
-        <div class="compare-row a">Akut oder gezielt</div>
-        <div class="compare-row b"><strong>Grundlegend und systemisch</strong></div>
-
-        <div class="compare-row a">Einzel- oder Folgetermin</div>
-        <div class="compare-row b"><strong>90 Minuten</strong> mit Befund und 12-Wochen-Fahrplan</div>
-
-        <div class="compare-row a">Nach CheckIn oder als Bestandspatientin</div>
-        <div class="compare-row b"><strong>Direkt buchbar</strong></div>
-
-        <div class="compare-row a">Nach Aufwand · GebüH</div>
-        <div class="compare-row b"><strong>Festpreis</strong> — aktuell ab 330 €</div>
-      </div>
-
-      <p class="compare-foot reveal">
-        <em>Beides hat seinen Platz — aber nicht gleichzeitig.</em>
+  <!-- FRAUENGESUNDHEIT — Photo band -->
+  <section class="sp-frauengesundheit reveal">
+    <div class="sp-fg-image">
+      <img src="/sprechstunde/img/ganzheitliche-frauengesundheit-pubertaet-bis-wechseljahre.png"
+           alt="Ganzheitliche Frauengesundheit" loading="lazy" />
+    </div>
+    <div class="sp-fg-text">
+      <div class="eyebrow">Schwerpunkt</div>
+      <h2>Frauengesundheit — von der <em>Pubertät bis zu den Wechseljahren.</em></h2>
+      <p>
+        Hormonsystem, Zyklusgesundheit, Östrogendominanz, Schilddrüse — das ist das Gebiet, in dem viele meiner Patientinnen und Patienten mit dem System in eine Sackgasse geraten sind.
       </p>
+      <ul class="sp-fg-list">
+        <li>Zyklusstörungen &amp; PMS</li>
+        <li>Wechseljahresbeschwerden</li>
+        <li>Schilddrüsendysbalancen</li>
+        <li>Östrogendominanz &amp; Progesteronmangel</li>
+        <li>Hormonell bedingte Erschöpfung</li>
+      </ul>
+      <a href="/termin-ablauf/" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.3);color:rgba(242,246,242,0.85);align-self:flex-start">
+        CheckIn buchen
+      </a>
     </div>
+  </section>
+
+  <!-- 03 VERGLEICH -->
+  <section class="sp-vergleich">
+    <div class="section-header reveal" style="max-width:1240px;margin:0 auto">
+      <div class="eyebrow">03 — Orientierung</div>
+      <h2 class="h-section">Sprechstunde oder <em>Regenerationsanalyse?</em></h2>
+      <p class="lede">Beide haben einen klaren Platz in der Praxis — und sie schließen sich nicht aus. Aber sie starten von unterschiedlichen Fragen.</p>
+    </div>
+
+    <div class="sp-compare-cards reveal">
+      <div class="sp-compare-card active">
+        <div class="sp-compare-card-header">
+          <div class="sp-compare-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div>
+            <div class="sp-compare-card-title">Sprechstunde</div>
+            <div class="sp-compare-card-sub">Ein konkretes Thema</div>
+          </div>
+        </div>
+        <div class="sp-compare-rows">
+          <div class="sp-compare-row">Akut oder gezielt — wenn ein Thema benannt ist</div>
+          <div class="sp-compare-row">Einzel- oder Folgetermin, flexibel</div>
+          <div class="sp-compare-row">Nach CheckIn oder als Bestandspatient direkt buchbar</div>
+          <div class="sp-compare-row">Abrechnung nach Aufwand · GebüH</div>
+          <div class="sp-compare-row">Ideal für: Hormone, Allergien, Mikronährstoffe, Folgetermine</div>
+        </div>
+      </div>
+      <div class="sp-compare-card">
+        <div class="sp-compare-card-header">
+          <div class="sp-compare-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          </div>
+          <div>
+            <div class="sp-compare-card-title">Regenerationsanalyse</div>
+            <div class="sp-compare-card-sub">Das Gesamtbild</div>
+          </div>
+        </div>
+        <div class="sp-compare-rows">
+          <div class="sp-compare-row">Grundlegend und systemisch — für das große Bild</div>
+          <div class="sp-compare-row">90 Minuten mit Befund &amp; 12-Wochen-Fahrplan</div>
+          <div class="sp-compare-row">Direkt buchbar ohne CheckIn vorab</div>
+          <div class="sp-compare-row">Festpreis ab 330 €</div>
+          <div class="sp-compare-row">Ideal für: chronische Erschöpfung, Burnout, diffuse Beschwerden</div>
+        </div>
+      </div>
+    </div>
+    <p class="sp-compare-foot reveal"><em>Beides hat seinen Platz — aber nicht gleichzeitig.</em></p>
   </section>
 
   <!-- 04 METHODEN -->
-  <section class="flagship section-tint">
-    <div class="wrap">
-      <div class="reveal">
+  <section class="sp-methoden">
+    <div class="sp-methoden-inner">
+      <div class="section-header reveal">
         <div class="eyebrow">04 — Methoden</div>
-        <h2 class="h-section">
-          Womit ich in der Sprechstunde <em>arbeite.</em>
-        </h2>
-        <p class="lede">
-          Strukturiert, mit Methode — kein Bauchgefühl, kein Aktionismus.
-        </p>
+        <h2 class="h-section">Womit ich in der Sprechstunde <em>arbeite.</em></h2>
+        <p class="lede">Strukturiert, mit Methode — kein Bauchgefühl, kein Aktionismus. Sechs Verfahren, gezielt eingesetzt nach Anlass.</p>
       </div>
 
-      <div class="methods reveal" style="margin-top:48px">
-        <div class="methods-head">
-          <div class="l">
-            <h3>Diagnostik &amp; <em>Therapie.</em></h3>
-            <div class="sub">Sechs Methoden — gezielt eingesetzt nach Anlass.</div>
+      <div class="sp-methoden-grid">
+
+        <div class="sp-methode reveal">
+          <div class="sp-methode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v8l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3"/></svg>
           </div>
-          <div class="methods-tag">Sprechstunde</div>
+          <h4>Anamnese &amp; Labor</h4>
+          <p>Strukturierte Anamnese plus laborgestützte Diagnostik — Speichelhormone, Stuhl, Blut, Urin. Vorhandene Werte werden im Systemzusammenhang gelesen.</p>
+          <ul>
+            <li>Funktionelle Laborparameter bei Bedarf</li>
+            <li>Ergänzt schulmedizinische Diagnostik</li>
+          </ul>
         </div>
-        <div class="methods-grid" style="grid-template-columns:repeat(3,1fr)">
-          <article class="method m1">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v8l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3"/></svg>
-            </div>
-            <h4>Anamnese &amp; Labor</h4>
-            <p>Strukturierte Anamnese plus laborgestützte Diagnostik — Speichelhormone, Stuhl, Blut, Urin. Ihre vorhandenen Werte werden im Systemzusammenhang gelesen.</p>
-            <ul>
-              <li>Funktionelle Laborparameter bei Bedarf</li>
-              <li>Ergänzt schulmedizinische Diagnostik, ersetzt sie nicht</li>
-            </ul>
-          </article>
-          <article class="method m2">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/><path d="M2 17c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/></svg>
-            </div>
-            <h4>Bioresonanz</h4>
-            <p>Verfahren der bioenergetischen Diagnostik — sichtbar machen, was im Hintergrund läuft. Belastungsmuster, Allergene, Regulationsstörungen.</p>
-            <ul>
-              <li>Sanftes, nicht-invasives Verfahren</li>
-              <li>Ergänzt schulmedizinische Diagnostik, ersetzt sie nicht</li>
-              <li>Hinweis: wissenschaftlich nicht abschließend bewertet</li>
-            </ul>
-          </article>
-          <article class="method m3">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-9 9-9 1.5 0 3 .5 4 1.5 0 4-1 11-6 14.5z"/><path d="M11 20c0-3 1-7 3-9"/></svg>
-            </div>
-            <h4>Phytotherapie</h4>
-            <p>Pflanzliche Therapie — gezielt eingesetzt, nicht als Sammelsurium. Klassische Heilpflanzen, abgestimmt auf Ihre individuelle Konstitution.</p>
-            <ul>
-              <li>Strukturierte Empfehlungen</li>
-              <li>Wechselwirkungen mit bestehender Medikation berücksichtigt</li>
-            </ul>
-          </article>
+
+        <div class="sp-methode reveal">
+          <div class="sp-methode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/><path d="M2 17c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/></svg>
+          </div>
+          <h4>Bioresonanz</h4>
+          <p>Bioenergetische Diagnostik — sichtbar machen, was im Hintergrund läuft. Belastungsmuster, Allergene, Regulationsstörungen.</p>
+          <ul>
+            <li>Sanftes, nicht-invasives Verfahren</li>
+            <li>Wissenschaftlich nicht abschließend bewertet</li>
+          </ul>
         </div>
-        <div class="methods-grid" style="grid-template-columns:repeat(3,1fr);border-top:1px solid var(--tinte-line)">
-          <article class="method m1">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="13" width="3" height="6"/><rect x="10.5" y="9" width="3" height="10"/><rect x="16" y="5" width="3" height="14"/></svg>
-            </div>
-            <h4>Mikronährstoffe</h4>
-            <p>Orthomolekulare Medizin — gezielte Supplementierung auf Basis von Labor und Anamnese. Drei priorisierte Hebel statt fünfzig Empfehlungen.</p>
-            <ul>
-              <li>Laborgestützt und priorisiert</li>
-              <li>Konkret in Dosierung und Dauer</li>
-            </ul>
-          </article>
-          <article class="method m2">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </div>
-            <h4>Darmsanierung</h4>
-            <p>Mikrobiomaufbau, gezielt nach Stuhldiagnostik. Reizdarm, stille Entzündungen, Histamin-Themen, Allergie-Tendenzen — der Darm spielt fast immer mit.</p>
-            <ul>
-              <li>Strukturiertes Stufenmodell</li>
-              <li>Ergänzend zur ärztlichen Versorgung</li>
-            </ul>
-          </article>
-          <article class="method m3">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2 4 5 6 9 6s7-2 9-6"/><path d="M3 12c2-4 5-6 9-6s7 2 9 6"/></svg>
-            </div>
-            <h4>Stress­regulation &amp; Lebensstil</h4>
-            <p>Konkrete Stellschrauben im Alltag — Schlaf, Erholung, Bewegung, Ernährung. Keine Lifestyle-Beratung, sondern medizinisch begründete Empfehlungen.</p>
-            <ul>
-              <li>Drei Hebel, alltagstauglich</li>
-              <li>Eingebettet in das Drei-Systeme-Modell</li>
-            </ul>
-          </article>
+
+        <div class="sp-methode reveal">
+          <div class="sp-methode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-9 9-9 1.5 0 3 .5 4 1.5 0 4-1 11-6 14.5z"/><path d="M11 20c0-3 1-7 3-9"/></svg>
+          </div>
+          <h4>Phytotherapie</h4>
+          <p>Pflanzliche Therapie — gezielt eingesetzt nach Ihrer Konstitution. Wechselwirkungen mit bestehender Medikation werden berücksichtigt.</p>
+          <ul>
+            <li>Klassische Heilpflanzen, strukturiert empfohlen</li>
+            <li>Konstitutionsbezogen, nicht schematisch</li>
+          </ul>
+        </div>
+
+        <div class="sp-methode reveal">
+          <div class="sp-methode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="3" height="6"/><rect x="10.5" y="9" width="3" height="10"/><rect x="16" y="5" width="3" height="14"/></svg>
+          </div>
+          <h4>Mikronährstoffe</h4>
+          <p>Orthomolekulare Medizin — gezielte Supplementierung auf Basis von Labor und Anamnese. Drei priorisierte Hebel statt fünfzig Empfehlungen.</p>
+          <ul>
+            <li>Laborgestützt und priorisiert</li>
+            <li>Konkret in Dosierung und Dauer</li>
+          </ul>
+        </div>
+
+        <div class="sp-methode reveal">
+          <div class="sp-methode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h4>Darmsanierung</h4>
+          <p>Mikrobiomaufbau nach Stuhldiagnostik. Reizdarm, stille Entzündungen, Histamin, Allergien — der Darm spielt fast immer mit.</p>
+          <ul>
+            <li>Strukturiertes Stufenmodell</li>
+            <li>Ergänzend zur ärztlichen Versorgung</li>
+          </ul>
+        </div>
+
+        <div class="sp-methode reveal">
+          <div class="sp-methode-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2 4 5 6 9 6s7-2 9-6"/><path d="M3 12c2-4 5-6 9-6s7 2 9 6"/><circle cx="12" cy="12" r="1"/></svg>
+          </div>
+          <h4>Stressregulation &amp; Lebensstil</h4>
+          <p>Konkrete Stellschrauben — Schlaf, Erholung, Bewegung, Ernährung. Medizinisch begründet, alltagstauglich, keine Lifestyle-Beratung.</p>
+          <ul>
+            <li>Drei Hebel — nicht fünfzehn</li>
+            <li>Eingebettet in das Drei-Systeme-Modell</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Diagnostik photo band -->
+      <div class="sp-diagnostik-band reveal">
+        <div class="sp-diagnostik-image">
+          <img src="/sprechstunde/img/diagnostik.png"
+               alt="Naturheilkundliche Diagnostik" loading="lazy" />
+        </div>
+        <div class="sp-diagnostik-text">
+          <div class="eyebrow">Hintergrund</div>
+          <h3>Struktur vor <em>Aktionismus.</em></h3>
+          <p>
+            Ich arbeite nach dem Drei-Systeme-Modell — Hormon-, Immun- und Nervensystem als zusammenhängende Einheit. Was das bedeutet: Ich suche nicht nach dem nächsten Symptom, sondern nach dem Muster dahinter.
+          </p>
+          <p style="margin-top:12px">
+            Kein Sammelsurium von Empfehlungen. Drei priorisierte Hebel, umgesetzt nacheinander.
+          </p>
         </div>
       </div>
+
     </div>
   </section>
 
   <!-- 05 INVESTITION -->
-  <section class="forwhom">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">05 — Investition</div>
-        <h2 class="h-section">
-          Honorar &amp; <em>Abrechnung.</em>
-        </h2>
-        <p class="lede">
-          Sprechstunde nach medizinischer Indikation und Aufwand — kein Festpreis, weil jeder Termin anders ist.
-        </p>
+  <section class="sp-investition">
+    <div class="sp-investition-inner">
+      <div>
+        <div class="section-header reveal">
+          <div class="eyebrow">05 — Investition</div>
+          <h2 class="h-section">Honorar &amp; <em>Abrechnung.</em></h2>
+          <p class="lede">
+            Die Sprechstunde wird nach medizinischer Indikation und Aufwand abgerechnet — kein Festpreis, weil jeder Termin anders ist.
+          </p>
+        </div>
+        <div class="sp-inv-note reveal">
+          <strong>Privatrechnung nach GebüH</strong>
+          Die Sprechstunde wird nach der Gebührenordnung für Heilpraktiker (GebüH) abgerechnet. Tarifstaffelung nach Haushaltseinkommen ist verfügbar. Details und konkrete Beträge finden Sie in den <a href="/abrechnung/">Abrechnungshinweisen</a>.
+        </div>
       </div>
-
-      <div class="hwg-note reveal" style="margin-top:24px;max-width:880px">
-        <strong>Privatrechnung nach GebüH</strong>
-        Die Sprechstunde wird nach medizinischer Indikation und Aufwand abgerechnet — Privatrechnung nach Gebührenordnung für Heilpraktiker (GebüH). Tarifstaffelung nach Haushaltseinkommen verfügbar. Details und konkrete Beträge in den <a href="/abrechnung/">Abrechnungs­hinweisen</a>.
+      <div class="sp-inv-aside reveal">
+        <h3>Nicht sicher, ob die <em>Sprechstunde</em> der richtige Rahmen ist?</h3>
+        <p>
+          Starten Sie mit dem CheckIn — 30 Minuten, 75 €. Wir klären in Ruhe, was Ihr Thema braucht und welcher Weg in der Praxis für Sie der richtige ist.
+        </p>
+        <a href="/termin-ablauf/" class="btn btn-primary">
+          CheckIn buchen — 75 €
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <p style="margin-top:20px">
+          Bereits in Begleitung? <a href="/termin-ablauf/" style="color:var(--sp-blau);font-weight:500">Direkt-Termin buchen →</a>
+        </p>
       </div>
     </div>
   </section>
@@ -278,14 +1100,14 @@
     <div class="checkin-inner">
       <div class="eyebrow reveal">Ihr nächster Schritt</div>
       <h2 class="reveal">
-        Wenn Sie noch <em>nicht Patientin</em> sind:
+        Wenn Sie noch <em>nicht in Begleitung</em> sind:
       </h2>
       <p class="reveal">
-        Starten Sie mit dem CheckIn. Wir klären in 30 Minuten, ob die Sprechstunde der richtige Rahmen ist — oder ob ein anderer Weg besser passt.
+        Starten Sie mit dem CheckIn. Wir klären in 30 Minuten, ob die Sprechstunde der richtige Rahmen für Ihr Thema ist — oder ob ein anderer Weg besser passt.
       </p>
       <div class="checkin-ctas reveal">
         <a href="/termin-ablauf/" class="btn btn-sun">CheckIn buchen — 75 €</a>
-        <a href="/termin-ablauf/" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">Direkt-Termin · Bestandspatientin</a>
+        <a href="/termin-ablauf/" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">Direkt-Termin · Bestandspatienten</a>
       </div>
       <div class="checkin-meta reveal">
         <span>30 Min</span>·<span>Online oder Wiesloch</span>·<span>Persönliche Antwort von mir</span>
