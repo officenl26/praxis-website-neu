@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Kindersprechstunde in der Naturheilpraxis Lurz, Wiesloch: ganzheitliche Begleitung bei Allergien, Unverträglichkeiten, Infektanfälligkeit, Schlafthemen und Konzentrationsfragen — als Ergänzung der kinderärztlichen Versorgung." />
-<meta name="theme-color" content="#1B3A5C" />
+<meta name="description" content="Kindersprechstunde in der Naturheilpraxis Nicole Lurz, Wiesloch: ganzheitliche Begleitung bei Allergien, Darm- und Konzentrationsthemen, Unruhe und ADHS — als Ergänzung zur kinderärztlichen Versorgung. CheckIn 30 Min · 75 €." />
+<meta name="theme-color" content="#3D5A2E" />
 <title>Kindersprechstunde · Naturheilpraxis Nicole Lurz · Wiesloch</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -24,6 +24,358 @@
         data-token="bb02b7c7-46b8-4f56-953d-520e52d854ae"
         data-floating-side="right"
         src="https://my.lemniscus.de/js/lemmyFlansch.js"><!-- nicht löschen --></script>
+
+<!-- ============================================================
+     KINDER-SEITE · ergänzende Klassen
+     Holz + Wasser, etwas wärmer und lebendiger als die Erwachsenen-Seiten.
+     Zusätzliche Wasser-Töne aus Simone Neiers Feng-Shui-Empfehlung.
+     ============================================================ -->
+<style>
+  :root{
+    --tuerkis:#1BC3A3;       /* Wasser, lebendig */
+    --himmel:#B8DCEB;        /* Wasser, warm-hell */
+    --maigruen:#72974A;      /* Holz, Frühlingston */
+    --apfelgruen-bright:#A4C639; /* Holz, Signal-Akzent */
+  }
+
+  /* HERO · Bunte Hände als Visual */
+  .page-hero.kinder{
+    padding:200px 6vw 84px;
+    background:linear-gradient(180deg, var(--papier) 0%, var(--offwhite) 100%);
+  }
+  .page-hero.kinder::before{
+    background:radial-gradient(circle, rgba(184,220,235,0.55), transparent 70%);
+    width:620px;height:620px;top:-100px;right:-200px;
+  }
+  .page-hero.kinder::after{
+    background:radial-gradient(circle, rgba(122,168,144,0.32), transparent 70%);
+    width:520px;height:520px;bottom:-180px;left:-220px;
+  }
+  .page-hero.kinder .page-hero-inner{
+    display:grid;grid-template-columns:1.05fr 0.95fr;gap:64px;align-items:center;
+  }
+  @media(max-width:980px){
+    .page-hero.kinder .page-hero-inner{grid-template-columns:1fr;gap:48px}
+  }
+  .kinder-hero-text{max-width:640px}
+  .kinder-hero-text .eyebrow{color:var(--maigruen)}
+  .kinder-hero-text .eyebrow::before{background:var(--maigruen)}
+  .kinder-hero-text h1{
+    font-size:clamp(2.4rem,5vw,4rem);line-height:1.05;font-weight:400;
+    margin-bottom:24px;letter-spacing:-0.02em;
+  }
+  .kinder-hero-text h1 em{color:var(--waldgruen)}
+  .kinder-hero-anchors{
+    display:flex;flex-wrap:wrap;gap:14px 28px;margin:32px 0 0;padding:0;
+    font-family:'Inter';font-size:13px;color:var(--tinte);
+  }
+  .kinder-hero-anchors li{list-style:none;display:flex;align-items:center;gap:10px}
+  .kinder-hero-anchors li::before{
+    content:'';width:8px;height:8px;background:var(--apfelgruen-bright);
+    flex:none;
+  }
+  .kinder-hero-anchors a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .2s}
+  .kinder-hero-anchors a:hover{border-color:var(--waldgruen)}
+
+  .kinder-hero-visual{
+    position:relative;justify-self:end;width:100%;max-width:520px;
+  }
+  @media(max-width:980px){.kinder-hero-visual{justify-self:start;max-width:440px}}
+  .kinder-hero-visual .frame{
+    position:relative;z-index:2;overflow:hidden;
+    background:var(--papier);
+    aspect-ratio:3/2;
+    box-shadow:0 30px 60px -28px rgba(15,32,52,0.32);
+  }
+  .kinder-hero-visual .frame img{
+    width:100%;height:100%;object-fit:cover;object-position:center center;
+    display:block;
+  }
+  .kinder-hero-visual .accent-tl{
+    position:absolute;top:-22px;left:-22px;width:96px;height:96px;
+    background:var(--himmel);z-index:1;
+  }
+  .kinder-hero-visual .accent-br{
+    position:absolute;bottom:-22px;right:-22px;width:120px;height:120px;
+    border:2px solid var(--maigruen);z-index:1;
+  }
+  .kinder-hero-visual .visual-tag{
+    position:absolute;left:-18px;bottom:32px;z-index:3;max-width:240px;
+    background:var(--papier);padding:14px 18px;border-left:3px solid var(--tuerkis);
+    box-shadow:0 18px 32px -22px rgba(15,32,52,0.3);
+  }
+  .kinder-hero-visual .visual-tag .lbl{
+    font-family:'Inter';font-size:9px;letter-spacing:0.32em;text-transform:uppercase;
+    color:var(--tuerkis);font-weight:600;margin-bottom:4px;
+  }
+  .kinder-hero-visual .visual-tag .txt{
+    font-family:'Spectral',serif;font-style:italic;font-size:0.96rem;
+    color:var(--tinte);line-height:1.4;font-weight:500;
+  }
+
+  /* MANIFEST · Kinder anders verstehen */
+  .kinder-manifest{
+    background:var(--papier);padding:96px 0;
+    position:relative;overflow:hidden;
+  }
+  .kinder-manifest::before{
+    content:'';position:absolute;top:50%;right:-180px;
+    width:420px;height:420px;
+    background:radial-gradient(circle, rgba(27,195,163,0.14), transparent 70%);
+    pointer-events:none;
+  }
+  .kinder-manifest-inner{
+    max-width:920px;margin:0 auto;padding:0 6vw;text-align:center;
+    position:relative;z-index:2;
+  }
+  .kinder-manifest .eyebrow{justify-content:center;color:var(--tuerkis)}
+  .kinder-manifest .eyebrow::before{background:var(--tuerkis)}
+  .kinder-manifest h2{
+    font-family:'Spectral',serif;font-weight:500;
+    font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.2;
+    margin-bottom:24px;letter-spacing:-0.01em;
+  }
+  .kinder-manifest h2 em{color:var(--waldgruen)}
+  .kinder-manifest p{
+    font-family:'Spectral',serif;font-style:italic;font-weight:400;
+    font-size:clamp(1.05rem,1.5vw,1.22rem);
+    color:var(--tinte-soft);line-height:1.65;max-width:680px;margin:0 auto;
+  }
+  .kinder-manifest p em{color:var(--maigruen);font-weight:500}
+
+  /* THEMEN-KARTEN · 6 Anlässe in 3x2 */
+  .kinder-themen{background:var(--offwhite);position:relative;overflow:hidden}
+  .kinder-themen::before{
+    content:'';position:absolute;bottom:-180px;left:-180px;
+    width:480px;height:480px;
+    background:radial-gradient(circle, rgba(184,220,235,0.45), transparent 70%);
+    pointer-events:none;
+  }
+  .kinder-themen-head{position:relative;z-index:2}
+  .kinder-themen-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px;
+    position:relative;z-index:2;
+  }
+  @media(max-width:980px){.kinder-themen-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.kinder-themen-grid{grid-template-columns:1fr}}
+  .thema{
+    background:var(--papier);padding:32px 28px 28px;
+    position:relative;overflow:hidden;
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .thema:hover{transform:translateY(-3px);box-shadow:0 22px 44px -22px rgba(15,32,52,0.18)}
+  .thema::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+  }
+  .thema-icon{
+    width:54px;height:54px;display:flex;align-items:center;justify-content:center;
+    margin-bottom:18px;
+  }
+  .thema-icon svg{width:32px;height:32px;display:block}
+  .thema h3{
+    font-family:'Spectral',serif;font-size:1.3rem;color:var(--tinte);
+    margin-bottom:10px;font-weight:500;line-height:1.25;
+  }
+  .thema p{
+    font-size:0.94rem;color:var(--tinte-soft);line-height:1.6;
+  }
+  .thema .tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .thema .tag-row span{
+    font-family:'Inter';font-size:10px;letter-spacing:0.06em;
+    padding:4px 10px;background:var(--offwhite);
+    color:var(--tinte-soft);font-weight:500;
+  }
+  /* Farb-Rotation der Themen */
+  .thema.t1::before{background:var(--himmel)}
+  .thema.t1 .thema-icon{color:#3A8FB7}
+  .thema.t2::before{background:var(--maigruen)}
+  .thema.t2 .thema-icon{color:var(--maigruen)}
+  .thema.t3::before{background:var(--tuerkis)}
+  .thema.t3 .thema-icon{color:var(--tuerkis)}
+  .thema.t4::before{background:var(--apfelgruen-bright)}
+  .thema.t4 .thema-icon{color:var(--maigruen)}
+  .thema.t5::before{background:var(--sonnengelb)}
+  .thema.t5 .thema-icon{color:var(--sonnengelb)}
+  .thema.t6::before{background:var(--salbei)}
+  .thema.t6 .thema-icon{color:var(--salbei)}
+
+  .kinder-themen-aside{
+    margin-top:36px;padding:26px 32px;background:var(--papier);
+    border-left:3px solid var(--tuerkis);position:relative;z-index:2;
+    font-family:'Spectral',serif;font-style:italic;font-size:1rem;
+    color:var(--tinte);line-height:1.55;max-width:780px;
+  }
+  .kinder-themen-aside strong{
+    color:var(--tuerkis);font-style:normal;font-weight:600;font-family:'Inter';
+    font-size:10px;letter-spacing:0.28em;text-transform:uppercase;
+    display:block;margin-bottom:6px;
+  }
+  .kinder-themen-aside em{color:var(--waldgruen);font-weight:500}
+
+  /* ABLAUF · Timeline + Bild */
+  .kinder-ablauf{background:var(--papier);position:relative;overflow:hidden}
+  .kinder-ablauf::before{
+    content:'';position:absolute;top:20%;left:-160px;
+    width:400px;height:400px;
+    background:radial-gradient(circle, rgba(122,168,144,0.18), transparent 70%);
+    pointer-events:none;
+  }
+  .kinder-ablauf-grid{
+    display:grid;grid-template-columns:0.95fr 1.1fr;gap:64px;align-items:start;
+    position:relative;z-index:2;margin-top:48px;
+  }
+  @media(max-width:980px){.kinder-ablauf-grid{grid-template-columns:1fr;gap:48px}}
+  .kinder-ablauf-visual{position:relative;max-width:480px}
+  .kinder-ablauf-visual .frame{
+    aspect-ratio:5/3;overflow:hidden;background:var(--offwhite);
+    box-shadow:0 24px 48px -22px rgba(15,32,52,0.28);
+  }
+  .kinder-ablauf-visual .frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .kinder-ablauf-visual .ornament{
+    position:absolute;top:-18px;left:-18px;width:84px;height:84px;
+    border:1.5px solid var(--apfelgruen-bright);z-index:-1;
+  }
+  .kinder-ablauf-visual .ornament-2{
+    position:absolute;bottom:-20px;right:-20px;width:100px;height:100px;
+    background:var(--himmel);z-index:-1;
+  }
+  .kinder-ablauf-visual .visual-tag{
+    margin-top:24px;padding:18px 22px;background:var(--papier);
+    border-left:3px solid var(--maigruen);
+  }
+  .kinder-ablauf-visual .visual-tag strong{
+    display:block;font-family:'Inter';font-size:10px;letter-spacing:0.28em;
+    text-transform:uppercase;color:var(--maigruen);font-weight:600;margin-bottom:6px;
+  }
+  .kinder-ablauf-visual .visual-tag p{
+    font-family:'Spectral',serif;font-style:italic;font-size:1rem;
+    color:var(--tinte);line-height:1.5;margin:0;
+  }
+  .kinder-ablauf-content .timeline{margin-top:24px}
+  .kinder-ablauf-content .timeline-num{color:var(--tuerkis)}
+  .kinder-ablauf-content .timeline-item:nth-child(even) .timeline-num{color:var(--maigruen)}
+
+  /* PREIS-KOMPAKT · CheckIn-Karte */
+  .kinder-preis{
+    margin-top:40px;padding:28px 32px;background:var(--offwhite);
+    border:1px solid var(--tinte-line);border-left:5px solid var(--maigruen);
+    display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;
+    position:relative;z-index:2;
+  }
+  .kinder-preis .preis-num{
+    font-family:'Spectral',serif;font-size:2.6rem;color:var(--waldgruen);
+    font-weight:500;line-height:1;letter-spacing:-0.01em;
+  }
+  .kinder-preis .preis-num span{font-size:1rem;color:var(--tinte-soft);font-weight:400;margin-left:4px}
+  .kinder-preis .preis-body strong{
+    display:block;font-family:'Spectral',serif;font-size:1.18rem;
+    color:var(--tinte);font-weight:500;margin-bottom:4px;
+  }
+  .kinder-preis .preis-body span{
+    font-family:'Inter';font-size:0.92rem;color:var(--tinte-soft);
+  }
+  .kinder-preis .preis-foot{
+    grid-column:1 / -1;padding-top:18px;border-top:1px dashed var(--tinte-line);
+    font-family:'Spectral',serif;font-style:italic;font-size:0.95rem;
+    color:var(--tinte-soft);line-height:1.5;
+  }
+  .kinder-preis .preis-foot em{color:var(--maigruen);font-weight:500}
+
+  /* METHODEN · 6 Karten */
+  .kinder-methoden{background:var(--offwhite);position:relative;overflow:hidden}
+  .kinder-methoden::before{
+    content:'';position:absolute;top:-100px;right:-150px;
+    width:480px;height:480px;
+    background:radial-gradient(circle, rgba(27,195,163,0.18), transparent 70%);
+    pointer-events:none;
+  }
+  .kinder-methoden-head{position:relative;z-index:2}
+  .kinder-methoden-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+    margin-top:48px;background:var(--papier);
+    border:1px solid var(--tinte-line);position:relative;z-index:2;
+  }
+  @media(max-width:980px){.kinder-methoden-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.kinder-methoden-grid{grid-template-columns:1fr}}
+  .kmethod{
+    padding:32px 30px;border-right:1px solid var(--tinte-line);
+    border-bottom:1px solid var(--tinte-line);
+  }
+  .kmethod:nth-child(3n){border-right:none}
+  .kmethod:nth-child(n+4){border-bottom:none}
+  @media(max-width:980px){
+    .kmethod{border-right:1px solid var(--tinte-line)!important;border-bottom:1px solid var(--tinte-line)!important}
+    .kmethod:nth-child(2n){border-right:none!important}
+    .kmethod:nth-child(n+5){border-bottom:none!important}
+  }
+  @media(max-width:560px){
+    .kmethod{border-right:none!important;border-bottom:1px solid var(--tinte-line)!important}
+    .kmethod:last-child{border-bottom:none!important}
+  }
+  .kmethod-icon{
+    width:46px;height:46px;display:flex;align-items:center;justify-content:center;
+    margin-bottom:16px;
+  }
+  .kmethod-icon svg{width:26px;height:26px;display:block}
+  .kmethod h4{
+    font-family:'Spectral',serif;font-size:1.18rem;color:var(--tinte);
+    margin-bottom:10px;font-weight:500;line-height:1.25;
+  }
+  .kmethod h4 em{color:var(--waldgruen)}
+  .kmethod p{
+    font-size:0.92rem;color:var(--tinte-soft);line-height:1.6;margin-bottom:12px;
+  }
+  .kmethod .mini-tag{
+    font-family:'Inter';font-size:9px;letter-spacing:0.26em;
+    text-transform:uppercase;font-weight:600;color:var(--tinte-soft);
+  }
+  .kmethod.km1 .kmethod-icon{color:var(--waldgruen)}
+  .kmethod.km2 .kmethod-icon{color:var(--maigruen)}
+  .kmethod.km3 .kmethod-icon{color:var(--apfelgruen-bright)}
+  .kmethod.km4 .kmethod-icon{color:var(--tuerkis)}
+  .kmethod.km5 .kmethod-icon{color:var(--sonnengelb)}
+  .kmethod.km6 .kmethod-icon{color:var(--salbei)}
+
+  /* FAQ-Block */
+  .kinder-faq{background:var(--papier)}
+  .kinder-faq-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:40px;
+  }
+  @media(max-width:780px){.kinder-faq-grid{grid-template-columns:1fr}}
+  .faq-item{
+    padding:26px 30px;background:var(--offwhite);
+    border-left:3px solid var(--apfelgruen);
+  }
+  .faq-item.alt-1{border-left-color:var(--tuerkis)}
+  .faq-item.alt-2{border-left-color:var(--maigruen)}
+  .faq-item.alt-3{border-left-color:var(--himmel)}
+  .faq-item h4{
+    font-family:'Spectral',serif;font-size:1.08rem;color:var(--tinte);
+    margin-bottom:10px;font-weight:500;line-height:1.3;
+  }
+  .faq-item p{
+    font-size:0.94rem;color:var(--tinte);line-height:1.65;
+  }
+  .faq-item p em{color:var(--waldgruen);font-weight:500;font-style:italic}
+
+  /* HWG-Note ergänzte Variante */
+  .hwg-note{
+    background:var(--papier);padding:24px 28px;
+    border-left:3px solid var(--salbei);
+  }
+  .hwg-note strong{
+    display:block;font-family:'Inter';font-size:10px;letter-spacing:0.28em;
+    text-transform:uppercase;color:var(--salbei);font-weight:600;margin-bottom:8px;
+  }
+  .hwg-note em{color:var(--waldgruen);font-style:italic;font-weight:500}
+
+  /* Kinder-CheckIn-CTA · etwas heller als die Erwachsenen-Variante */
+  .checkin.kinder{background:linear-gradient(180deg, var(--waldgruen) 0%, #2C4421 100%)}
+  .checkin.kinder::before{
+    background:radial-gradient(circle, rgba(27,195,163,0.22) 0%, transparent 60%);
+  }
+  .checkin.kinder h2 em{color:var(--tuerkis)}
+</style>
 </head>
 <body>
 
@@ -46,196 +398,391 @@
 
 <main id="top">
 
-  <!-- PAGE-HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner reveal">
-      <div class="eyebrow">Für Eltern</div>
-      <h1>Das ganze Kind <em>sehen.</em></h1>
-      <p class="lede">
-        Infektanfälligkeit, Bauchschmerzen, Hautthemen, Konzentration — ganzheitlich betrachtet statt einzeln behandelt. Als Ergänzung zur kinderärztlichen Versorgung.
+  <!-- ========================================================================
+       01 PAGE-HERO · Bild der bunten Kinderhände
+       ======================================================================== -->
+  <section class="page-hero kinder">
+    <div class="page-hero-inner">
+      <div class="kinder-hero-text reveal">
+        <div class="eyebrow">Für Eltern</div>
+        <h1>Das ganze Kind <em>sehen.</em><br>Spielerisch, sorgfältig, ehrlich.</h1>
+        <p class="lede">
+          Allergien, Bauchthemen, Konzentration, Unruhe — ich nehme mir Zeit für die ganze Geschichte hinter dem Symptom. Naturheilkundlich, in Absprache mit den Eltern und ergänzend zur kinderärztlichen Versorgung.
+        </p>
+        <ul class="kinder-hero-anchors">
+          <li><a href="#themen">Themen</a></li>
+          <li><a href="#ablauf">Ablauf</a></li>
+          <li><a href="#methoden">Methoden</a></li>
+          <li><a href="#fragen">Eltern-Fragen</a></li>
+        </ul>
+      </div>
+      <div class="kinder-hero-visual reveal">
+        <div class="accent-tl" aria-hidden="true"></div>
+        <div class="accent-br" aria-hidden="true"></div>
+        <div class="frame">
+          <img src="img/kind-finger.png" alt="Kind schaut neugierig durch bunt bemalte Hände" />
+        </div>
+        <div class="visual-tag">
+          <div class="lbl">CheckIn Kinder</div>
+          <div class="txt">30 Minuten · vor Ort · 75 €<br>mit Eltern und Kind</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       02 MANIFEST · Warum Kinder andere Begleitung brauchen
+       ======================================================================== -->
+  <section class="kinder-manifest">
+    <div class="kinder-manifest-inner reveal">
+      <div class="eyebrow">01 — Mein Verständnis</div>
+      <h2>
+        Kinder sind keine kleinen <em>Erwachsenen.</em><br>
+        Sie reagieren anders. Sie heilen anders. Sie erzählen anders.
+      </h2>
+      <p>
+        Manchmal in Worten, oft im Verhalten. In Bauchschmerzen, die montags wiederkommen. In Müdigkeit, die nicht zur Jahreszeit passt. In einer Haut, die immer wieder protestiert. Mein Job ist nicht, das wegzumachen — sondern <em>zu verstehen, was es zeigt.</em>
       </p>
     </div>
   </section>
 
-  <!-- 01 WOFÜR DIE KINDERSPRECHSTUNDE GEMACHT IST -->
-  <section class="needs">
+  <!-- ========================================================================
+       03 THEMEN · 6 Anlässe als bunte Karten
+       ======================================================================== -->
+  <section class="kinder-themen" id="themen">
     <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">01 — Anlässe</div>
+      <div class="kinder-themen-head reveal">
+        <div class="eyebrow">02 — Themen</div>
         <h2 class="h-section">
-          Wofür die Kindersprechstunde <em>gemacht ist.</em>
+          Womit Eltern zu mir <em>kommen.</em>
         </h2>
         <p class="lede">
-          Konkrete Themen, bei denen Eltern den Weg in meine Praxis finden:
+          Sechs Themenfelder, in denen die Kindersprechstunde am häufigsten gefragt ist. Mit dem CheckIn schaue ich genau, wie und in welcher Form ich Sie als Familie begleiten kann.
         </p>
       </div>
 
-      <ul class="check-list yes reveal" style="max-width:880px;margin-top:32px">
-        <li><strong>Wiederkehrende Infekte, Atemwegsthemen</strong> — wenn ein Infekt den nächsten ablöst und Erholungsphasen kürzer werden.</li>
-        <li><strong>Hautthemen</strong> — Neurodermitis-Tendenzen, Ekzeme, juckende Stellen, Reaktionen auf bestimmte Stoffe.</li>
-        <li><strong>Allergien, Unverträglichkeiten</strong> — Heuschnupfen, Histamin-Reaktionen, Nahrungsmittel-Themen.</li>
-        <li><strong>Schlafthemen, Unruhe, ADHS-Tendenzen</strong> — wenn das Nervensystem nicht zur Ruhe findet.</li>
-        <li><strong>Bauchschmerzen, Verdauungsthemen</strong> — wiederkehrende Beschwerden ohne klare ärztliche Ursache.</li>
-        <li><strong>Begleitung in Übergangsphasen</strong> — Einschulung, Pubertät, Trennungssituationen.</li>
-      </ul>
+      <div class="kinder-themen-grid">
+        <article class="thema t1 reveal">
+          <div class="thema-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="14" r="3.2" />
+              <path d="M16 4v3M16 21v3M6 14H3M29 14h-3M9 7l2 2M23 7l-2 2M9 21l2-2M23 21l-2-2"/>
+              <path d="M5 28c2-2 5-3 11-3s9 1 11 3"/>
+            </svg>
+          </div>
+          <h3>Allergien &amp; Heuschnupfen</h3>
+          <p>Wenn Augen tränen, die Nase im Frühling läuft oder Hautreaktionen wiederkehren — wir schauen, was das System gerade nicht verarbeiten kann.</p>
+          <div class="tag-row">
+            <span>Pollen</span><span>Tierhaare</span><span>Hausstaub</span>
+          </div>
+        </article>
+
+        <article class="thema t2 reveal">
+          <div class="thema-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 6c0 4 2 6 5 6s5-2 5-6"/>
+              <path d="M9 12c-2 3-2 8 0 12 1.5 3 5 4 7 4s5.5-1 7-4c2-4 2-9 0-12"/>
+              <path d="M14 18c1 1 2 1 3 0M14 23c1 1 2 1 3 0"/>
+            </svg>
+          </div>
+          <h3>Darm &amp; Verdauung</h3>
+          <p>Wiederkehrende Bauchschmerzen, Verstopfung, Blähungen, Durchfall — der Bauch erzählt oft, was anderswo nicht gehört wird.</p>
+          <div class="tag-row">
+            <span>Mikrobiom</span><span>Mikronährstoffe</span><span>Ernährung</span>
+          </div>
+        </article>
+
+        <article class="thema t3 reveal">
+          <div class="thema-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 11h22M5 16h22M5 21h22"/>
+              <circle cx="11" cy="11" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="22" cy="16" r="2.5" fill="currentColor" stroke="none"/>
+              <circle cx="14" cy="21" r="2.5" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <h3>Unverträglichkeiten</h3>
+          <p>Histamin, Laktose, Fruktose, Gluten — wenn der Bauch auf bestimmte Lebensmittel reagiert oder ein Verdacht im Raum steht.</p>
+          <div class="tag-row">
+            <span>Histamin</span><span>Fruktose</span><span>Laktose</span>
+          </div>
+        </article>
+
+        <article class="thema t4 reveal">
+          <div class="thema-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 5c4 0 8 3 8 8 0 3-2 5-2 7v2H10v-2c0-2-2-4-2-7 0-5 4-8 8-8z"/>
+              <path d="M12 25h8M14 29h4"/>
+              <path d="M16 5V2M22 7l2-2M10 7L8 5"/>
+            </svg>
+          </div>
+          <h3>Konzentration &amp; Lernen</h3>
+          <p>Wenn die Schule zur Belastung wird, das Lesen schwerfällt oder Hausaufgaben jeden Nachmittag zur Schlacht werden — Konzentration ist kein Wille, sondern System.</p>
+          <div class="tag-row">
+            <span>Schulalltag</span><span>Pubertät</span><span>Mikronährstoffe</span>
+          </div>
+        </article>
+
+        <article class="thema t5 reveal">
+          <div class="thema-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 18a8 8 0 0 1-12-9 8 8 0 1 0 12 9z"/>
+              <path d="M24 7l1 2 2 1-2 1-1 2-1-2-2-1 2-1z"/>
+            </svg>
+          </div>
+          <h3>Unruhe &amp; Schlaf</h3>
+          <p>Wenn das Einschlafen Stunden dauert, das Aufwachen erschöpft, der Tag voller Anspannung ist — das Nervensystem braucht Antworten, keine Strafen.</p>
+          <div class="tag-row">
+            <span>Einschlafen</span><span>Albträume</span><span>Stress</span>
+          </div>
+        </article>
+
+        <article class="thema t6 reveal">
+          <div class="thema-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9c2 4 4 6 10 6s8-2 10-6"/>
+              <path d="M4 18c3 5 7 7 12 7s9-2 12-7"/>
+              <path d="M9 26c2 1 4 2 7 2s5-1 7-2"/>
+            </svg>
+          </div>
+          <h3>ADHS-Tendenzen</h3>
+          <p>Schon diagnostiziert oder noch im Raum stehend — ich begleite Familien naturheilkundlich ergänzend, immer im Dialog mit dem behandelnden Arzt.</p>
+          <div class="tag-row">
+            <span>Ergänzung</span><span>Familien-Begleitung</span><span>Alltag</span>
+          </div>
+        </article>
+      </div>
+
     </div>
   </section>
 
-  <!-- 02 ABLAUF DER TERMINE -->
-  <section class="diff">
+  <!-- ========================================================================
+       04 ABLAUF · Timeline + Bild
+       ======================================================================== -->
+  <section class="kinder-ablauf" id="ablauf">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">02 — Ablauf</div>
+        <div class="eyebrow">03 — Ablauf</div>
         <h2 class="h-section">
-          Wie die Termine <em>ablaufen.</em>
+          So beginnen wir <em>gemeinsam.</em>
         </h2>
         <p class="lede">
-          Ruhig, kindgerecht, in Absprache mit den Eltern.
+          Drei klare Schritte, ruhig, kindgerecht — und immer in Absprache mit Ihnen.
         </p>
       </div>
 
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-num">01</div>
-          <div class="timeline-body">
-            <h4>Erstgespräch · ca. 60 Minuten</h4>
-            <p>Eltern und Kind gemeinsam. Wir nehmen uns Zeit, das Kind kennenzulernen — Vorgeschichte, Alltag, Schlaf, Ernährung, Schule, das Drumherum. Bei kleineren Kindern oft auch zuerst nur mit den Eltern, je nach Alter.</p>
+      <div class="kinder-ablauf-grid">
+        <div class="kinder-ablauf-visual reveal">
+          <div class="ornament" aria-hidden="true"></div>
+          <div class="ornament-2" aria-hidden="true"></div>
+          <div class="frame">
+            <img src="img/teddy-stethoskop.jpg" alt="Teddybär, Stethoskop und Holzwürfel mit Buchstaben — kindgerechte Atmosphäre in der Praxis" />
+          </div>
+          <div class="visual-tag">
+            <strong>Vor Ort in Wiesloch</strong>
+            <p>Hauptstraße 73 — Praxis mit Spielmaterial und ruhiger Atmosphäre.</p>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-num">02</div>
-          <div class="timeline-body">
-            <h4>Sanfte Diagnostik</h4>
-            <p>Strukturierte Anamnese, ggf. Bioresonanz, ggf. Laborparameter (z. B. Mikronährstoffe, Hormonprofile bei Pubertätsthemen). Was zur Situation passt — nicht alles auf einmal.</p>
+
+        <div class="kinder-ablauf-content reveal">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-num">01</div>
+              <div class="timeline-body">
+                <h4>CheckIn · 30 Minuten · <em>vor Ort</em></h4>
+                <p>Vorzugsweise mit Eltern und Kind — ich möchte Ihr Kind kennenlernen, sehen, wie es spielt, mit ihm sprechen wenn es das mag. Bei sensiblen Vorgeschichten kann das Erstgespräch auch zunächst nur mit Ihnen stattfinden.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-num">02</div>
+              <div class="timeline-body">
+                <h4>Erster Impuls und <em>Fahrplan</em></h4>
+                <p>Wir klären gemeinsam: Was ist das Anliegen, was passt als nächster Schritt, ist vorab eine ärztliche Abklärung notwendig oder weitere Diagnostik sinnvoll.</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-num">03</div>
+              <div class="timeline-body">
+                <h4>Folgetermine <em>nach Absprache</em></h4>
+                <p>Falls eine Begleitung sinnvoll ist, erhalten Sie nach dem CheckIn einen Direktlink für die Folgetermine. Dauer und Frequenz passe ich an Alter, Anliegen und Familienalltag an.</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">03</div>
-          <div class="timeline-body">
-            <h4>Therapieplan in <em>Absprache</em></h4>
-            <p>Der Plan wird mit den Eltern besprochen — und, wo sinnvoll, mit dem behandelnden Kinderarzt abgestimmt. Naturheilkundliche Begleitung ist Ergänzung, kein Alleingang.</p>
+
+          <div class="kinder-preis">
+            <div class="preis-num">75 <span>€</span></div>
+            <div class="preis-body">
+              <strong>CheckIn Kinder</strong>
+              <span>30 Minuten · vor Ort · mit Eltern und Kind</span>
+            </div>
+            <div class="preis-foot">
+              Inklusive Nachbereitung — kurze schriftliche Empfehlung im Anschluss.
+            </div>
           </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">04</div>
-          <div class="timeline-body">
-            <h4>Folgetermine je nach Bedarf</h4>
-            <p>Reviews, Anpassungen, neue Themen. Ich empfehle immer den kleinst­möglichen sinnvollen Schritt — nicht den größten.</p>
+
+          <div style="margin-top:32px;display:flex;gap:14px;flex-wrap:wrap">
+            <a href="/termin-ablauf/" class="btn btn-primary">CheckIn buchen</a>
+            <a href="/abrechnung/" class="btn btn-text">Alle Honorare ansehen</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 03 METHODEN FÜR KINDER -->
-  <section class="flagship section-tint">
+  <!-- ========================================================================
+       05 METHODEN · 6 Säulen, kindgerecht
+       ======================================================================== -->
+  <section class="kinder-methoden" id="methoden">
     <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">03 — Methoden</div>
+      <div class="kinder-methoden-head reveal">
+        <div class="eyebrow">04 — Methoden</div>
         <h2 class="h-section">
           Womit ich bei Kindern <em>arbeite.</em>
         </h2>
         <p class="lede">
-          Sanft, strukturiert, kindgerecht — und mit klaren Hinweisen zu den Möglichkeiten und Grenzen jeder Methode.
+          Sechs Werkzeuge, sanft und altersgerecht. Ich kombiniere — was gerade sinnvoll erscheint. Klar, einfach und umsetzbar.
         </p>
       </div>
 
-      <div class="methods reveal" style="margin-top:48px">
-        <div class="methods-head">
-          <div class="l">
-            <h3>Vier Säulen — <em>kindgerecht.</em></h3>
-            <div class="sub">Was ich einsetze, was ich nicht einsetze.</div>
+      <div class="kinder-methoden-grid">
+        <article class="kmethod km1 reveal">
+          <div class="kmethod-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 26V12c0-3 3-6 7-6s7 3 7 6v14"/>
+              <path d="M9 26h14"/>
+              <path d="M13 16l-1 4M19 16l1 4"/>
+              <circle cx="16" cy="9" r="1.5"/>
+            </svg>
           </div>
-          <div class="methods-tag">Kinder</div>
-        </div>
-        <div class="methods-grid" style="grid-template-columns:repeat(2,1fr)">
-          <article class="method m1">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 3-9 9-9 1.5 0 3 .5 4 1.5 0 4-1 11-6 14.5z"/><path d="M11 20c0-3 1-7 3-9"/></svg>
-            </div>
-            <h4>Phytotherapie</h4>
-            <p>Pflanzliche Therapie in kindgerechter Dosierung — klassische Heilpflanzen, abgestimmt auf das Alter und die Situation.</p>
-            <ul>
-              <li>Strukturierte, altersgerechte Empfehlungen</li>
-              <li>Wechselwirkungen mit bestehender Medikation berücksichtigt</li>
-            </ul>
-          </article>
-          <article class="method m2">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><rect x="5" y="13" width="3" height="6"/><rect x="10.5" y="9" width="3" height="10"/><rect x="16" y="5" width="3" height="14"/></svg>
-            </div>
-            <h4>Mikronährstoffe</h4>
-            <p>Gezielte Empfehlungen auf Basis von Anamnese und ggf. Labor — z. B. bei Infektanfälligkeit, Konzentrationsthemen, Wachstumsphasen.</p>
-            <ul>
-              <li>Laborgestützt und altersangepasst</li>
-              <li>Konkret in Dosierung und Dauer</li>
-            </ul>
-          </article>
-          <article class="method m1">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/><path d="M2 17c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/></svg>
-            </div>
-            <h4>Bioresonanz</h4>
-            <p>Verfahren der bioenergetischen Diagnostik — sanft, nicht-invasiv, kindgerecht. Ich nutze sie, um Belastungsmuster und Allergiezeichen sichtbar zu machen.</p>
-            <ul>
-              <li>Sanftes, nicht-invasives Verfahren</li>
-              <li>Ergänzt schulmedizinische Diagnostik, ersetzt sie nicht</li>
-              <li>Hinweis: wissenschaftlich nicht abschließend bewertet</li>
-            </ul>
-          </article>
-          <article class="method m2">
-            <div class="method-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </div>
-            <h4>Beratung Ernährung &amp; Tagesstruktur</h4>
-            <p>Konkrete Stellschrauben im Familienalltag — Schlafrhythmus, Pausen, Bildschirmzeiten, Mahlzeiten. Keine Lifestyle-Belehrung, sondern realistische Empfehlungen.</p>
-            <ul>
-              <li>Kein „Sie müssen jetzt …"</li>
-              <li>Drei Hebel statt fünfzig Tipps</li>
-            </ul>
-          </article>
-        </div>
+          <h4>Komplex-<em>Homöopathie</em></h4>
+          <p>Bewährte Mittel-Kombinationen, die sich für Kinder besonders eignen — sanft, geschmacklich gut, klar dosiert.</p>
+          <div class="mini-tag">Phase: ab Erstgespräch</div>
+        </article>
+
+        <article class="kmethod km2 reveal">
+          <div class="kmethod-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 28V8"/>
+              <path d="M16 14c-3-3-7-3-9 0 2 4 6 4 9 1"/>
+              <path d="M16 18c3-3 7-3 9 0-2 4-6 4-9 1"/>
+              <path d="M16 8c-2-2-2-4 0-6 2 2 2 4 0 6z"/>
+            </svg>
+          </div>
+          <h4>Phytotherapie &amp; <em>Hausapotheke</em></h4>
+          <p>Heilpflanzen in kindgerechter Form: Tees, Tinkturen, Wickel. Plus konkrete Tipps für die Hausapotheke daheim.</p>
+          <div class="mini-tag">Alltagstauglich</div>
+        </article>
+
+        <article class="kmethod km3 reveal">
+          <div class="kmethod-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 6c0 4-3 6-6 8 0 4 3 8 6 12 3-4 6-8 6-12-3-2-6-4-6-8z"/>
+              <path d="M16 14v8M13 18h6"/>
+            </svg>
+          </div>
+          <h4>Anthroposophische <em>Mittel</em></h4>
+          <p>Aus der anthroposophischen Medizin: bewährte Präparate für Kinderthemen wie Infekte, Unruhe, Wachstumsphasen.</p>
+          <div class="mini-tag">Sanft &amp; bewährt</div>
+        </article>
+
+        <article class="kmethod km4 reveal">
+          <div class="kmethod-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 14c3-4 5-4 8 0s5 4 8 0 5-4 8 0"/>
+              <path d="M3 20c3-4 5-4 8 0s5 4 8 0 5-4 8 0"/>
+              <path d="M3 26c3-3 5-3 8 0s5 3 8 0 5-3 8 0"/>
+            </svg>
+          </div>
+          <h4><em>Bioresonanz</em></h4>
+          <p>Bioenergetisches Verfahren — sanft, nicht-invasiv. Ich nutze sie, um Belastungsmuster sichtbar zu machen.</p>
+          <div class="mini-tag">Erfahrungsheilkunde · nicht abschließend bewertet</div>
+        </article>
+
+        <article class="kmethod km5 reveal">
+          <div class="kmethod-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="14" width="4" height="12"/>
+              <rect x="13" y="9" width="4" height="17"/>
+              <rect x="21" y="5" width="4" height="21"/>
+              <path d="M3 28h26"/>
+            </svg>
+          </div>
+          <h4>Darm, Ernährung &amp; <em>Mikronährstoffe</em></h4>
+          <p>Aufbau-Konzepte für Mikrobiom und Versorgung — kombiniert mit alltagstauglichen Empfehlungen für die Familienküche. Laborgestützt, altersangepasst, in machbaren Schritten.</p>
+          <div class="mini-tag">Laborbasiert · familientauglich</div>
+        </article>
+
+        <article class="kmethod km6 reveal">
+          <div class="kmethod-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 14a6 6 0 1 0-12 0c0 4 3 5 3 8v2h6v-2c0-3 3-4 3-8z"/>
+              <path d="M14 28h4"/>
+              <path d="M16 4v2M24 8l-1 1M9 9 8 8"/>
+            </svg>
+          </div>
+          <h4>Emotionale Tools &amp; <em>Stressregulation</em></h4>
+          <p>Atem-, Erdungs- und Beruhigungs-Übungen, die Kinder mitnehmen können — kleine Werkzeuge, die im Alltag sofort helfen.</p>
+          <div class="mini-tag">Familien-tauglich</div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- 04 WICHTIGER HINWEIS HWG -->
-  <section class="forwhom">
+  <!-- ========================================================================
+       06 ELTERN-FRAGEN · FAQ
+       ======================================================================== -->
+  <section class="kinder-faq" id="fragen">
     <div class="wrap">
-      <div class="reveal" style="max-width:880px">
-        <div class="eyebrow">04 — Wichtiger Hinweis</div>
+      <div class="reveal">
+        <div class="eyebrow">05 — Eltern-Fragen</div>
         <h2 class="h-section">
-          Naturheilkundliche Begleitung ist <em>Ergänzung.</em>
+          Was Eltern <em>häufig fragen.</em>
         </h2>
       </div>
 
-      <div class="hwg-note reveal" style="max-width:880px;margin-top:24px">
-        <strong>Bitte zuerst lesen</strong>
-        Die Kindersprechstunde ergänzt die kinderärztliche Versorgung — sie ersetzt sie nicht. Bei akuten Erkrankungen, hohen Fiebern, ungeklärten oder neu auftretenden Symptomen ist immer zuerst der Kinderarzt oder die kinderärztliche Notfallversorgung aufzusuchen.
-      </div>
-      <div class="hwg-note reveal" style="max-width:880px;margin-top:18px">
-        <strong>Zu den Verfahren</strong>
-        Bioresonanz ist ein Verfahren der bioenergetischen Diagnostik und <em>wissenschaftlich nicht abschließend bewertet.</em> Konkrete Behandlungsergebnisse oder Heilung können nicht versprochen werden. Welche Wirkung sich für ein einzelnes Kind ergibt, hängt von vielen Faktoren ab — Vorgeschichte, Alltagsumsetzung, anderen Therapien.
-      </div>
-      <div class="hwg-note reveal" style="max-width:880px;margin-top:18px">
-        <strong>Zur Zusammenarbeit mit dem Kinderarzt</strong>
-        Wo es sinnvoll ist, stimme ich Empfehlungen mit dem behandelnden Kinderarzt ab — und ich erwarte das auch umgekehrt. Naturheilkundliche Therapie als Alleingang gegen ärztlichen Rat ist nicht mein Verständnis von Begleitung.
+      <div class="kinder-faq-grid">
+        <div class="faq-item reveal">
+          <h4>Muss mein Kind beim CheckIn dabei sein?</h4>
+          <p>
+            Vorzugsweise ja — ich möchte Ihr Kind kennenlernen, sehen wie es da ist. Bei sehr sensiblen Themen oder wenn Sie zuerst grundsätzlich besprechen möchten, ob die Praxis passt, kann das Erstgespräch auch <em>nur mit Ihnen</em> stattfinden.
+          </p>
+        </div>
+        <div class="faq-item alt-1 reveal">
+          <h4>Ab welchem Alter behandeln Sie Kinder?</h4>
+          <p>
+            Vom Säugling bis ins Jugendalter. Bei sehr jungen Kindern arbeiten wir oft hauptsächlich über die Eltern, ab dem Schulalter beziehe ich das Kind aktiv mit ein.
+          </p>
+        </div>
+        <div class="faq-item alt-2 reveal">
+          <h4>Ersetzt das den Kinderarzt?</h4>
+          <p>
+            Nein — und das soll es auch nicht. Naturheilkundliche Begleitung ist <em>Ergänzung</em>. Bei akuten Erkrankungen, hohen Fiebern oder neuen Symptomen gehen Sie immer zuerst zum Kinderarzt.
+          </p>
+        </div>
+        <div class="faq-item alt-3 reveal">
+          <h4>Wie geht es nach dem CheckIn weiter?</h4>
+          <p>
+            Wenn eine Begleitung sinnvoll ist, erhalten Sie einen Direktlink für Folgetermine. Dauer, Häufigkeit und Inhalte stimmen wir individuell ab — und immer in dem Tempo, das zu Ihrem Kind und Ihrem Familienalltag passt.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CHECKIN CTA -->
-  <section class="checkin">
+  <!-- ========================================================================
+       07 CHECKIN CTA · Kinder-Variante
+       ======================================================================== -->
+  <section class="checkin kinder">
     <div class="checkin-inner">
       <div class="eyebrow reveal">Ihr nächster Schritt</div>
       <h2 class="reveal">
         Termin für Ihr <em>Kind anfragen.</em>
       </h2>
       <p class="reveal">
-        Schreiben Sie kurz, was los ist — ich melde mich persönlich zurück, mit einer ehrlichen Einschätzung, ob die Kindersprechstunde der richtige Rahmen ist.
+        Buchen Sie hier einen Termin — oder schreiben Sie mir kurz, was los ist.
       </p>
       <div class="checkin-ctas reveal">
-        <a href="/termin-ablauf/" class="btn btn-sun">Termin &amp; Ablauf</a>
+        <a href="/termin-ablauf/" class="btn btn-sun">CheckIn für Eltern und Kind buchen</a>
         <a href="https://wa.me/4917993832388" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">WhatsApp schreiben</a>
         <a href="tel:+4917993832388" class="btn btn-text" style="color:var(--papier);border-color:rgba(242,246,242,0.5)">0179 938 32 38</a>
       </div>
@@ -274,6 +821,7 @@
           <li><a href="/datenschutz/">Datenschutz</a></li>
           <li><a href="/agb/">AGB</a></li>
           <li><a href="/abrechnung/">Abrechnungs­hinweise</a></li>
+          <li><a href="/bildnachweise/">Bildnachweise</a></li>
         </ul>
       </div>
       <div class="footer-col">
