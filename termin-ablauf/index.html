@@ -1161,6 +1161,68 @@
 
 <script src="/assets/script.js"></script>
 
+<!-- Kontaktformular: AJAX-Submit an nforms.eu mit Inline-Bestätigung -->
+<script>
+(function(){
+  var form = document.getElementById('contactForm');
+  if(!form) return;
+
+  var success = document.getElementById('formSuccess');
+  var errorBox = document.getElementById('formError');
+
+  if (window.location.search.indexOf('nf=ok') !== -1) {
+    form.style.display = 'none';
+    if (success) success.hidden = false;
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState({}, document.title, window.location.pathname + '#kontakt');
+    }
+    return;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if (errorBox) errorBox.hidden = true;
+
+    var emailField = form.querySelector('[name="email"]');
+    if (emailField && !form.querySelector('[name="_replyto"]')) {
+      var replyto = document.createElement('input');
+      replyto.type = 'hidden';
+      replyto.name = '_replyto';
+      replyto.value = emailField.value;
+      form.appendChild(replyto);
+    }
+
+    var btn = form.querySelector('button[type="submit"]');
+    var btnLabel = btn ? btn.textContent : '';
+    if (btn) { btn.disabled = true; btn.textContent = 'Wird gesendet…'; }
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+    .then(function(res){
+      return res.json().catch(function(){ return { success: res.ok }; });
+    })
+    .then(function(result){
+      if (result && (result.success === true || result.ok === true)) {
+        form.style.display = 'none';
+        if (success) {
+          success.hidden = false;
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      } else {
+        throw new Error((result && (result.message || result.error)) || 'Fehler');
+      }
+    })
+    .catch(function(){
+      if (errorBox) errorBox.hidden = false;
+      if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
+    });
+  });
+})();
+</script>
+
 <script>
 /* ── Lemniscus Custom Teaser API ── */
 (function () {
