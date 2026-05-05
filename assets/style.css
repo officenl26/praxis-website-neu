@@ -124,6 +124,23 @@ section{padding:128px 0;position:relative}
 @media(max-width:1100px){.nav-links{gap:20px}.nav-links a{font-size:12px}.nav-phone span{display:none}}
 @media(max-width:980px){.nav-links{display:none}.nav-cta{padding:10px 14px;font-size:9px}.nav-phone{display:none}}
 
+/* MOBILE BURGER */
+.nav-burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:40px;height:40px;background:none;border:none;cursor:pointer;padding:8px 6px;-webkit-tap-highlight-color:transparent}
+.nav-burger span{display:block;width:22px;height:1.5px;background:var(--papier);transition:transform .3s ease,opacity .3s ease,width .3s ease;transform-origin:center}
+.nav-burger.is-open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.nav-burger.is-open span:nth-child(2){opacity:0;width:0}
+.nav-burger.is-open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:980px){.nav-burger{display:flex}}
+
+/* MOBILE MENU OVERLAY */
+.mobile-menu{position:fixed;inset:0;z-index:99;background:rgba(14,25,16,0.97);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:100px 40px 60px;opacity:0;pointer-events:none;transition:opacity .35s ease}
+.mobile-menu.is-open{opacity:1;pointer-events:all}
+.mobile-menu a{display:block;width:100%;text-align:center;font-family:'Spectral',serif;font-size:clamp(22px,5vw,34px);color:rgba(232,240,232,0.85);font-weight:400;padding:16px 0;border-bottom:1px solid rgba(232,240,232,0.08);transition:color .2s;letter-spacing:0.01em}
+.mobile-menu a:first-child{border-top:1px solid rgba(232,240,232,0.08)}
+.mobile-menu a:hover,.mobile-menu a.active{color:var(--apfelgruen)}
+.mobile-menu .mobile-cta{margin-top:28px;border-top:none;background:var(--sonnengelb);color:var(--waldgruen);font-family:'Inter';font-size:10px;letter-spacing:0.26em;text-transform:uppercase;font-weight:600;padding:14px 28px;display:inline-flex;align-items:center;gap:8px}
+.mobile-menu .mobile-cta::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--apfelgruen)}
+
 /* HERO */
 .hero{
   padding:160px 6vw 110px;background:var(--papier);

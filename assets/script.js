@@ -23,6 +23,28 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  // Mobiles Burger-Menü
+  var burger = document.getElementById('navBurger');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', function () {
+      var isOpen = burger.classList.toggle('is-open');
+      mobileMenu.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      mobileMenu.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        burger.classList.remove('is-open');
+        mobileMenu.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        mobileMenu.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+
   // Tab-Navigation (Kontakt-Sektion / Termin-Seite)
   var tabBtns = document.querySelectorAll('.tab-btn');
   var tabPanes = document.querySelectorAll('.tab-pane');
