@@ -1,0 +1,26 @@
+User-agent: *
+Allow: /
+
+# KI-Crawler explizit erlaubt für GEO-Sichtbarkeit
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Keine Indexierung interner Hilfsdateien
+Disallow: /archiv-sektionen.html
+
+Sitemap: https://naturheilpraxis-lurz.de/sitemap.xml

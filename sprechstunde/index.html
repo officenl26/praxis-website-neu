@@ -6,6 +6,7 @@
 <meta name="description" content="Naturheilkundliche Sprechstunde in Wiesloch: für gezielte Themen, Hormone, Verlaufskontrolle — nach einem CheckIn oder für Patienten in laufender Begleitung. Mit Anamnese, Labor und Bioresonanz." />
 <meta name="theme-color" content="#1B3A5C" />
 <title>Sprechstunde · Naturheilpraxis Nicole Lurz · Wiesloch</title>
+<link rel="canonical" href="https://naturheilpraxis-lurz.de/sprechstunde/" />
 
 <!-- Open Graph / Link-Vorschau -->
 <meta property="og:type" content="website" />
@@ -367,6 +368,46 @@
   .sp-final-path { padding: 40px 28px; }
 }
 </style>
+<!-- Schema.org JSON-LD · MedicalProcedure + Breadcrumb -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalProcedure",
+      "@id": "https://naturheilpraxis-lurz.de/sprechstunde/#procedure",
+      "name": "Naturheilkundliche Sprechstunde",
+      "description": "Naturheilkundliche Sprechstunde in Wiesloch für gezielte Themen, Hormonbegleitung und Verlaufskontrolle — nach einem CheckIn oder für Patientinnen in laufender Begleitung. Mit Anamnese, Laborinterpretation und Bioresonanz.",
+      "url": "https://naturheilpraxis-lurz.de/sprechstunde/",
+      "procedureType": "Therapeutic",
+      "performer": {
+        "@type": "Person",
+        "name": "Nicole Lurz",
+        "jobTitle": "Heilpraktikerin",
+        "url": "https://naturheilpraxis-lurz.de/ueber-mich/"
+      },
+      "location": {
+        "@type": "MedicalBusiness",
+        "name": "Naturheilpraxis Nicole Lurz",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Hauptstr. 73",
+          "postalCode": "69168",
+          "addressLocality": "Wiesloch",
+          "addressCountry": "DE"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Start", "item": "https://naturheilpraxis-lurz.de/"},
+        {"@type": "ListItem", "position": 2, "name": "Sprechstunde", "item": "https://naturheilpraxis-lurz.de/sprechstunde/"}
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
