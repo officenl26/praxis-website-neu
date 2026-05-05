@@ -18,6 +18,9 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
+<!-- Nforms Shield -->
+<script defer src="https://api.nforms.eu/shield.js"></script>
+
 <!-- Lemniscus LemmyFlansch · Floating-Widget -->
 <script async
         id="lemmyFlansch"
@@ -701,7 +704,7 @@
           Ihr Weg als <em>Neupatient.</em>
         </h2>
         <p class="lede">
-          Fünf Schritte — von der ersten Buchung bis zum Termin. Übersichtlich, ohne Wartezimmer-Rätsel.
+          Fünf Schritte — von der ersten Buchung bis zum Termin. Übersichtlich, von Anfang an.
         </p>
       </div>
 
@@ -724,7 +727,7 @@
           <div class="roadmap-circle">3</div>
           <div class="roadmap-step-body">
             <h4>Unterlagen per E-Mail</h4>
-            <p>Einverständniserklärung und Anamnesebogen kommen separat — digital über Xodosign.</p>
+            <p>Einverständniserklärung und Anamnesebogen kommen separat — digital.</p>
           </div>
         </div>
         <div class="roadmap-step rs-4">
@@ -739,7 +742,7 @@
           <div class="roadmap-circle">5</div>
           <div class="roadmap-step-body">
             <h4>Ihr Termin</h4>
-            <p>Online per Zoom oder vor Ort in Wiesloch. Zahlung bar oder bargeldlos.</p>
+            <p>Online per Videosprechstunde oder vor Ort in Wiesloch. Zahlung bar oder bargeldlos.</p>
           </div>
         </div>
       </div>
@@ -755,7 +758,7 @@
           Der erste Schritt: <em>CheckIn buchen.</em>
         </h2>
         <p class="lede">
-          Alle Wege in die Praxis beginnen mit dem CheckIn. Dreißig Minuten, damit ich verstehe, was Sie wirklich brauchen.
+          Freie Termine direkt online wählen — oder auf die Warteliste setzen lassen, wenn kein passender Slot dabei ist.
         </p>
       </div>
 
@@ -769,7 +772,7 @@
             Sie gehen nicht mit einem Rezept nach Hause, sondern mit Klarheit. Und einem Fahrplan, der zu Ihrem Alltag passt.
           </p>
           <p>
-            Verfügbar als <strong>Online-Termin</strong> (Zoom) oder <strong>vor Ort in Wiesloch</strong>.
+            Verfügbar als <strong>Online-Videosprechstunde</strong> oder <strong>vor Ort in Wiesloch</strong>.
           </p>
 
           <div class="checkin-price-block">
@@ -783,7 +786,7 @@
               <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
             </svg>
             <p>
-              Die freien Termine unten sind <strong style="color:rgba(242,246,242,0.85)">ausschließlich für Ersttermine (CheckIn)</strong>. Als Bestandspatient erhalten Sie Ihren Direktlink per E-Mail — weitere Termine finden Sie im Patientenportal.
+              Als Bestandspatient erhalten Sie Ihren Direktlink per E-Mail — weitere Termine finden Sie im Patientenportal. Nicht alle Termine sind online freigeschaltet.
             </p>
           </div>
         </div>
@@ -792,22 +795,23 @@
         <div class="teaser-widget reveal">
           <div class="teaser-widget-head">
             <div class="teaser-pulse" aria-hidden="true"></div>
-            <span>Nächste freie CheckIn-Termine</span>
+            <span>Nächste freie Terminoptionen</span>
           </div>
 
-          <div class="teaser-slots" id="teaser-slots" role="list" aria-live="polite" aria-label="Freie CheckIn-Termine">
+          <div class="teaser-slots" id="teaser-slots" role="list" aria-live="polite" aria-label="Freie Terminoptionen">
             <p class="teaser-loading">Termine werden geladen…</p>
           </div>
 
           <div class="teaser-widget-foot">
             <a id="lemniscus-book-btn" href="#" class="btn-teaser" target="_blank" rel="noopener">
-              CheckIn-Termin buchen
+              Termin online buchen
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
               </svg>
             </a>
             <p class="note">
-              Telefonisch: <a href="tel:+4917993832388" style="color:rgba(242,246,242,0.55)">+49 179 938 32 38</a> ·
+              Kein passender Termin dabei? Schreiben Sie mir — ich nehme Sie auf die Warteliste.<br>
+              <a href="tel:+4917993832388" style="color:rgba(242,246,242,0.55)">+49 179 938 32 38</a> ·
               <a href="https://wa.me/4917993832388" style="color:rgba(242,246,242,0.55)">WhatsApp</a>
             </p>
           </div>
@@ -831,10 +835,10 @@
 
       <div class="nach-grid">
         <article class="nach-card nc-1 reveal">
-          <span class="nc-tag">Tiefe Diagnostik</span>
+          <span class="nc-tag">Ganzheitliche Analyse &amp; Beratung</span>
           <h3>Regenerations­<em>analyse</em></h3>
           <p>
-            Wenn Sie den Gesamtblick wollen: Multiscan, Bioresonanz, Laborinterpretation in einem Termin. 90 Minuten, schriftlicher Befund, 12-Wochen-Fahrplan mit drei konkreten Hebeln.
+            Viele Ratschläge, wenig roter Faden? In der Analyse ordnen wir in einem strukturierten Termin Nervensystem, Immunsystem und Stoffwechsel — mit konkreten nächsten Schritten, die Sie selbst angehen können.
           </p>
           <a href="/regenerationsanalyse/" class="nc-link">Mehr erfahren →</a>
         </article>
@@ -1039,21 +1043,32 @@
           </div>
         </aside>
 
-        <form class="contact-form reveal" action="mailto:praxis@nicole-lurz.de" method="post" enctype="text/plain" novalidate>
+        <form id="contactForm" class="contact-form reveal"
+              action="https://api.nforms.eu/f/nf_mbrrdopjursmptfd0fulknfno0ycbyqz"
+              method="POST">
+
+          <!-- Nforms Reserved Fields -->
+          <input type="hidden" name="access_key" value="nf_mbrrdopjursmptfd0fulknfno0ycbyqz" />
+          <input type="hidden" name="_subject" value="Neue Anfrage über praxis.nicole-lurz.de/termin-ablauf" />
+          <input type="hidden" name="_redirect" value="https://praxis.nicole-lurz.de/termin-ablauf/?nf=ok#kontakt" />
+          <!-- Honeypot -->
+          <input type="text" name="botcheck" tabindex="-1" autocomplete="off"
+                 aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+
           <div class="form-row">
             <div class="form-field">
               <label for="name">Ihr Name</label>
-              <input type="text" id="name" name="name" required />
+              <input type="text" id="name" name="name" required minlength="2" autocomplete="name" />
             </div>
             <div class="form-field">
               <label for="email">E-Mail</label>
-              <input type="email" id="email" name="email" required />
+              <input type="email" id="email" name="email" required autocomplete="email" />
             </div>
           </div>
           <div class="form-row">
             <div class="form-field">
               <label for="phone">Telefon (optional)</label>
-              <input type="tel" id="phone" name="phone" />
+              <input type="tel" id="phone" name="phone" autocomplete="tel" />
             </div>
             <div class="form-field">
               <label for="anliegen">Ihr Anliegen</label>
@@ -1064,6 +1079,7 @@
                 <option>Medizinisches Mentoring</option>
                 <option>Kindersprechstunde</option>
                 <option>Kurse</option>
+                <option>Warteliste</option>
                 <option>Allgemeine Frage</option>
               </select>
             </div>
@@ -1071,18 +1087,29 @@
           <div class="form-row">
             <div class="form-field full">
               <label for="message">Ihre Nachricht</label>
-              <textarea id="message" name="message" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
+              <textarea id="message" name="message" required minlength="10" placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
             </div>
           </div>
           <label class="form-consent">
-            <input type="checkbox" required />
+            <input type="checkbox" name="datenschutz_einverstanden" required />
             <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.</span>
           </label>
           <div class="form-submit">
             <span class="form-note">Antwort innerhalb von 24 h, werktags.</span>
             <button type="submit" class="btn btn-primary">Nachricht senden</button>
           </div>
+          <p class="form-error" id="formError" hidden role="alert">
+            Es gab leider ein Problem beim Versenden. Bitte versuchen Sie es erneut — oder schreiben Sie direkt an <a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a>.
+          </p>
         </form>
+
+        <div class="form-success" id="formSuccess" hidden>
+          <div class="form-success-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+          </div>
+          <h3>Vielen Dank — Ihre Nachricht ist angekommen.</h3>
+          <p>Ich antworte werktags innerhalb von 24 Stunden persönlich. Bei dringenden Fragen erreichen Sie mich auch unter <a href="tel:+4917993832388">0179 938 32 38</a> oder per <a href="https://wa.me/4917993832388">WhatsApp</a>.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -1138,7 +1165,7 @@
 /* ── Lemniscus Custom Teaser API ── */
 (function () {
   var TOKEN  = 'bb02b7c7-46b8-4f56-953d-520e52d854ae';
-  var BOOK_URL = 'https://my.lemniscus.de/pss.html?token=' + TOKEN;
+  var BOOK_URL = 'https://my.lemniscus.de/ot/' + TOKEN;
   var TEASER_URL = 'https://my.lemniscus.de/mvc/pss/teaser?token=' + TOKEN;
   var MAX_SLOTS = 4;
 
