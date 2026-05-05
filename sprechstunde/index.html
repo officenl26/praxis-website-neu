@@ -29,242 +29,160 @@
   --sp-blau: #1B4C93;
   --sp-blau-soft: rgba(27,76,147,0.10);
   --sp-blau-mid: rgba(27,76,147,0.22);
-  --sp-blau-line: rgba(27,76,147,0.16);
+  --sp-blau-line: rgba(27,76,147,0.15);
 }
 
 /* ===== HERO ===== */
 .sp-hero {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr;
+  position: relative; overflow: hidden;
   background: var(--tannenmoos);
 }
 .sp-hero-text {
   padding: 160px 6vw 80px 6vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2;
 }
 .sp-hero-text::before {
   content: '';
-  position: absolute;
-  top: -120px; left: -160px;
+  position: absolute; top: -120px; left: -160px;
   width: 500px; height: 500px;
   background: radial-gradient(circle, rgba(27,76,147,0.28), transparent 70%);
   pointer-events: none;
 }
-.sp-hero-text .eyebrow {
-  color: rgba(242,246,242,0.55);
-  border-color: rgba(242,246,242,0.18);
-  margin-bottom: 28px;
-}
+.sp-hero-text .eyebrow { color: rgba(242,246,242,0.55); border-color: rgba(242,246,242,0.18); margin-bottom: 28px; }
 .sp-hero h1 {
-  font-family: 'Spectral', serif;
-  font-weight: 400;
+  font-family: 'Spectral', serif; font-weight: 400;
   font-size: clamp(2.6rem, 5vw, 4.4rem);
-  line-height: 1.06;
-  letter-spacing: -0.022em;
-  color: var(--papier);
-  margin-bottom: 28px;
+  line-height: 1.06; letter-spacing: -0.022em;
+  color: var(--papier); margin-bottom: 28px;
 }
 .sp-hero h1 em { font-style: italic; color: #7CB9D6; }
 .sp-hero .lede {
   font-family: 'Inter', sans-serif;
   font-size: clamp(1.05rem, 1.4vw, 1.18rem);
-  line-height: 1.7;
-  color: rgba(242,246,242,0.78);
-  max-width: 500px;
-  margin-bottom: 44px;
+  line-height: 1.7; color: rgba(242,246,242,0.78);
+  max-width: 500px; margin-bottom: 44px;
 }
-.sp-hero-badges {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 44px;
-}
+.sp-hero-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 44px; }
 .sp-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: inline-flex; align-items: center; gap: 8px;
   padding: 7px 14px;
   background: rgba(27,76,147,0.25);
   border: 1px solid rgba(124,185,214,0.3);
   border-radius: 40px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.76rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: rgba(242,246,242,0.85);
+  font-family: 'Inter', sans-serif; font-size: 0.76rem; font-weight: 500;
+  letter-spacing: 0.04em; color: rgba(242,246,242,0.85);
 }
 .sp-hero-badge svg { width: 13px; height: 13px; stroke: #7CB9D6; }
-.sp-hero-ctas {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+.sp-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.sp-cta-group { display: flex; flex-direction: column; gap: 5px; }
+.sp-cta-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem; letter-spacing: 0.14em;
+  text-transform: uppercase; font-weight: 600;
+  color: rgba(242,246,242,0.45);
 }
-.sp-hero-image {
-  position: relative;
-  overflow: hidden;
-}
-.sp-hero-image img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  display: block;
-}
+.sp-hero-image { position: relative; overflow: hidden; }
+.sp-hero-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; display: block; }
 .sp-hero-image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
+  content: ''; position: absolute; inset: 0;
   background: linear-gradient(to right, var(--tannenmoos) 0%, transparent 30%);
 }
 
 /* ===== STAT BAR ===== */
 .sp-stat-bar { background: var(--sp-blau); padding: 0 6vw; }
-.sp-stat-bar-inner {
-  max-width: 1240px; margin: 0 auto;
-  display: flex; align-items: stretch;
-}
-.sp-stat {
-  flex: 1;
-  padding: 26px 20px;
-  border-right: 1px solid rgba(242,246,242,0.15);
-  text-align: center;
-}
+.sp-stat-bar-inner { max-width: 1240px; margin: 0 auto; display: flex; align-items: stretch; }
+.sp-stat { flex: 1; padding: 26px 20px; border-right: 1px solid rgba(242,246,242,0.15); text-align: center; }
 .sp-stat:last-child { border-right: none; }
-.sp-stat .num {
-  font-family: 'Spectral', serif;
-  font-size: 1.7rem; font-weight: 500;
-  color: var(--papier); line-height: 1; margin-bottom: 5px;
-}
-.sp-stat .lbl {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.7rem; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(242,246,242,0.58);
-}
+.sp-stat .num { font-family: 'Spectral', serif; font-size: 1.7rem; font-weight: 500; color: var(--papier); line-height: 1; margin-bottom: 5px; }
+.sp-stat .lbl { font-family: 'Inter', sans-serif; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(242,246,242,0.58); }
 
-/* ===== ZUGANG ===== */
-.sp-zugang { padding: 100px 6vw 80px; background: var(--papier); }
-.sp-zugang-intro { max-width: 1240px; margin: 0 auto 52px; }
-.sp-routes {
-  max-width: 1240px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 2px; background: var(--sp-blau-line);
-  border: 1px solid var(--sp-blau-line);
-  border-radius: 16px; overflow: hidden;
-}
-.sp-route { background: var(--papier); padding: 48px 44px 44px; }
-.sp-route-icon {
-  width: 52px; height: 52px; border-radius: 13px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 24px;
-}
-.sp-route-icon svg { width: 24px; height: 24px; }
-.sp-route.new .sp-route-icon { background: var(--sp-blau-soft); }
-.sp-route.new .sp-route-icon svg { stroke: var(--sp-blau); }
-.sp-route.existing .sp-route-icon { background: rgba(61,90,46,0.1); }
-.sp-route.existing .sp-route-icon svg { stroke: var(--waldgruen); }
-.sp-route-tag {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.66rem; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  padding: 4px 11px; border-radius: 20px; margin-bottom: 16px;
-}
-.sp-route.new .sp-route-tag { background: var(--sp-blau-soft); color: var(--sp-blau); }
-.sp-route.existing .sp-route-tag { background: rgba(61,90,46,0.1); color: var(--waldgruen); }
-.sp-route h3 {
-  font-family: 'Spectral', serif;
-  font-size: 1.5rem; font-weight: 500;
-  color: var(--tinte); line-height: 1.2; margin-bottom: 14px;
-}
-.sp-route h3 em { font-style: italic; }
-.sp-route > p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem; line-height: 1.7;
-  color: var(--tinte-soft); margin-bottom: 28px;
-}
-.sp-route-note {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem; line-height: 1.55;
-  color: var(--tinte-soft);
-  padding: 14px 16px;
-  background: var(--offwhite);
-  border-radius: 8px;
-  margin-bottom: 28px;
-}
-.sp-route .btn { display: inline-flex; align-items: center; gap: 8px; }
-
-/* ===== THEMEN ===== */
-.sp-themen { padding: 100px 6vw; background: var(--offwhite); }
-.sp-themen-inner { max-width: 1240px; margin: 0 auto; }
+/* ===== FÜR WEN (01) ===== */
+.sp-fuerwen { padding: 100px 6vw 60px; background: var(--offwhite); }
+.sp-fuerwen-inner { max-width: 1240px; margin: 0 auto; }
 .sp-themen-grid {
   margin-top: 52px;
   display: grid; grid-template-columns: repeat(3, 1fr);
   gap: 2px; background: var(--sp-blau-line);
   border-radius: 16px; overflow: hidden;
 }
-.sp-thema {
-  background: var(--papier);
-  padding: 44px 36px;
-  position: relative;
-}
+.sp-thema { background: var(--papier); padding: 44px 36px; }
 .sp-thema-num {
-  font-family: 'Spectral', serif;
-  font-size: 3.5rem; font-weight: 400;
-  line-height: 1;
-  color: var(--sp-blau-line);
-  margin-bottom: 20px;
-  letter-spacing: -0.04em;
+  font-family: 'Spectral', serif; font-size: 3.5rem; font-weight: 400;
+  line-height: 1; color: var(--sp-blau-line); margin-bottom: 20px; letter-spacing: -0.04em;
 }
-.sp-thema h3 {
-  font-family: 'Spectral', serif;
-  font-size: 1.25rem; font-weight: 500;
-  color: var(--tinte); line-height: 1.25; margin-bottom: 14px;
-}
+.sp-thema h3 { font-family: 'Spectral', serif; font-size: 1.25rem; font-weight: 500; color: var(--tinte); line-height: 1.25; margin-bottom: 14px; }
 .sp-thema h3 em { font-style: italic; }
-.sp-thema > p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; line-height: 1.68;
-  color: var(--tinte-soft); margin-bottom: 18px;
-}
-.sp-thema-examples {
-  list-style: none; padding: 0; margin: 0;
-  display: flex; flex-direction: column; gap: 7px;
-}
+.sp-thema > p { font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.68; color: var(--tinte-soft); margin-bottom: 18px; }
+.sp-thema-examples { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 7px; }
 .sp-thema-examples li {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem; color: var(--tinte-soft);
-  padding-left: 16px; position: relative; line-height: 1.4;
+  font-family: 'Inter', sans-serif; font-size: 0.82rem;
+  color: var(--tinte-soft); padding-left: 16px; position: relative; line-height: 1.4;
 }
 .sp-thema-examples li::before {
   content: ''; position: absolute; left: 0; top: 7px;
   width: 5px; height: 5px; border-radius: 50%;
-  background: var(--sp-blau); opacity: 0.45;
+  background: var(--sp-blau); opacity: 0.4;
 }
 
-/* ===== FRAUENGESUNDHEIT ===== */
-.sp-frauengesundheit {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 480px; overflow: hidden;
+/* Überleitung zu Zugang */
+.sp-booking-bridge {
+  max-width: 1240px; margin: 52px auto 0;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 32px; flex-wrap: wrap;
 }
+.sp-booking-bridge-text {
+  font-family: 'Spectral', serif;
+  font-size: clamp(1.2rem, 2vw, 1.6rem); font-weight: 400;
+  font-style: italic; color: var(--tinte);
+  line-height: 1.3; max-width: 480px;
+}
+.sp-booking-bridge-text em { color: var(--sp-blau); font-style: normal; font-weight: 500; }
+
+/* ===== ZUGANG (02) ===== */
+.sp-zugang { padding: 52px 6vw 100px; background: var(--offwhite); }
+.sp-routes {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px; background: var(--sp-blau-line);
+  border-radius: 16px; overflow: hidden;
+}
+.sp-route { background: var(--papier); padding: 44px 40px; }
+.sp-route-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
+.sp-route-icon svg { width: 22px; height: 22px; }
+.sp-route.new .sp-route-icon { background: var(--sp-blau-soft); }
+.sp-route.new .sp-route-icon svg { stroke: var(--sp-blau); }
+.sp-route.existing .sp-route-icon { background: rgba(61,90,46,0.1); }
+.sp-route.existing .sp-route-icon svg { stroke: var(--waldgruen); }
+.sp-route-tag {
+  display: inline-block; font-family: 'Inter', sans-serif;
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; padding: 4px 11px; border-radius: 20px; margin-bottom: 16px;
+}
+.sp-route.new .sp-route-tag { background: var(--sp-blau-soft); color: var(--sp-blau); }
+.sp-route.existing .sp-route-tag { background: rgba(61,90,46,0.1); color: var(--waldgruen); }
+.sp-route h3 { font-family: 'Spectral', serif; font-size: 1.45rem; font-weight: 500; color: var(--tinte); line-height: 1.2; margin-bottom: 12px; }
+.sp-route h3 em { font-style: italic; }
+.sp-route > p { font-family: 'Inter', sans-serif; font-size: 0.93rem; line-height: 1.68; color: var(--tinte-soft); margin-bottom: 24px; }
+.sp-route-note {
+  font-family: 'Inter', sans-serif; font-size: 0.82rem; line-height: 1.55;
+  color: var(--tinte-soft); padding: 12px 16px;
+  background: var(--offwhite); border-radius: 8px; margin-bottom: 24px;
+}
+.sp-route .btn { display: inline-flex; align-items: center; gap: 8px; }
+
+/* ===== FRAUENGESUNDHEIT ===== */
+.sp-frauengesundheit { display: grid; grid-template-columns: 1fr 1fr; min-height: 480px; overflow: hidden; }
 .sp-fg-image { position: relative; overflow: hidden; }
 .sp-fg-image img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
 .sp-fg-text {
-  background: var(--sp-blau);
-  padding: 80px 64px;
+  background: var(--sp-blau); padding: 80px 64px;
   display: flex; flex-direction: column; justify-content: center;
 }
 .sp-fg-text .eyebrow { color: rgba(242,246,242,0.5); border-color: rgba(242,246,242,0.15); margin-bottom: 22px; }
-.sp-fg-text h2 {
-  font-family: 'Spectral', serif;
-  font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 400;
-  color: var(--papier); line-height: 1.2; margin-bottom: 20px;
-}
+.sp-fg-text h2 { font-family: 'Spectral', serif; font-size: clamp(1.8rem, 2.8vw, 2.6rem); font-weight: 400; color: var(--papier); line-height: 1.2; margin-bottom: 20px; }
 .sp-fg-text h2 em { font-style: italic; color: #7CB9D6; }
 .sp-fg-text p { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.75; color: rgba(242,246,242,0.78); margin-bottom: 14px; }
 .sp-fg-list { list-style: none; padding: 0; margin: 0 0 34px; display: flex; flex-direction: column; gap: 10px; }
@@ -274,56 +192,42 @@
   color: rgba(242,246,242,0.82); line-height: 1.5;
 }
 .sp-fg-list li::before {
-  content: '';
-  display: block; width: 16px; height: 16px; min-width: 16px;
+  content: ''; display: block; width: 16px; height: 16px; min-width: 16px;
   background: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' stroke='%237CB9D6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='3 8 6 11 13 4'/%3E%3C/svg%3E") center/contain no-repeat;
   margin-top: 2px;
 }
 
-/* ===== BIORESONANZ BAND ===== */
-.sp-bioresonanz {
-  display: grid; grid-template-columns: 1fr 1fr;
-  min-height: 460px; overflow: hidden;
-}
+/* ===== BIORESONANZ ===== */
+.sp-bioresonanz { display: grid; grid-template-columns: 1fr 1fr; min-height: 460px; overflow: hidden; }
 .sp-bio-text {
-  background: var(--tannenmoos);
-  padding: 80px 64px;
+  background: var(--tannenmoos); padding: 80px 64px;
   display: flex; flex-direction: column; justify-content: center;
 }
 .sp-bio-text .eyebrow { color: rgba(242,246,242,0.5); border-color: rgba(242,246,242,0.15); margin-bottom: 22px; }
-.sp-bio-text h2 {
-  font-family: 'Spectral', serif;
-  font-size: clamp(1.8rem, 2.8vw, 2.5rem); font-weight: 400;
-  color: var(--papier); line-height: 1.2; margin-bottom: 18px;
-}
+.sp-bio-text h2 { font-family: 'Spectral', serif; font-size: clamp(1.8rem, 2.8vw, 2.5rem); font-weight: 400; color: var(--papier); line-height: 1.2; margin-bottom: 18px; }
 .sp-bio-text h2 em { font-style: italic; color: var(--apfelgruen); }
 .sp-bio-text p { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.75; color: rgba(242,246,242,0.75); margin-bottom: 14px; }
-.sp-bio-tags {
-  display: flex; gap: 10px; flex-wrap: wrap; margin-top: 24px;
-}
+.sp-bio-tags { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
 .sp-bio-tag {
-  display: inline-block;
-  padding: 6px 14px;
-  background: rgba(122,168,144,0.18);
-  border: 1px solid rgba(122,168,144,0.3);
-  border-radius: 20px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.76rem; color: var(--apfelgruen); font-weight: 500;
+  display: inline-block; padding: 5px 13px;
+  background: rgba(122,168,144,0.18); border: 1px solid rgba(122,168,144,0.28);
+  border-radius: 20px; font-family: 'Inter', sans-serif;
+  font-size: 0.75rem; color: var(--apfelgruen); font-weight: 500;
 }
 .sp-bio-image { position: relative; overflow: hidden; }
 .sp-bio-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
 /* ===== METHODEN ===== */
-.sp-methoden { padding: 100px 6vw; background: var(--offwhite); }
+.sp-methoden { padding: 100px 6vw; background: var(--papier); }
 .sp-methoden-inner { max-width: 1240px; margin: 0 auto; }
 .sp-methoden-grid {
   margin-top: 52px;
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
 }
 .sp-methode {
-  background: var(--papier); border-radius: 14px;
+  background: var(--offwhite); border-radius: 14px;
   padding: 32px 28px 28px;
-  border: 1px solid rgba(27,76,147,0.08);
+  border: 1px solid rgba(27,76,147,0.07);
   border-top: 3px solid transparent;
   transition: border-top-color 0.2s;
 }
@@ -331,152 +235,104 @@
 .sp-methode-icon {
   width: 44px; height: 44px; border-radius: 10px;
   background: var(--sp-blau-soft);
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
 }
 .sp-methode-icon svg { width: 20px; height: 20px; stroke: var(--sp-blau); }
 .sp-methode:nth-child(2) .sp-methode-icon { background: rgba(61,90,46,0.1); }
 .sp-methode:nth-child(2) .sp-methode-icon svg { stroke: var(--waldgruen); }
 .sp-methode:nth-child(3) .sp-methode-icon { background: rgba(122,143,78,0.12); }
 .sp-methode:nth-child(3) .sp-methode-icon svg { stroke: var(--salbei); }
-.sp-methode:nth-child(4) .sp-methode-icon svg { stroke: var(--sp-blau); }
+.sp-methode:nth-child(4) .sp-methode-icon { background: rgba(27,76,147,0.07); }
 .sp-methode:nth-child(5) .sp-methode-icon { background: rgba(61,90,46,0.08); }
 .sp-methode:nth-child(5) .sp-methode-icon svg { stroke: var(--waldgruen); }
 .sp-methode:nth-child(6) .sp-methode-icon { background: rgba(122,143,78,0.1); }
 .sp-methode:nth-child(6) .sp-methode-icon svg { stroke: var(--salbei); }
-.sp-methode:nth-child(7) .sp-methode-icon { background: rgba(27,76,147,0.07); }
-.sp-methode:nth-child(7) .sp-methode-icon svg { stroke: var(--sp-blau); }
 .sp-methode h4 { font-family: 'Spectral', serif; font-size: 1.05rem; font-weight: 500; color: var(--tinte); margin-bottom: 10px; }
 .sp-methode > p { font-family: 'Inter', sans-serif; font-size: 0.87rem; line-height: 1.65; color: var(--tinte-soft); margin-bottom: 14px; }
 .sp-methode ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
-.sp-methode ul li {
-  font-family: 'Inter', sans-serif; font-size: 0.79rem;
-  color: var(--tinte-soft); padding-left: 16px;
-  position: relative; line-height: 1.4;
-}
-.sp-methode ul li::before { content: '–'; position: absolute; left: 0; color: var(--sp-blau); opacity: 0.45; }
+.sp-methode ul li { font-family: 'Inter', sans-serif; font-size: 0.79rem; color: var(--tinte-soft); padding-left: 16px; position: relative; line-height: 1.4; }
+.sp-methode ul li::before { content: '–'; position: absolute; left: 0; color: var(--sp-blau); opacity: 0.4; }
 
 /* Methoden-Hinweis */
 .sp-methoden-note {
-  max-width: 1240px; margin: 32px auto 0;
-  padding: 24px 32px;
-  background: var(--papier);
-  border: 1px solid var(--sp-blau-line);
+  max-width: 1240px; margin: 28px auto 0;
+  padding: 22px 28px;
+  background: var(--offwhite); border: 1px solid var(--sp-blau-line);
   border-radius: 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; line-height: 1.68; color: var(--tinte-soft);
-  display: flex; gap: 20px; align-items: flex-start;
+  font-family: 'Inter', sans-serif; font-size: 0.88rem; line-height: 1.65; color: var(--tinte-soft);
+  display: flex; gap: 18px; align-items: flex-start;
 }
-.sp-methoden-note svg { width: 20px; height: 20px; stroke: var(--sp-blau); flex-shrink: 0; margin-top: 2px; }
+.sp-methoden-note svg { width: 18px; height: 18px; stroke: var(--sp-blau); flex-shrink: 0; margin-top: 2px; }
 
-/* Methoden-Kontext-Band */
+/* ===== KONTEXT BAND ===== */
 .sp-kontext-band {
   max-width: 1240px; margin: 40px auto 0;
   border-radius: 16px; overflow: hidden;
-  display: grid; grid-template-columns: 1.3fr 1fr; min-height: 300px;
+  display: grid; grid-template-columns: 1.2fr 1fr; min-height: 360px;
 }
 .sp-kontext-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 .sp-kontext-text {
-  background: var(--sp-blau); padding: 48px 44px;
+  background: var(--sp-blau); padding: 52px 48px;
   display: flex; flex-direction: column; justify-content: center;
 }
 .sp-kontext-text .eyebrow { color: rgba(242,246,242,0.5); border-color: rgba(242,246,242,0.15); margin-bottom: 16px; }
-.sp-kontext-text h3 { font-family: 'Spectral', serif; font-size: 1.7rem; font-weight: 400; color: var(--papier); line-height: 1.2; margin-bottom: 14px; }
+.sp-kontext-text h3 { font-family: 'Spectral', serif; font-size: 1.8rem; font-weight: 400; color: var(--papier); line-height: 1.2; margin-bottom: 16px; }
 .sp-kontext-text h3 em { font-style: italic; color: #7CB9D6; }
-.sp-kontext-text p { font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.7; color: rgba(242,246,242,0.72); margin-bottom: 12px; }
+.sp-kontext-text p { font-family: 'Inter', sans-serif; font-size: 0.88rem; line-height: 1.72; color: rgba(242,246,242,0.72); margin-bottom: 12px; }
+.sp-kontext-text p:last-child { margin-bottom: 0; }
+.sp-kontext-link { color: #7CB9D6; font-weight: 500; text-decoration: none; border-bottom: 1px solid rgba(124,185,214,0.4); }
+.sp-kontext-link:hover { border-bottom-color: #7CB9D6; }
 
 /* ===== HONORAR ===== */
-.sp-honorar { padding: 100px 6vw; background: var(--papier); }
-.sp-honorar-inner {
-  max-width: 1240px; margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
-}
-.sp-preis-box {
+.sp-honorar { padding: 80px 6vw; background: var(--offwhite); }
+.sp-honorar-inner { max-width: 1240px; margin: 0 auto; }
+.sp-honorar-box {
   margin-top: 36px;
-  background: var(--sp-blau-soft);
+  padding: 36px 40px;
+  background: var(--papier);
   border: 1px solid var(--sp-blau-line);
-  border-radius: 14px; padding: 32px 36px;
+  border-radius: 14px;
+  display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center;
 }
-.sp-preis-label {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.68rem; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--sp-blau); font-weight: 600; margin-bottom: 12px;
-}
-.sp-preis-range {
-  font-family: 'Spectral', serif;
-  font-size: 2.4rem; font-weight: 400; color: var(--tinte);
-  line-height: 1; margin-bottom: 8px;
-}
-.sp-preis-sub {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.82rem; color: var(--tinte-soft); line-height: 1.5; margin-bottom: 20px;
-}
-.sp-preis-divider { border: none; border-top: 1px solid var(--sp-blau-line); margin: 20px 0; }
-.sp-preis-note {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.88rem; line-height: 1.65; color: var(--tinte-soft);
-}
-.sp-preis-note a { color: var(--sp-blau); }
-.sp-gebueh-note {
-  margin-top: 20px;
-  padding: 18px 22px;
-  background: rgba(61,90,46,0.06);
-  border-left: 3px solid var(--waldgruen);
-  border-radius: 0 8px 8px 0;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.83rem; line-height: 1.6; color: var(--tinte-soft);
-}
-.sp-honorar-aside { padding-top: 8px; }
-.sp-honorar-aside h3 { font-family: 'Spectral', serif; font-size: 1.35rem; font-weight: 500; color: var(--tinte); margin-bottom: 14px; }
-.sp-honorar-aside p { font-family: 'Inter', sans-serif; font-size: 0.92rem; line-height: 1.7; color: var(--tinte-soft); margin-bottom: 22px; }
-.sp-honorar-aside .btn { display: inline-flex; align-items: center; gap: 8px; }
+.sp-honorar-box p { font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.7; color: var(--tinte-soft); margin: 0; }
+.sp-honorar-box a { color: var(--sp-blau); font-weight: 500; }
+.sp-honorar-links { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+.sp-honorar-links .btn { white-space: nowrap; display: inline-flex; align-items: center; gap: 8px; }
 
 /* ===== FINAL CTA ===== */
-.sp-final-cta {
-  background: var(--tannenmoos);
-  padding: 100px 6vw;
-}
+.sp-final-cta { background: var(--tannenmoos); padding: 100px 6vw; }
 .sp-final-cta-inner {
   max-width: 960px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 2px; background: rgba(242,246,242,0.08);
   border-radius: 16px; overflow: hidden;
 }
-.sp-final-path {
-  padding: 52px 48px;
-  display: flex; flex-direction: column;
-}
+.sp-final-path { padding: 52px 48px; display: flex; flex-direction: column; }
 .sp-final-path.new { background: var(--sp-blau); }
 .sp-final-path.known { background: rgba(242,246,242,0.06); }
 .sp-final-path-tag {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.65rem; letter-spacing: 0.16em;
-  text-transform: uppercase; font-weight: 600;
-  color: rgba(242,246,242,0.5); margin-bottom: 20px;
+  font-family: 'Inter', sans-serif; font-size: 0.65rem; letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 600; color: rgba(242,246,242,0.5); margin-bottom: 20px;
 }
-.sp-final-path h3 {
-  font-family: 'Spectral', serif;
-  font-size: 1.55rem; font-weight: 400;
-  color: var(--papier); line-height: 1.2; margin-bottom: 14px;
-}
+.sp-final-path h3 { font-family: 'Spectral', serif; font-size: 1.55rem; font-weight: 400; color: var(--papier); line-height: 1.2; margin-bottom: 14px; }
 .sp-final-path h3 em { font-style: italic; color: #7CB9D6; }
 .sp-final-path.known h3 em { color: var(--apfelgruen); }
-.sp-final-path > p {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem; line-height: 1.68;
-  color: rgba(242,246,242,0.7); margin-bottom: 32px; flex: 1;
-}
+.sp-final-path > p { font-family: 'Inter', sans-serif; font-size: 0.9rem; line-height: 1.68; color: rgba(242,246,242,0.7); margin-bottom: 28px; flex: 1; }
 .sp-final-path .btn { align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; }
+.sp-final-path-sub {
+  margin-top: 12px;
+  font-family: 'Inter', sans-serif; font-size: 0.75rem;
+  color: rgba(242,246,242,0.38); line-height: 1.4;
+}
 .sp-final-meta {
   max-width: 960px; margin: 28px auto 0;
-  text-align: center;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem; letter-spacing: 0.08em;
-  text-transform: uppercase; color: rgba(242,246,242,0.35);
-  display: flex; justify-content: center; gap: 20px;
+  text-align: center; display: flex; justify-content: center; gap: 0;
+  font-family: 'Inter', sans-serif; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(242,246,242,0.3);
 }
-.sp-final-meta span::before { content: '·'; margin-right: 20px; }
-.sp-final-meta span:first-child::before { display: none; }
+.sp-final-meta span { padding: 0 14px; border-right: 1px solid rgba(242,246,242,0.12); }
+.sp-final-meta span:last-child { border-right: none; }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -484,13 +340,15 @@
   .sp-hero-image { height: 300px; order: -1; }
   .sp-hero-image::after { background: linear-gradient(to bottom, transparent 60%, var(--tannenmoos) 100%); }
   .sp-hero-text { padding: 60px 5vw; }
-  .sp-routes, .sp-frauengesundheit, .sp-bioresonanz, .sp-honorar-inner, .sp-kontext-band, .sp-final-cta-inner { grid-template-columns: 1fr; }
+  .sp-routes, .sp-frauengesundheit, .sp-bioresonanz, .sp-kontext-band, .sp-final-cta-inner { grid-template-columns: 1fr; }
   .sp-themen-grid { grid-template-columns: 1fr; }
   .sp-methoden-grid { grid-template-columns: 1fr 1fr; }
   .sp-stat-bar-inner { flex-wrap: wrap; }
   .sp-stat { flex: 1 1 50%; border-right: none; border-bottom: 1px solid rgba(242,246,242,0.1); }
   .sp-fg-text, .sp-bio-text { padding: 52px 36px; }
   .sp-route { padding: 36px 28px; }
+  .sp-honorar-box { grid-template-columns: 1fr; }
+  .sp-booking-bridge { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
   .sp-methoden-grid { grid-template-columns: 1fr; }
@@ -538,12 +396,18 @@
         </span>
         <span class="sp-hero-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-          Privatrechnung · Selbstzahler
+          Privatrechnung · Nach GebüH
         </span>
       </div>
       <div class="sp-hero-ctas">
-        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary" target="_blank" rel="noopener">CheckIn buchen — 75 €</a>
-        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.3);color:rgba(242,246,242,0.8)" target="_blank" rel="noopener">Termin buchen · Bestandspatienten</a>
+        <div class="sp-cta-group">
+          <span class="sp-cta-label">Für Neupatienten</span>
+          <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary" target="_blank" rel="noopener">CheckIn buchen — 75 €</a>
+        </div>
+        <div class="sp-cta-group">
+          <span class="sp-cta-label">Bestehende Patienten</span>
+          <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.3);color:rgba(242,246,242,0.8)" target="_blank" rel="noopener">Direkt buchen</a>
+        </div>
       </div>
     </div>
     <div class="sp-hero-image">
@@ -568,28 +432,82 @@
         <div class="lbl">14 Jahre Erfahrung</div>
       </div>
       <div class="sp-stat reveal">
-        <div class="num">Privatrechnung</div>
-        <div class="lbl">120–150 € · nach Aufwand</div>
+        <div class="num">Nach GebüH</div>
+        <div class="lbl">Privatrechnung · Selbstzahler</div>
       </div>
     </div>
   </div>
 
-  <!-- 01 ZUGANG -->
-  <section class="sp-zugang" id="zugang">
-    <div class="sp-zugang-intro reveal">
-      <div class="eyebrow">01 — Zugang</div>
-      <h2 class="h-section">So kommen Sie in die <em>Sprechstunde.</em></h2>
-      <p class="lede">
-        Die Sprechstunde ist kein offener Erstkontakt — sie ist gezielte Begleitung für Menschen, deren Thema ich einordnen kann oder bei denen wir gemeinsam den richtigen Weg gefunden haben.
-      </p>
-    </div>
+  <!-- 01 FÜR WEN -->
+  <section class="sp-fuerwen">
+    <div class="sp-fuerwen-inner">
+      <div class="reveal">
+        <div class="eyebrow">01 — Für wen</div>
+        <h2 class="h-section">Für wen die <em>Sprechstunde?</em></h2>
+        <p class="lede" style="max-width:600px">
+          Die Sprechstunde ist als Anschlusstermin nach dem CheckIn oder für bestehende Patienten.
+        </p>
+      </div>
 
+      <div class="sp-themen-grid reveal">
+        <div class="sp-thema">
+          <div class="sp-thema-num">01</div>
+          <h3>Nach dem <em>CheckIn.</em></h3>
+          <p>
+            Im CheckIn wird geklärt, welcher Weg der richtige ist. Wer sich gegen die Regenerationsanalyse entschieden hat oder bei dem ein konkretes Thema gezielt bearbeitet werden muss, startet hier.
+          </p>
+          <ul class="sp-thema-examples">
+            <li>Hormondiagnostik bei Wechseljahren oder Zyklusproblemen</li>
+            <li>Kinderwunsch — Befundbesprechung &amp; nächste Schritte</li>
+            <li>Allergien &amp; Histaminreaktionen einordnen</li>
+            <li>Konkretes akutes Thema, das nicht wartet</li>
+          </ul>
+        </div>
+        <div class="sp-thema">
+          <div class="sp-thema-num">02</div>
+          <h3>Verlaufs­kontrolle &amp; <em>Anpassung.</em></h3>
+          <p>
+            Patienten in laufender Begleitung, die einen gezielten Termin brauchen: Befunde besprechen, Plan anpassen, neue Schritte definieren.
+          </p>
+          <ul class="sp-thema-examples">
+            <li>Zwischencheck in laufender Begleitung</li>
+            <li>Neue Laborwerte oder Befunde besprechen</li>
+            <li>Anpassung von Empfehlungen</li>
+            <li>Review nach 6–12 Wochen</li>
+          </ul>
+        </div>
+        <div class="sp-thema">
+          <div class="sp-thema-num">03</div>
+          <h3>Gezielte <em>Einzelberatung.</em></h3>
+          <p>
+            Wer Klarheit zu einem spezifischen Thema sucht, ohne das gesamte System durchleuchten zu wollen — oder wer naturheilkundliche Einordnung zu bestehenden Befunden braucht.
+          </p>
+          <ul class="sp-thema-examples">
+            <li>Fragen zu Mikronährstoffen oder Nahrungsergänzung</li>
+            <li>Naturheilkundliche Begleitung bei laufender ärztlicher Therapie</li>
+            <li>Einordnung vorhandener Diagnostik</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Überleitung zu Buchung -->
+      <div class="sp-booking-bridge reveal">
+        <div class="sp-booking-bridge-text">
+          Wenn Sie sich wiederfinden — hier geht's zur <em>Buchung.</em>
+        </div>
+        <a href="#zugang" class="btn btn-ghost">Zum Buchungsportal</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ZUGANG -->
+  <section class="sp-zugang" id="zugang">
     <div class="sp-routes reveal">
       <div class="sp-route new">
         <div class="sp-route-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
         </div>
-        <div class="sp-route-tag">Neu in der Praxis</div>
+        <div class="sp-route-tag">Für Neupatienten</div>
         <h3>Starten Sie mit dem <em>CheckIn.</em></h3>
         <p>
           30 Minuten, 75 €, online oder vor Ort. Wir klären gemeinsam, welcher Weg der richtige für Sie und Ihre Situation ist — Sprechstunde oder Regenerationsanalyse.
@@ -603,72 +521,18 @@
         <div class="sp-route-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
-        <div class="sp-route-tag">Bereits in Behandlung</div>
-        <h3>Direkt buchen — für <em>Patienten, die ich kenne.</em></h3>
+        <div class="sp-route-tag">Bestehende Patienten</div>
+        <h3>Direkt buchen — <em>Patienten, die ich kenne.</em></h3>
         <p>
-          Sie waren in den letzten 365 Tagen bei mir in der Praxis. Folgetermine, Verlaufskontrollen, Befundbesprechungen — buchen Sie direkt über das Buchungsportal.
+          Sie waren in den letzten 365 Tagen bei mir in der Praxis. Folgetermine, Verlaufskontrollen, Befundbesprechungen — buchen Sie direkt.
         </p>
         <div class="sp-route-note">
-          Im Buchungsportal werden Ihnen automatisch die passenden Termine für Bestandspatienten angezeigt.
+          Im Buchungsportal werden Ihnen automatisch die passenden Termine für bestehende Patienten angezeigt.
         </div>
         <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-ghost" target="_blank" rel="noopener">
-          Termin buchen
+          Direkt buchen
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 02 THEMEN -->
-  <section class="sp-themen">
-    <div class="sp-themen-inner">
-      <div class="reveal">
-        <div class="eyebrow">02 — Themen</div>
-        <h2 class="h-section">Wofür die Sprechstunde <em>der richtige Rahmen ist.</em></h2>
-        <p class="lede" style="max-width:640px">
-          Die Sprechstunde ist gezielte Akut-Begleitung — zielgerichtet und strukturiert, aber kein Ersatz für eine tiefgreifende Analyse. Drei Situationen, in denen sie den richtigen Rahmen bietet.
-        </p>
-      </div>
-
-      <div class="sp-themen-grid reveal">
-        <div class="sp-thema">
-          <div class="sp-thema-num">01</div>
-          <h3>Gezielter <em>Einstieg.</em></h3>
-          <p>
-            Wer sich gegen die Regenerationsanalyse entschieden hat oder bei dem im CheckIn festgestellt wurde, dass ein konkretes Thema gezielt bearbeitet werden muss: Diagnostik, Befundbesprechung und die Definition der nächsten Schritte.
-          </p>
-          <ul class="sp-thema-examples">
-            <li>Hormondiagnostik in den Wechseljahren</li>
-            <li>Kinderwunsch &amp; Zyklusprobleme</li>
-            <li>Allergien &amp; Histaminreaktion</li>
-            <li>Akute Themen mit konkretem Befund</li>
-          </ul>
-        </div>
-        <div class="sp-thema">
-          <div class="sp-thema-num">02</div>
-          <h3>Verlaufs­kontrolle &amp; <em>Anpassung.</em></h3>
-          <p>
-            Patienten in laufender Begleitung, die einen gezielten Termin benötigen: Befunde besprechen, den Plan anpassen, neue Schritte definieren oder einfach überprüfen, wie weit es sich entwickelt hat.
-          </p>
-          <ul class="sp-thema-examples">
-            <li>Zwischenchecks in laufender Begleitung</li>
-            <li>Besprechung neuer Laborwerte oder Befunde</li>
-            <li>Anpassung von Empfehlungen</li>
-            <li>Review nach 6–12 Wochen</li>
-          </ul>
-        </div>
-        <div class="sp-thema">
-          <div class="sp-thema-num">03</div>
-          <h3>Wenn die <em>Regenerationsanalyse</em> nicht passt.</h3>
-          <p>
-            Wer Klarheit zu einem spezifischen Thema sucht, ohne das gesamte System durchleuchten zu wollen — oder wer bereits einen klaren Befund hat und naturheilkundliche Einordnung und Begleitung braucht.
-          </p>
-          <ul class="sp-thema-examples">
-            <li>Konkrete Fragen zu Mikronährstoffen oder Medikamenten</li>
-            <li>Zweitmeinung zu bestehenden Befunden</li>
-            <li>Begleitung bei laufender ärztlicher Behandlung</li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>
@@ -682,7 +546,7 @@
     <div class="sp-fg-text">
       <div class="eyebrow">Schwerpunkt</div>
       <h2>Frauengesundheit — von der <em>Pubertät bis zu den Wechseljahren.</em></h2>
-      <p>Hormonsystem, Zyklusgesundheit, Wechseljahre, Schilddrüse — das ist das Gebiet, in dem viele meiner Patientinnen mit dem System in eine Sackgasse geraten sind.</p>
+      <p>Hormonsystem, Zyklusgesundheit, Wechseljahre, Schilddrüse — das ist das Gebiet, in dem viele meiner Patienten mit dem System in eine Sackgasse geraten sind.</p>
       <ul class="sp-fg-list">
         <li>Zyklusstörungen &amp; PMS</li>
         <li>Wechseljahresbeschwerden</li>
@@ -702,20 +566,20 @@
       <div class="eyebrow">Schwerpunkt · Diagnostik &amp; Therapie</div>
       <h2>Bioresonanz — <em>sehen, was im Hintergrund läuft.</em></h2>
       <p>
-        Bioresonanz ist bei mir sowohl Diagnostik als auch Therapie — und einer meiner zentralen Schwerpunkte. Das Verfahren erlaubt es, Belastungsmuster, Allergene und Regulationsstörungen sichtbar zu machen, bevor sie sich in klassischen Laborwerten zeigen.
+        Bioresonanz ist bei mir sowohl Diagnostik als auch Therapie — und einer meiner zentralen Schwerpunkte seit vielen Jahren. Das Verfahren macht Belastungsmuster, Allergene und Regulationsstörungen sichtbar, bevor sie in klassischen Laborwerten erscheinen.
       </p>
       <p>
-        Sanft, nicht-invasiv und gut kombinierbar mit anderen naturheilkundlichen Ansätzen. Ich arbeite seit vielen Jahren mit diesem Verfahren.
+        Sanft, nicht-invasiv und gut kombinierbar mit anderen naturheilkundlichen Ansätzen.
       </p>
       <div class="sp-bio-tags">
         <span class="sp-bio-tag">Bioenergetische Diagnostik</span>
         <span class="sp-bio-tag">Allergie &amp; Histamin</span>
         <span class="sp-bio-tag">Regulationsstörungen</span>
-        <span class="sp-bio-tag">Therapie</span>
+        <span class="sp-bio-tag">Therapieverfahren</span>
       </div>
     </div>
     <div class="sp-bio-image">
-      <img src="/sprechstunde/img/nicole_lurz_immunsystem_ki_generiert.png"
+      <img src="/sprechstunde/img/Bioresonanz.jpg"
            alt="Bioresonanz-Diagnostik in der Naturheilpraxis" loading="lazy" />
     </div>
   </section>
@@ -727,7 +591,7 @@
         <div class="eyebrow">03 — Methoden</div>
         <h2 class="h-section">Womit ich in der Sprechstunde <em>arbeite.</em></h2>
         <p class="lede" style="max-width:640px">
-          In 14 Jahren habe ich viele Ausbildungen und Methoden kennengelernt und angewendet. Diese sieben sind die Kernmethoden — gezielt eingesetzt, je nach Anlass und Situation.
+          In 14 Jahren habe ich viele Ausbildungen und Methoden kennengelernt und angewendet — und wende sie auch immer wieder an. Diese sechs sind die Kernmethoden.
         </p>
       </div>
 
@@ -738,10 +602,10 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6"/><path d="M10 3v8l-5 8a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-8V3"/></svg>
           </div>
           <h4>Anamnese &amp; Labor</h4>
-          <p>Strukturierte Anamnese und laborgestützte Auswertung — ich greife auf vorhandene Befunde zurück oder bestimme Werte in Absprache extern beim Arzt oder direkt im Labor. Blutabnahme führe ich nicht durch.</p>
+          <p>Strukturierte Anamnese und laborgestützte Auswertung. Ich greife auf bestehende Befunde zurück oder bestimme Werte in Absprache extern beim Arzt oder Labor — Blutabnahme führe ich nicht durch.</p>
           <ul>
-            <li>Speichelhormone, Stuhl, Blut, Urin</li>
-            <li>Bestehende Werte werden im Systemzusammenhang gelesen</li>
+            <li>Speichelhormone, Stuhl, Urin, Blutbild</li>
+            <li>Vorhandene Werte systemisch eingeordnet</li>
             <li>Ergänzt schulmedizinische Diagnostik</li>
           </ul>
         </div>
@@ -751,7 +615,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/><path d="M2 17c2-3 3-3 5 0s3 3 5 0 3-3 5 0 3 3 5 0"/></svg>
           </div>
           <h4>Bioresonanz</h4>
-          <p>Bioenergetische Diagnostik und Therapie — Belastungsmuster, Allergene, Regulationsstörungen. Sanft, nicht-invasiv, eines meiner zentralen Verfahren seit vielen Jahren.</p>
+          <p>Bioenergetische Diagnostik und Therapie — Belastungsmuster, Allergene, Regulationsstörungen sichtbar machen. Sanft, nicht-invasiv, zentraler Schwerpunkt seit vielen Jahren.</p>
           <ul>
             <li>Diagnostik &amp; Therapie in einem Verfahren</li>
             <li>Wissenschaftlich nicht abschließend bewertet</li>
@@ -798,23 +662,11 @@
           <div class="sp-methode-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c2 4 5 6 9 6s7-2 9-6"/><path d="M3 12c2-4 5-6 9-6s7 2 9 6"/><circle cx="12" cy="12" r="1"/></svg>
           </div>
-          <h4>Nervensystemregulation</h4>
-          <p>Gezieltes Arbeiten am autonomen Nervensystem — Schlaf, Erholung, Vagustonus, Regulationskapazität. Medizinisch begründet, nicht als Lifestyle-Beratung.</p>
-          <ul>
-            <li>Konkrete Stellschrauben im Alltag</li>
-            <li>Eingebettet in das Gesamtbild</li>
-          </ul>
-        </div>
-
-        <div class="sp-methode reveal">
-          <div class="sp-methode-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10 10 10 0 0 1-10-10A10 10 0 0 1 12 2"/><path d="M12 6v6l4 2"/></svg>
-          </div>
-          <h4>Stressregulation &amp; Lebensstil</h4>
-          <p>Ernährung, Bewegung, zirkadiane Rhythmik — Body, Mind, Soul und Hormone immer im Blick. Auch in der Sprechstunde fließt dieser ganzheitliche Blick mit ein.</p>
+          <h4>Nervensystem &amp; Stressregulation</h4>
+          <p>Gezieltes Arbeiten am autonomen Nervensystem — Vagustonus, Schlaf, Erholung, Regulationskapazität. Medizinisch begründet, konkret, alltagstauglich.</p>
           <ul>
             <li>Drei Hebel — nicht fünfzehn</li>
-            <li>Alltagstauglich und priorisiert</li>
+            <li>Nervensystemregulation als Basis der Regeneration</li>
           </ul>
         </div>
 
@@ -822,21 +674,23 @@
 
       <div class="sp-methoden-note reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span>Viele Patienten kommen mit einem Sammelsurium an Befunden, Nahrungsergänzungsmitteln und Diagnostik. Wenn es darum geht, zuerst Klarheit und Struktur reinzubringen und den Blick auf die Ursachen zu richten, ist die <a href="/regenerationsanalyse/" style="color:var(--waldgruen);font-weight:500">Regenerationsanalyse</a> der bessere Rahmen — nicht die Sprechstunde.</span>
+        <span>Viele kommen mit einem Sammelsurium an Befunden, Nahrungsergänzungsmitteln und Diagnostik. Wenn es darum geht, zuerst Klarheit zu schaffen und den Blick auf die Ursachen zu richten, ist die <a href="/regenerationsanalyse/" style="color:var(--waldgruen);font-weight:500">Regenerationsanalyse</a> der bessere Einstieg.</span>
       </div>
 
+      <!-- Kontext Band -->
       <div class="sp-kontext-band reveal">
         <div class="sp-kontext-image">
-          <img src="/sprechstunde/img/diagnostik.png"
-               alt="Naturheilkundliche Diagnostik" loading="lazy" />
+          <img src="/sprechstunde/img/diagnostik.png" alt="Naturheilkundliche Diagnostik" loading="lazy" />
         </div>
         <div class="sp-kontext-text">
           <div class="eyebrow">Mein Ansatz</div>
-          <h3>Gezielt und <em>strukturiert.</em></h3>
+          <h3>Körper, Seele, Geist — und <em>Hormone.</em></h3>
           <p>
-            Auch in der Sprechstunde behalte ich Body, Mind, Soul und Hormone immer im Blick. Aber die Sprechstunde ist Akut-Begleitung — zielgerichtet, mit klaren nächsten Schritten, nicht mit dem Anspruch, das gesamte System zu durchleuchten.
+            Auch in der Sprechstunde behalte ich Körper, Seele, Geist und Hormone immer im Blick. Aber die Sprechstunde ist alternative Heilbehandlung — ein gezielter Eingriff von außen, ähnlich wie eine alternative Pille in der Akutmedizin. Sie lindert, sie interveniert. Das ist manchmal genau das Richtige.
           </p>
-          <p>Gerade bei chronischen Beschwerden ist die Sprechstunde oft nur ein Tropfen auf dem heißen Stein. Dafür gibt es die Regenerationsanalyse.</p>
+          <p>
+            Wer an die Ursachen will: Die <a href="/regenerationsanalyse/" class="sp-kontext-link">Regenerationsanalyse</a> ist der Startpunkt. Von innen heraus — weil die Lösung immer in uns liegt. Der Körper hat die Kapazität zur Regeneration und Selbstregulation. Freigelegt werden muss sie. Das ist ein längerer Prozess, der Begleitung braucht.
+          </p>
         </div>
       </div>
     </div>
@@ -845,39 +699,24 @@
   <!-- 04 HONORAR -->
   <section class="sp-honorar">
     <div class="sp-honorar-inner">
-      <div>
-        <div class="reveal">
-          <div class="eyebrow">04 — Honorar</div>
-          <h2 class="h-section">Honorar &amp; <em>Abrechnung.</em></h2>
-          <p class="lede">
-            Die Sprechstunde wird als Privatrechnung nach Aufwand und medizinischer Indikation abgerechnet — kein Festpreis, weil jeder Termin anders ist.
-          </p>
-        </div>
-        <div class="sp-preis-box reveal">
-          <div class="sp-preis-label">Orientierungswert</div>
-          <div class="sp-preis-range">120 – 150 €</div>
-          <div class="sp-preis-sub">je Termin · nach Aufwand und Indikation</div>
-          <hr class="sp-preis-divider" />
-          <div class="sp-preis-note">
-            Privatrechnung nach dem Gebührenverzeichnis für Heilpraktiker (GebüH). Für Privatversicherte, Beihilfeberechtigte und Zusatzversicherungen wird eine GebüH-Rechnung ausgestellt. Details und Tarifstaffelung in den <a href="/abrechnung/">Abrechnungs­hinweisen</a>.
-          </div>
-        </div>
-        <div class="sp-gebueh-note reveal">
-          <strong>Hinweis zur Erstattung:</strong> Die Sätze des Gebührenverzeichnisses für Heilpraktiker wurden seit den 1980er Jahren nicht angepasst. Privatversicherungen und Beihilfe erstatten auf Basis dieser Sätze — in der Regel nur teilweise. Rechnen Sie nicht mit einer vollständigen Kostenübernahme.
-        </div>
+      <div class="reveal">
+        <div class="eyebrow">04 — Honorar</div>
+        <h2 class="h-section">Abrechnung &amp; <em>Honorar.</em></h2>
       </div>
-      <div class="sp-honorar-aside reveal">
-        <h3>Noch nicht sicher, welcher <em>Weg passt?</em></h3>
+      <div class="sp-honorar-box reveal">
         <p>
-          Starten Sie mit dem CheckIn — 30 Minuten, 75 €. Wir klären gemeinsam, welcher Rahmen für Ihr Thema der richtige ist.
+          Privatrechnung nach dem Gebührenverzeichnis für Heilpraktiker (GebüH), nach Aufwand und medizinischer Indikation. Die Sätze wurden zuletzt 1985 angepasst — Privatversicherungen und Beihilfe erstatten auf dieser Basis, in der Regel nur teilweise. Details zu Tarifen, Staffelung und Erstattung finden Sie in den Abrechnungshinweisen.
         </p>
-        <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary" target="_blank" rel="noopener">
-          CheckIn buchen — 75 €
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-        </a>
-        <p style="margin-top:18px;font-family:'Inter',sans-serif;font-size:0.88rem;color:var(--tinte-soft)">
-          Bereits in Behandlung? <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" style="color:var(--sp-blau);font-weight:500" target="_blank" rel="noopener">Direkt-Termin buchen →</a>
-        </p>
+        <div class="sp-honorar-links">
+          <a href="/abrechnung/" class="btn btn-ghost">
+            Abrechnungshinweise
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+          <a href="/termin-ablauf/" class="btn btn-ghost">
+            Termin &amp; Ablauf
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="13" height="13"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -886,22 +725,23 @@
   <section class="sp-final-cta">
     <div class="sp-final-cta-inner reveal">
       <div class="sp-final-path new">
-        <div class="sp-final-path-tag">Neu in der Praxis</div>
+        <div class="sp-final-path-tag">Für Neupatienten</div>
         <h3>Starten Sie mit dem <em>CheckIn.</em></h3>
-        <p>30 Minuten, 75 €, online oder vor Ort. Wir klären gemeinsam, welcher Weg der richtige für Sie ist — Sprechstunde oder Regenerationsanalyse.</p>
+        <p>30 Minuten, 75 €, online oder vor Ort. Wir klären gemeinsam, welcher Weg der richtige für Sie ist.</p>
         <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun" target="_blank" rel="noopener">
           CheckIn buchen — 75 €
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
       </div>
       <div class="sp-final-path known">
-        <div class="sp-final-path-tag">Bereits in Behandlung</div>
+        <div class="sp-final-path-tag">Bestehende Patienten</div>
         <h3>Direkt buchen — <em>Patienten, die ich kenne.</em></h3>
-        <p>Sie waren in den letzten 365 Tagen bei mir in der Praxis. Im Buchungsportal werden Ihnen die passenden Termine für Bestandspatienten angezeigt.</p>
+        <p>Sie waren in den letzten 365 Tagen bei mir in der Praxis. Im Buchungsportal werden Ihnen die passenden Termine angezeigt.</p>
         <a href="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.3);color:rgba(242,246,242,0.85)" target="_blank" rel="noopener">
-          Direkt-Termin buchen
+          Direkt buchen
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
         </a>
+        <div class="sp-final-path-sub">Bestehende Patienten · letzter Termin max. 365 Tage</div>
       </div>
     </div>
     <div class="sp-final-meta reveal">
