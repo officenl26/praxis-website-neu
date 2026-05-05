@@ -4,6 +4,6 @@
   <text x="50" y="68" text-anchor="middle"
         font-family="Spectral, Georgia, 'Times New Roman', serif"
         font-size="56" letter-spacing="-2">
-    <tspan fill="#E8F0E8" font-weight="500">N</tspan><tspan fill="#7AA890" font-style="italic" font-weight="400">L</tspan>
+    <tspan fill="#F2F6F2" font-weight="500">N</tspan><tspan fill="#A8CDB5" font-style="italic" font-weight="400">L</tspan>
   </text>
 </svg>

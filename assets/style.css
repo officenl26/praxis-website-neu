@@ -924,6 +924,10 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
 .footer-brand p{font-size:0.88rem;line-height:1.65;max-width:280px}
 .footer-brand a{color:rgba(242,246,242,0.62);transition:color .2s}
 .footer-brand a:hover{color:var(--apfelgruen)}
+.footer-social{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.footer-social a{display:inline-flex;align-items:center;gap:9px;color:rgba(242,246,242,0.55);font-family:'Inter';font-size:0.82rem;transition:color .2s}
+.footer-social a:hover{color:var(--apfelgruen)}
+.footer-social svg{flex-shrink:0;opacity:0.75}
 .footer-col h5{font-family:'Spectral',serif;font-size:0.98rem;color:var(--papier);margin-bottom:18px;font-weight:500}
 .footer-col ul{list-style:none}
 .footer-col li{margin-bottom:9px}
