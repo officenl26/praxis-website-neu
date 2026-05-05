@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Termin in der Naturheilpraxis Lurz Wiesloch: CheckIn, Sprechstunde, Regenerationsanalyse — Online-Buchung, Honorar-Übersicht, Abrechnungshinweise." />
+<meta name="description" content="Ablauf &amp; Termin · Naturheilpraxis Nicole Lurz Wiesloch: So läuft der erste Kontakt, CheckIn buchen, Medizinisches Mentoring, Kurse und Honorar-Übersicht." />
 <meta name="theme-color" content="#1B3A5C" />
-<title>Termin &amp; Ablauf · Naturheilpraxis Nicole Lurz · Wiesloch</title>
+<title>Ablauf &amp; Termin · Naturheilpraxis Nicole Lurz · Wiesloch</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,6 +24,621 @@
         data-token="bb02b7c7-46b8-4f56-953d-520e52d854ae"
         data-floating-side="right"
         src="https://my.lemniscus.de/js/lemmyFlansch.js"><!-- nicht löschen --></script>
+
+<style>
+/* ── PAGE-HERO · Termin & Ablauf ── */
+.ta-hero {
+  padding: 152px 6vw 96px;
+  background: var(--tannenmoos);
+  position: relative;
+  overflow: hidden;
+}
+.ta-hero::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -120px;
+  width: 560px; height: 560px;
+  background: radial-gradient(circle, rgba(122,168,144,0.22), transparent 70%);
+  pointer-events: none;
+}
+.ta-hero::after {
+  content: '';
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, rgba(27,76,147,0.26), transparent 70%);
+  pointer-events: none;
+}
+.ta-hero-inner {
+  max-width: 1240px; margin: 0 auto;
+  position: relative; z-index: 2;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 72px; align-items: center;
+}
+@media (max-width: 960px) { .ta-hero-inner { grid-template-columns: 1fr; gap: 48px; } }
+.ta-hero .eyebrow { color: var(--apfelgruen); }
+.ta-hero .eyebrow::before { background: var(--apfelgruen); }
+.ta-hero h1 {
+  font-family: 'Spectral', serif; font-weight: 400;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.07; letter-spacing: -0.022em;
+  color: var(--papier); margin-bottom: 24px;
+}
+.ta-hero h1 em { color: var(--apfelgruen); font-style: italic; }
+.ta-hero .lede { color: rgba(242,246,242,0.72); max-width: 580px; }
+.ta-hero-cards {
+  display: flex; flex-direction: column; gap: 16px;
+}
+@media (max-width: 960px) { .ta-hero-cards { flex-direction: row; flex-wrap: wrap; } }
+.ta-hero-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(122,168,144,0.22);
+  padding: 20px 24px;
+  display: flex; align-items: center; gap: 16px;
+}
+.ta-hero-card .num {
+  font-family: 'Spectral', serif; font-style: italic;
+  font-size: 1.8rem; color: var(--apfelgruen); line-height: 1;
+  min-width: 40px;
+}
+.ta-hero-card .label {
+  font-family: 'Inter'; font-size: 13px;
+  color: rgba(242,246,242,0.85); font-weight: 400; line-height: 1.3;
+}
+.ta-hero-card .label strong {
+  display: block; color: var(--papier);
+  font-size: 14px; font-weight: 600; margin-bottom: 2px;
+}
+
+/* ── ROADMAP ── */
+.roadmap-section {
+  background: var(--papier);
+  position: relative; overflow: hidden;
+}
+.roadmap-section::before {
+  content: '';
+  position: absolute;
+  top: 10%; right: -160px;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle, rgba(27,76,147,0.12), transparent 70%);
+  pointer-events: none;
+}
+.roadmap-steps {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  position: relative;
+}
+@media (max-width: 960px) { .roadmap-steps { grid-template-columns: 1fr; } }
+.roadmap-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px; left: calc(10% + 32px); right: calc(10% + 32px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--apfelgruen), var(--sonnengelb), var(--salbei), var(--waldgruen), var(--apfelgruen));
+  z-index: 0;
+}
+@media (max-width: 960px) {
+  .roadmap-steps::before {
+    top: 0; bottom: 0; left: 32px; right: auto;
+    width: 2px; height: auto;
+    background: linear-gradient(180deg, var(--apfelgruen), var(--sonnengelb), var(--salbei), var(--waldgruen));
+  }
+}
+.roadmap-step {
+  display: flex; flex-direction: column; align-items: center;
+  text-align: center; padding: 0 16px;
+  position: relative; z-index: 1;
+}
+@media (max-width: 960px) {
+  .roadmap-step {
+    flex-direction: row; text-align: left;
+    padding: 0 0 40px 72px; align-items: flex-start;
+  }
+}
+.roadmap-circle {
+  width: 64px; height: 64px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Spectral', serif; font-style: italic;
+  font-size: 1.4rem; font-weight: 500;
+  margin-bottom: 20px; flex-shrink: 0;
+  border: 2px solid currentColor;
+  background: var(--papier);
+}
+@media (max-width: 960px) {
+  .roadmap-circle {
+    position: absolute; left: 0; top: 0;
+    margin-bottom: 0; width: 56px; height: 56px;
+  }
+}
+.rs-1 .roadmap-circle { color: var(--apfelgruen); }
+.rs-2 .roadmap-circle { color: var(--sonnengelb); }
+.rs-3 .roadmap-circle { color: var(--salbei); }
+.rs-4 .roadmap-circle { color: var(--waldgruen); }
+.rs-5 .roadmap-circle { color: var(--marine-deep); }
+.roadmap-step-body { flex: 1; }
+.roadmap-step h4 {
+  font-family: 'Spectral', serif; font-size: 1.05rem;
+  font-weight: 600; color: var(--tinte); margin-bottom: 8px;
+  line-height: 1.25;
+}
+.roadmap-step p {
+  font-size: 0.87rem; color: var(--tinte-soft);
+  line-height: 1.6; margin: 0;
+}
+.roadmap-badge {
+  display: inline-block; margin-top: 8px;
+  background: rgba(27,76,147,0.1); color: var(--sonnengelb);
+  font-family: 'Inter'; font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; font-weight: 700; padding: 3px 8px;
+  border-radius: 2px;
+}
+
+/* ── CHECKIN TEASER SECTION ── */
+.checkin-section {
+  background: var(--tannenmoos);
+  position: relative; overflow: hidden;
+}
+.checkin-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: -100px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(122,168,144,0.2), transparent 70%);
+  pointer-events: none;
+}
+.checkin-section .eyebrow { color: var(--apfelgruen); }
+.checkin-section .eyebrow::before { background: var(--apfelgruen); }
+.checkin-section .h-section { color: var(--papier); }
+.checkin-section .h-section em { color: var(--apfelgruen); }
+.checkin-section .lede { color: rgba(242,246,242,0.65); }
+
+.checkin-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px; align-items: start;
+  margin-top: 56px; position: relative; z-index: 2;
+}
+@media (max-width: 900px) { .checkin-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.checkin-info h3 {
+  font-family: 'Spectral', serif; font-size: 1.5rem;
+  color: var(--papier); font-weight: 500; margin-bottom: 16px;
+  line-height: 1.2;
+}
+.checkin-info h3 em { color: var(--apfelgruen); }
+.checkin-info p {
+  font-size: 0.97rem; color: rgba(242,246,242,0.72);
+  line-height: 1.7; margin-bottom: 14px;
+}
+.checkin-price-block {
+  padding: 24px 28px;
+  background: rgba(122,168,144,0.1);
+  border-left: 3px solid var(--apfelgruen);
+  margin: 28px 0;
+}
+.checkin-price-block .lbl {
+  font-family: 'Inter'; font-size: 10px;
+  letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--apfelgruen); font-weight: 600; margin-bottom: 8px;
+}
+.checkin-price-block .val {
+  font-family: 'Spectral', serif; font-size: 2.2rem;
+  color: var(--papier); line-height: 1; font-weight: 500;
+}
+.checkin-price-block .meta {
+  font-size: 0.85rem; color: rgba(242,246,242,0.55);
+  margin-top: 4px;
+}
+.checkin-note {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 16px 20px;
+  background: rgba(27,76,147,0.2);
+  border: 1px solid rgba(27,76,147,0.35);
+  margin-top: 20px;
+}
+.checkin-note svg { flex-shrink: 0; color: var(--sonnengelb); margin-top: 2px; }
+.checkin-note p {
+  font-size: 0.83rem; color: rgba(242,246,242,0.65);
+  margin: 0; line-height: 1.55;
+}
+
+/* Teaser Widget */
+.teaser-widget {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(122,168,144,0.22);
+  overflow: hidden;
+}
+.teaser-widget-head {
+  padding: 20px 28px;
+  background: rgba(122,168,144,0.1);
+  border-bottom: 1px solid rgba(122,168,144,0.18);
+  display: flex; align-items: center; gap: 12px;
+}
+.teaser-pulse {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--apfelgruen);
+  box-shadow: 0 0 0 0 rgba(122,168,144,0.4);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(122,168,144,0.4); }
+  50% { box-shadow: 0 0 0 7px rgba(122,168,144,0); }
+}
+.teaser-widget-head span {
+  font-family: 'Inter'; font-size: 11px;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--apfelgruen); font-weight: 600;
+}
+.teaser-slots {
+  padding: 8px 0;
+  min-height: 120px;
+}
+.teaser-slot {
+  padding: 18px 28px;
+  border-bottom: 1px solid rgba(122,168,144,0.1);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px;
+  transition: background .2s;
+}
+.teaser-slot:last-child { border-bottom: none; }
+.teaser-slot:hover { background: rgba(122,168,144,0.07); }
+.teaser-slot-title {
+  font-family: 'Spectral', serif; font-size: 1.02rem;
+  color: var(--papier); font-weight: 500; flex: 1;
+}
+.teaser-slot-when {
+  text-align: right; flex-shrink: 0;
+}
+.teaser-slot-date {
+  font-family: 'Inter'; font-size: 0.88rem;
+  color: var(--apfelgruen); font-weight: 500; display: block;
+}
+.teaser-slot-time {
+  font-family: 'Inter'; font-size: 0.8rem;
+  color: rgba(242,246,242,0.5); display: block; margin-top: 2px;
+}
+.teaser-loading, .teaser-error, .teaser-empty {
+  padding: 32px 28px;
+  font-family: 'Spectral', serif; font-style: italic;
+  color: rgba(242,246,242,0.4); font-size: 0.95rem;
+}
+.teaser-widget-foot {
+  padding: 20px 28px;
+  border-top: 1px solid rgba(122,168,144,0.14);
+  display: flex; flex-direction: column; gap: 12px;
+}
+.teaser-widget-foot .btn-teaser {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 10px;
+  padding: 16px 28px;
+  background: var(--apfelgruen); color: var(--tannenmoos);
+  font-family: 'Inter'; font-size: 11px;
+  letter-spacing: 0.26em; text-transform: uppercase; font-weight: 700;
+  transition: background .2s, transform .2s;
+  text-align: center;
+}
+.teaser-widget-foot .btn-teaser:hover { background: var(--salbei); transform: translateY(-2px); }
+.teaser-widget-foot .note {
+  font-family: 'Inter'; font-size: 11px;
+  color: rgba(242,246,242,0.38); line-height: 1.55;
+  text-align: center;
+}
+
+/* ── NACH DEM CHECKIN · 3 Wege ── */
+.nach-checkin {
+  background: var(--offwhite);
+  position: relative; overflow: hidden;
+}
+.nach-checkin::after {
+  content: '';
+  position: absolute;
+  bottom: -100px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(122,168,144,0.15), transparent 70%);
+  pointer-events: none;
+}
+.nach-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px; margin-top: 56px;
+  position: relative; z-index: 2;
+}
+@media (max-width: 900px) { .nach-grid { grid-template-columns: 1fr; } }
+.nach-card {
+  background: var(--papier);
+  padding: 44px 36px;
+  border-top: 4px solid transparent;
+  display: flex; flex-direction: column;
+  transition: transform .3s, box-shadow .3s;
+}
+.nach-card:hover { transform: translateY(-4px); box-shadow: 0 24px 48px -18px rgba(15,26,20,0.15); }
+.nc-1 { border-top-color: var(--apfelgruen); }
+.nc-2 { border-top-color: var(--sonnengelb); }
+.nc-3 { border-top-color: var(--waldgruen); }
+.nach-card .nc-tag {
+  display: inline-block; margin-bottom: 20px;
+  font-family: 'Inter'; font-size: 9px;
+  letter-spacing: 0.3em; text-transform: uppercase; font-weight: 700;
+  padding: 5px 12px;
+}
+.nc-1 .nc-tag { background: rgba(122,168,144,0.15); color: var(--apfelgruen); }
+.nc-2 .nc-tag { background: rgba(27,76,147,0.12); color: var(--sonnengelb); }
+.nc-3 .nc-tag { background: rgba(61,90,46,0.12); color: var(--waldgruen); }
+.nach-card h3 {
+  font-family: 'Spectral', serif; font-size: 1.45rem;
+  color: var(--tinte); font-weight: 500; margin-bottom: 14px; line-height: 1.2;
+}
+.nach-card h3 em { font-style: italic; }
+.nc-1 h3 em { color: var(--apfelgruen); }
+.nc-2 h3 em { color: var(--sonnengelb); }
+.nc-3 h3 em { color: var(--waldgruen); }
+.nach-card p {
+  font-size: 0.95rem; color: var(--tinte-soft);
+  line-height: 1.7; flex: 1; margin-bottom: 28px;
+}
+.nach-card .nc-link {
+  font-family: 'Inter'; font-size: 11px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600; color: var(--tinte);
+  border-bottom: 1px solid var(--tinte-line);
+  padding-bottom: 4px; align-self: flex-start;
+  transition: color .2s, border-color .2s;
+}
+.nc-1 .nc-link:hover { color: var(--apfelgruen); border-color: var(--apfelgruen); }
+.nc-2 .nc-link:hover { color: var(--sonnengelb); border-color: var(--sonnengelb); }
+.nc-3 .nc-link:hover { color: var(--waldgruen); border-color: var(--waldgruen); }
+
+/* ── MEDIZINISCHES MENTORING ── */
+.mentoring-section {
+  background: var(--papier);
+  position: relative; overflow: hidden;
+}
+.mentoring-section::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -80px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(27,76,147,0.14), transparent 70%);
+  pointer-events: none;
+}
+.mentoring-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 80px; align-items: start;
+  margin-top: 56px;
+  position: relative; z-index: 2;
+}
+@media (max-width: 1000px) { .mentoring-grid { grid-template-columns: 1fr; gap: 48px; } }
+.mentoring-lede {
+  font-family: 'Spectral', serif; font-style: italic;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--tinte-soft); line-height: 1.65;
+  border-left: 3px solid var(--sonnengelb);
+  padding-left: 24px; margin-bottom: 32px;
+}
+.mentoring-body p {
+  font-size: 0.98rem; color: var(--tinte);
+  line-height: 1.78; margin-bottom: 16px;
+}
+.mentoring-body p em { color: var(--waldgruen); font-style: italic; }
+
+.mentoring-pillars {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+  margin-top: 32px;
+}
+@media (max-width: 560px) { .mentoring-pillars { grid-template-columns: 1fr; } }
+.pillar {
+  padding: 22px 24px;
+  background: var(--offwhite);
+  border-left: 3px solid var(--apfelgruen);
+}
+.pillar.p2 { border-left-color: var(--sonnengelb); }
+.pillar.p3 { border-left-color: var(--salbei); }
+.pillar.p4 { border-left-color: var(--waldgruen); }
+.pillar strong {
+  display: block;
+  font-family: 'Spectral', serif; font-size: 1rem;
+  color: var(--tinte); font-weight: 600; margin-bottom: 5px;
+}
+.pillar span {
+  font-size: 0.85rem; color: var(--tinte-soft); line-height: 1.5;
+}
+
+.mentoring-quote {
+  background: var(--tannenmoos);
+  padding: 52px 56px;
+  position: relative; overflow: hidden;
+}
+@media (max-width: 780px) { .mentoring-quote { padding: 40px 32px; } }
+.mentoring-quote::before {
+  content: '"';
+  position: absolute; top: -20px; left: 32px;
+  font-family: 'Spectral', serif; font-size: 14rem;
+  color: rgba(122,168,144,0.08); line-height: 1;
+  pointer-events: none;
+}
+.mentoring-quote blockquote {
+  font-family: 'Spectral', serif; font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+  color: var(--papier); line-height: 1.65;
+  font-weight: 400; position: relative; z-index: 2;
+  margin-bottom: 28px;
+}
+.mentoring-quote blockquote em { color: var(--apfelgruen); font-weight: 500; }
+.mentoring-why {
+  display: flex; flex-direction: column; gap: 16px;
+  position: relative; z-index: 2;
+}
+.mentoring-why-item {
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.mentoring-why-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--apfelgruen); flex-shrink: 0; margin-top: 6px;
+}
+.mentoring-why-item p {
+  font-size: 0.93rem; color: rgba(242,246,242,0.7);
+  line-height: 1.6; margin: 0;
+}
+.mentoring-why-item p strong { color: var(--papier); font-weight: 600; }
+
+/* ── KURSE ── */
+.kurse-section {
+  background: var(--offwhite);
+  position: relative; overflow: hidden;
+}
+.kurse-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px; align-items: center;
+  position: relative; z-index: 2;
+}
+@media (max-width: 900px) { .kurse-inner { grid-template-columns: 1fr; gap: 40px; } }
+.kurse-text p {
+  font-size: 0.98rem; color: var(--tinte);
+  line-height: 1.78; margin-bottom: 16px;
+}
+.kurse-text p:last-of-type { margin-bottom: 32px; }
+.kurse-cards {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+}
+@media (max-width: 560px) { .kurse-cards { grid-template-columns: 1fr; } }
+.kurse-card {
+  background: var(--papier);
+  padding: 20px 22px;
+  border-top: 3px solid var(--salbei);
+}
+.kurse-card.kc2 { border-top-color: var(--apfelgruen); }
+.kurse-card.kc3 { border-top-color: var(--sonnengelb); }
+.kurse-card.kc4 { border-top-color: var(--waldgruen); }
+.kurse-card strong {
+  display: block;
+  font-family: 'Spectral', serif; font-size: 1rem;
+  color: var(--tinte); font-weight: 600; margin-bottom: 5px;
+}
+.kurse-card span {
+  font-size: 0.83rem; color: var(--tinte-soft); line-height: 1.5;
+}
+
+/* ── HONORAR ── */
+.honorar-section {
+  background: var(--papier);
+}
+.honorar-band {
+  background: var(--waldgruen);
+  padding: 48px 56px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px; align-items: center;
+  margin-top: 48px;
+}
+@media (max-width: 780px) { .honorar-band { grid-template-columns: 1fr; padding: 36px 28px; } }
+.honorar-band p {
+  font-family: 'Spectral', serif; font-style: italic;
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(242,246,242,0.88); line-height: 1.55;
+}
+.honorar-band p strong { color: var(--apfelgruen); font-weight: 500; }
+.honorar-note {
+  margin-top: 28px;
+  padding: 24px 32px;
+  background: var(--offwhite);
+  border: 1px dashed var(--salbei);
+  font-size: 0.9rem; color: var(--tinte-soft); line-height: 1.65;
+}
+.honorar-note a { color: var(--waldgruen); border-bottom: 1px solid var(--apfelgruen); }
+
+/* ── KONTAKT ── */
+.kontakt-section {
+  background: var(--offwhite);
+}
+.kontakt-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 64px; margin-top: 56px;
+}
+@media (max-width: 900px) { .kontakt-grid { grid-template-columns: 1fr; gap: 40px; } }
+.kontakt-info h3 {
+  font-family: 'Spectral', serif; font-size: 1.35rem;
+  color: var(--tinte); font-weight: 500; margin-bottom: 24px;
+}
+.kontakt-row {
+  display: flex; gap: 16px; padding: 14px 0;
+  border-bottom: 1px solid var(--tinte-line);
+}
+.kontakt-row:last-child { border-bottom: none; }
+.kontakt-lbl {
+  font-family: 'Inter'; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--tinte-mute); font-weight: 600; min-width: 80px; padding-top: 1px;
+}
+.kontakt-val { font-size: 0.95rem; color: var(--tinte); line-height: 1.55; }
+.kontakt-val a { color: var(--waldgruen); }
+.kontakt-val a:hover { color: var(--marine-deep); }
+
+.contact-form { display: grid; gap: 16px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field.full { grid-column: 1 / -1; }
+.form-field label {
+  font-family: 'Inter'; font-size: 10px;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  font-weight: 600; color: var(--tinte-mute);
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  padding: 14px 18px;
+  background: var(--papier);
+  border: 1px solid var(--tinte-line);
+  font-size: 0.95rem; color: var(--tinte);
+  transition: border-color .2s;
+  outline: none;
+  -webkit-appearance: none;
+}
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--apfelgruen);
+}
+.form-field textarea { min-height: 120px; resize: vertical; }
+.form-consent {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 0.82rem; color: var(--tinte-soft); line-height: 1.5;
+  cursor: pointer;
+}
+.form-consent input { width: 16px; height: 16px; flex-shrink: 0; margin-top: 2px; }
+.form-consent a { color: var(--waldgruen); }
+.form-submit {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 12px;
+}
+.form-note {
+  font-size: 0.82rem; color: var(--tinte-mute); font-style: italic;
+}
+
+/* PAGE-HERO (shared with other subpages) */
+.page-hero {
+  padding: 152px 6vw 96px;
+  background: var(--offwhite);
+}
+.page-hero-inner { max-width: 1240px; margin: 0 auto; }
+.page-hero h1 {
+  font-family: 'Spectral', serif; font-weight: 400;
+  font-size: clamp(2.4rem, 4.8vw, 4rem);
+  line-height: 1.07; color: var(--tinte);
+  margin-bottom: 20px;
+}
+.page-hero h1 em { color: var(--waldgruen); font-style: italic; }
+
+/* Animate-in */
+.reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s var(--ease,ease), transform .7s var(--ease,ease); }
+.reveal.is-visible { opacity: 1; transform: none; }
+</style>
 </head>
 <body>
 
@@ -46,284 +661,428 @@
 
 <main id="top">
 
-  <!-- PAGE-HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner reveal">
-      <div class="eyebrow">Termin &amp; Ablauf</div>
-      <h1>Lassen Sie uns <em>sprechen.</em></h1>
-      <p class="lede">
-        Drei Wege in die Praxis — der CheckIn als Einstieg, die Sprechstunde für gezielte Themen, die Regenerationsanalyse für den Gesamtblick.
-      </p>
+  <!-- PAGE HERO -->
+  <section class="ta-hero" aria-labelledby="hero-headline">
+    <div class="ta-hero-inner">
+      <div class="reveal">
+        <div class="eyebrow">Ablauf &amp; Termin</div>
+        <h1 id="hero-headline">So finden Sie Ihren<br>Weg in die <em>Praxis.</em></h1>
+        <p class="lede">
+          Klarer Fahrplan vom ersten Klick bis zum Termin — damit Sie wissen, was Sie erwartet, bevor Sie ankommen.
+        </p>
+      </div>
+      <div class="ta-hero-cards reveal">
+        <div class="ta-hero-card">
+          <span class="num">01</span>
+          <span class="label"><strong>Termin anfragen</strong>Online buchen oder anrufen</span>
+        </div>
+        <div class="ta-hero-card">
+          <span class="num">02</span>
+          <span class="label"><strong>Unterlagen vorab</strong>Anamnesebogen, Einverständniserklärung</span>
+        </div>
+        <div class="ta-hero-card">
+          <span class="num">03</span>
+          <span class="label"><strong>Ihr Termin</strong>Online oder vor Ort in Wiesloch</span>
+        </div>
+        <div class="ta-hero-card">
+          <span class="num">04</span>
+          <span class="label"><strong>Ihr persönlicher Fahrplan</strong>Klarheit über den nächsten Schritt</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 01 DREI TERMIN-OPTIONEN -->
-  <section class="ways">
+  <!-- 01 ABLAUF FÜR NEUPATIENTEN -->
+  <section class="roadmap-section" aria-labelledby="roadmap-headline">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">01 — Drei Optionen</div>
-        <h2 class="h-section">
-          Welcher Termin passt zu <em>Ihrer Situation?</em>
+        <div class="eyebrow">01 — Ablauf</div>
+        <h2 class="h-section" id="roadmap-headline">
+          Ihr Weg als <em>Neupatient.</em>
         </h2>
         <p class="lede">
-          Drei Formate mit klaren Anlässen — damit Sie den richtigen wählen, nicht den größten.
+          Fünf Schritte — von der ersten Buchung bis zum Termin. Übersichtlich, ohne Wartezimmer-Rätsel.
         </p>
       </div>
 
-      <div class="ways-grid" style="grid-template-columns:repeat(3,1fr);gap:20px">
-        <article class="way reveal" style="border-top:5px solid var(--sonnengelb)">
-          <span class="way-tag" style="color:var(--sonnengelb)">Einstieg</span>
-          <h3>CheckIn</h3>
-          <p class="lead">Für Erstinteressierte, die noch unsicher sind, welcher Weg passt.</p>
-          <ul>
-            <li>30 Minuten</li>
-            <li>Online oder vor Ort in Wiesloch</li>
-            <li>Ehrliche Einschätzung statt Komplettpaket</li>
-            <li>Empfehlung für den nächsten Schritt</li>
-          </ul>
-          <div class="way-foot">
-            <span class="price">75 €</span>
-            <a href="#buchung">Buchen →</a>
+      <div class="roadmap-steps reveal">
+        <div class="roadmap-step rs-1">
+          <div class="roadmap-circle">1</div>
+          <div class="roadmap-step-body">
+            <h4>Terminanfrage</h4>
+            <p>Online über das Buchungssystem — oder per Anruf, wenn Sie vorab eine Frage haben.</p>
           </div>
+        </div>
+        <div class="roadmap-step rs-2">
+          <div class="roadmap-circle">2</div>
+          <div class="roadmap-step-body">
+            <h4>Terminbestätigung</h4>
+            <p>Inkl. Termindashboard: Änderungen selbst verwalten, Befunde vorab hochladen.</p>
+          </div>
+        </div>
+        <div class="roadmap-step rs-3">
+          <div class="roadmap-circle">3</div>
+          <div class="roadmap-step-body">
+            <h4>Unterlagen per E-Mail</h4>
+            <p>Einverständniserklärung und Anamnesebogen kommen separat — digital über Xodosign.</p>
+          </div>
+        </div>
+        <div class="roadmap-step rs-4">
+          <div class="roadmap-circle">4</div>
+          <div class="roadmap-step-body">
+            <h4>Rechnung vorab</h4>
+            <p>Bei Online-Terminen: Rechnungsstellung und Überweisung vor dem Termin.</p>
+            <span class="roadmap-badge">nur bei Online-Terminen</span>
+          </div>
+        </div>
+        <div class="roadmap-step rs-5">
+          <div class="roadmap-circle">5</div>
+          <div class="roadmap-step-body">
+            <h4>Ihr Termin</h4>
+            <p>Online per Zoom oder vor Ort in Wiesloch. Zahlung bar oder bargeldlos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 CHECKIN BUCHEN -->
+  <section class="checkin-section" id="checkin" aria-labelledby="checkin-headline">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">02 — CheckIn</div>
+        <h2 class="h-section" id="checkin-headline">
+          Der erste Schritt: <em>CheckIn buchen.</em>
+        </h2>
+        <p class="lede">
+          Alle Wege in die Praxis beginnen mit dem CheckIn. Dreißig Minuten, damit ich verstehe, was Sie wirklich brauchen.
+        </p>
+      </div>
+
+      <div class="checkin-grid">
+        <div class="checkin-info reveal">
+          <h3>Was passiert im <em>CheckIn?</em></h3>
+          <p>
+            Der CheckIn ist Ihr Orientierungsgespräch — kein Erstbefund, kein Behandlungsversprechen. Ich höre zu, stelle Fragen und gebe Ihnen am Ende eine ehrliche Einschätzung: Was könnte helfen? Welcher Weg passt zu Ihrer Situation?
+          </p>
+          <p>
+            Sie gehen nicht mit einem Rezept nach Hause, sondern mit Klarheit. Und einem Fahrplan, der zu Ihrem Alltag passt.
+          </p>
+          <p>
+            Verfügbar als <strong>Online-Termin</strong> (Zoom) oder <strong>vor Ort in Wiesloch</strong>.
+          </p>
+
+          <div class="checkin-price-block">
+            <div class="lbl">Investition</div>
+            <div class="val">75 €</div>
+            <div class="meta">30 Minuten · inkl. persönlicher Empfehlung</div>
+          </div>
+
+          <div class="checkin-note">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <p>
+              Die freien Termine unten sind <strong style="color:rgba(242,246,242,0.85)">ausschließlich für Ersttermine (CheckIn)</strong>. Als Bestandspatient erhalten Sie Ihren Direktlink per E-Mail — weitere Termine finden Sie im Patientenportal.
+            </p>
+          </div>
+        </div>
+
+        <!-- CUSTOM LEMNISCUS TEASER WIDGET -->
+        <div class="teaser-widget reveal">
+          <div class="teaser-widget-head">
+            <div class="teaser-pulse" aria-hidden="true"></div>
+            <span>Nächste freie CheckIn-Termine</span>
+          </div>
+
+          <div class="teaser-slots" id="teaser-slots" role="list" aria-live="polite" aria-label="Freie CheckIn-Termine">
+            <p class="teaser-loading">Termine werden geladen…</p>
+          </div>
+
+          <div class="teaser-widget-foot">
+            <a id="lemniscus-book-btn" href="#" class="btn-teaser" target="_blank" rel="noopener">
+              CheckIn-Termin buchen
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <p class="note">
+              Telefonisch: <a href="tel:+4917993832388" style="color:rgba(242,246,242,0.55)">+49 179 938 32 38</a> ·
+              <a href="https://wa.me/4917993832388" style="color:rgba(242,246,242,0.55)">WhatsApp</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 NACH DEM CHECKIN -->
+  <section class="nach-checkin" aria-labelledby="nach-headline">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">03 — Was folgt</div>
+        <h2 class="h-section" id="nach-headline">
+          Drei Wege nach dem <em>CheckIn.</em>
+        </h2>
+        <p class="lede">
+          Der CheckIn zeigt, welcher Weg zu Ihrer Situation passt. Ich empfehle — Sie entscheiden.
+        </p>
+      </div>
+
+      <div class="nach-grid">
+        <article class="nach-card nc-1 reveal">
+          <span class="nc-tag">Tiefe Diagnostik</span>
+          <h3>Regenerations­<em>analyse</em></h3>
+          <p>
+            Wenn Sie den Gesamtblick wollen: Multiscan, Bioresonanz, Laborinterpretation in einem Termin. 90 Minuten, schriftlicher Befund, 12-Wochen-Fahrplan mit drei konkreten Hebeln.
+          </p>
+          <a href="/regenerationsanalyse/" class="nc-link">Mehr erfahren →</a>
         </article>
 
-        <article class="way way-a reveal">
-          <span class="way-tag">Akut &amp; gezielt</span>
+        <article class="nach-card nc-2 reveal">
+          <span class="nc-tag">Gezielte Behandlung</span>
           <h3>Naturheilkundliche <em>Sprechstunde</em></h3>
-          <p class="lead">Für gezielte Themen — nach CheckIn oder als Bestandspatientin.</p>
-          <ul>
-            <li>Nach medizinischer Indikation</li>
-            <li>Akute Themen, Beratungstermine, Folgetermine</li>
-            <li>Anamnese, Labor, Phytotherapie, Mikronährstoffe</li>
-            <li>Bioresonanz bei passenden Anlässen</li>
-          </ul>
-          <div class="way-foot">
-            <span class="price">nach medizin. Indikation</span>
-            <a href="/sprechstunde/">Mehr erfahren →</a>
-          </div>
+          <p>
+            Für akute Themen, Folgetermine und gezielte Beratung. Anamnese, Labor, Phytotherapie, Mikronährstoffe — nach medizinischer Indikation, nicht nach Wunschzettel.
+          </p>
+          <a href="/sprechstunde/" class="nc-link">Mehr erfahren →</a>
         </article>
 
-        <article class="way way-b reveal">
-          <span class="way-tag">Grundlegend</span>
-          <h3>Regenerations­analyse</h3>
-          <p class="lead">Wenn Sie endlich den Gesamtblick wollen — drei Systeme, ein Bild, ein Fahrplan.</p>
-          <ul>
-            <li>90 Minuten · Praxis Wiesloch</li>
-            <li>Multiscan, Bioresonanz, Laborinterpretation</li>
-            <li>Schriftlicher Befund</li>
-            <li>12-Wochen-Fahrplan mit drei Hebeln</li>
-          </ul>
-          <div class="way-foot">
-            <span class="price">ab 330 €</span>
-            <a href="/regenerationsanalyse/">Mehr erfahren →</a>
-          </div>
+        <article class="nach-card nc-3 reveal">
+          <span class="nc-tag">Begleitung</span>
+          <h3>Medizinisches <em>Mentoring</em></h3>
+          <p>
+            Für diejenigen, die dauerhaft mehr Energie, Leistungsfähigkeit und chronische Gesundheit wollen — und wissen, dass Wissen allein nicht reicht. Mehr dazu gleich auf dieser Seite.
+          </p>
+          <a href="#mentoring" class="nc-link">Mehr erfahren →</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- 02 ABLAUF DES ERSTKONTAKTS -->
-  <section class="diff">
+  <!-- 04 MEDIZINISCHES MENTORING -->
+  <section class="mentoring-section" id="mentoring" aria-labelledby="mentoring-headline">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">02 — Ablauf</div>
-        <h2 class="h-section">
-          So läuft der <em>Erstkontakt.</em>
+        <div class="eyebrow">04 — Medizinisches Mentoring</div>
+        <h2 class="h-section" id="mentoring-headline">
+          Nicht nur wissen — <em>umsetzen.</em>
         </h2>
-        <p class="lede">
-          Vier klare Schritte vom ersten Klick bis zum Termin.
-        </p>
       </div>
 
-      <div class="timeline reveal">
-        <div class="timeline-item">
-          <div class="timeline-num">01</div>
-          <div class="timeline-body">
-            <h4>Termin online buchen</h4>
-            <p>Über das Lemniscus-Buchungssystem — oder per kurzer Nachricht, wenn Sie vorab eine Frage haben.</p>
+      <div class="mentoring-grid">
+        <div>
+          <p class="mentoring-lede reveal">
+            Chronische Gesundheit gelingt, wenn genug Energie produziert wird — und wenn nicht zu viel Energie von den falschen Systemen abgezogen wird.
+          </p>
+
+          <div class="mentoring-body reveal">
+            <p>
+              Das Medizinische Mentoring in der Praxis ist individuell auf medizinische Themen ausgelegt, die in der Regenerationsanalyse herausgearbeitet wurden. Es geht darum, <em>erste Schritte in Richtung chronische Gesundheit</em> zu gehen — konkret, alltagstauglich, ohne den Alltag komplett umzukrempeln.
+            </p>
+            <p>
+              Im Mittelpunkt stehen Lebensstilveränderungen, die zu Ihrer Biologie passen: Longevity, Leistungsfähigkeit, mehr Lebendigkeit und Energie. Nicht als Programm, das von oben auferlegt wird — sondern als Prozess, der mit Ihnen wächst.
+            </p>
+            <p>
+              Nach meiner Erfahrung aus vielen Begleitungen ist das <em>Nervensystem</em> bei über 90 Prozent der Menschen das entscheidende Element. Wer sich noch so gut ernährt, Supplements nimmt und Sport treibt — wenn das Nervensystem nicht im Sicherheitsmodus ist, verpufft vieles im Wind.
+            </p>
+          </div>
+
+          <div class="mentoring-pillars reveal">
+            <div class="pillar">
+              <strong>Longevity &amp; Energie</strong>
+              <span>Mehr Lebendigkeit im Alltag, nicht weniger Symptome</span>
+            </div>
+            <div class="pillar p2">
+              <strong>Nervensystem­regulation</strong>
+              <span>Sicherheit als Grundlage für alles andere</span>
+            </div>
+            <div class="pillar p3">
+              <strong>Lebensstil, passend</strong>
+              <span>Veränderung ohne Komplettumbau des Alltags</span>
+            </div>
+            <div class="pillar p4">
+              <strong>Soziale Verbindung</strong>
+              <span>In Austausch kommen — mit anderen und mit sich selbst</span>
+            </div>
           </div>
         </div>
-        <div class="timeline-item">
-          <div class="timeline-num">02</div>
-          <div class="timeline-body">
-            <h4>Bestätigung &amp; Unterlagen</h4>
-            <p>Innerhalb 24 Stunden: Anamnesefragebogen, Praxisinformationen, ggf. Upload-Link für vorhandene Befunde.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">03</div>
-          <div class="timeline-body">
-            <h4>Termin vor Ort oder online</h4>
-            <p>Je nach gewähltem Format. CheckIn auch online möglich, Regenerationsanalyse nur vor Ort (für Multiscan und Bioresonanz).</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-num">04</div>
-          <div class="timeline-body">
-            <h4>Persönliche Empfehlung</h4>
-            <p>Am Ende des Termins wissen Sie, was der nächste sinnvolle Schritt ist — nicht der größte, sondern der richtige.</p>
+
+        <div class="reveal">
+          <div class="mentoring-quote">
+            <blockquote>
+              Wissen ist heute kein Problem mehr. Was fehlt, ist <em>Verbindung</em> — zu anderen und vor allem zu sich selbst. Deshalb reicht Aufklärung allein nicht. Deshalb Mentoring.
+            </blockquote>
+
+            <div class="mentoring-why">
+              <div class="mentoring-why-item">
+                <div class="mentoring-why-dot"></div>
+                <p><strong>Warum Mentoring?</strong> Weil sozialer Austausch und Verbundenheit genauso zur Gesundheit gehören wie Ernährung und Bewegung — und weil das oft der fehlende Baustein ist.</p>
+              </div>
+              <div class="mentoring-why-item">
+                <div class="mentoring-why-dot"></div>
+                <p><strong>Für wen?</strong> Für Patientinnen und Patienten nach einer Regenerationsanalyse, die nicht allein umsetzen wollen.</p>
+              </div>
+              <div class="mentoring-why-item">
+                <div class="mentoring-why-dot"></div>
+                <p><strong>Dauer:</strong> Individuell. Mehrere Wochen bis Monate, je nach Situation und Zielen.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 03 HONORAR-ÜBERSICHT -->
-  <section class="needs">
+  <!-- 05 KURSE -->
+  <section class="kurse-section" aria-labelledby="kurse-headline">
+    <div class="wrap">
+      <div class="kurse-inner">
+        <div class="kurse-text reveal">
+          <div class="eyebrow">05 — Kurse</div>
+          <h2 class="h-section" id="kurse-headline">
+            Praxis­wissen, <em>kompakt.</em>
+          </h2>
+          <p>
+            Was ich in der Praxis täglich erkläre — strukturiert, kurzweilig und direkt umsetzbar: Die Kurse bringen Ihnen dasselbe Wissen, das ich meinen Patientinnen und Patienten mitgebe, in einem Format, das Sie im eigenen Tempo durcharbeiten können.
+          </p>
+          <p>
+            Die Kurse können als Ergänzung zur laufenden Therapie genutzt werden — oder einfach aus Interesse gebucht werden, wenn Sie verstehen wollen, wie Ihr Körper funktioniert.
+          </p>
+          <a href="/kurse/" class="btn btn-primary">Alle Kurse ansehen</a>
+        </div>
+
+        <div class="kurse-cards reveal">
+          <div class="kurse-card">
+            <strong>Blutzucker &amp; Energie</strong>
+            <span>Was hinter Heißhunger und Erschöpfung steckt</span>
+          </div>
+          <div class="kurse-card kc2">
+            <strong>Mikronährstoffe</strong>
+            <span>Was wirklich fehlt — und warum Tabletten allein nicht reichen</span>
+          </div>
+          <div class="kurse-card kc3">
+            <strong>Hormone &amp; Zyklus</strong>
+            <span>Grundlagen, die keine Gynäkologin erklärt</span>
+          </div>
+          <div class="kurse-card kc4">
+            <strong>Nervensystem</strong>
+            <span>Regulation im Alltag — konkret und machbar</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 HONORAR -->
+  <section class="honorar-section" aria-labelledby="honorar-headline">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">03 — Honorar</div>
-        <h2 class="h-section">
-          Honorar-<em>Übersicht.</em>
+        <div class="eyebrow">06 — Honorar</div>
+        <h2 class="h-section" id="honorar-headline">
+          Investition &amp; <em>Abrechnung.</em>
         </h2>
         <p class="lede">
-          Transparenz vor der Buchung — kompakt zusammengefasst.
+          Transparenz vor dem ersten Schritt — kompakt, ohne Kleingedrucktes.
         </p>
       </div>
 
-      <div class="reveal" style="overflow-x:auto;margin-top:32px">
-        <table class="honorar-table">
-          <thead>
-            <tr>
-              <th>Format</th>
-              <th>Dauer</th>
-              <th>Investition</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>CheckIn</td>
-              <td>30 Min</td>
-              <td class="price">75 €</td>
-            </tr>
-            <tr>
-              <td>Naturheilkundliche Sprechstunde</td>
-              <td>nach Aufwand</td>
-              <td class="price">nach GebüH</td>
-            </tr>
-            <tr>
-              <td>Regenerationsanalyse · bis 30. Juni 2026</td>
-              <td>90 Min</td>
-              <td class="price">ab 330 €</td>
-            </tr>
-            <tr>
-              <td>Regenerationsanalyse · ab 1. Juli 2026</td>
-              <td>90 Min</td>
-              <td class="price">ab 450 €</td>
-            </tr>
-            <tr>
-              <td>Folgeanalyse (optional, nach 12–16 Wochen)</td>
-              <td>nach Aufwand</td>
-              <td class="price">nach GebüH</td>
-            </tr>
-            <tr>
-              <td>Kindersprechstunde</td>
-              <td>ca. 60 Min Erstgespräch</td>
-              <td class="price">nach GebüH</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="honorar-band reveal">
+        <p>
+          Der Einstieg beginnt mit dem <strong>CheckIn für 75 €</strong>. Alle weiteren Schritte — Regenerationsanalyse, Sprechstunde, Folgebehandlungen — werden individuell nach medizinischer Indikation empfohlen und sind auf der Abrechnungsseite ausgewiesen.
+        </p>
+        <a href="/abrechnung/" class="btn btn-ghost" style="background:transparent;color:var(--papier);border-color:rgba(242,246,242,0.4);white-space:nowrap">Honorarübersicht →</a>
       </div>
 
       <p class="honorar-note reveal">
-        Privatrechnung nach Gebührenverzeichnis für Heilpraktiker (GebüH). Viele private Krankenkassen und Heilpraktiker-Zusatzversicherungen erstatten Teile der Kosten. Tarifstaffelung nach Haushaltseinkommen verfügbar — Details in den <a href="/abrechnung/">Abrechnungs­hinweisen</a>.
+        Privatrechnung nach dem Gebührenverzeichnis für Heilpraktiker (GebüH). Viele private Krankenversicherungen und Heilpraktiker-Zusatzversicherungen erstatten Teile der Kosten.
+        Details zu Erstattungsmöglichkeiten und Tarifstaffelung finden Sie in den <a href="/abrechnung/">Abrechnungshinweisen</a>.
       </p>
     </div>
   </section>
 
-  <!-- 04 ONLINE-BUCHUNG (Lemniscus) -->
-  <section class="contact" id="buchung">
+  <!-- 07 KONTAKT -->
+  <section class="kontakt-section" aria-labelledby="kontakt-headline">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">04 — Online-Buchung</div>
-        <h2 class="h-section">
-          Buchen Sie Ihren Termin <em>direkt.</em>
+        <div class="eyebrow">07 — Kontakt</div>
+        <h2 class="h-section" id="kontakt-headline">
+          Fragen vor dem <em>ersten Schritt?</em>
         </h2>
         <p class="lede">
-          Sie sehen freie Termine, wählen einen aus, erhalten direkt eine Bestätigung — ohne Zwischenschritt.
+          Ich antworte persönlich — werktags innerhalb von 24 Stunden.
         </p>
       </div>
 
-      <div class="contact-tabs reveal" role="tablist">
-        <button class="tab-btn active" role="tab" aria-selected="true" data-tab="termin">Termin online buchen</button>
-        <button class="tab-btn" role="tab" aria-selected="false" data-tab="nachricht">Nachricht schreiben</button>
-      </div>
+      <div class="kontakt-grid">
+        <aside class="kontakt-info reveal">
+          <h3>Praxis Wiesloch</h3>
+          <div class="kontakt-row">
+            <span class="kontakt-lbl">Adresse</span>
+            <span class="kontakt-val">Hauptstr. 73<br>69168 Wiesloch<br><em style="color:var(--tinte-mute);font-style:italic">Nähe Heidelberg</em></span>
+          </div>
+          <div class="kontakt-row">
+            <span class="kontakt-lbl">Telefon</span>
+            <span class="kontakt-val"><a href="tel:+4917993832388">+49 179 938 32 38</a></span>
+          </div>
+          <div class="kontakt-row">
+            <span class="kontakt-lbl">WhatsApp</span>
+            <span class="kontakt-val"><a href="https://wa.me/4917993832388">Direkt schreiben</a></span>
+          </div>
+          <div class="kontakt-row">
+            <span class="kontakt-lbl">E-Mail</span>
+            <span class="kontakt-val"><a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a></span>
+          </div>
+          <div class="kontakt-row">
+            <span class="kontakt-lbl">Sprechzeiten</span>
+            <span class="kontakt-val">Termine nach Vereinbarung</span>
+          </div>
+        </aside>
 
-      <!-- TAB 1: ONLINE-TERMIN (Lemniscus Embed) -->
-      <div class="tab-pane active" id="tab-termin" role="tabpanel">
-        <div class="lemniscus-wrap">
-          <span class="ph-label">Online-Terminbuchung</span>
-          <h3>Lemniscus · <em>direkt buchen.</em></h3>
-          <p>Wählen Sie einen freien Termin im Kalender. Bei Fragen vorab — schreiben Sie über den Tab „Nachricht" oder per WhatsApp.</p>
-          <iframe
-            src="https://my.lemniscus.de/ot/bb02b7c7-46b8-4f56-953d-520e52d854ae"
-            title="Online-Terminbuchung Lemniscus"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade">
-          </iframe>
-        </div>
-
-        <div class="ways-aside" style="margin-top:32px">
-          <span class="label">Lieber telefonisch?</span>
-          <p>Rufen Sie mich an: <a href="tel:+4917993832388">+49 179 938 32 38</a> · oder schreiben Sie per <a href="https://wa.me/4917993832388">WhatsApp</a>.</p>
-        </div>
-      </div>
-
-      <!-- TAB 2: KONTAKTFORMULAR -->
-      <div class="tab-pane" id="tab-nachricht" role="tabpanel">
-        <div class="contact-grid">
-          <aside class="contact-info">
-            <h3>Praxis Wiesloch</h3>
-            <div class="row"><span class="row-lbl">Adresse</span><span class="row-val">Hauptstr. 73<br>69168 Wiesloch<br><em style="color:var(--tinte-soft)">Nähe Heidelberg</em></span></div>
-            <div class="row"><span class="row-lbl">Telefon</span><span class="row-val"><a href="tel:+4917993832388">+49 179 938 32 38</a></span></div>
-            <div class="row"><span class="row-lbl">WhatsApp</span><span class="row-val"><a href="https://wa.me/4917993832388">Direkt schreiben</a></span></div>
-            <div class="row"><span class="row-lbl">E-Mail</span><span class="row-val"><a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a></span></div>
-            <div class="row"><span class="row-lbl">Sprechzeiten</span><span class="row-val">Termine nach Vereinbarung</span></div>
-          </aside>
-
-          <form class="contact-form" action="mailto:praxis@nicole-lurz.de" method="post" enctype="text/plain" novalidate>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="name">Ihr Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-field">
-                <label for="email">E-Mail</label>
-                <input type="email" id="email" name="email" required />
-              </div>
+        <form class="contact-form reveal" action="mailto:praxis@nicole-lurz.de" method="post" enctype="text/plain" novalidate>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Ihr Name</label>
+              <input type="text" id="name" name="name" required />
             </div>
-            <div class="form-row">
-              <div class="form-field">
-                <label for="phone">Telefon (optional)</label>
-                <input type="tel" id="phone" name="phone" />
-              </div>
-              <div class="form-field">
-                <label for="anliegen">Ihr Anliegen</label>
-                <select id="anliegen" name="anliegen">
-                  <option>CheckIn anfragen</option>
-                  <option>Regenerationsanalyse</option>
-                  <option>Naturheilkundliche Sprechstunde</option>
-                  <option>Kindersprechstunde</option>
-                  <option>Allgemeine Frage</option>
-                </select>
-              </div>
+            <div class="form-field">
+              <label for="email">E-Mail</label>
+              <input type="email" id="email" name="email" required />
             </div>
-            <div class="form-row">
-              <div class="form-field full">
-                <label for="message">Nachricht</label>
-                <textarea id="message" name="message" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
-              </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="phone">Telefon (optional)</label>
+              <input type="tel" id="phone" name="phone" />
             </div>
-            <label class="form-consent">
-              <input type="checkbox" required />
-              <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.</span>
-            </label>
-            <div class="form-submit">
-              <span class="form-note">Antwort innerhalb von 24h, werktags.</span>
-              <button type="submit" class="btn btn-primary">Nachricht senden</button>
+            <div class="form-field">
+              <label for="anliegen">Ihr Anliegen</label>
+              <select id="anliegen" name="anliegen">
+                <option>CheckIn anfragen</option>
+                <option>Regenerationsanalyse</option>
+                <option>Naturheilkundliche Sprechstunde</option>
+                <option>Medizinisches Mentoring</option>
+                <option>Kindersprechstunde</option>
+                <option>Kurse</option>
+                <option>Allgemeine Frage</option>
+              </select>
             </div>
-          </form>
-        </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field full">
+              <label for="message">Ihre Nachricht</label>
+              <textarea id="message" name="message" required placeholder="Worum geht es? Beschreiben Sie kurz, was Sie zu mir führt."></textarea>
+            </div>
+          </div>
+          <label class="form-consent">
+            <input type="checkbox" required />
+            <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.</span>
+          </label>
+          <div class="form-submit">
+            <span class="form-note">Antwort innerhalb von 24 h, werktags.</span>
+            <button type="submit" class="btn btn-primary">Nachricht senden</button>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -374,5 +1133,78 @@
 </main>
 
 <script src="/assets/script.js"></script>
+
+<script>
+/* ── Lemniscus Custom Teaser API ── */
+(function () {
+  var TOKEN  = 'bb02b7c7-46b8-4f56-953d-520e52d854ae';
+  var BOOK_URL = 'https://my.lemniscus.de/pss.html?token=' + TOKEN;
+  var TEASER_URL = 'https://my.lemniscus.de/mvc/pss/teaser?token=' + TOKEN;
+  var MAX_SLOTS = 4;
+
+  var btn = document.getElementById('lemniscus-book-btn');
+  if (btn) btn.href = BOOK_URL;
+
+  var container = document.getElementById('teaser-slots');
+  if (!container) return;
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function renderSlots(teasers) {
+    if (!teasers || teasers.length === 0) {
+      container.innerHTML =
+        '<p class="teaser-empty">Aktuell keine Vorschau-Termine verfügbar.<br>Alle freien Slots finden Sie direkt im Buchungssystem.</p>';
+      return;
+    }
+
+    var shown = teasers.slice(0, MAX_SLOTS);
+    var html = shown.map(function (t) {
+      return (
+        '<div class="teaser-slot" role="listitem">' +
+          '<span class="teaser-slot-title">' + escHtml(t.title) + '</span>' +
+          '<span class="teaser-slot-when">' +
+            '<span class="teaser-slot-date">' + escHtml(t.formattedDate) + '</span>' +
+            '<span class="teaser-slot-time">' + escHtml(t.formattedTime) + ' Uhr</span>' +
+          '</span>' +
+        '</div>'
+      );
+    }).join('');
+
+    if (teasers.length > MAX_SLOTS) {
+      html += '<div class="teaser-slot" style="opacity:.55;justify-content:center">' +
+              '<span class="teaser-slot-title" style="font-style:italic;font-size:.88rem">' +
+              '+ ' + (teasers.length - MAX_SLOTS) + ' weitere im Buchungssystem</span></div>';
+    }
+
+    container.innerHTML = html;
+  }
+
+  function escHtml(str) {
+    return (str || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  fetch(TEASER_URL, { mode: 'cors' })
+    .then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r.json();
+    })
+    .then(function (data) {
+      if (data.errorMessage) {
+        container.innerHTML = '<p class="teaser-error">Termine werden gerade aktualisiert.</p>';
+        return;
+      }
+      renderSlots(data.teasers);
+    })
+    .catch(function () {
+      container.innerHTML =
+        '<p class="teaser-error">Termine gerade nicht abrufbar —<br>bitte direkt im Buchungssystem schauen.</p>';
+    });
+})();
+</script>
+
 </body>
 </html>
