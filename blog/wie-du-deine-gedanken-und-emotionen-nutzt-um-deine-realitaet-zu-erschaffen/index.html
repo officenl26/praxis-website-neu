@@ -7,8 +7,6 @@
 <meta name="theme-color" content="#1B3A5C" />
 <title>Wie Sie Ihre Gedanken und Emotionen nutzen, um Ihre Realität zu erschaffen · Naturheilpraxis Nicole Lurz</title>
 <link rel="canonical" href="https://naturheilpraxis-lurz.de/blog/wie-du-deine-gedanken-und-emotionen-nutzt-um-deine-realitaet-zu-erschaffen/" />
-
-<!-- Open Graph / Link-Vorschau -->
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://naturheilpraxis-lurz.de/blog/wie-du-deine-gedanken-und-emotionen-nutzt-um-deine-realitaet-zu-erschaffen/" />
 <meta property="og:title" content="Wie Sie Ihre Gedanken und Emotionen nutzen, um Ihre Realität zu erschaffen · Naturheilpraxis Nicole Lurz" />
@@ -20,21 +18,149 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://naturheilpraxis-lurz.de/og-image.jpg" />
 <link rel="stylesheet" href="/assets/style.css" />
-
-<!-- Favicon -->
 <link rel="icon" type="image/svg+xml" href="/favicon-praxis.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-
-<!-- Lemniscus LemmyFlansch · Floating-Widget -->
-<script async
-        id="lemmyFlansch"
+<script async id="lemmyFlansch"
         data-token="bb02b7c7-46b8-4f56-953d-520e52d854ae"
         data-floating-side="right"
         src="https://my.lemniscus.de/js/lemmyFlansch.js"><!-- nicht löschen --></script>
+<style>
+/* === BLOG ARTIKEL === */
+.blog-article-hero {
+  background: var(--tannenmoos);
+  padding: 140px 6vw 72px;
+  position: relative;
+  overflow: hidden;
+}
+.blog-article-hero::before {
+  content: '';
+  position: absolute; top: -100px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(122,168,144,0.25), transparent 70%);
+  pointer-events: none;
+}
+.blog-article-hero-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative; z-index: 2;
+}
+.blog-article-hero .eyebrow {
+  color: rgba(242,246,242,0.55);
+  border-color: rgba(242,246,242,0.18);
+  margin-bottom: 24px;
+}
+.blog-article-hero h1 {
+  font-family: 'Spectral', serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--papier);
+  margin: 0;
+}
+.blog-article-hero h1 em {
+  font-style: italic;
+  color: var(--waldgruen);
+}
+.blog-article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 64px 6vw 80px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.78;
+  color: var(--tinte);
+}
+.blog-article-body h2 {
+  font-family: 'Spectral', serif;
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.2vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--tinte);
+  margin: 2.4em 0 0.7em;
+  letter-spacing: -0.01em;
+}
+.blog-article-body h3 {
+  font-family: 'Spectral', serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  margin: 1.8em 0 0.5em;
+}
+.blog-article-body p {
+  margin: 0 0 1.4em;
+}
+.blog-article-body ul,
+.blog-article-body ol {
+  margin: 0 0 1.4em 1.5em;
+  padding: 0;
+}
+.blog-article-body li {
+  margin-bottom: 0.5em;
+}
+.blog-article-body blockquote {
+  border-left: 3px solid var(--waldgruen);
+  margin: 1.8em 0;
+  padding: 12px 24px;
+  color: var(--tinte-soft);
+  font-style: italic;
+}
+.blog-article-body strong {
+  font-weight: 600;
+  color: var(--tinte);
+}
+.blog-article-body hr {
+  border: none;
+  border-top: 1px solid var(--tinte-12);
+  margin: 2.5em 0;
+}
+.blog-article-cta {
+  background: var(--tannenmoos);
+  padding: 64px 6vw;
+}
+.blog-article-cta-inner {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.blog-article-cta h2 {
+  font-family: 'Spectral', serif;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  color: var(--papier);
+  margin: 0 0 16px;
+  line-height: 1.2;
+}
+.blog-article-cta h2 em {
+  font-style: italic;
+  color: var(--waldgruen);
+}
+.blog-article-cta p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(242,246,242,0.78);
+  margin: 0 0 32px;
+}
+.blog-article-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.88rem;
+  color: rgba(242,246,242,0.55);
+  text-decoration: none;
+  margin-top: 20px;
+}
+.blog-article-back:hover {
+  color: var(--papier);
+}
+@media (max-width: 600px) {
+  .blog-article-hero { padding: 110px 5vw 52px; }
+  .blog-article-body { padding: 48px 5vw 60px; }
+  .blog-article-cta { padding: 48px 5vw; }
+}
+</style>
 </head>
-<body class="legal-page">
+<body>
 
 <!-- NAV -->
 <nav class="nav" aria-label="Hauptnavigation">
@@ -48,12 +174,11 @@
     <a href="/sprechstunde/">Sprechstunde</a>
     <a href="/kinder/">Kinder</a>
     <a href="/kurse/">Kurse</a>
-    <a href="/blog/">Blog</a>
+    <a href="/blog/" class="active">Blog</a>
   </div>
   <a href="/termin-ablauf/" class="nav-cta">Termin &amp; Ablauf</a>
   <button class="nav-burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
-
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <a href="/ueber-mich/">Über mich</a>
   <a href="/regenerationsanalyse/">Regenerationsanalyse</a>
@@ -67,19 +192,17 @@
 
 <main id="top">
 
-  <!-- PAGE-HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner reveal">
+  <!-- HERO -->
+  <section class="blog-article-hero">
+    <div class="blog-article-hero-inner reveal">
       <div class="eyebrow">Mindset & Selbstheilung</div>
       <h1>Wie Sie Ihre Gedanken und Emotionen nutzen, um Ihre Realität zu <em>erschaffen</em></h1>
     </div>
   </section>
 
   <!-- ARTICLE CONTENT -->
-  <section class="section-light">
-    <div class="wrap">
-      <div class="legal-content reveal">
-        <p>Stellen Sie sich vor, Sie könnten Ihre Realität allein durch Ihre Gedanken und Emotionen gestalten. Magisch, nicht wahr? Doch genau das geschieht, wenn wir die wahre Kraft unserer inneren Welt erkennen und bewusst nutzen.</p>
+  <article class="blog-article-body reveal">
+    <p>Stellen Sie sich vor, Sie könnten Ihre Realität allein durch Ihre Gedanken und Emotionen gestalten. Magisch, nicht wahr? Doch genau das geschieht, wenn wir die wahre Kraft unserer inneren Welt erkennen und bewusst nutzen.</p>
 
 <h2>Die unsichtbare Macht der Atome</h2>
 
@@ -110,68 +233,54 @@
 <p>Nutzen Sie jetzt die Gelegenheit, die wahre Kraft Ihrer Gedanken und Emotionen zu entfesseln. Melden Sie sich für meinen Newsletter an und erhalten Sie exklusive Tipps, wie Sie Ihre Energie aktivieren und ein Leben in voller Lebenskraft führen können. Oder buchen Sie ein kostenfreies Beratungsgespräch, in dem wir gemeinsam Ihren persönlichen Energiecode entschlüsseln. Starten Sie jetzt Ihre Transformation – die Kraft liegt in Ihnen!</p>
 
 <p></p>
-      </div>
-    </div>
-  </section>
+  </article>
 
   <!-- CTA -->
-  <section class="section-light" style="padding-top:0">
-    <div class="wrap">
-      <div class="reveal" style="border-top:1px solid var(--tinte-12);padding-top:48px;max-width:640px">
-        <p style="font-size:1.05rem;line-height:1.7;margin-bottom:28px">
-          Hat dich dieses Thema getroffen? In der Praxis schauen wir gemeinsam, was in deiner Situation wirklich dran ist — ohne Schubladen, ohne Schema F.
-        </p>
-        <a href="/termin-ablauf/" class="btn-primary">CheckIn buchen — 75 €</a>
-        <a href="/blog/" style="display:inline-block;margin-left:20px;font-size:0.95rem;color:var(--tinte-soft)">← Alle Artikel</a>
-      </div>
+  <section class="blog-article-cta">
+    <div class="blog-article-cta-inner reveal">
+      <h2>Hat dich dieses Thema <em>getroffen?</em></h2>
+      <p>In der Praxis schauen wir gemeinsam, was in deiner Situation wirklich dran ist — ohne Schubladen, ohne Schema F. Beim CheckIn (30 Min · 75&nbsp;€) findest du heraus, ob und wie ich dir weiterhelfen kann.</p>
+      <a href="/termin-ablauf/" class="btn btn-sun">CheckIn buchen — 75 €</a>
+      <br>
+      <a href="/blog/" class="blog-article-back">← Alle Artikel</a>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-top">
       <div class="footer-brand">
         <div class="mark">Nicole <em>Lurz</em></div>
         <div class="role">Heilpraktikerin · Wiesloch · Nähe Heidelberg</div>
-        <p>
-          Hauptstr. 73<br>
-          69168 Wiesloch<br><br>
+        <p>Hauptstr. 73<br>69168 Wiesloch<br><br>
           <a href="tel:+4917993832388">+49 179 938 32 38</a><br>
           <a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a>
         </p>
         <div class="footer-social">
-          <a href="https://www.instagram.com/praxis_nicole_lurz/" target="_blank" rel="noopener" aria-label="Instagram Naturheilpraxis Nicole Lurz">
+          <a href="https://www.instagram.com/praxis_nicole_lurz/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" stroke="none"/></svg>
             <span>@praxis_nicole_lurz</span>
           </a>
-          <a href="https://www.facebook.com/nicole.lurz.73" target="_blank" rel="noopener" aria-label="Facebook Nicole Lurz">
+          <a href="https://www.facebook.com/nicole.lurz.73" target="_blank" rel="noopener" aria-label="Facebook">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
             <span>Nicole Lurz</span>
           </a>
         </div>
       </div>
+      <div class="footer-col"><h5>Praxis</h5><ul>
+        <li><a href="/regenerationsanalyse/">Regenerationsanalyse</a></li>
+        <li><a href="/sprechstunde/">Sprechstunde</a></li>
+        <li><a href="/kinder/">Kindersprechstunde</a></li>
+        <li><a href="/termin-ablauf/">Termin buchen</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Rechtliches</h5><ul>
+        <li><a href="/impressum/">Impressum</a></li>
+        <li><a href="/datenschutz/">Datenschutz</a></li>
+        <li><a href="/agb/">AGB</a></li>
+        <li><a href="/abrechnung/">Abrechnungshinweise</a></li>
+        <li><a href="/bildnachweise/">Bildnachweise</a></li>
+      </ul></div>
       <div class="footer-col">
-        <h5>Praxis</h5>
-        <ul>
-          <li><a href="/regenerationsanalyse/">Regenerationsanalyse</a></li>
-          <li><a href="/sprechstunde/">Sprechstunde</a></li>
-          <li><a href="/kinder/">Kindersprechstunde</a></li>
-          <li><a href="/termin-ablauf/">Termin buchen</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h5>Rechtliches</h5>
-        <ul>
-          <li><a href="/impressum/">Impressum</a></li>
-          <li><a href="/datenschutz/">Datenschutz</a></li>
-          <li><a href="/agb/">AGB</a></li>
-          <li><a href="/abrechnung/">Abrechnungs­hinweise</a></li>
-          <li><a href="/bildnachweise/">Bildnachweise</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <div class="footer-disclaimer">
-          <strong>Hinweis</strong>
+        <div class="footer-disclaimer"><strong>Hinweis</strong>
           Naturheilkundliche Begleitung ersetzt keine ärztliche Diagnostik und Therapie. Genannte Verfahren sind teilweise wissenschaftlich nicht abschließend bewertet. Ergebnisse sind individuell und können nicht garantiert werden.
         </div>
       </div>
