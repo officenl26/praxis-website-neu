@@ -3,8 +3,8 @@
 
   <url>
     <loc>https://naturheilpraxis-lurz.de/</loc>
-    <lastmod>2026-05-05</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
@@ -52,7 +52,7 @@
 
   <url>
     <loc>https://naturheilpraxis-lurz.de/kurse/</loc>
-    <lastmod>2026-05-05</lastmod>
+    <lastmod>2026-05-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -88,7 +88,7 @@
   <url>
     <loc>https://naturheilpraxis-lurz.de/blog/</loc>
     <lastmod>2026-05-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 
