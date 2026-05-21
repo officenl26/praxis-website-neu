@@ -1269,6 +1269,9 @@
   var success = document.getElementById('formSuccess');
   var errorBox = document.getElementById('formError');
 
+  // Zeitstempel beim Seitenaufruf merken (Bot-Schutz: zu schnelle Abgabe erkennen)
+  var _pageLoadTime = Date.now();
+
   if (window.location.search.indexOf('nf=ok') !== -1) {
     form.style.display = 'none';
     if (success) success.hidden = false;
@@ -1278,9 +1281,38 @@
     return;
   }
 
+  // Stille Bot-Ablehnung: Formular "erfolgreich" aussehen lassen, nichts senden
+  function silentReject() {
+    form.style.display = 'none';
+    if (success) {
+      success.hidden = false;
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+
+  // Englische Spam-Keywords (typisch für Bot-Massenanfragen)
+  var SPAM_PATTERN = /\b(seo|backlink|ranking|website traffic|google ranking|digital marketing|i am writing|i came across|i visited your|we offer|our services|our team|please visit|check out|click here|limited time|affordable|bulk email|crypto|casino|loan|cheap|adult|pills|viagra|make money|work from home|earn \$|per month|investment opportunity|i found your|your website|i noticed your|i would like to offer)\b/i;
+
   form.addEventListener('submit', function(e){
     e.preventDefault();
     if (errorBox) errorBox.hidden = true;
+
+    // 1. Zeitprüfung: Unter 5 Sekunden = Bot
+    if (Date.now() - _pageLoadTime < 5000) {
+      silentReject();
+      return;
+    }
+
+    // 2. Inhaltsfilter: Englische Spam-Muster im Namen oder Text
+    var msgVal = (form.querySelector('[name="message"]') || {}).value || '';
+    var nameVal = (form.querySelector('[name="name"]') || {}).value || '';
+    if (SPAM_PATTERN.test(msgVal) || SPAM_PATTERN.test(nameVal)) {
+      silentReject();
+      return;
+    }
+
+    // 3. Honeypot-Feld (botcheck) – wird von nForms ausgewertet
+    // Wenn JS-fähige Bots das Feld befüllt haben, senden wir trotzdem – nForms filtert dann
 
     var emailField = form.querySelector('[name="email"]');
     if (emailField && !form.querySelector('[name="_replyto"]')) {
