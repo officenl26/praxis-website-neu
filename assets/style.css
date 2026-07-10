@@ -1704,6 +1704,9 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
   --kinder:      #8FBE9E;
   --kinder-deep: #5E9971;
   --kinder-wash: #DCE9DD;
+  /* Kinder-Akzent für die dunkle Navigation — Wasserblau statt Grün, damit sich "Kinder" im Menü klar abhebt */
+  --kinder-nav:      #7DD3E8;
+  --kinder-nav-deep: #2FB6D4;
   /* Tiefes Marine für invertierte Pain-Section */
   --tiefe:       #143247;
 }
@@ -1749,12 +1752,12 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
 .pain-cta .btn-primary:hover{background:var(--apfelgruen);color:var(--tiefe)}
 
 /* KINDER — eigene Akzentfarbe für Wiedererkennung */
-/* In der Navigation: kleiner Akzent-Punkt vor "Kinder" */
-.nav-links a[href*="/kinder"]{position:relative;color:var(--kinder-deep)}
-.nav-links a[href*="/kinder"]:hover{color:var(--kinder)}
+/* In der Navigation: kleiner Akzent-Punkt vor "Kinder", Wasserblau statt Grün (dunkler Nav-Hintergrund) */
+.nav-links a[href*="/kinder"]{position:relative;color:var(--kinder-nav)}
+.nav-links a[href*="/kinder"]:hover{color:var(--kinder-nav-deep)}
 .nav-links a[href*="/kinder"]::before{
   content:'';display:inline-block;width:6px;height:6px;
-  background:var(--kinder);margin-right:6px;vertical-align:middle;
+  background:var(--kinder-nav);margin-right:6px;vertical-align:middle;
 }
 
 /* Kindersprechstunde-Hinweis-Box in der Wege-Section bekommt Kinder-Farbe */
