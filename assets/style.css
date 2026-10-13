@@ -2279,3 +2279,6 @@ footer{background:var(--tannenmoos);color:rgba(232,240,232,0.72);padding:80px 6v
 }
 
 /* === V2 ENDE === */
+
+/* Navigation: Menüpunkte und Telefonnummer nicht umbrechen */
+.nav-links a,.nav-phone{white-space:nowrap}
