@@ -158,7 +158,7 @@
         {
           "@type": "Question",
           "name": "Was kostet ein CheckIn in der Naturheilpraxis Nicole Lurz und was folgt danach?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Der CheckIn dauert 30 Minuten und ist der Einstieg für erwachsene Neupatienten. Im Anschluss entscheidet sich, ob eine Regenerationsanalyse oder eine Sprechstunde der passende nächste Schritt ist. Für Kinder gibt es die direkt online buchbare Kindersprechstunde ohne CheckIn. Eine Verpflichtung für eine weiterführende Begleitung besteht nicht."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Der CheckIn dauert 30 Minuten, kostet 75 € und ist der Einstieg für erwachsene Neupatienten. Im Anschluss entscheidet sich, ob eine Regenerationsanalyse oder eine Sprechstunde der passende nächste Schritt ist. Für Kinder gibt es die direkt online buchbare Kindersprechstunde ohne CheckIn. Eine Verpflichtung für eine weiterführende Begleitung besteht nicht."}
         },
         {
           "@type": "Question",
@@ -205,6 +205,45 @@
 @keyframes kt-slide{to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.kurs-ticker-track{animation:none}}
 @media(max-width:720px){.kurs-ticker + .hero{padding-top:64px}.kurs-ticker .kt-item{font-size:0.98rem}}
+
+/* ZWISCHEN DEN TERMINEN */
+.between{background:var(--papier);padding:20px 0 110px}
+.between-box{
+  background:linear-gradient(160deg,var(--tiefe) 0%,var(--marine-deep) 100%);color:var(--papier);
+  border-radius:28px;padding:56px 52px;display:grid;grid-template-columns:1.2fr 0.8fr;gap:48px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.between-box::before{content:'';position:absolute;top:-140px;right:-120px;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(122,168,144,0.22),transparent 70%);pointer-events:none}
+@media(max-width:900px){.between-box{grid-template-columns:1fr;padding:38px 24px;gap:32px}}
+.between .eyebrow{color:var(--apfelgruen)}
+.between .eyebrow::before{background:var(--apfelgruen)}
+.between .h-section{color:var(--papier)}
+.between .h-section em{color:var(--apfelgruen)}
+.between-box p{color:rgba(242,246,242,0.85);font-size:1.05rem;line-height:1.7;max-width:600px;margin-bottom:30px}
+.between .btn{background:var(--papier);color:var(--marine-deep)}
+.between .btn:hover{background:var(--apfelgruen);color:var(--tannenmoos)}
+.between-cards{display:grid;gap:14px;position:relative}
+.between-card{display:block;padding:22px 24px;border-radius:18px;background:rgba(242,246,242,0.07);border:1px solid var(--papier-line);transition:background .3s ease,transform .3s ease}
+.between-card:hover{background:rgba(242,246,242,0.13);transform:translateY(-2px)}
+.between-card .lbl{display:block;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:var(--apfelgruen);margin-bottom:6px}
+.between-card.alt .lbl{color:var(--kinder-nav)}
+.between-card strong{display:block;font-family:'Spectral',serif;font-weight:500;font-size:1.3rem;margin-bottom:4px}
+.between-card .txt{font-size:0.92rem;color:rgba(242,246,242,0.7)}
+
+/* VOR ORT ODER ONLINE */
+.hero-where{display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:-14px 0 34px}
+.hw-item{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:999px;background:var(--offwhite);border:1px solid var(--tinte-line);font-family:'Spectral',serif;font-size:clamp(1.05rem,1.4vw,1.2rem);font-weight:500;color:var(--marine-deep)}
+.hw-item svg{color:var(--waldgruen);flex:none}
+.hw-or{font-family:'Spectral',serif;font-style:italic;color:var(--tinte-mute)}
+/* SPRUNGMARKEN */
+.jump{background:var(--offwhite);border-bottom:1px solid var(--tinte-line)}
+.jump-inner{max-width:1300px;margin:0 auto;padding:16px 6vw;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.jump-lbl{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600;color:var(--tinte-mute);margin-right:6px}
+.jump a{font-size:0.9rem;padding:7px 14px;border-radius:999px;background:var(--papier);border:1px solid var(--tinte-line);color:var(--marine-deep);transition:background .2s ease,color .2s ease}
+.jump a:hover{background:var(--marine-deep);color:var(--papier)}
+@media(max-width:720px){.jump-inner{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding:14px 5vw}.jump a{white-space:nowrap;flex:none}.jump-lbl{flex:none}}
+section[id],#schwerpunkte{scroll-margin-top:96px}
+.between-card.one .lbl{color:var(--papier)}
 </style>
 </head>
 <body>
@@ -296,8 +335,13 @@
         <h1>Klarheit statt <em>Rätselraten.</em></h1>
         <p class="hero-claim">
           Die Brücke zwischen <em>„Damit müssen Sie leben."</em> und <em>„Das können Sie tun."</em><br>
-          Naturheilpraxis mit medizinischer Tiefe und strategischem Blick — für Menschen, die mehr wollen als noch ein Rezept.
+          Gemeinsam finden wir heraus, was Ihre Beschwerden immer wieder antreibt. Ich gebe Ihnen Orientierung, zeige Ihnen, welche Möglichkeiten Sie haben, und wir finden den ersten Schritt, der zu Ihnen passt. Für Menschen, die mehr wollen als noch ein Rezept.
         </p>
+        <div class="hero-where">
+          <span class="hw-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Vor Ort in Wiesloch</span>
+          <span class="hw-or">oder</span>
+          <span class="hw-item"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>Online, von zu Hause</span>
+        </div>
         <div class="hero-ctas">
           <a href="https://my.lemniscus.de/profile/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-primary">CheckIn buchen · 30 Min</a>
           <a href="#blickwinkel" class="btn btn-text">Wie ich arbeite →</a>
@@ -344,6 +388,22 @@
     </div>
   </section>
 
+  <!-- SPRUNGMARKEN · direkt zum gesuchten Abschnitt -->
+  <nav class="jump" aria-label="Auf dieser Seite">
+    <div class="jump-inner">
+      <span class="jump-lbl">Direkt zu</span>
+      <a href="#schwerpunkte">Schwerpunkte</a>
+      <a href="#kennen">Sie kennen das?</a>
+      <a href="#blickwinkel">Ihr Weg in die Praxis</a>
+      <a href="#mentoring-kurse">Mentoring &amp; Kurse</a>
+      <a href="#person">Über mich</a>
+      <a href="#stimmen">Stimmen</a>
+      <a href="#fuer-wen">Für wen</a>
+      <a href="#fragen">Fragen</a>
+      <a href="#kontakt">Termin &amp; Kontakt</a>
+    </div>
+  </nav>
+
   <!-- THEMEN-BAND — statisch, geschlechtsneutrale Themen zuerst -->
   <div class="themen-band" aria-label="Schwerpunktthemen">
     <div class="themen-band-track">
@@ -365,12 +425,12 @@
   <section class="topics" id="schwerpunkte">
     <div class="wrap">
       <div class="topics-head reveal">
-        <div class="eyebrow">01 — Womit Menschen zu mir kommen</div>
+        <div class="eyebrow">01 · Schwerpunkte</div>
         <h2 class="h-section">
-          Fünf Themen, mit denen Menschen hauptsächlich zu mir <em>kommen.</em>
+          Womit Menschen zu mir <em>kommen.</em>
         </h2>
         <p class="lede">
-          Hormone, Frauengesundheit, Schilddrüse &amp; Stoffwechsel, chronische Erkrankungen, Energie &amp; Leistung — meine Schwerpunkte aus 14 Jahren Praxis bei Erwachsenen. Plus ein eigener Bereich für Kinder. Und alles hängt fast immer zusammen.
+          Hormone, Frauengesundheit, Schilddrüse und Stoffwechsel, chronische Erkrankungen sowie Energie und Leistung sind meine Schwerpunkte aus 14 Jahren Praxis. Für Kinder gibt es einen eigenen Bereich. Und fast immer hängt das eine mit dem anderen zusammen.
         </p>
       </div>
 
@@ -378,7 +438,7 @@
         <article class="topic accent-4 reveal">
           <span class="topic-num">01 · Hauptthema</span>
           <h3>Chronische <em>Erkrankungen</em></h3>
-          <p>Sie bekommen keine echten Antworten. Keine Strategien für das, was Sie selbst tun könnten. Und Sie spüren, wie Sie tiefer in den Teufelskreis rutschen — Diagnose um Diagnose, Medikament um Medikament. Hier setzen wir an: Wovon hängt Ihr Zustand wirklich ab? Welche Hebel bewegen tatsächlich etwas?</p>
+          <p>Sie bekommen keine echten Antworten, und niemand sagt Ihnen, was Sie selbst tun könnten. Stattdessen rutschen Sie immer tiefer in den Teufelskreis, Diagnose um Diagnose, Medikament um Medikament. Hier setzen wir an. Was treibt Ihre Beschwerden immer wieder an? Und was davon lässt sich tatsächlich verändern?</p>
           <div class="signs">
             <span>Allergien</span>
             <span>entzündliche Darmerkrankungen</span>
@@ -393,7 +453,7 @@
         <article class="topic accent-1 reveal">
           <span class="topic-num">02 · Hauptthema</span>
           <h3>Energie, Leistung &amp; <em>Stress­regulation</em></h3>
-          <p>Wenn der Akku nie wirklich auflädt. Wenn Sie sich täglich durch Ihren Tag kämpfen — und das, was früher selbstverständlich war, heute Mühe kostet. Wir setzen an der Wurzel an: Stoffwechsel, Nervensystem, Mitochondrien — und nicht beim nächsten Supplement.</p>
+          <p>Wenn der Akku nie richtig auflädt und Sie sich durch jeden Tag kämpfen. Was früher selbstverständlich war, kostet heute Mühe. Wir suchen den Grund, warum Sie trotz Schlaf morgens erschöpft aufstehen, statt einfach das nächste Supplement obendrauf zu legen.</p>
           <div class="signs">
             <span>Fatigue</span>
             <span>Erschöpfung</span>
@@ -408,7 +468,7 @@
         <article class="topic accent-3 reveal">
           <span class="topic-num">03 · Hauptthema</span>
           <h3>Schild­drüse &amp; <em>Stoffwechsel</em></h3>
-          <p>Schilddrüse, Hormone, Stoffwechsel — sie reden ständig miteinander. Erweiterte Labordiagnostik, abgestimmt mit Nebennieren, Blutzucker, Mikronährstoffen, Darm.</p>
+          <p>Schilddrüse, Hormone und Stoffwechsel reden ständig miteinander. Deshalb schaue ich im Labor genauer hin als üblich und beziehe Nebennieren, Blutzucker, Mikronährstoffe und Darm mit ein.</p>
           <div class="signs">
             <span>Hashimoto</span>
             <span>Hypothyreose</span>
@@ -421,7 +481,7 @@
         <article class="topic accent-2 reveal">
           <span class="topic-num">04 · Hauptthema</span>
           <h3>Hormone</h3>
-          <p>Wenn die Hormone aus dem Takt sind, zeigt sich das nicht an einer Stelle, sondern überall. Schlaf, Energie, Stimmung, Gewicht, Zyklus. Ich arbeite mit Labor und funktioneller Diagnostik im Gesamt-Systemblick — bei Frauen und Männern.</p>
+          <p>Wenn die Hormone aus dem Takt sind, zeigt sich das nicht an einer Stelle, sondern überall. Schlaf, Energie, Stimmung, Gewicht, Zyklus. Ich schaue mit Labor und gezielten Tests auf das ganze Bild, bei Frauen und Männern.</p>
           <div class="signs">
             <span>Stressregulation</span>
             <span>Stimmungsschwankungen</span>
@@ -435,7 +495,7 @@
         <article class="topic accent-2 wide reveal">
           <span class="topic-num">05 · Hauptthema</span>
           <h3>Frauen­gesundheit</h3>
-          <p>Die Frau als System — nicht als Ansammlung einzelner gynäkologischer Diagnosen. Mit medizinischer Tiefe, Lebensphasen-Kontext und psychosomatischem Blick.</p>
+          <p>Ich schaue auf die ganze Frau und nicht auf einzelne gynäkologische Diagnosen. Zyklus, Schlaf, Stimmung und Lebensphase gehören zusammen und erzählen gemeinsam, was los ist.</p>
           <div class="signs">
             <span>Endometriose</span>
             <span>PMS</span>
@@ -469,10 +529,10 @@
   </section>
 
   <!-- 01.5 PAIN-RESONANZ — Edit 1.2 -->
-  <section class="pain">
+  <section class="pain" id="kennen">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">02 — Sie kennen das?</div>
+        <div class="eyebrow">02 · Sie kennen das?</div>
         <h2 class="h-section">
           Ihr Körper war immer Ihr <em>zuverlässigster Partner.</em><br>
           Bis jetzt.
@@ -481,41 +541,41 @@
 
       <div class="pain-grid">
         <article class="pain-card reveal">
-          <h3>Sie wachen nachts um 3 Uhr auf — und Ihr Kopf läuft sofort auf Hochtouren.</h3>
+          <h3>Sie wachen nachts um 3 Uhr auf, und Ihr Kopf läuft sofort auf Hochtouren.</h3>
           <p>Morgens funktionieren Sie. Aber der Preis dafür wird jeden Tag höher.</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Schwindel, Herzrasen, Schmerzen — und niemand findet eine Ursache.</h3>
+          <h3>Schwindel, Herzrasen, Schmerzen, und niemand findet eine Ursache.</h3>
           <p>Sie haben Spezialisten aufgesucht. Ergebnis: „Alles unauffällig."</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Ihre Hormone spielen verrückt — und keiner hat einen Plan.</h3>
+          <h3>Ihre Hormone spielen verrückt, und keiner hat einen Plan.</h3>
           <p>Hitzewallungen, Stimmungsschwankungen, Zyklusprobleme. Man sagt Ihnen: Das gehört dazu.</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Sie haben eine Diagnose — und dann?</h3>
+          <h3>Sie haben eine Diagnose. Und dann?</h3>
           <p>Stattdessen hören Sie: „Wir beobachten das erst mal" oder „Dieses Medikament müssen Sie jetzt dauerhaft nehmen."</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Ihr Darm macht, was er will — und bestimmt Ihren Alltag.</h3>
+          <h3>Ihr Darm macht, was er will, und bestimmt Ihren Alltag.</h3>
           <p>Blähungen, Unverträglichkeiten, Reizdarm. Sie haben schon vieles weggelassen. Besser wird es trotzdem nicht.</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Sie sind morgens schon erschöpft — und der Tag hat noch nicht begonnen.</h3>
+          <h3>Sie sind morgens schon erschöpft, und der Tag hat noch nicht begonnen.</h3>
           <p>Kaffee hilft, dann nicht mehr. Schlaf bringt keine Erholung. Sie funktionieren auf Reserve.</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Ihr Blutdruck ist erhöht — und Sie bekommen die Tablette in die Hand gedrückt.</h3>
+          <h3>Ihr Blutdruck ist erhöht, und Sie bekommen die Tablette in die Hand gedrückt.</h3>
           <p>Sie wollen wissen: <em>warum</em>. Und Sie wollen verstehen, was Sie selbst tun können, damit aus „grenzwertig" nicht in zehn Jahren mehr wird.</p>
         </article>
         <article class="pain-card reveal">
-          <h3>Ihr Kind ist alle paar Wochen krank — und das nächste Antibiotikum wartet schon.</h3>
-          <p>Sie wollen verstehen, was das Immunsystem so durchlässig macht — und einen Plan, der nicht nur aus „mehr Vitamine" besteht.</p>
+          <h3>Ihr Kind ist alle paar Wochen krank, und das nächste Antibiotikum wartet schon.</h3>
+          <p>Sie wollen verstehen, was das Immunsystem so durchlässig macht, und einen Plan, der nicht nur aus „mehr Vitamine" besteht.</p>
         </article>
       </div>
 
       <div class="pain-foot reveal">
-        Sie wollen sich damit nicht abfinden. <strong>Sie wollen verstehen, was los ist — und die Frage beantwortet bekommen: „Was kann ich selbst noch tun?"</strong> Genau dafür bin ich da.
+        Sie wollen sich damit nicht abfinden. <strong>Sie wollen verstehen, was los ist, und eine Antwort auf die Frage: „Was kann ich selbst noch tun?"</strong> Genau dafür bin ich da.
       </div>
 
       <div class="pain-cta reveal">
@@ -532,25 +592,25 @@
   <section class="fahrplan" id="blickwinkel" aria-labelledby="fahrplan-title">
     <div class="wrap">
       <div class="fahrplan__header reveal">
-        <p class="fahrplan__eyebrow">03 — Ihr Weg in die Praxis</p>
+        <p class="fahrplan__eyebrow">03 · Ihr Weg in die Praxis</p>
         <h2 class="fahrplan__title" id="fahrplan-title">
           Ihr individueller Weg.<br>
-          <em>Klar. Strukturiert. Persönlich.</em>
+          <em>Ein Schritt nach dem anderen.</em>
         </h2>
         <p class="fahrplan__sub">
-          Im CheckIn klären wir gemeinsam, welcher Weg für Sie der richtige ist —
-          und was wir brauchen, um eine fundierte Therapie zu beginnen.
+          Im CheckIn klären wir gemeinsam, welcher Weg für Sie der richtige ist
+          und was wir brauchen, um mit der Behandlung zu beginnen.
         </p>
       </div>
 
       <!-- Schritt 1: CheckIn -->
       <div class="fahrplan__step1 reveal">
         <article class="step__card step__card--checkin">
-          <p class="step__eyebrow">01 — Sondierung</p>
+          <p class="step__eyebrow">01 · Erstgespräch</p>
           <h3 class="step__title">CheckIn</h3>
-          <p class="step__meta">30 Min · vor Ort oder online</p>
+          <p class="step__meta">30 Min · 75 € · vor Ort oder online</p>
           <p class="step__desc">
-            Ein Sondierungsgespräch, das Klarheit schafft: Wir schauen gemeinsam, welcher Weg für Sie der richtige ist — und was gegebenenfalls nötig ist, um eine klare Aussage und eine gezielte Therapie zu beginnen.
+            Wir schauen uns gemeinsam an, wo Sie stehen und welcher Weg für Sie passt. Und wir klären, was eventuell noch nötig ist, damit ich Ihnen eine klare Einschätzung geben und gezielt mit der Behandlung beginnen kann.
           </p>
           <div class="step__foot">
             <a class="step__cta" href="/termin-ablauf/">CheckIn buchen <span aria-hidden="true">→</span></a>
@@ -570,12 +630,12 @@
       <div class="fahrplan__step2 reveal">
 
         <article class="step__card step__card--featured">
-          <p class="step__eyebrow">Weg A — Systemisch</p>
+          <p class="step__eyebrow">Weg A · Ursachen klären</p>
           <h3 class="step__title">Regenerationsanalyse</h3>
           <p class="step__meta">2 × 60 Min · schriftlicher Befund</p>
           <p class="step__desc">
-            Systemische Bestandsaufnahme von Nervensystem, Stoffwechsel und Immunsystem —
-            mit schriftlichem Befund und einem persönlichen 12-Wochen-Fahrplan.
+            Wir klären, warum Ihr Körper seit Monaten auf Sparflamme läuft, obwohl die Werte angeblich in Ordnung sind.
+            Dafür schaue ich mir Nervensystem, Stoffwechsel und Immunsystem gemeinsam an. Sie bekommen einen schriftlichen Befund und einen persönlichen 12-Wochen-Fahrplan.
           </p>
           <div class="step__foot">
             <a class="step__cta" href="/regenerationsanalyse/">Mehr zur Regenerationsanalyse <span aria-hidden="true">→</span></a>
@@ -586,12 +646,12 @@
         <div class="fahrplan__oder" aria-hidden="true">oder</div>
 
         <article class="step__card">
-          <p class="step__eyebrow">Weg B — Begleitung</p>
+          <p class="step__eyebrow">Weg B · Begleitung</p>
           <h3 class="step__title">Sprechstunde</h3>
           <p class="step__meta">nach Bedarf · GebüH · Privatrechnung</p>
           <p class="step__desc">
-            Gezielte Begleitung, Verlaufskontrolle und Anpassung — mit den Werkzeugen
-            der Naturheilkunde: Bioresonanz, Mikronährstoffe, Phytotherapie, Nervensystemregulation.
+            Ich begleite Sie bei konkreten Beschwerden, wir schauen regelmäßig, wie es sich entwickelt, und passen die Behandlung an.
+            Dabei arbeite ich mit Bioresonanz, Mikronährstoffen, Heilpflanzen und der Regulation Ihres Nervensystems.
           </p>
           <div class="step__foot">
             <a class="step__cta" href="/sprechstunde/">Sprechstunde ansehen <span aria-hidden="true">→</span></a>
@@ -613,6 +673,39 @@
     </div>
   </section>
 
+  <!-- 04 ZWISCHEN DEN TERMINEN · Verweis auf Kurse & Mentoring -->
+  <section class="between" id="mentoring-kurse">
+    <div class="wrap">
+      <div class="between-box reveal">
+        <div>
+          <div class="eyebrow">04 · Veränderungen entstehen zwischen den Terminen</div>
+          <h2 class="h-section">Mentoring <em>&amp; Kurse.</em></h2>
+          <p>
+            Verstehen, erleben, umsetzen und in den Alltag integrieren. Das geht in der Gruppe, im 1:1 oder im Selbstlern-Kurs. Denn vieles, was wir in der Sprechstunde besprechen, geht zu Hause wieder unter, und hier bekommt es seinen Platz.
+          </p>
+          <a href="/kurse/" class="btn btn-sun">Termine und Themen ansehen →</a>
+        </div>
+        <div class="between-cards">
+          <a href="/kurse/#gesundheit-machbar" class="between-card">
+            <span class="lbl">Selbstlern-Kurs</span>
+            <strong>Verstehen, im eigenen Tempo</strong>
+            <span class="txt">Sofort starten, mit kurzen Videos und Checklisten</span>
+          </a>
+          <a href="/kurse/#kurse" class="between-card alt">
+            <span class="lbl">Gruppen-Mentoring</span>
+            <strong>Gemeinsam umsetzen</strong>
+            <span class="txt">Fünf Wochen live per Zoom, mit Aufzeichnung</span>
+          </a>
+          <a href="/termin-ablauf/#mentoring" class="between-card one">
+            <span class="lbl">Einzel-Mentoring</span>
+            <strong>Im 1:1 begleitet</strong>
+            <span class="txt">Ihr persönlicher Fahrplan, vor Ort oder online</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ARCHIVIERT: Sektion 07 Kernangebot Regenerationsanalyse → archiv-sektionen.html -->
 
   <!-- 05 ÜBER NICOLE — Edit 1.5: Pico-Boxen entdoppelt -->
@@ -625,23 +718,23 @@
           <div class="frame"><img src="/nicole_lurz_portrait.jpg" alt="Nicole Lurz, Heilpraktikerin" width="1200" height="1800" loading="lazy" decoding="async"></div>
         </div>
         <div class="person-copy reveal">
-          <div class="eyebrow">08 — Über mich</div>
+          <div class="eyebrow">05 · Über mich</div>
           <h2>
             Heilpraktikerin mit <em>BWL-Hirn.</em>
           </h2>
           <p>
-            Ich bin Nicole Lurz. Seit 2012 in eigener Praxis in Wiesloch, nahe Heidelberg. Über 1.500 Menschen begleitet — viele mit langen, frustrierenden Vorgeschichten.
+            Ich bin Nicole Lurz. Seit 2012 in eigener Praxis in Wiesloch, nahe Heidelberg. Über 1.500 Menschen habe ich begleitet, viele davon mit langen, frustrierenden Vorgeschichten.
           </p>
           <p>
-            Bevor ich Heilpraktikerin wurde, war ich Diplom-Kauffrau. Diesen strategischen Blick habe ich behalten: Engpässe finden. Hebel priorisieren. Keine lange Empfehlungsliste, sondern drei Hebel, die wirken.
+            Bevor ich Heilpraktikerin wurde, war ich Diplom-Kauffrau, und das merkt man bis heute. Statt zehn Baustellen gleichzeitig anzugehen, suche ich die zwei oder drei Dinge, die bei Ihnen wirklich etwas verändern.
           </p>
           <p>
-            Ich denke nicht in Symptomen. Ich denke in Systemen.
+            Ich frage nicht nur: Wo tut es weh? Ich frage: Warum kommt Ihr Körper da von allein nicht mehr heraus? Und was braucht er ganz konkret, um wieder in Richtung Gesundheit zu finden?
           </p>
 
           <blockquote class="person-quote">
-            Ich sage Ihnen nicht, was Sie hören wollen.<br>
-            Ich sage Ihnen, was Sie wissen müssen.
+            Ich gebe Ihnen keinen Plan, den Sie blind abarbeiten.<br>
+            Ich möchte, dass Sie selbst gute Entscheidungen für Ihren Körper treffen können. Das Lenkrad halten Sie.
           </blockquote>
 
           <div class="pico-grid">
@@ -687,16 +780,16 @@
   </section>
 
   <!-- 06 STIMMEN AUS DER PRAXIS — Echte Patientenzitate (Google · ProvenExpert) -->
-  <section class="voices">
+  <section class="voices" id="stimmen">
     <div class="wrap">
       <div class="voices-head reveal">
         <div class="left">
-          <div class="eyebrow">09 — Stimmen aus der Praxis</div>
+          <div class="eyebrow">06 · Stimmen aus der Praxis</div>
           <h2 class="h-section">
             Was Patientinnen und Patienten <em>schreiben.</em>
           </h2>
           <p class="voices-lede">
-            Drei Stimmen aus dem Alltag der Praxis — stellvertretend für viele. Veröffentlicht mit Einverständnis.
+            Drei Stimmen aus dem Alltag der Praxis, stellvertretend für viele. Veröffentlicht mit Einverständnis.
           </p>
         </div>
         <div class="proven-badge">
@@ -730,10 +823,10 @@
   </section>
 
   <!-- 08 FÜR WEN -->
-  <section class="forwhom">
+  <section class="forwhom" id="fuer-wen">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">08 — Für wen?</div>
+        <div class="eyebrow">07 · Für wen?</div>
         <h2 class="h-section">
           Wir passen zusammen, <em>wenn …</em>
         </h2>
@@ -744,10 +837,10 @@
           <h3>Wir passen zusammen, wenn …</h3>
           <ul class="forwhom-list">
             <li>Sie verstehen wollen, warum Ihr Körper so reagiert.</li>
-            <li>Sie schon viel ausprobiert haben — und einen sortierten Weg suchen.</li>
+            <li>Sie schon viel ausprobiert haben und einen sortierten Weg suchen.</li>
             <li>Sie bereit sind, im Alltag etwas zu verändern.</li>
-            <li>Sie einen klar priorisierten Plan wollen, kein Sammelsurium an Tipps.</li>
-            <li>Sie einen Lotsen suchen, der Sie durch den Wissens-Dschungel führt — kritisch fragen dürfen Sie.</li>
+            <li>Sie einen Plan wollen, der Ihnen sagt, was zuerst drankommt, kein Sammelsurium an Tipps.</li>
+            <li>Sie einen Lotsen suchen, der Sie durch den Wissens-Dschungel führt. Kritisch fragen dürfen Sie dabei jederzeit.</li>
             <li>Sie offen sind für meine Diagnostik- und Therapiemethoden, auch wenn nicht für jedes Detail sofort ein Erklärungsmodell da ist.</li>
           </ul>
         </div>
@@ -759,7 +852,7 @@
             <li>Sie schulmedizinische Diagnostik kategorisch ablehnen.</li>
             <li>Sie jemanden suchen, der nur bestätigt, was Sie ohnehin schon glauben.</li>
             <li>Sie eine Naturheilkunde-Pille als Ersatz für die schulmedizinische Pille suchen.</li>
-            <li>Sie einzelne Therapien wie Vitamin-C-Infusionen oder Bluttests „bestellen" wollen — ich biete keine Therapie-Buchung an.</li>
+            <li>Sie einzelne Therapien wie Vitamin-C-Infusionen oder Bluttests „bestellen" wollen. Eine Therapie-Buchung biete ich nicht an.</li>
           </ul>
         </div>
       </div>
@@ -767,10 +860,10 @@
   </section>
 
   <!-- 09 FAQ -->
-  <section class="faq">
+  <section class="faq" id="fragen">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">12 — Häufige Fragen</div>
+        <div class="eyebrow">08 · Häufige Fragen</div>
         <h2 class="h-section">
           Was Sie noch <em>wissen sollten.</em>
         </h2>
@@ -778,8 +871,8 @@
 
       <div class="faq-list reveal">
         <details>
-          <summary>Was kostet ein CheckIn — und was folgt danach?</summary>
-          <p>Der CheckIn dauert 30 Minuten. Er ist Pflichtschritt für alle neuen erwachsenen Patienten und dient dazu, den richtigen weiteren Weg zu klären. Für Kinder buchen Sie die <a href="/kinder/">Kindersprechstunde</a> direkt, ohne CheckIn. Die Sprechstunde wird nach GebüH abgerechnet. Alle Details auf <a href="/termin-ablauf/">Termin &amp; Ablauf</a>.</p>
+          <summary>Was kostet ein CheckIn, und was folgt danach?</summary>
+          <p>Der CheckIn dauert 30 Minuten und kostet 75 €. Er ist der erste Schritt für alle neuen erwachsenen Patienten, und wir klären darin, wie es für Sie weitergeht. Wenn Sie danach eine Regenerationsanalyse machen, werden die 75 € angerechnet. Für Kinder buchen Sie die <a href="/kinder/">Kindersprechstunde</a> direkt, ohne CheckIn. Die Sprechstunde wird nach GebüH abgerechnet. Alle Details auf <a href="/termin-ablauf/">Termin &amp; Ablauf</a>.</p>
         </details>
         <details>
           <summary>Übernimmt die Krankenkasse die Kosten?</summary>
@@ -787,15 +880,15 @@
         </details>
         <details>
           <summary>Ersetzt Ihre Praxis meinen Hausarzt oder Gynäkologen?</summary>
-          <p>Nein, ausdrücklich nicht. Bei akuten Erkrankungen und strukturellen Diagnosen ist die schulmedizinische Versorgung oft unverzichtbar. Ich ergänze sie um eine systemische Perspektive — ich ersetze sie nicht.</p>
+          <p>Nein, ausdrücklich nicht. Bei akuten Erkrankungen und strukturellen Diagnosen ist die schulmedizinische Versorgung oft unverzichtbar. Ich ergänze sie um den Blick auf die Zusammenhänge, ersetzen kann und will ich sie nicht.</p>
         </details>
         <details>
           <summary>Wie lange dauert eine Begleitung typischerweise?</summary>
-          <p>Das ist individuell. Manche buchen die Regenerationsanalyse einmal und setzen selbst um. Andere wünschen Begleitung über die 12 Wochen. Ich empfehle den kleinstmöglichen sinnvollen Schritt — nie den größten.</p>
+          <p>Das ist individuell. Manche buchen die Regenerationsanalyse einmal und setzen selbst um. Andere wünschen Begleitung über die 12 Wochen. Ich empfehle den kleinstmöglichen sinnvollen Schritt, nie den größten.</p>
         </details>
         <details>
           <summary>Wie buche ich einen Termin?</summary>
-          <p>Den CheckIn buchen Sie direkt über meine Terminseite — online oder in der Praxis in Wiesloch. Die Regenerationsanalyse findet vor Ort statt. CheckIn und Folgegespräche sind auch online möglich. <a href="/termin-ablauf/">Zur Terminbuchung →</a></p>
+          <p>Den CheckIn buchen Sie direkt über meine Terminseite, online oder in der Praxis in Wiesloch. Die Regenerationsanalyse findet vor Ort statt. CheckIn und Folgegespräche sind auch online möglich. <a href="/termin-ablauf/">Zur Terminbuchung →</a></p>
         </details>
       </div>
     </div>
@@ -805,12 +898,12 @@
   <section class="contact" id="kontakt">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">13 — Termin &amp; Ablauf</div>
+        <div class="eyebrow">09 · Termin &amp; Ablauf</div>
         <h2 class="h-section">
-          Direkt buchen — oder erst <em>schreiben.</em>
+          Direkt buchen oder erst <em>noch Fragen klären?</em>
         </h2>
         <p class="lede">
-          Buchen Sie Ihren CheckIn direkt über meine Terminbuchungsseite — oder schreiben Sie mir, wenn Sie vorab eine Frage haben, kurz mit mir sprechen möchten oder keinen passenden Termin finden. Ich antworte persönlich, werktags innerhalb von 24 Stunden.
+          Buchen Sie Ihren CheckIn direkt über meine Terminbuchungsseite, oder schreiben Sie mir, wenn Sie vorab eine Frage haben, kurz mit mir sprechen möchten oder keinen passenden Termin finden. Ich antworte persönlich, werktags innerhalb von 24 Stunden.
         </p>
       </div>
 
@@ -831,7 +924,7 @@
             <div class="row"><span class="row-lbl">WhatsApp</span><span class="row-val"><a href="https://wa.me/4917993832388">Direkt schreiben</a></span></div>
             <div class="row"><span class="row-lbl">E-Mail</span><span class="row-val"><a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a></span></div>
             <div class="row"><span class="row-lbl">Adresse</span><span class="row-val">Hauptstr. 73<br>69168 Wiesloch</span></div>
-            <div class="row"><span class="row-lbl">Mehr Infos</span><span class="row-val"><a href="/termin-ablauf/">Termin &amp; Ablauf — Honorare, Erstattung, Konditionen</a></span></div>
+            <div class="row"><span class="row-lbl">Mehr Infos</span><span class="row-val"><a href="/termin-ablauf/">Termin &amp; Ablauf: Honorare, Erstattung, Konditionen</a></span></div>
           </div>
         </aside>
 
@@ -871,6 +964,7 @@
                 <option>Regenerationsanalyse</option>
                 <option>Naturheilkundliche Sprechstunde</option>
                 <option>Kindersprechstunde</option>
+                <option>Kurse &amp; Mentoring</option>
                 <option>Rückruf erbeten</option>
                 <option>Allgemeine Frage</option>
               </select>
@@ -891,7 +985,7 @@
             <button type="submit" class="btn btn-primary">Nachricht senden</button>
           </div>
           <p class="form-error" id="formError" hidden role="alert">
-            Es gab leider ein Problem beim Versenden. Bitte versuchen Sie es erneut — oder schreiben Sie mir direkt an <a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a>.
+            Es gab leider ein Problem beim Versenden. Bitte versuchen Sie es erneut, oder schreiben Sie mir direkt an <a href="mailto:praxis@nicole-lurz.de">praxis@nicole-lurz.de</a>.
           </p>
         </form>
 
@@ -900,7 +994,7 @@
           <div class="form-success-mark" aria-hidden="true">
             <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
           </div>
-          <h3>Vielen Dank — Ihre Nachricht ist angekommen.</h3>
+          <h3>Vielen Dank, Ihre Nachricht ist angekommen.</h3>
           <p>Ich antworte werktags innerhalb von 24 Stunden persönlich. Bei dringenden Fragen erreichen Sie mich auch telefonisch unter <a href="tel:+4917993832388">0179 938 32 38</a> oder per <a href="https://wa.me/4917993832388">WhatsApp</a>.</p>
         </div>
 
@@ -911,13 +1005,13 @@
   <!-- 10 CHECKIN-CTA -->
   <section class="checkin" id="checkin">
     <div class="checkin-inner">
-      <div class="eyebrow reveal">14 — Der erste Schritt</div>
+      <div class="eyebrow reveal">10 · Der erste Schritt</div>
       <h2 class="reveal">
         Sie haben genug gewartet.<br>
         Genug gehört, dass <em>alles „normal"</em> sei.
       </h2>
       <p class="reveal">
-        Im CheckIn klären wir in 30 Minuten, ob mein Ansatz zu Ihrem Thema passt — und welcher Weg für Sie der richtige ist. Online oder in meiner Praxis in Wiesloch.
+        Im CheckIn klären wir in 30 Minuten, ob mein Ansatz zu Ihrem Thema passt und welcher Weg für Sie der richtige ist. Online oder in meiner Praxis in Wiesloch.
       </p>
       <div class="checkin-ctas reveal">
         <a href="https://my.lemniscus.de/profile/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="btn btn-sun">CheckIn buchen · 30 Min</a>
