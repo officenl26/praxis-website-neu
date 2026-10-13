@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Selbstlernkurse aus der Naturheilpraxis Lurz: Wissen, das im Alltag funktioniert. Blutzucker, Mikronährstoffe, Hormone — strukturiert und alltagstauglich." />
-<meta name="theme-color" content="#1B3A5C" />
-<title>Mini-Kurse · Naturheilpraxis Nicole Lurz · Wiesloch</title>
+<meta name="description" content="Gruppen-Mentorings aus der Naturheilpraxis Nicole Lurz: Immunsystem ab 19.10.2026, Stoffwechsel ab 18.11.2026. Je 5 Wochen live per Zoom. Was Sie selbst tun können, damit Ihr Körper mehr Energie bildet und sie richtig verteilt." />
+<meta name="theme-color" content="#143247" />
+<title>Mentoring · Naturheilpraxis Nicole Lurz · Wiesloch</title>
 <link rel="canonical" href="https://naturheilpraxis-lurz.de/kurse/" />
 
 <!-- Open Graph / Link-Vorschau -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://naturheilpraxis-lurz.de/kurse/" />
-<meta property="og:title" content="Mini-Kurse · Naturheilpraxis Nicole Lurz · Wiesloch" />
-<meta property="og:description" content="Selbstlernkurse aus der Naturheilpraxis Lurz: Wissen, das im Alltag funktioniert. Blutzucker, Mikronährstoffe, Hormone — strukturiert und alltagstauglich." />
+<meta property="og:title" content="Mentoring · Naturheilpraxis Nicole Lurz · Wiesloch" />
+<meta property="og:description" content="Veränderung entsteht zwischen den Terminen. Immunsystem ab 19.10.2026, Stoffwechsel ab 18.11.2026, je 5 Wochen live per Zoom." />
 <meta property="og:image" content="https://naturheilpraxis-lurz.de/og-image.jpg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -33,6 +33,202 @@
         data-token="bb02b7c7-46b8-4f56-953d-520e52d854ae"
         data-floating-side="right"
         src="https://my.lemniscus.de/js/lemmyFlansch.js"><!-- nicht löschen --></script>
+
+<style>
+/* ==========================================================================
+   KURSE · eigene Gestaltung (nur Farben aus assets/style.css)
+   ========================================================================== */
+
+/* HERO · dunkles Tiefblau mit Energie-Grafik */
+.k-hero{
+  background:linear-gradient(165deg,var(--tannenmoos) 0%,var(--tiefe) 45%,var(--marine-deep) 100%);
+  color:var(--papier);position:relative;overflow:hidden;
+  padding:180px 6vw 150px;
+}
+.k-hero::before{
+  content:'';position:absolute;top:-120px;right:-160px;width:620px;height:620px;
+  background:radial-gradient(circle,rgba(122,168,144,0.20),transparent 68%);pointer-events:none;
+}
+.k-hero::after{
+  content:'';position:absolute;bottom:-200px;left:-140px;width:520px;height:520px;
+  background:radial-gradient(circle,rgba(27,76,147,0.35),transparent 70%);pointer-events:none;
+}
+.k-hero-grid{
+  max-width:1240px;margin:0 auto;position:relative;z-index:2;
+  display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;
+}
+@media(max-width:960px){.k-hero-grid{grid-template-columns:1fr;gap:48px}.k-hero{padding:150px 6vw 130px}}
+.k-hero .eyebrow{color:var(--apfelgruen)}
+.k-hero .eyebrow::before,.k-mentoring .eyebrow::before{background:var(--apfelgruen)}
+.k-hero h1,.k-panel h3,.k-step h3,.k-mentoring .h-section{color:var(--papier)}
+.k-hero h1{
+  font-family:'Spectral',serif;font-weight:400;
+  font-size:clamp(2.4rem,5.2vw,4.2rem);line-height:1.08;letter-spacing:-0.01em;
+  margin:18px 0 28px;
+}
+.k-hero h1 em{color:var(--apfelgruen);font-style:italic}
+.k-hero .lede{color:rgba(242,246,242,0.86);max-width:620px;font-size:clamp(1.05rem,1.4vw,1.18rem)}
+.k-hero .lede + .lede{margin-top:16px}
+.k-hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.k-date-btn{
+  display:flex;flex-direction:column;gap:2px;
+  padding:16px 22px;border-radius:14px;min-width:220px;
+  border:1px solid var(--papier-line);background:rgba(242,246,242,0.06);
+  transition:background .3s ease,transform .3s ease,border-color .3s ease;
+}
+.k-date-btn:hover{background:rgba(242,246,242,0.12);transform:translateY(-2px);border-color:rgba(242,246,242,0.4)}
+.k-date-btn .lbl{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--apfelgruen);font-weight:600}
+.k-date-btn .txt{font-family:'Spectral',serif;font-size:1.25rem}
+.k-date-btn.immun .lbl{color:var(--kinder-nav)}
+
+/* Energie-Grafik */
+.k-energy{position:relative;width:100%;max-width:440px;justify-self:center}
+.k-energy svg{width:100%;height:auto;display:block;overflow:visible}
+.k-energy .flow{stroke-dasharray:4 8;animation:k-flow 2.4s linear infinite}
+.k-energy .flow.out{animation-direction:reverse}
+@keyframes k-flow{to{stroke-dashoffset:-48}}
+.k-energy .pulse{transform-origin:220px 220px;animation:k-pulse 5s ease-in-out infinite}
+@keyframes k-pulse{0%,100%{transform:scale(1);opacity:.55}50%{transform:scale(1.06);opacity:.9}}
+.k-energy-cap{
+  margin-top:14px;text-align:center;font-family:'Spectral',serif;font-style:italic;
+  color:rgba(242,246,242,0.7);font-size:0.98rem;
+}
+@media(prefers-reduced-motion:reduce){.k-energy .flow,.k-energy .pulse{animation:none}}
+
+/* Welle als weicher Übergang */
+.k-wave{display:block;width:100%;height:80px;margin-top:-79px;position:relative;z-index:3}
+
+/* ENERGIE-ERKLÄRUNG */
+.k-why{background:var(--papier);padding:90px 0 110px}
+.k-why-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-top:12px}
+@media(max-width:900px){.k-why-grid{grid-template-columns:1fr;gap:36px}}
+.k-why p{color:var(--tinte-soft);font-size:1.08rem;line-height:1.75}
+.k-why p + p{margin-top:18px}
+.k-systems{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:520px){.k-systems{grid-template-columns:1fr}}
+.k-sys{
+  background:var(--offwhite);border-radius:18px;padding:24px 22px;
+  border:1px solid var(--tinte-line);
+}
+.k-sys .dot{width:12px;height:12px;border-radius:50%;margin-bottom:14px}
+.k-sys h3{font-family:'Spectral',serif;font-weight:500;font-size:1.3rem;margin-bottom:6px;color:var(--marine-deep)}
+.k-sys p{font-size:0.96rem;line-height:1.6;color:var(--tinte-soft)}
+
+/* KURS-PANELS */
+.k-courses{background:var(--offwhite);padding:110px 0 120px}
+.k-courses .lede{max-width:720px}
+.k-panels{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+@media(max-width:960px){.k-panels{grid-template-columns:1fr}}
+.k-panel{
+  border-radius:28px;padding:44px 40px 40px;color:var(--papier);
+  position:relative;overflow:hidden;display:flex;flex-direction:column;
+}
+@media(max-width:560px){.k-panel{padding:34px 24px 28px;border-radius:22px}}
+.k-panel.immun{background:linear-gradient(160deg,var(--marine-deep) 0%,var(--tiefe) 100%)}
+.k-panel.stoff{background:linear-gradient(160deg,var(--waldgruen) 0%,var(--tannenmoos) 100%)}
+.k-panel::before{
+  content:'';position:absolute;top:-90px;right:-90px;width:280px;height:280px;border-radius:50%;
+  pointer-events:none;
+}
+.k-panel.immun::before{background:radial-gradient(circle,rgba(125,211,232,0.22),transparent 70%)}
+.k-panel.stoff::before{background:radial-gradient(circle,rgba(122,168,144,0.30),transparent 70%)}
+.k-panel-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:26px;position:relative}
+.k-tag{font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;font-weight:600}
+.k-panel.immun .k-tag{color:var(--kinder-nav)}
+.k-panel.stoff .k-tag{color:var(--apfelgruen)}
+.k-status{
+  font-size:0.78rem;font-weight:600;padding:6px 12px;border-radius:999px;
+  background:rgba(242,246,242,0.12);border:1px solid var(--papier-line);white-space:nowrap;
+}
+.k-panel h3{
+  font-family:'Spectral',serif;font-weight:400;font-size:clamp(1.8rem,3vw,2.4rem);line-height:1.12;
+  margin-bottom:22px;position:relative;
+}
+.k-panel.immun h3 em{color:var(--kinder-nav)}
+.k-panel.stoff h3 em{color:var(--apfelgruen)}
+.k-panel p{color:rgba(242,246,242,0.86);font-size:1.03rem;line-height:1.7;position:relative}
+.k-panel p + p{margin-top:14px}
+.k-facts{
+  list-style:none;margin:28px 0 32px;padding:22px 0 0;border-top:1px solid var(--papier-line);
+  display:grid;gap:10px;position:relative;
+}
+.k-facts li{display:flex;gap:14px;font-size:0.96rem;color:rgba(242,246,242,0.9)}
+.k-facts li span:first-child{min-width:92px;color:rgba(242,246,242,0.55);font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;padding-top:2px}
+.k-panel-cta{margin-top:auto;position:relative}
+.k-panel-cta .btn{width:100%;justify-content:center;text-align:center}
+.k-panel.immun .btn{background:var(--papier);color:var(--marine-deep)}
+.k-panel.immun .btn:hover{background:var(--kinder-nav);color:var(--tiefe)}
+.k-panel.stoff .btn{background:var(--papier);color:var(--waldgruen)}
+.k-panel.stoff .btn:hover{background:var(--apfelgruen);color:var(--tannenmoos)}
+.k-panel-cta small{display:block;text-align:center;margin-top:12px;color:rgba(242,246,242,0.6);font-size:0.85rem}
+
+/* ZEITLEISTE */
+.k-timeline{margin-top:64px;background:var(--papier);border-radius:24px;padding:36px 36px 30px;border:1px solid var(--tinte-line)}
+@media(max-width:560px){.k-timeline{padding:28px 20px 22px}}
+.k-timeline h3{font-family:'Spectral',serif;font-weight:500;font-size:1.35rem;color:var(--marine-deep);margin-bottom:6px}
+.k-timeline > p{color:var(--tinte-soft);font-size:0.98rem;margin-bottom:28px}
+.k-track{position:relative;display:grid;grid-template-columns:repeat(10,1fr);gap:6px;align-items:end}
+.k-week{height:14px;border-radius:7px}
+.k-week.i{background:var(--marine-deep)}
+.k-week.s{background:var(--waldgruen)}
+.k-week.gap{background:transparent}
+.k-months{display:flex;justify-content:space-between;margin-top:12px;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--tinte-mute)}
+.k-legend{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:22px;font-size:0.94rem;color:var(--tinte-soft)}
+.k-legend span{display:inline-flex;align-items:center;gap:10px}
+.k-legend i{width:28px;height:10px;border-radius:5px;display:inline-block}
+
+/* FÜR WEN */
+.k-forwhom{background:var(--papier);padding:110px 0}
+.k-who{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px}
+@media(max-width:900px){.k-who{grid-template-columns:1fr}}
+.k-who-card{background:var(--offwhite);border-radius:20px;padding:30px 28px;border:1px solid var(--tinte-line)}
+.k-who-card .ico{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--papier);margin-bottom:18px;color:var(--marine-deep)}
+.k-who-card h3{font-family:'Spectral',serif;font-weight:500;font-size:1.25rem;line-height:1.3;margin-bottom:10px;color:var(--tinte)}
+.k-who-card p{color:var(--tinte-soft);font-size:0.98rem;line-height:1.65}
+
+/* MENTORING-BRÜCKE */
+.k-mentoring{
+  background:linear-gradient(180deg,var(--tiefe) 0%,var(--marine-deep) 100%);
+  color:var(--papier);padding:110px 0;position:relative;overflow:hidden;
+}
+.k-mentoring::before{
+  content:'';position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:760px;height:420px;
+  background:radial-gradient(ellipse,rgba(122,168,144,0.18),transparent 70%);pointer-events:none;
+}
+.k-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:56px 0 48px;position:relative}
+@media(max-width:820px){.k-steps{grid-template-columns:1fr;gap:18px}}
+.k-step{padding:0 28px 0 0;position:relative}
+.k-step .n{font-family:'Spectral',serif;font-style:italic;font-size:2.6rem;color:var(--apfelgruen);line-height:1}
+.k-step h3{font-family:'Spectral',serif;font-weight:500;font-size:1.3rem;margin:10px 0 8px}
+.k-step p{color:rgba(242,246,242,0.75);font-size:0.97rem;line-height:1.6}
+.k-step.here h3::after{content:'Sie sind hier';margin-left:10px;font-family:'Inter',sans-serif;font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;padding:4px 9px;border-radius:999px;background:var(--apfelgruen);color:var(--tannenmoos);vertical-align:middle}
+.k-mentoring .h-section{color:var(--papier)}
+.k-mentoring .h-section em{color:var(--apfelgruen)}
+.k-mentoring .eyebrow{color:var(--apfelgruen)}
+.k-mentoring .lede{color:rgba(242,246,242,0.82);max-width:720px}
+.k-mentoring-box{
+  display:grid;grid-template-columns:1.3fr 0.7fr;gap:40px;align-items:center;
+  background:rgba(242,246,242,0.06);border:1px solid var(--papier-line);border-radius:24px;padding:40px;
+}
+@media(max-width:820px){.k-mentoring-box{grid-template-columns:1fr;padding:30px 24px;gap:24px}}
+.k-mentoring-box p{color:rgba(242,246,242,0.86);font-size:1.03rem;line-height:1.7}
+.k-mentoring-box p + p{margin-top:14px}
+.k-mentoring-box .btn{width:100%;justify-content:center;text-align:center}
+
+/* NEWSLETTER */
+.k-news{background:var(--offwhite);padding:110px 0}
+.k-news-box{
+  max-width:920px;margin:0 auto;background:var(--papier);border-radius:28px;padding:56px 52px;
+  border:1px solid var(--tinte-line);display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;
+}
+@media(max-width:760px){.k-news-box{grid-template-columns:1fr;padding:36px 24px;gap:24px}}
+.k-news-ico{width:88px;height:88px;border-radius:50%;background:var(--marine-deep);display:grid;place-items:center;color:var(--papier)}
+.k-news-box h2{font-family:'Spectral',serif;font-weight:400;font-size:clamp(1.7rem,3vw,2.3rem);line-height:1.15;margin-bottom:14px}
+.k-news-box h2 em{color:var(--waldgruen)}
+.k-news-box p{color:var(--tinte-soft);font-size:1.03rem;line-height:1.7}
+.k-news-box .btn{margin-top:26px}
+.k-news-box small{display:block;margin-top:12px;color:var(--tinte-mute);font-size:0.85rem}
+</style>
 </head>
 <body>
 
@@ -47,9 +243,17 @@
     <a href="/regenerationsanalyse/">Regenerationsanalyse</a>
     <a href="/sprechstunde/">Sprechstunde</a>
     <a href="/kinder/">Kinder</a>
+    <a href="/kurse/" class="active" aria-current="page">Mentoring</a>
+    <a href="/blog/">Blog</a>
   </div>
-  <a href="/termin-ablauf/" class="nav-cta">Termin &amp; Ablauf</a>
+  <div class="nav-actions">
+    <a href="tel:+4917993832388" class="nav-phone" aria-label="Telefonnummer Praxis Lurz">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>0179 938 32 38</span>
+    </a>
+    <a href="/termin-ablauf/" class="nav-cta">Termin &amp; Ablauf</a>
   <button class="nav-burger" id="navBurger" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
@@ -57,7 +261,7 @@
   <a href="/regenerationsanalyse/">Regenerationsanalyse</a>
   <a href="/sprechstunde/">Sprechstunde</a>
   <a href="/kinder/">Kinder</a>
-  <a href="/kurse/">Kurse</a>
+  <a href="/kurse/">Mentoring</a>
   <a href="/blog/">Blog</a>
   <a href="/termin-ablauf/">Termin &amp; Ablauf</a>
   <a href="https://my.lemniscus.de/profile/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="mobile-cta">CheckIn buchen</a>
@@ -65,198 +269,272 @@
 
 <main id="top">
 
-  <!-- PAGE-HERO -->
-  <section class="page-hero">
-    <div class="page-hero-inner reveal">
-      <div class="eyebrow">Lernen im eigenen Tempo</div>
-      <h1>Mini-Kurse aus der <em>Praxis.</em></h1>
-      <p class="lede">
-        Was ich in der Praxis täglich erkläre — kompakt, strukturiert, asynchron. Für Sie, wenn Sie verstehen wollen, ohne gleich einen Termin zu buchen.
-      </p>
+  <!-- HERO -->
+  <section class="k-hero">
+    <div class="k-hero-grid">
+      <div class="reveal">
+        <div class="eyebrow">Mentoring aus der Praxis</div>
+        <h1>Veränderung entsteht <em>zwischen den Terminen.</em></h1>
+        <p class="lede">
+          In der Sprechstunde besprechen wir viel, und wenn Sie zu Hause sind, ist die Hälfte davon wieder weg. Das geht fast allen so. Und manches würden Sie vielleicht gern genauer verstehen, als es in einem Termin möglich ist.
+        </p>
+        <p class="lede">
+          Dafür gibt es die Gruppen-Mentorings. Sie lernen dort, was Sie selbst tun können, damit Ihr Körper mehr Energie bildet und diese Energie auch da ankommt, wo sie gebraucht wird. Bei chronischen Beschwerden ist das meistens genau der Punkt, an dem ich in der Praxis ansetze.
+        </p>
+        <div class="k-hero-ctas">
+          <a href="#immunsystem" class="k-date-btn immun">
+            <span class="lbl">Immunsystem</span>
+            <span class="txt">Start Mo, 19.10. →</span>
+          </a>
+          <a href="#stoffwechsel" class="k-date-btn">
+            <span class="lbl">Stoffwechsel</span>
+            <span class="txt">Start Mi, 18.11. →</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="k-energy reveal" aria-label="Grafik: Die Zelle bildet Energie, Stoffwechsel und Immunsystem brauchen sie, Dauerstress im Nervensystem zieht sie ab.">
+        <svg viewBox="0 0 440 440" role="img" aria-hidden="true">
+          <!-- Verbindungen -->
+          <g fill="none" stroke-width="2" stroke-linecap="round">
+            <path class="flow" d="M220 220 L220 72" stroke="#7AA890"/>
+            <path class="flow" d="M220 220 L82 300" stroke="#7DD3E8"/>
+            <path class="flow out" d="M220 220 L358 300" stroke="rgba(242,246,242,0.45)"/>
+          </g>
+          <!-- Zelle in der Mitte -->
+          <circle class="pulse" cx="220" cy="220" r="78" fill="rgba(122,168,144,0.16)"/>
+          <circle cx="220" cy="220" r="58" fill="#3D5A2E" stroke="#7AA890" stroke-width="1.5"/>
+          <text x="220" y="214" text-anchor="middle" fill="#F2F6F2" font-family="Spectral, serif" font-size="20">Zelle</text>
+          <text x="220" y="236" text-anchor="middle" fill="rgba(242,246,242,0.75)" font-family="Inter, sans-serif" font-size="11">bildet Energie</text>
+          <!-- Stoffwechsel oben -->
+          <circle cx="220" cy="56" r="44" fill="#143247" stroke="#7AA890" stroke-width="1.5"/>
+          <text x="220" y="54" text-anchor="middle" fill="#F2F6F2" font-family="Spectral, serif" font-size="15">Stoffwechsel</text>
+          <text x="220" y="72" text-anchor="middle" fill="rgba(242,246,242,0.7)" font-family="Inter, sans-serif" font-size="10">verteilt sie</text>
+          <!-- Immunsystem links -->
+          <circle cx="70" cy="310" r="48" fill="#143247" stroke="#7DD3E8" stroke-width="1.5"/>
+          <text x="70" y="307" text-anchor="middle" fill="#F2F6F2" font-family="Spectral, serif" font-size="15">Immunsystem</text>
+          <text x="70" y="325" text-anchor="middle" fill="rgba(242,246,242,0.7)" font-family="Inter, sans-serif" font-size="10">braucht sie</text>
+          <!-- Nervensystem rechts -->
+          <circle cx="370" cy="310" r="48" fill="#143247" stroke="rgba(242,246,242,0.45)" stroke-width="1.5" stroke-dasharray="3 4"/>
+          <text x="370" y="304" text-anchor="middle" fill="#F2F6F2" font-family="Spectral, serif" font-size="15">Nervensystem</text>
+          <text x="370" y="322" text-anchor="middle" fill="rgba(242,246,242,0.7)" font-family="Inter, sans-serif" font-size="10">zieht bei Stress</text>
+          <text x="370" y="335" text-anchor="middle" fill="rgba(242,246,242,0.7)" font-family="Inter, sans-serif" font-size="10">viel davon ab</text>
+        </svg>
+        <figcaption class="k-energy-cap">Ein Energietopf für alle.</figcaption>
+      </figure>
+    </div>
+  </section>
+  <svg class="k-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C 240 90 480 0 720 30 S 1200 80 1440 30 L1440 80 L0 80 Z" fill="#F2F6F2"/></svg>
+
+  <!-- 01 WORUM ES GEHT -->
+  <section class="k-why">
+    <div class="wrap">
+      <div class="reveal">
+        <div class="eyebrow">Worum es in beiden Mentorings geht</div>
+        <h2 class="h-section">Ihr Körper hat <em>einen</em> Energietopf.</h2>
+      </div>
+      <div class="k-why-grid">
+        <div class="reveal">
+          <p>
+            Aus diesem Topf bedienen sich alle Systeme gleichzeitig. Ihr Immunsystem braucht Energie, um Infekte abzuwehren, und der Stoffwechsel entscheidet mit, wohin die Energie überhaupt fließt. Wenn dann noch Ihr Nervensystem im Dauerstress läuft, zieht es sich einen großen Teil ab, und für den Rest bleibt zu wenig übrig.
+          </p>
+          <p>
+            Das merken Sie im Alltag. Jeder Infekt zieht sich über Wochen, oder Sie halten um 15 Uhr kaum noch die Augen offen, obwohl Sie gut geschlafen haben. In den Mentorings schauen wir uns an, wo bei Ihnen Energie verloren geht, und Sie lernen, was Sie selbst dagegen tun können.
+          </p>
+        </div>
+        <div class="k-systems reveal">
+          <div class="k-sys">
+            <div class="dot" style="background:var(--waldgruen)"></div>
+            <h3>Zelle</h3>
+            <p>In den Mitochondrien, den Kraftwerken der Zelle, entsteht Ihre Energie.</p>
+          </div>
+          <div class="k-sys">
+            <div class="dot" style="background:var(--apfelgruen)"></div>
+            <h3>Stoffwechsel</h3>
+            <p>Verteilt die Energie. Insulin entscheidet mit, wohin sie geht.</p>
+          </div>
+          <div class="k-sys">
+            <div class="dot" style="background:var(--marine-deep)"></div>
+            <h3>Immunsystem</h3>
+            <p>Abwehr kostet Energie. Kommt zu wenig an, wird jeder Infekt zäh.</p>
+          </div>
+          <div class="k-sys">
+            <div class="dot" style="background:var(--tinte-mute)"></div>
+            <h3>Nervensystem</h3>
+            <p>Dauerstress zieht Energie ab, die woanders dann fehlt.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 01 WAS DIESE KURSE SIND -->
-  <section class="forwhom">
+  <!-- 02 DIE KURSE -->
+  <section class="k-courses" id="kurse">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">01 — Einordnung</div>
-        <h2 class="h-section">
-          Was diese Kurse <em>sind.</em><br>
-          Und was nicht.
-        </h2>
+        <div class="eyebrow">Die nächsten Gruppen-Mentorings</div>
+        <h2 class="h-section">Was diesen Herbst <em>startet.</em></h2>
         <p class="lede">
-          Damit Sie wissen, was Sie bekommen — und was nicht.
+          Beide Mentorings laufen fünf Wochen lang, einmal pro Woche abends um 18 Uhr live per Zoom. Wenn Sie einen Abend nicht schaffen, schauen Sie die Aufzeichnung. Jeder Abend hat einen Teil Wissen und einen Teil, den Sie direkt am eigenen Körper ausprobieren, und Sie gehen mit konkreten Schritten für Ihren Alltag raus.
         </p>
       </div>
 
-      <div class="forwhom-grid">
-        <div class="forwhom-col yes reveal">
-          <h3>Diese Kurse sind …</h3>
-          <ul class="forwhom-list">
-            <li>Praxisnahes Wissen — das, was ich in der Sprechstunde immer wieder erkläre.</li>
-            <li>Alltagstauglich — keine Überforderung, sondern konkrete Hebel.</li>
-            <li>Im eigenen Tempo durchzuarbeiten — asynchron, jederzeit verfügbar.</li>
-            <li>Strukturiert — vom Grundlagen-Verständnis bis zur Umsetzung.</li>
-            <li>Drei Hebel statt fünfzig Tipps — meine Handschrift, in Kursform.</li>
+      <div class="k-panels">
+        <!-- IMMUNSYSTEM -->
+        <article class="k-panel immun reveal" id="immunsystem">
+          <div class="k-panel-top">
+            <span class="k-tag">Immunsystem · 5 Wochen</span>
+            <span class="k-status" data-start="2026-10-19T18:00" data-end="2026-11-16T20:00">Anmeldung offen</span>
+          </div>
+          <h3>Schluss mit der Erkältungs-<em>Dauerschleife.</em></h3>
+          <p>
+            Kaum ist der eine Infekt weg, kratzt schon wieder der Hals, und alles zieht sich wie Kaugummi. Sie schlucken Vitamin D und Zink und liegen trotzdem alle paar Wochen flach.
+          </p>
+          <p>
+            Im Mentoring lernen Sie, die Signale Ihres Körpers etwa 48 Stunden früher zu erkennen, also bevor es Sie richtig erwischt. Sie haben dann einen eigenen Plan für Tag 1 und wissen, was Sie selbst tun können, bevor Sie wieder zur Ibuprofen greifen.
+          </p>
+          <ul class="k-facts">
+            <li><span>Start</span><span>Montag, 19.10.2026, 18 Uhr</span></li>
+            <li><span>Termine</span><span>19.10., 26.10., 02.11., 09.11. und 16.11.</span></li>
+            <li><span>Format</span><span>live per Zoom, je 60 bis 75 Minuten, mit Aufzeichnung</span></li>
+            <li><span>Preis</span><span>ab 199 €</span></li>
           </ul>
-        </div>
-        <div class="forwhom-col no reveal">
-          <h3>Diese Kurse sind <em>nicht</em> …</h3>
-          <ul class="forwhom-list">
-            <li>Mentoring oder 1:1-Begleitung.</li>
-            <li>Therapie- oder Praxis-Ersatz.</li>
-            <li>Coaching im klassischen Sinn.</li>
-            <li>Diagnose-Tools — sie ersetzen keine ärztliche Abklärung.</li>
+          <div class="k-panel-cta">
+            <a href="https://nicole-lurz.de/immun-mentoring/" class="btn" target="_blank" rel="noopener">So holen Sie sich den 48-Stunden-Vorsprung →</a>
+            <small>Wochenplan, Inhalte und Anmeldung auf der Mentoring-Seite</small>
+          </div>
+        </article>
+
+        <!-- STOFFWECHSEL -->
+        <article class="k-panel stoff reveal" id="stoffwechsel">
+          <div class="k-panel-top">
+            <span class="k-tag">Stoffwechsel · 5 Wochen</span>
+            <span class="k-status" data-start="2026-11-18T18:00" data-end="2026-12-16T20:00">Anmeldung offen</span>
+          </div>
+          <h3>Schluss mit der Stoffwechsel-<em>Bremse.</em></h3>
+          <p>
+            Um 15 Uhr fällt der Vorhang, und ohne Kaffee oder etwas Süßes geht nichts mehr. Nachts um drei sind Sie hellwach, und beim Arzt heißt es, der Nüchternzucker sei doch prima.
+          </p>
+          <p>
+            In den fünf Wochen lernen Sie, Ihren Blutzucker so zu steuern, dass die Energie bis zum Abend reicht, und zwar ohne Kalorien zu zählen. Gleich in der ersten Woche erfahren Sie, warum die Reihenfolge auf Ihrem Teller die Blutzuckerkurve flacher macht, ohne dass Sie weniger essen.
+          </p>
+          <ul class="k-facts">
+            <li><span>Start</span><span>Mittwoch, 18.11.2026, 18 Uhr</span></li>
+            <li><span>Termine</span><span>18.11., 25.11., 02.12., 09.12. und 16.12.</span></li>
+            <li><span>Format</span><span>live per Zoom, mit Aufzeichnung</span></li>
+            <li><span>Preis</span><span>ab 199 €</span></li>
           </ul>
+          <div class="k-panel-cta">
+            <a href="https://nicole-lurz.de/stoffwechsel-mentoring/" class="btn" target="_blank" rel="noopener">So reicht Ihre Energie bis zum Abend →</a>
+            <small>Wochenplan, Inhalte und Anmeldung auf der Mentoring-Seite</small>
+          </div>
+        </article>
+      </div>
+
+      <!-- ZEITLEISTE -->
+      <div class="k-timeline reveal">
+        <h3>Ein Herbst, zwei Mentorings hintereinander</h3>
+        <p>Das Stoffwechsel-Mentoring beginnt zwei Tage nach dem letzten Immun-Abend und endet vor Weihnachten. Sie können einen der beiden buchen oder beide nacheinander machen.</p>
+        <div class="k-track" aria-hidden="true">
+          <div class="k-week i"></div><div class="k-week i"></div><div class="k-week i"></div><div class="k-week i"></div><div class="k-week i"></div>
+          <div class="k-week s"></div><div class="k-week s"></div><div class="k-week s"></div><div class="k-week s"></div><div class="k-week s"></div>
+        </div>
+        <div class="k-months" aria-hidden="true"><span>Oktober</span><span>November</span><span>Dezember</span></div>
+        <div class="k-legend">
+          <span><i style="background:var(--marine-deep)"></i>Immunsystem · 19.10. bis 16.11.</span>
+          <span><i style="background:var(--waldgruen)"></i>Stoffwechsel · 18.11. bis 16.12.</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 02 AKTUELLE KURSE -->
-  <section class="needs">
+  <!-- 03 FÜR WEN -->
+  <section class="k-forwhom">
     <div class="wrap">
       <div class="reveal">
-        <div class="eyebrow">02 — Aktuelles</div>
-        <h2 class="h-section">
-          Was gerade <em>verfügbar</em> ist.
-        </h2>
-        <p class="lede">
-          Die Kurse erscheinen schrittweise. Stand siehe Status-Label auf der jeweiligen Karte.
-        </p>
+        <div class="eyebrow">Für wen die Mentorings passen</div>
+        <h2 class="h-section">Vielleicht erkennen Sie sich <em>hier wieder.</em></h2>
       </div>
-
-      <div class="course-grid">
-        <article class="course-card reveal">
-          <span class="course-status coming">In Vorbereitung</span>
-          <h3>Blutzucker­regulation — was Ihr Körper Ihnen <em>sagt.</em></h3>
-          <p>
-            Was Heißhunger, Energietiefs, nächtliches Aufwachen mit Blutzucker zu tun haben — und warum „weniger Zucker" oft die falsche Antwort ist. Strukturiert in Modulen, mit konkreten Hebeln für den Alltag.
-          </p>
-          <div class="course-meta">
-            <span>Selbstlern · asynchron</span>
-            <span class="price"><span class="placeholder">[FÜLLEN: Preis]</span></span>
-          </div>
-        </article>
-
-        <article class="course-card c2 reveal">
-          <span class="course-status coming">In Vorbereitung</span>
-          <h3><span class="placeholder">[Arbeitstitel: Gesundheit machbar]</span></h3>
-          <p>
-            <span class="placeholder">[FÜLLEN: Kursbeschreibung — finaler Name folgt. Vermutlich Grundlagen-Kurs zu Energie, Erholung, Mikronährstoffen, Hormonen.]</span>
-          </p>
-          <div class="course-meta">
-            <span>Selbstlern · asynchron</span>
-            <span class="price"><span class="placeholder">[FÜLLEN: Preis]</span></span>
-          </div>
-        </article>
-
-        <article class="course-card c3 reveal">
-          <span class="course-status coming">Geplant</span>
-          <h3>Weiterer Kurs <em>folgt.</em></h3>
-          <p>
-            <span class="placeholder">[FÜLLEN: Themen-Idee]</span> — diese Karte als Platzhalter. Sobald Inhalt und Termin stehen, wird sie aktiv.
-          </p>
-          <div class="course-meta">
-            <span>tba</span>
-            <span class="price">—</span>
-          </div>
-        </article>
-
-        <article class="course-card c4 reveal">
-          <span class="course-status coming">Geplant</span>
-          <h3>Weiterer Kurs <em>folgt.</em></h3>
-          <p>
-            <span class="placeholder">[FÜLLEN: Themen-Idee]</span> — diese Karte als Platzhalter. Sobald Inhalt und Termin stehen, wird sie aktiv.
-          </p>
-          <div class="course-meta">
-            <span>tba</span>
-            <span class="price">—</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 03 FÜR WEN DIE KURSE PASSEN -->
-  <section class="diff">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">03 — Für wen</div>
-        <h2 class="h-section">
-          Für wen die Kurse <em>passen.</em>
-        </h2>
-        <p class="lede">
-          Drei typische Situationen, in denen ein Kurs der richtige nächste Schritt ist:
-        </p>
-      </div>
-
-      <ul class="check-list yes reveal" style="max-width:880px;margin-top:32px">
-        <li><strong>Sie wollen Grundlagen verstehen, bevor Sie einen Termin buchen.</strong> Der Kurs gibt Ihnen das Vokabular und das Bild — die Sprechstunde wird dann viel gezielter.</li>
-        <li><strong>Sie sind bereits in Begleitung und wollen ein Thema vertiefen.</strong> Was zwischen den Terminen passiert, ist oft entscheidend. Der Kurs gibt Ihnen Material zum Selbstarbeiten.</li>
-        <li><strong>Sie wohnen nicht in Wiesloch, suchen aber strukturiertes Wissen.</strong> Ohne Praxistermin geht's nicht überall — aber gutes Wissen darf nicht an der Postleitzahl scheitern.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 04 NEWSLETTER + CHECKIN-CTA -->
-  <section class="checkin">
-    <div class="checkin-inner">
-      <div class="eyebrow reveal">Ihr nächster Schritt</div>
-      <h2 class="reveal">
-        Erfahren Sie, wenn neue Kurse <em>starten.</em>
-      </h2>
-      <p class="reveal">
-        Newsletter-Anmeldung — keine Werbung, keine Massen-Mails. Nur, wenn ein neuer Kurs verfügbar ist oder ich etwas teile, das in der Praxis gerade Thema ist.
-      </p>
-      <div class="checkin-ctas reveal">
-        <a href="#newsletter" class="btn btn-sun">Newsletter abonnieren</a>
-        <a href="/termin-ablauf/" class="btn btn-ghost" style="border-color:rgba(242,246,242,0.5);color:var(--papier)">CheckIn buchen</a>
-      </div>
-      <div class="checkin-meta reveal">
-        <span>Selten</span>·<span>Persönlich</span>·<span>Jederzeit abbestellbar</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- 05 NEWSLETTER-FORM (Platzhalter) -->
-  <section class="contact" id="newsletter">
-    <div class="wrap">
-      <div class="reveal">
-        <div class="eyebrow">04 — Newsletter</div>
-        <h2 class="h-section">
-          Wenn ein neuer Kurs <em>fertig ist.</em>
-        </h2>
-        <p class="lede">
-          Tragen Sie sich ein — und ich melde mich, sobald es Neues aus der Praxis gibt.
-        </p>
-      </div>
-
-      <form class="contact-form reveal" action="#" method="post" novalidate style="max-width:680px;margin-top:48px">
-        <div class="form-row">
-          <div class="form-field">
-            <label for="nl-name">Ihr Name</label>
-            <input type="text" id="nl-name" name="name" required />
-          </div>
-          <div class="form-field">
-            <label for="nl-email">E-Mail</label>
-            <input type="email" id="nl-email" name="email" required />
-          </div>
+      <div class="k-who">
+        <div class="k-who-card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+          <h3>Sie sind bei mir in Behandlung</h3>
+          <p>und möchten zwischen den Terminen selbst etwas tun. Dann wissen Sie beim nächsten Termin schon, wovon wir reden, und wir kommen schneller voran.</p>
         </div>
-        <label class="form-consent">
-          <input type="checkbox" required />
-          <span>Ich habe die <a href="/datenschutz/">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zum Zweck des Newsletter-Versands zu.</span>
-        </label>
-        <div class="form-submit">
-          <span class="form-note">Jederzeit per Klick abbestellbar.</span>
-          <button type="submit" class="btn btn-primary">Eintragen</button>
+        <div class="k-who-card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+          <h3>Sie wollen erst einmal verstehen</h3>
+          <p>was in Ihrem Körper los ist, bevor Sie einen Termin ausmachen. Das geht auch ohne Termin, die Mentorings sind für alle offen.</p>
         </div>
-      </form>
+        <div class="k-who-card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Sie wohnen weiter weg</h3>
+          <p>und schaffen es nicht regelmäßig nach Wiesloch. Die Mentorings laufen online, Sie brauchen nur einen Laptop oder ein Tablet.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="hwg-note reveal" style="max-width:680px;margin-top:32px">
-        <strong>Hinweis</strong>
-        Newsletter-Versand erfolgt voraussichtlich über <span class="placeholder">[FÜLLEN: ActiveCampaign / Brevo / o. ä.]</span>. Die Anbindung wird im Rahmen der DSGVO-Konformität in der Datenschutzerklärung dokumentiert.
+  <!-- 04 MEDIZINISCHES MENTORING -->
+  <section class="k-mentoring">
+    <div class="wrap" style="position:relative;z-index:2">
+      <div class="reveal">
+        <div class="eyebrow">Wenn Sie tiefer gehen möchten</div>
+        <h2 class="h-section">Wenn Sie nicht allein <em>weitermachen möchten.</em></h2>
+        <p class="lede">
+          In der Gruppe lernen Sie, was grundsätzlich hilft. Was davon bei Ihnen zuerst dran ist, kann eine Gruppe aber nicht beantworten, dafür brauche ich Ihre Befunde und Ihre Geschichte.
+        </p>
+      </div>
+
+      <div class="k-steps reveal">
+        <div class="k-step">
+          <div class="n">1</div>
+          <h3>Sprechstunde</h3>
+          <p>Wir schauen gemeinsam auf Ihre Beschwerden und klären, wo Sie stehen.</p>
+        </div>
+        <div class="k-step here">
+          <div class="n">2</div>
+          <h3>Gruppen-Mentoring</h3>
+          <p>Sie lernen in fünf Wochen, was Sie selbst tun können, und probieren es im Alltag aus.</p>
+        </div>
+        <div class="k-step">
+          <div class="n">3</div>
+          <h3>Einzel-Mentoring</h3>
+          <p>Wir setzen Ihren persönlichen Fahrplan gemeinsam um, über Wochen oder Monate.</p>
+        </div>
+      </div>
+
+      <div class="k-mentoring-box reveal">
+        <div>
+          <p>
+            Im medizinischen Mentoring begleite ich Sie einzeln, in der Praxis in Wiesloch oder online. Grundlage sind meistens die Themen aus Ihrer Regenerationsanalyse. Wir gehen sie Schritt für Schritt an, ohne dass Sie Ihren ganzen Alltag umkrempeln müssen, und passen den Plan an, wenn sich etwas verändert.
+          </p>
+          <p>
+            Wenn Sie nach den fünf Wochen merken, dass Sie das lieber mit Begleitung umsetzen möchten, sprechen Sie mich einfach an.
+          </p>
+        </div>
+        <div>
+          <a href="/termin-ablauf/#mentoring" class="btn btn-sun">So läuft das Einzel-Mentoring ab →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 NEWSLETTER (Alfima) -->
+  <section class="k-news" id="newsletter">
+    <div class="wrap">
+      <div class="k-news-box reveal">
+        <div class="k-news-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        </div>
+        <div>
+          <h2>Vom nächsten Mentoring erfahren Sie <em>als Erste.</em></h2>
+          <p>
+            Tragen Sie sich in meinen Newsletter ein. Dann bekommen Sie eine Mail, sobald ein neues Mentoring feststeht, und ab und zu ein Thema, das mich gerade in der Praxis beschäftigt.
+          </p>
+                    <a href="https://alfima.com/nicolelurz/newsletter-patienten" class="btn btn-primary" target="_blank" rel="noopener">Ja, ich will informiert werden →</a>
+          <small>Jederzeit mit einem Klick abbestellbar.</small>
+        </div>
       </div>
     </div>
   </section>
@@ -290,6 +568,7 @@
           <li><a href="/regenerationsanalyse/">Regenerationsanalyse</a></li>
           <li><a href="/sprechstunde/">Sprechstunde</a></li>
           <li><a href="/kinder/">Kindersprechstunde</a></li>
+          <li><a href="/kurse/">Mentoring</a></li>
           <li><a href="/termin-ablauf/">Termin buchen</a></li>
         </ul>
       </div>
@@ -318,5 +597,19 @@
 </main>
 
 <script src="/assets/script.js"></script>
+<script>
+/* Kurs-Status automatisch nach Datum */
+(function(){
+  var now = new Date();
+  document.querySelectorAll('.k-status[data-start]').forEach(function(el){
+    var start = new Date(el.getAttribute('data-start'));
+    var end = new Date(el.getAttribute('data-end'));
+    if (now > end) { el.textContent = 'Abgeschlossen'; return; }
+    if (now >= start) { el.textContent = 'Läuft gerade'; return; }
+    var days = Math.ceil((start - now) / 86400000);
+    el.textContent = days <= 14 ? 'Start in ' + days + (days === 1 ? ' Tag' : ' Tagen') : 'Anmeldung offen';
+  });
+})();
+</script>
 </body>
 </html>

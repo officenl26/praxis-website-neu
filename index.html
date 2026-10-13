@@ -185,6 +185,27 @@
   ]
 }
 </script>
+<style>
+/* KURS-LAUFBAND · Ankündigung unter der Navigation, verschwindet nach Kursende automatisch */
+.kurs-ticker{
+  display:block;position:relative;z-index:5;margin-top:var(--kt-top,76px);
+  background:linear-gradient(90deg,var(--tiefe),var(--marine-deep));color:var(--papier);
+  overflow:hidden;border-bottom:1px solid rgba(122,168,144,0.25);
+}
+.kurs-ticker + .hero{padding-top:84px}
+.kurs-ticker-track{display:flex;width:max-content;animation:kt-slide 48s linear infinite}
+.kurs-ticker:hover .kurs-ticker-track,.kurs-ticker:focus .kurs-ticker-track{animation-play-state:paused}
+.kurs-ticker-group{display:flex;align-items:center;gap:28px;padding:13px 14px;white-space:nowrap}
+.kurs-ticker .kt-new{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;background:var(--apfelgruen);color:var(--tannenmoos);padding:4px 10px;border-radius:999px}
+.kurs-ticker .kt-item{font-family:'Spectral',serif;font-size:1.05rem}
+.kurs-ticker .kt-item em{font-style:italic;color:var(--kinder-nav)}
+.kurs-ticker .kt-item.stoff em{color:var(--apfelgruen)}
+.kurs-ticker .kt-sep{color:var(--apfelgruen);opacity:0.8}
+.kurs-ticker .kt-cta{font-size:0.85rem;font-weight:600;border-bottom:1px solid rgba(242,246,242,0.5)}
+@keyframes kt-slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.kurs-ticker-track{animation:none}}
+@media(max-width:720px){.kurs-ticker + .hero{padding-top:64px}.kurs-ticker .kt-item{font-size:0.98rem}}
+</style>
 </head>
 <body>
 
@@ -199,7 +220,7 @@
     <a href="/regenerationsanalyse/">Regenerationsanalyse</a>
     <a href="/sprechstunde/">Sprechstunde</a>
     <a href="/kinder/">Kinder</a>
-    <a href="/kurse/">Kurse</a>
+    <a href="/kurse/">Mentoring</a>
     <a href="/blog/">Blog</a>
   </div>
   <div class="nav-actions">
@@ -217,13 +238,55 @@
   <a href="/regenerationsanalyse/">Regenerationsanalyse</a>
   <a href="/sprechstunde/">Sprechstunde</a>
   <a href="/kinder/">Kinder</a>
-  <a href="/kurse/">Kurse</a>
+  <a href="/kurse/">Mentoring</a>
   <a href="/blog/">Blog</a>
   <a href="/termin-ablauf/">Termin &amp; Ablauf</a>
   <a href="https://my.lemniscus.de/profile/bb02b7c7-46b8-4f56-953d-520e52d854ae" class="mobile-cta">CheckIn buchen</a>
 </div>
 
 <main id="top">
+
+  <!-- KURS-LAUFBAND · Ankündigung der Gruppen-Mentorings, blendet sich nach Kursende selbst aus (Skript unten) -->
+  <a href="/kurse/" class="kurs-ticker" id="kursTicker" data-end="2026-12-16T20:00" aria-label="Neue Gruppen-Mentorings: Immunsystem ab 19. Oktober, Stoffwechsel ab 18. November. Termine ansehen.">
+    <span class="kurs-ticker-track" aria-hidden="true">
+    <span class="kurs-ticker-group">
+      <span class="kt-new">Neu</span>
+      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
+      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-sep">✶</span>
+      <span class="kt-cta">Termine ansehen →</span>
+      <span class="kt-sep">✶</span>
+    </span>
+    <span class="kurs-ticker-group">
+      <span class="kt-new">Neu</span>
+      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
+      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-sep">✶</span>
+      <span class="kt-cta">Termine ansehen →</span>
+      <span class="kt-sep">✶</span>
+    </span>
+    <span class="kurs-ticker-group">
+      <span class="kt-new">Neu</span>
+      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
+      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-sep">✶</span>
+      <span class="kt-cta">Termine ansehen →</span>
+      <span class="kt-sep">✶</span>
+    </span>
+    <span class="kurs-ticker-group">
+      <span class="kt-new">Neu</span>
+      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
+      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-sep">✶</span>
+      <span class="kt-cta">Termine ansehen →</span>
+      <span class="kt-sep">✶</span>
+    </span>
+    </span>
+  </a>
 
   <!-- HERO -->
   <section class="hero">
@@ -993,6 +1056,17 @@
       if (btn) { btn.disabled = false; btn.textContent = btnLabel; }
     });
   });
+})();
+</script>
+<script>
+/* Kurs-Laufband: abgelaufene Kurse ausblenden, Abstand an Navigationshöhe anpassen */
+(function(){
+  var t=document.getElementById('kursTicker'); if(!t) return;
+  var now=new Date();
+  if(now>new Date(t.getAttribute('data-end'))){t.remove();return;}
+  t.querySelectorAll('[data-end]').forEach(function(el){ if(now>new Date(el.getAttribute('data-end'))) el.remove(); });
+  function fit(){var n=document.querySelector('.nav'); if(n) t.style.setProperty('--kt-top',n.offsetHeight+'px');}
+  fit(); window.addEventListener('resize',fit);
 })();
 </script>
 </body>
