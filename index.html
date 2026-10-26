@@ -206,6 +206,11 @@
 @media(prefers-reduced-motion:reduce){.kurs-ticker-track{animation:none}}
 @media(max-width:720px){.kurs-ticker + .hero{padding-top:64px}.kurs-ticker .kt-item{font-size:0.98rem}}
 
+/* ZERTIFIKAT · Siegel Chronisch Gesund Mentor am Portrait */
+.portrait-seal{position:absolute;top:-30px;right:-30px;width:124px;height:124px;border-radius:14px;z-index:6;transform:rotate(6deg);box-shadow:0 16px 34px -12px rgba(27,58,92,0.35)}
+@media(max-width:1000px){.portrait-seal{position:static;order:3;flex-shrink:0;width:84px;height:84px;border-radius:10px;transform:none}}
+@media(max-width:560px){.portrait-seal{width:72px;height:72px}}
+
 /* ZWISCHEN DEN TERMINEN */
 .between{background:var(--papier);padding:20px 0 110px}
 .between-box{
@@ -287,40 +292,46 @@ section[id],#schwerpunkte{scroll-margin-top:96px}
 <main id="top">
 
   <!-- KURS-LAUFBAND · Ankündigung der Gruppen-Mentorings, blendet sich nach Kursende selbst aus (Skript unten) -->
-  <a href="/kurse/" class="kurs-ticker" id="kursTicker" data-end="2026-12-16T20:00" aria-label="Neue Gruppen-Mentorings: Immunsystem ab 19. Oktober, Stoffwechsel ab 18. November. Termine ansehen.">
+  <a href="/kurse/" class="kurs-ticker" id="kursTicker" data-end="2026-12-16T20:00" aria-label="Neues Gruppen-Mentoring Stoffwechsel und Insulinresistenz ab 18. November. Termine ansehen.">
     <span class="kurs-ticker-track" aria-hidden="true">
     <span class="kurs-ticker-group">
       <span class="kt-new">Neu</span>
-      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
-      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
-      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring · Insulinresistenz <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
       <span class="kt-sep">✶</span>
       <span class="kt-cta">Termine ansehen →</span>
       <span class="kt-sep">✶</span>
     </span>
     <span class="kurs-ticker-group">
       <span class="kt-new">Neu</span>
-      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
-      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
-      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring · Insulinresistenz <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
       <span class="kt-sep">✶</span>
       <span class="kt-cta">Termine ansehen →</span>
       <span class="kt-sep">✶</span>
     </span>
     <span class="kurs-ticker-group">
       <span class="kt-new">Neu</span>
-      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
-      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
-      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring · Insulinresistenz <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
       <span class="kt-sep">✶</span>
       <span class="kt-cta">Termine ansehen →</span>
       <span class="kt-sep">✶</span>
     </span>
     <span class="kurs-ticker-group">
       <span class="kt-new">Neu</span>
-      <span class="kt-item" data-end="2026-11-16T20:00">Immun-Mentoring <em>ab Mo, 19.10.</em> · Infekte 48 Stunden früher erkennen</span>
-      <span class="kt-sep" data-end="2026-11-16T20:00">✶</span>
-      <span class="kt-item stoff">Stoffwechsel-Mentoring <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring · Insulinresistenz <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-sep">✶</span>
+      <span class="kt-cta">Termine ansehen →</span>
+      <span class="kt-sep">✶</span>
+    </span>
+    <span class="kurs-ticker-group">
+      <span class="kt-new">Neu</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring · Insulinresistenz <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
+      <span class="kt-sep">✶</span>
+      <span class="kt-cta">Termine ansehen →</span>
+      <span class="kt-sep">✶</span>
+    </span>
+    <span class="kurs-ticker-group">
+      <span class="kt-new">Neu</span>
+      <span class="kt-item stoff">Stoffwechsel-Mentoring · Insulinresistenz <em>ab Mi, 18.11.</em> · Energie bis zum Abend, ohne Kalorienzählen</span>
       <span class="kt-sep">✶</span>
       <span class="kt-cta">Termine ansehen →</span>
       <span class="kt-sep">✶</span>
@@ -381,6 +392,7 @@ section[id],#schwerpunkte{scroll-margin-top:96px}
         <div class="portrait-wrap">
           <img src="/nicole_lurz_hero.jpg" alt="Nicole Lurz, Heilpraktikerin in Wiesloch" width="1440" height="722" fetchpriority="high" decoding="async" />
         </div>
+        <img class="portrait-seal" src="/assets/img/zertifikat-chronisch-gesund-mentor.jpg" alt="Zertifikat Chronisch Gesund Mentor, Institut für Regenerationsmedizin" width="1024" height="1024" loading="eager" decoding="async" />
         <div class="portrait-badge">
           <div class="lbl">Heilpraktikerin · Wiesloch</div>
           <div class="txt">Hormone · Frauengesundheit · Schilddrüse · chronische Erkrankungen</div>
