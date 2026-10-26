@@ -208,10 +208,12 @@
 
 /* ZERTIFIKAT · Siegel Chronisch Gesund Mentor in der Zahlenreihe */
 .hero-trust{align-items:center;gap:36px}
-.trust-item.seal img{display:block;width:72px;height:72px}
-@media(max-width:560px){.trust-item.seal img{width:64px;height:64px}}
+.trust-item.seal{display:flex;align-items:center;gap:12px}
+.trust-item.seal img{display:block;width:64px;height:64px}
+.trust-item.seal img.seal-logo{width:auto;height:58px}
+@media(max-width:560px){.trust-item.seal img{width:58px;height:58px}.trust-item.seal img.seal-logo{width:auto;height:54px}}
 @media(min-width:1001px){.hero-trust{flex-wrap:nowrap}}
-@media(min-width:1001px) and (max-width:1279px){.hero-trust{gap:18px}.hero-trust .trust-item .lbl{letter-spacing:0.12em}.trust-item.seal img{width:60px;height:60px}}
+@media(min-width:1001px) and (max-width:1399px){.hero-trust{gap:12px}.hero-trust .trust-item .lbl{letter-spacing:0.08em}.trust-item.seal{gap:8px}.trust-item.seal img{width:48px;height:48px}.trust-item.seal img.seal-logo{width:auto;height:44px}}
 
 /* ZWISCHEN DEN TERMINEN */
 .between{background:var(--papier);padding:20px 0 110px}
@@ -388,6 +390,7 @@ section[id],#schwerpunkte{scroll-margin-top:96px}
           </div>
           <div class="trust-item seal">
             <img src="/assets/img/zertifikat-chronisch-gesund-mentor.png" alt="Zertifikat Chronisch Gesund Mentor, Institut für Regenerationsmedizin" width="320" height="320" loading="eager" decoding="async" />
+            <img class="seal-logo" src="/assets/img/zertifikat-immunsignatur-coach.png" alt="Zertifikat Immunsignatur Coach, MOJO Institut für Regenerationsmedizin" width="246" height="237" loading="eager" decoding="async" />
           </div>
         </div>
       </div>
