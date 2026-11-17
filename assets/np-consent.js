@@ -12,6 +12,7 @@
      Wird eine Einwilligung zurückgenommen, löscht das Skript die Cookies
      und lädt die Seite neu, damit nichts weiterläuft.
    - GA4: Google Consent Mode v2, Google Signale und Werbe-Personalisierung aus.
+   - "Alle akzeptieren" gibt zusätzlich den TidyCal-Kalender frei (Event "npconsent").
    - Meta-Pixel: nur PageView, automatische Ereignis-Erkennung aus,
      auf Blog-Artikeln (Gesundheitsthemen) gar nicht geladen.
      Conversion je Seite optional über window.NP_META_EVENT
@@ -21,6 +22,7 @@
   "use strict";
 
   var STORAGE_KEY = "np_consent";
+  var CONSENT_VERSION = 2;
   var GA_ID = "G-DKGPX2XSJ8";
   var PIXEL_ID = "527175982943912";
   var PRIVACY_URL = "/datenschutz/";
@@ -40,13 +42,15 @@
     try {
       var obj = JSON.parse(raw);
       if (!obj || typeof obj.s !== "boolean" || typeof obj.m !== "boolean") return null;
+      // Version 2 (11/2026): TidyCal kam dazu, ältere Einwilligungen gelten nicht mehr
+      if (obj.v !== CONSENT_VERSION) return null;
       if (typeof obj.t === "number" && Date.now() - obj.t > MAX_AGE_MS) return null;
       return { stats: obj.s, marketing: obj.m };
     } catch (e) { return null; }
   }
   function writeConsent(stats, marketing) {
     try {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ s: !!stats, m: !!marketing, t: Date.now() }));
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ s: !!stats, m: !!marketing, v: CONSENT_VERSION, t: Date.now() }));
     } catch (e) {}
   }
 
@@ -155,6 +159,14 @@
     }
     if (stats) startGA();
     if (marketing) startPixel();
+    announce(stats, marketing);
+  }
+
+  // Seiten können auf die Einwilligung reagieren (z. B. TidyCal-Kalender auf /kennenlernen/)
+  function announce(stats, marketing) {
+    try {
+      document.dispatchEvent(new CustomEvent("npconsent", { detail: { stats: !!stats, marketing: !!marketing } }));
+    } catch (e) {}
   }
 
   /* ---------- Banner ---------- */
@@ -206,8 +218,9 @@
     wrap.innerHTML =
       '<div class="npc-inner">' +
         '<p class="npc-text">Mit Ihrer Einwilligung nutzt diese Website <strong>Google Analytics</strong>, ' +
-        'um zu sehen, welche Seiten gelesen werden, und den <strong>Meta-Pixel</strong> (Facebook, Instagram), ' +
-        'um die Wirkung von Anzeigen zu messen. Beide setzen Cookies, dabei können Daten in die USA übertragen werden. ' +
+        'um zu sehen, welche Seiten gelesen werden. Mit „Alle akzeptieren“ kommen der <strong>Meta-Pixel</strong> ' +
+        '(Facebook, Instagram) dazu, um die Wirkung von Anzeigen zu messen, und der <strong>Terminkalender von TidyCal</strong>, ' +
+        'der dann auf der Seite „Kennenlernen“ direkt angezeigt wird. Dabei können Daten in die USA übertragen werden. ' +
         'Ohne Ihre Zustimmung wird nichts davon geladen. Ihre Wahl können Sie jederzeit unter ' +
         '„Cookie-Einstellungen" im Seitenfuß ändern. Mehr in der ' +
         '<a href="' + PRIVACY_URL + '">Datenschutzerklärung</a>.</p>' +
@@ -257,6 +270,7 @@
     if (c) {
       if (c.stats) startGA();
       if (c.marketing) startPixel();
+      announce(c.stats, c.marketing);
     } else {
       showBanner();
     }

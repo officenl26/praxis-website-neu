@@ -272,7 +272,7 @@ body{background:var(--papier)}
 </style>
 </head>
 <body>
-<script defer src="/assets/np-consent.js"></script>
+<script defer src="/assets/np-consent.js?v=2"></script>
 
 <nav class="nav k-nav" aria-label="Hauptnavigation">
   <a href="/" class="nav-logo">
@@ -329,7 +329,7 @@ body{background:var(--papier)}
         <h2>Termin wählen</h2>
         <p>Wählen Sie einen freien Termin, der Ihnen gut passt. Die Bestätigung bekommen Sie per E-Mail.</p>
         <div class="kl-consent" id="kl-consent">
-          <p>Der Kalender kommt von TidyCal, einem Anbieter aus den USA. Erst wenn Sie auf „Kalender laden“ klicken, wird er hier angezeigt und dabei werden Daten an TidyCal übertragen. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+          <p>Der Kalender kommt von TidyCal, einem Anbieter aus den USA. Erst wenn Sie auf „Kalender laden“ klicken, wird er hier angezeigt und dabei werden Daten an TidyCal übertragen. Wenn Sie im Cookie-Hinweis „Alle akzeptieren“ wählen, erscheint er automatisch. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
           <div class="kl-aktion">
             <button type="button" class="k-btn" id="kl-laden">Kalender laden</button>
             <a class="kl-extern" href="https://kalender.nicole-lurz.com/kostenfreies-kennenlerngesprach" target="_blank" rel="noopener">Kalender in neuem Fenster öffnen →</a>
@@ -408,14 +408,19 @@ body{background:var(--papier)}
 (function(){
   var b=document.getElementById('kl-laden');
   if(!b) return;
-  b.addEventListener('click',function(){
+  var geladen=false;
+  function laden(){
+    if(geladen) return; geladen=true;
     document.getElementById('kl-consent').hidden=true;
     document.getElementById('kl-embed').hidden=false;
     var s=document.createElement('script');
     s.src='https://asset-tidycal.b-cdn.net/js/embed.js';
     s.async=true;
     document.body.appendChild(s);
-  });
+  }
+  b.addEventListener('click',laden);
+  // Wer im Banner "Alle akzeptieren" gewählt hat, sieht den Kalender sofort
+  document.addEventListener('npconsent',function(e){ if(e.detail&&e.detail.marketing) laden(); });
 })();
 </script>
 </body>
