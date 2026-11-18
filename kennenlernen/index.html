@@ -266,6 +266,20 @@ body{background:var(--papier)}
 .kl-consent button{cursor:pointer;border:none}
 .kl-extern{color:var(--waldgruen);font-weight:600;font-size:0.95rem}
 .kl-embed .tidycal-embed{min-height:640px}
+/* Kalender-Vorschau mit einem Klick zum Laden (TidyCal erst nach Klick oder Einwilligung) */
+.kl-jump{margin:4px 0 30px;font-size:1.02rem;padding:18px 32px}
+.kl-vorschau{position:relative;border:1px solid var(--tinte-line);border-radius:14px;background:var(--offwhite);padding:22px 20px 26px;overflow:hidden}
+.kl-vorschau-kopf{display:flex;justify-content:space-between;align-items:center;font-family:'Inter';font-weight:600;font-size:0.9rem;color:var(--tinte);margin-bottom:14px}
+.kl-vorschau-kopf i{display:block;width:70px;height:10px;border-radius:5px;background:var(--tinte-line)}
+.kl-tage{display:grid;grid-template-columns:repeat(7,1fr);gap:8px}
+.kl-tage span{aspect-ratio:1;border-radius:50%;background:#fff;border:1px solid var(--tinte-line)}
+.kl-tage span.frei{background:rgba(122,168,144,0.28);border-color:rgba(122,168,144,0.6)}
+.kl-vorschau-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:linear-gradient(180deg,rgba(246,248,245,0.55),rgba(246,248,245,0.92));text-align:center;padding:20px}
+.kl-vorschau-overlay .k-btn{font-size:1.02rem;padding:18px 32px;cursor:pointer;border:none}
+.kl-vorschau-overlay small{font-size:0.88rem;color:var(--tinte-soft)}
+.kl-datenhinweis{margin-top:14px;font-size:0.85rem;line-height:1.6;color:var(--tinte-mute)}
+.kl-datenhinweis a{color:var(--waldgruen);border-bottom:1px solid currentColor}
+.kl-datenhinweis .kl-extern{font-size:0.85rem}
 .kl-bestand{margin-top:26px;font-size:0.95rem;color:var(--tinte-soft)}
 .kl-bestand a{color:var(--waldgruen);font-weight:600}
 @media(max-width:900px){.kl{padding:110px 0 60px}.kl-grid{grid-template-columns:1fr;gap:36px}.kl-box{padding:26px 20px}}
@@ -313,6 +327,7 @@ body{background:var(--papier)}
         <h1>Kostenfreies <em>Kennenlerngespräch</em></h1>
         <div class="kl-pills"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>15 Minuten</span><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>per Telefon</span><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v9H5v-9M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/></svg>kostenfrei</span></div>
         <p class="kl-lede">Sie haben die Möglichkeit, mir in Ruhe Ihre Fragen zu stellen, und wir schauen, ob mein Ansatz zu Ihnen passt.</p>
+        <a href="#kalender" class="k-btn kl-jump" data-kl-laden>Freien Termin auswählen</a>
         <div class="kl-schritte">
           <h2>So läuft das Gespräch</h2>
           <ol>
@@ -328,12 +343,21 @@ body{background:var(--papier)}
       <div class="kl-box reveal" id="kalender">
         <h2>Termin wählen</h2>
         <p>Wählen Sie einen freien Termin, der Ihnen gut passt. Die Bestätigung bekommen Sie per E-Mail.</p>
-        <div class="kl-consent" id="kl-consent">
-          <p>Der Kalender kommt von TidyCal, einem Anbieter aus den USA. Erst wenn Sie auf „Kalender laden“ klicken, wird er hier angezeigt und dabei werden Daten an TidyCal übertragen. Wenn Sie im Cookie-Hinweis „Alle akzeptieren“ wählen, erscheint er automatisch. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
-          <div class="kl-aktion">
-            <button type="button" class="k-btn" id="kl-laden">Kalender laden</button>
-            <a class="kl-extern" href="https://kalender.nicole-lurz.com/kostenfreies-kennenlerngesprach" target="_blank" rel="noopener">Kalender in neuem Fenster öffnen →</a>
+        <div id="kl-consent">
+          <div class="kl-vorschau">
+            <div class="kl-vorschau-kopf"><span>Freie Termine</span><i aria-hidden="true"></i></div>
+            <div class="kl-tage" aria-hidden="true">
+              <span></span><span class="frei"></span><span></span><span class="frei"></span><span></span><span></span><span></span>
+              <span class="frei"></span><span></span><span class="frei"></span><span class="frei"></span><span></span><span></span><span></span>
+              <span></span><span class="frei"></span><span></span><span class="frei"></span><span class="frei"></span><span></span><span></span>
+              <span class="frei"></span><span></span><span class="frei"></span><span></span><span class="frei"></span><span></span><span></span>
+            </div>
+            <div class="kl-vorschau-overlay">
+              <button type="button" class="k-btn" id="kl-laden" data-kl-laden>Freien Termin auswählen</button>
+              <small>Der Kalender öffnet sich direkt hier.</small>
+            </div>
           </div>
+          <p class="kl-datenhinweis">Der Kalender kommt von TidyCal, einem Anbieter aus den USA. Erst mit Ihrem Klick wird er geladen und dabei werden Daten an TidyCal übertragen. Wenn Sie im Cookie-Hinweis „Alle akzeptieren“ gewählt haben, erscheint er automatisch. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>. <a class="kl-extern" href="https://kalender.nicole-lurz.com/kostenfreies-kennenlerngesprach" target="_blank" rel="noopener">Kalender in neuem Fenster öffnen →</a></p>
         </div>
         <div class="kl-embed" id="kl-embed" hidden>
           <div class="tidycal-embed" data-path="nicole-lurz/kostenfreies-kennenlerngesprach" data-showavatar="false"></div>
@@ -418,7 +442,8 @@ body{background:var(--papier)}
     s.async=true;
     document.body.appendChild(s);
   }
-  b.addEventListener('click',laden);
+  // Beide Buttons (oben im Text und in der Kalender-Vorschau) laden den Kalender mit einem Klick
+  Array.prototype.forEach.call(document.querySelectorAll('[data-kl-laden]'),function(el){ el.addEventListener('click',laden); });
   // Wer im Banner "Alle akzeptieren" gewählt hat, sieht den Kalender sofort
   document.addEventListener('npconsent',function(e){ if(e.detail&&e.detail.marketing) laden(); });
 })();
