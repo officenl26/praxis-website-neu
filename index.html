@@ -471,6 +471,34 @@ body{background:var(--papier)}
   .k-fl-ziele{grid-template-columns:1fr 1fr;gap:12px}
   .k-fl-ziel{flex-direction:column;text-align:center;border-left:none;border-top:3px solid var(--salbei);padding:16px 10px;gap:8px}
 }
+
+/* KONTRAST-MUSTER (wie Regenerationsanalyse): zwei grüne Bänder, weiße Karten mit Schatten, Apfelgrün als Akzent */
+:root{--ra-apfel:#A4C639;--ra-apfel-oliv:#4F6B22}
+.k-band{background:var(--waldgruen);color:#fff}
+.k-band .k-eyebrow{color:var(--ra-apfel)}
+.k-band .k-h2{color:#fff}
+.k-band .k-h2 em{color:var(--ra-apfel)}
+.k-band .k-lede{color:rgba(255,255,255,.9)}
+/* Band 1: Ist das was für mich? */
+.k-band .k-szene{background:#fff;border-radius:16px;border-top:5px solid var(--ra-apfel);box-shadow:0 18px 40px rgba(10,20,12,.25)}
+.k-band .k-szene h3{color:var(--tinte)}
+.k-band .k-kennen-foot{color:#fff}
+/* Band 2: Erster Schritt */
+.k-angebote.k-band .k-erster{background:#fff;border-radius:18px;border-top:5px solid var(--ra-apfel);box-shadow:0 18px 40px rgba(10,20,12,.25)}
+.k-angebote.k-band .k-pills span{background:var(--offwhite)}
+.k-angebote.k-band .k-liste{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 40px rgba(10,20,12,.25)}
+.k-angebote.k-band .k-zeile .k-was{color:var(--ra-apfel-oliv)}
+.k-angebote.k-band .k-bestand{color:rgba(255,255,255,.88)}
+.k-angebote.k-band .k-bestand a{color:#fff;border-bottom-color:var(--ra-apfel)}
+/* helle Abschnitte: weiße Karten mit Schatten statt flacher Flächen */
+.k-orte li{background:#fff;border-color:transparent;box-shadow:0 6px 18px rgba(15,26,20,.08)}
+.k-fl-schritt{background:#fff;border-radius:16px;border-top:5px solid var(--ra-apfel);box-shadow:0 10px 28px rgba(15,26,20,.09)}
+.k-fl-ziel{background:#fff;border-radius:14px;border-left-color:var(--ra-apfel);box-shadow:0 10px 28px rgba(15,26,20,.09)}
+.k-fl-pfeil,.k-fl-gabel{color:var(--ra-apfel-oliv)}
+.k-netz{background:#fff;border-radius:16px;box-shadow:0 10px 28px rgba(15,26,20,.08)}
+.voices .voice{box-shadow:0 10px 28px rgba(15,26,20,.08)}
+.k-trust-item strong{color:var(--ra-apfel-oliv)}
+@media(max-width:820px){.k-fl-ziel{border-top-color:var(--ra-apfel)}}
 </style>
 <!-- GoatCounter: anonymer Seitenzähler, keine Cookies, keine personenbezogenen
      Daten, läuft deshalb unabhängig vom Consent-Banner. Domain vor dem Pfad,
@@ -552,7 +580,7 @@ body{background:var(--papier)}
 
 
   <!-- 4 WIEDERERKENNEN -->
-  <section class="k-kennen" id="fuer-wen">
+  <section class="k-kennen k-band" id="fuer-wen">
     <div class="k-wrap">
       <div class="reveal">
         <div class="k-eyebrow">Ist das was für mich?</div>
@@ -654,7 +682,7 @@ body{background:var(--papier)}
 
 
   <!-- 7b SO ARBEITE ICH · Angebote als Liste -->
-  <section class="k-angebote" id="so-arbeite-ich">
+  <section class="k-angebote k-band" id="so-arbeite-ich">
     <div class="k-wrap">
       <div class="reveal">
         <div class="k-eyebrow">Erster Schritt</div>
